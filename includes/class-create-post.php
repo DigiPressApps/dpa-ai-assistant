@@ -84,15 +84,15 @@ if ( ! class_exists( 'DPAA_Create_Post' ) ) {
 
 			$data = $request->get_json_params();
 
-			$post_type 		= isset( $data[ 'type' ] ) ? $data[ 'type' ] : 'post';
-			$post_title 	= isset( $data[ 'title' ] ) ? wp_strip_all_tags( $data[ 'title' ] ) : '';
-			$post_content 	= isset( $data[ 'content' ] ) ? $data[ 'content' ] : '';
-			$post_excerpt 	= isset( $data[ 'excerpt' ] ) ? $data[ 'excerpt' ] : '';
-			$post_status 	= isset( $data[ 'status' ] ) ? $data[ 'status' ] : 'draft';
-			$post_date 		= isset( $data[ 'date' ] ) ? $data[ 'date' ] : gmdate( 'Y-m-d H:i:s' );
-			$post_author 	= isset( $data[ 'author' ] ) ? $data[ 'author' ] : get_current_user_id();
-			$post_category 	= isset( $data[ 'categories' ] ) ? $data[ 'categories' ] : array( (int)get_option( 'default_category' ) );
-			$tags_input 	= isset( $data[ 'tags' ] ) ? $data[ 'tags' ] : array();
+			$post_type 		= isset( $data[ 'type' ] ) ? sanitize_text_field( $data[ 'type' ] ) : 'post';
+			$post_title 	= isset( $data[ 'title' ] ) ? sanitize_text_field( wp_strip_all_tags( $data[ 'title' ] ) ) : '';
+			$post_content 	= isset( $data[ 'content' ] ) ? wp_kses_post( $data[ 'content' ] ) : '';
+			$post_excerpt 	= isset( $data[ 'excerpt' ] ) ? sanitize_text_field( $data[ 'excerpt' ] ) : '';
+			$post_status 	= isset( $data[ 'status' ] ) ? sanitize_text_field( $data[ 'status' ] ) : 'draft';
+			$post_date 		= isset( $data[ 'date' ] ) ? sanitize_text_field( $data[ 'date' ] ) : gmdate( 'Y-m-d H:i:s' );
+			$post_author 	= isset( $data[ 'author' ] ) ? sanitize_user( $data[ 'author' ] ) : get_current_user_id();
+			$post_category 	= isset( $data[ 'categories' ] ) && is_array( $data[ 'categories' ] ) ? $data[ 'categories' ] : array( (int)get_option( 'default_category' ) );
+			$tags_input 	= isset( $data[ 'tags' ] ) && is_array( $data[ 'tags' ] ) ? $data[ 'tags' ] : array();
 			
 			$new_post = array(
 				'post_type'		=> $post_type,

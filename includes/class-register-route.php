@@ -70,7 +70,7 @@ if ( ! class_exists( 'DPAA_Register_Route' ) ) {
 			);
 			$http_status_code = 500;
 
-			$audio_url = $request->get_param( 'audioUrl' );
+			$audio_url = sanitize_url( $request->get_param( 'audioUrl' ) );
 			$audio = wp_remote_get( $audio_url );
 
 			if ( !is_wp_error( $audio ) && $audio[ 'response' ][ 'code' ] === 200 ) {

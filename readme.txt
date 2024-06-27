@@ -3,7 +3,7 @@ Contributors: digistatejp
 Tags: ai, gpt, openai, writer, image generator
 Requires at least: 6.2
 Tested up to: 6.5.3
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 Requires PHP: 8.0
 Donate link: https://dpapps.net/donation/
 License: GPLv2 or later
@@ -16,7 +16,7 @@ DPA AI Assistant can generate articles and images by integrating with various ge
 
 ### For developers
 
-The development hub for this plugin can be found at <a href="https://github.com/DigiPressApps/dpa-ai-assistant">https://github.com/DigiPressApps/dpa-ai-assistant</a>.
+The development hub for this plugin and the source code can be found at <a href="https://github.com/DigiPressApps/dpa-ai-assistant">https://github.com/DigiPressApps/dpa-ai-assistant</a>.
 
 == Installation ==
 1. From the WP admin panel, click "Plugins" -> "Add new".
@@ -50,6 +50,15 @@ OR...
 11. Create a Fine-tuned model
 12. Plugin options
 13. Suggest title, excerpt, tags and featured image in editor
+
+== Disclaimer ==
+
+DPA AI Assistant is a plugin that helps you to connect your websites to AI services. You need your own API keys and must follow the rules set by the AI service you choose. Before using this plugin, please check their terms of use.
+* OpenAI: [Terms of Service](https://openai.com/terms/), [Privacy Policy](https://openai.com/privacy/)
+* Stability AI: [Terms of Service](https://platform.stability.ai/legal/terms-of-service), [Privacy Policy](https://stability.ai/privacy-policy)
+Please do so with other services as well. Our privacy policy is [here](https://dpapps.net/privacy-policy/).
+
+The developer of DPA AI Assistant and related parties are not responsible for any issues or losses caused by using the plugin or AI-generated content. You should talk to a legal expert and follow the laws and regulations of your country. DPA AI Assistant does only store data on your own server, and it is your responsibility to keep it safe.
 
 == Upgrade notice ==
 

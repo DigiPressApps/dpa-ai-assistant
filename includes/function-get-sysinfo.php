@@ -41,7 +41,7 @@ if ( ! function_exists( 'dpapps_get_sysinfo' ) ) {
 		$return .= "\n" . '-- Webserver Configuration' . "\n\n";
 		$return .= 'PHP Version:              ' . PHP_VERSION . "\n";
 		$return .= 'MySQL Version:            ' . $wpdb->db_version() . "\n";
-		$return .= 'Webserver Info:           ' . $_SERVER['SERVER_SOFTWARE'] . "\n";
+		$return .= 'Webserver Info:           ' . sanitize_text_field( $_SERVER['SERVER_SOFTWARE'] ) . "\n";
 
 		$return  = apply_filters( 'dpapps_sysinfo_after_webserver_config', $return );
 
@@ -114,12 +114,12 @@ if ( ! function_exists( 'dpapps_get_sysinfo' ) ) {
 
 		$params = array(
 			'sslverify'     => false,
-			'timeout'       => 60,
+			'timeout'       => 100,
 			'user-agent'    => 'digipress-apps',
 			'body'          => $request
 		);
 
-		$response = wp_remote_post( 'https://www.paypal.com/cgi-bin/webscr', $params );
+		$response = wp_remote_post( 'https://dpapps.net/', $params );
 
 		if( !is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
 			$WP_REMOTE_POST = 'wp_remote_post() works';
@@ -140,6 +140,9 @@ if ( ! function_exists( 'dpapps_get_sysinfo' ) ) {
 
 
 		// Get plugins that have an update
+		if ( ! function_exists( 'get_plugin_updates' ) || ! function_exists( 'get_plugins' ) ) {
+			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		}
 		$updates = get_plugin_updates();
 
 		// Must-use plugins

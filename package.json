@@ -1,9 +1,9 @@
 {
-	"name": "digipress-ai-assistant",
-	"version": "0.1.0",
-	"description": "Add various extensible blocks.",
+	"name": "dpa-ai-assistant",
+	"version": "0.1.2",
+	"description": "AI Content Generating Assistant - Content Writer, ChatGPT, Image Generator, Transcription and Fine-tune AI models.",
 	"author": "digistate",
-	"license": "GPL-3.0",
+	"license": "GPL-2.0",
 	"private": true,
 	"scripts": {
 		"build": "wp-scripts build --output-path=dist --config webpack.prod.js",
