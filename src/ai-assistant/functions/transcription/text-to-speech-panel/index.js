@@ -3,7 +3,6 @@
  */
 import {
 	blobToBinaryOrBase64,
-	insertNewBlock,
 	textToSpeech,
 	uploadAudioToMediaLibrary,
 	playAudioFromBlob,
