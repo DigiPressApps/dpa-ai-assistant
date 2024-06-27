@@ -1,0 +1,27 @@
+// インスペクター内のドロップダウン(ポップアップ)コントロールの共通スタイル
+.dpaa-inspector__dropdown-button-control{
+	>.components-base-control__field{
+		margin-top: 12px;
+		display:flex;
+		justify-content: space-between;
+		align-items: center;
+
+		>.components-base-control__label{
+			margin-bottom: 0!important;
+		}
+	}
+}
+
+.dpaa-inspector__dropdown-content{
+	width:248px;
+	.components-base-control{
+		>.components-base-control__field{
+			margin-bottom:0;
+		}
+	}
+	.components-base-control,
+	.components-form-toggle,
+	.components-toggle-control__label{
+		margin-bottom:12px;
+	}
+}

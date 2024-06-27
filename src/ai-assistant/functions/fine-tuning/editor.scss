@@ -1,0 +1,10 @@
+.dpaa-create-fine-tune-model--more-params--input{
+	// InputControl のラベル
+	.components-flex-item{
+		width: 150px;
+		+ .components-input-control__container{
+			flex: initial!important;
+			width:120px;
+		}
+	}
+}

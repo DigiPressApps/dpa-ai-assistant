@@ -1,0 +1,228 @@
+// プロンプトのテキストエリア
+.dpaa-ai-assistant--generator__prompt__textarea{
+	width:100%;
+	background-color: #fff;
+}
+
+// スクロールエリアのラッパー
+.dpaa-vertical-scrollable-area{
+	max-height: calc(60vh - 110px);
+	overflow-y: scroll;
+}
+
+// 各ログのラッパー
+.dpaa-ai-assistant--generator__log__wrapper{
+	position:relative;
+	border:1px solid rgba(var(--wp-admin-theme-color-darker-20--rgb), 0.4);
+	border-radius: 3px;
+	background-color: #fff;
+	padding:16px;
+
+	&:hover{
+		.dpaa-ai-assistant--generator__log__buttons{
+			opacity:1;
+		}
+	}
+}
+
+// ユーザー入力フォームのラッパー
+.dpaa-ai-assistant--generator__input-form{
+	padding-top:20px;
+}
+
+// ログアイテム内のボタン
+.dpaa-ai-assistant--generator__log__buttons{
+	position:absolute;
+	top:0;
+	right:0;
+	max-width:max-content;
+	opacity:0.2;
+	z-index:1;
+}
+.dpaa-ai-assistant--generator__log__button{
+	&.__copy-message{
+		background-color: #e07981;
+		&:hover:not(:disabled){
+			background-color: #cf5f69;
+		}
+	}
+
+	&.__upload_download{
+		background-color: #0caabc;
+		&:hover:not(:disabled){
+			background-color: #088e9d;
+		}
+	}
+
+	&.__copy-respond{
+		background-color: #82c7bf;
+		&:hover:not(:disabled){
+			background-color: #51baac;
+		}
+	}
+
+	&.__set-eyecatch{
+		background-color: #20b26e;
+		&:hover:not(:disabled){
+			background-color: #119658;
+		}
+	}
+
+	&.__prev-next{
+		position: absolute;
+		top:50%;
+		width:44px!important;
+		height:44px;
+		border-radius: 22px;
+		transform:translate(0, -50%);
+		background-color: #fff;
+		color: #666;
+		box-shadow: 0 0 10px rgba(0,0,0,.3);
+		opacity:0;
+
+		&.__left{
+			left:3px;
+		}
+		&.__right{
+			right:3px;
+		}
+
+		&:hover{
+			background-color: #fff!important;
+			color: #666!important;
+		}
+	}
+}
+
+.dpaa-ai-assistant--generator__log__inner-wrapper{
+	&.__chat{
+		&.is-loaded{
+			max-height: 300px!important;
+			overflow:hidden!important;
+
+			// AIのメッセージエリア
+			.dpaa-ai-assistant--generator__log__response{
+				padding-bottom: 20px;
+			}
+
+			// 開閉ボタン
+			+.dpaa-ai-assistant--generator__log__toggle-button{
+				&::before{
+					background-image:linear-gradient(180deg,rgba(#b7ebe5, 0) 0%, rgba(#b7ebe5, 0.64) 50%, #b7ebe5 100%);
+				}
+			}
+
+			&.is-expanded{
+				max-height: max-content!important;
+				// 開閉ボタン
+				+.dpaa-ai-assistant--generator__log__toggle-button{
+					&::before{
+						background-image:none;
+					}
+				}
+			}
+		}
+	}
+
+	.components-divider{
+		border-color: rgba(0,0,0,.24);
+	}
+}
+.dpaa-ai-assistant--generator__log__item{
+	display:block;
+	white-space: break-spaces;
+	line-height: 1.62!important;
+	font-size:var(--dpaa-ai-assistant--log-font-size, 13px)!important;
+}
+
+// ログの開閉ボタン
+.dpaa-ai-assistant--generator__log__toggle-button{
+	position:relative;
+	width:100%!important;
+	box-shadow:none!important;
+	outline:none!important;
+	background-color:#b7ebe5;
+
+	&::before{
+		content:'';
+		position:absolute;
+		top:-20px;
+		left:0;
+		width:100%;
+		height:20px;
+	}
+}
+
+.dpaa-ai-assistant--generator__log__prompt,
+.dpaa-ai-assistant--generator__log__response{
+	position:relative;
+	padding: 12px;
+	border-radius: 3px;
+}
+
+.dpaa-ai-assistant--generator__log__prompt{
+	background-color: #ffedf3;
+}
+.dpaa-ai-assistant--generator__log__response{
+	background-color: #e3fffc;
+}
+
+.dpaa-ai-assistant--generator__message-icon{
+	flex-basis: 30px;
+}
+.dpaa-ai-assistant--generator__message-text{
+	flex-basis: calc( 100% - 30px );
+}
+
+.dpaa__visible-error-message{
+	text-align: left;
+	padding: 10px;
+	border: 1px solid #e35213;
+	background-color: #fff4ef;
+	border-radius: 3px;
+	margin-top: 12px;
+}
+
+.dpaa-modal--aiassistant__log__snackbar{
+	position:fixed;
+	top:50%;
+	left:50%;
+	transform:translate( -50%, 0);
+	z-index: 99;
+}
+
+// 各操作パネル内のタブコンテナ
+.dpaa-operation-panel__tab-container{
+	.components-tab-panel__tab-content{
+		overflow-x: scroll;
+	}
+}
+.dpaa-operation-panel__flex-table{
+	width:max-content;
+	border: 1px solid rgba( var( --wp-admin-theme-color--rgb, #000 ), 0.5 );
+	border-top: 0;
+
+	>div[role="listitem"],
+	>.components-flex-item {
+		border-right: 1px solid rgba( var( --wp-admin-theme-color--rgb, #000 ), 0.5 );
+		display: flex;
+		align-items: center;
+
+		&:last-of-type{
+			border-right:0;
+		}
+	}
+
+	// ヘッダー
+	&.__header{
+		border-top: 1px solid rgba( var( --wp-admin-theme-color--rgb, #000 ), 0.5 );
+		background-color:rgba( var( --wp-admin-theme-color--rgb, #000 ), 0.1 );
+	}
+
+	// アイテム(行)
+	&.__items{
+		&:nth-child(2n) {
+			background-color:rgba( var( --wp-admin-theme-color--rgb, #000 ), 0.04 );
+		}
+	}
+}

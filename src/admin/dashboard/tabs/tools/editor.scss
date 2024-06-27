@@ -1,0 +1,10 @@
+.dpapps-admin__tab-item{
+	&.system-info-panel{
+		.components-textarea-control__input{
+			&:disabled{
+				color:#2c3338;
+			}
+			font-family: Menlo,Monaco,monospace;
+		}
+	}
+}

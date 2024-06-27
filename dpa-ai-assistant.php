@@ -116,9 +116,6 @@ if ( ! function_exists( 'dpaa_register_activation_check' ) ) {
 	register_activation_hook( __FILE__, 'dpaa_register_activation_check' );
 }
 
-require_once( plugin_dir_path( __FILE__ ) . '/includes/updater/plugin-update-checker.php' );
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
-
 /**
  * Main Class
  */
@@ -150,7 +147,6 @@ if ( !class_exists( 'DPAA_PLUGIN' ) ) {
 		public function __construct() {
 			$this->setup_globals();
 			$this->requires();
-			$this->plugin_updater();
 
 			self::$instance = $this;
 		}
@@ -182,25 +178,6 @@ if ( !class_exists( 'DPAA_PLUGIN' ) ) {
 		 */
 		private function requires() {
 			require_once( dirname( $this->file ) . '/includes/class-init.php' );
-		}
-
-		/**
-		 * Plugin updater
-		 *
-		 * @access private
-		 * @return void
-		 */
-		private function plugin_updater() {
-			$updater = PucFactory::buildUpdateChecker(
-				'https://github.com/DigiPressApps/AI-Assistant',
-				__FILE__,
-				'dpa-ai-assistant'
-			);
-
-			// Set the branch that contains the stable release.
-			$updater->setBranch( 'main' );
-			// Authentication
-			$updater->setAuthentication( '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' );
 		}
 	}
 

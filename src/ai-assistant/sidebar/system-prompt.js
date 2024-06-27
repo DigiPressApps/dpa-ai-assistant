@@ -1,0 +1,6 @@
+export const SYSTEM_PROMPT_GPT = 'You are a helpful assistant designed to output JSON.'
+export const SYSTEM_PROMPT_IMAGE = 'Generate an image for post thumbnail that symbolize the content delimited by triple quotes.'
+export const MESSAGE_PROMPT_TRANSLATE_ENGLISH = 'Translate the text delimited by triple quotes in English in JSON format. The response format: {"translated":"translated text"}'
+export const MESSAGE_PROMPT_SUGGEST_TITLE = 'Suggest five SEO friendly attractive post titles from the text delimited by triple quotes in JSON format. Each must be between 100 and 180 characters. The response format: {"suggestions": ["title #1","title #2","title #3","title #4", "title #5"]}'
+export const MESSAGE_PROMPT_SUGGEST_EXCERPT = 'Suggest five SEO friendly excerpts from the text delimited by triple quotes. Each must be between 240 and 400 characters. Return them in JSON format. The response format: {"suggestions": ["description #1","description #2","description #3","description #4", "description #5"]}'
+export const MESSAGE_PROMPT_SUGGEST_TAG = 'Generate five tags(keywords) associated with the text delimited by triple quotes. Return them in JSON format. The response format: {"suggestions": ["tag #1","tag #2","tag #3","tag #4", "tag #5"]}'

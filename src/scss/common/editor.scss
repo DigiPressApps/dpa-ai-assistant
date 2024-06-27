@@ -1,0 +1,258 @@
+// ラベルの uppercase を無効
+.components-input-control__label{
+	text-transform: initial!important;
+}
+
+// InputControl 内のプリフィクス
+.components-input-control__container{
+	.components-input-control__prefix{
+		padding-left:6px;
+		line-height:30px;
+		+.components-input-control__input{
+			padding-left:5px;
+		}
+	}
+}
+
+[class*="dpaa-"] *{
+	box-sizing: border-box;
+}
+
+// プラグインのコンポーネント共通スタイル
+.dpaa-plugin-menu,
+.dpaa-tab-panel__tabs{
+	label{
+		text-transform:initial!important;
+	}
+}
+
+// ヘルプテキスト
+.components-base-control{
+	.components-base-control__help{
+		margin-top:0;
+		font-size:12.5px;
+	}
+}
+
+// ツールバー内のドロップダウンボタンの高さを指定しない(WP標準(48px)に合わせる)
+.components-dropdown-button{
+	button.components-button{
+		height:inherit;
+	}
+}
+
+// ツールバーのドロップダウンメニューアイテムの高さを固定しない
+.components-button{
+	&.components-dropdown-menu__menu-item{
+		height:auto;
+	}
+}
+
+// ツールバーのドロップダウンメニューの幅
+.components-dropdown-button__popover{
+	.components-popover__content{
+		min-width:240px!important;
+	}
+}
+
+// レンジコントロール
+.components-range-control{
+	// beforeIcon, afterIcon がなぜか見えない
+	svg{
+		width:24px!important;
+		height:24px!important;
+	}
+}
+
+// プラグインコンポーネントラッパー
+.dpaa-components-panel{
+	// カスタムセレクトフォームのリスト
+	.components-custom-select-control__item{
+		line-height: 1.44;
+		padding:16px;
+	}
+}
+
+// コンポーネント制限パネル用
+.dpaa-components-restrict-area{
+	position:relative;
+	pointer-events: none;
+
+	.limit-msg{
+		position:absolute;
+		top:50%;
+		left:50%;
+		display:table;
+		width:100%;
+		height:100%;
+		transform:translate(-50%, -50%);
+		color:#fff;
+		background-color:rgba(#000,.72);
+		z-index:10;
+
+		&.is-scale{
+			width:calc(100% + 10px);
+			height:calc(100% + 10px);
+		}
+
+		span{
+			display:table-cell;
+			vertical-align:middle;
+			text-align:center;
+		}
+	}
+}
+
+// コンポーネントのラベル
+.dpaa-base-control__label{
+	display:block;
+	font-size:12.5px;
+	margin-bottom:10px;
+}
+
+// Base Control のラベル
+.components-base-control__label{
+	display:block;
+	margin-bottom:10px!important;
+	text-transform:initial!important;
+	font-size:12.5px;
+}
+
+// モーダル
+.components-modal__screen-overlay{
+	backdrop-filter: blur(5px);
+}
+
+// 独自ツールバーボタン
+.dpaa-toolbar-button{
+	&.has-icon.has-text{
+		.dashicon{
+			margin-left:auto;
+			margin-right:auto;
+		}
+	}
+}
+
+// UnitControl
+.components-unit-control-wrapper{
+	width:100%;
+}
+// UnitControl のスタイル
+.components-unit-control{
+	// 数値入力フォーム
+	.components-input-control__input{
+		height:40px!important;
+	}
+
+	.components-input-control__suffix{
+		// 単位セレクトフォームのスタイル
+		.components-unit-control__select{
+			appearance: none!important;
+			background: transparent!important;
+			border-radius: 0px 2px 2px 0px!important;
+			display: block!important;
+			outline: none!important;
+			margin: 0px!important;
+			min-height: auto!important;
+			font-family: inherit!important;
+			box-sizing: border-box!important;
+			padding: 2px 1px!important;
+			width: 25px!important;
+			color: rgb(47, 47, 47)!important;
+			font-size: 10px!important;
+			line-height: 1!important;
+			letter-spacing: -0.5px!important;
+			text-transform: uppercase!important;
+			text-align-last: center!important;
+			height: 100%!important;
+			border: 1px solid transparent!important;
+			transition: box-shadow 0.1s linear 0s, border 0.1s linear 0s!important;
+
+			&:not(:disabled){
+				&:hover{
+					background-color: rgb(240, 240, 240)!important;
+					border: none!important;
+					outline: none!important;
+					box-shadow: none!important;
+				}
+			}
+
+			&:focus{
+				box-shadow: none!important;
+			}
+		}
+	}
+}
+
+// ツールチップ
+.dpaa-editor-component__tooltip{
+	.components-popover__content{
+		max-width: 280px!important;
+		min-width: initial!important;
+		width: max-content;
+		height: auto;
+		text-align: left;
+		padding: 10px;
+		white-space: normal;
+	}
+}
+
+// タブパネル
+.dpaa-tab-panel__tabs{
+	// メインタブ
+	>.components-tab-panel__tabs{
+		flex-wrap: wrap;
+	}
+
+	.dpaa-toggle-panel-body.components-panel__body{
+		padding:16px;
+		>.components-panel__body-title{
+			margin:-16px;
+		}
+	}
+}
+.dpaa-tab-panel__tab{
+	&:not(.is-active){
+		opacity:.62;
+		&:hover{
+			opacity:1;
+		}
+	}
+}
+
+// 内部タブパネル
+.dpaa--inner-tab-container{
+	>.components-tab-panel__tabs{
+		box-shadow: 0px -1px rgba(#aaa,.48) inset;
+	}
+}
+
+.dpaa-tab-panel__tab-icon{
+	margin-right:4px;
+	fill:#757575;
+}
+
+.dpaa-box-shadow-element{
+	padding: 16px;
+	background-color: #fff;
+	box-shadow: 0 2px 14px -4px rgba(0,0,0,.14);
+	border-radius: 4px;
+
+	.components-base-control__help{
+		margin-top: calc(8px)!important;
+	}
+}
+
+// lineheight をリセット
+.dpaa-line-height--1{
+	line-height: 1;
+}
+
+// 入力チェックが有効なinputフォーム
+.dpaa-input--use-pattern{
+	input{
+		&:invalid{
+			background-color: #ffe5e5!important;
+		}
+	}
+}

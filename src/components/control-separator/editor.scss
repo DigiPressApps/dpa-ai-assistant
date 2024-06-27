@@ -1,0 +1,15 @@
+.dpaa-control-separator {
+	height: 1px!important;
+	background: rgba(#aaa,.48)!important;
+	margin: 24px -16px!important;
+	border: 0!important;
+	padding: 0!important;
+	width: calc(100% + 32px)!important;
+	box-shadow: none!important;
+}
+
+// If a panel body title immediately follows a separator, remove the top margin
+// to reduce the space.
+.components-panel__body-title + .dpaa-control-separator {
+	margin-top: 0!important;
+}

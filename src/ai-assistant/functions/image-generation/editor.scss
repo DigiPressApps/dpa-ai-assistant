@@ -1,0 +1,70 @@
+.dpaa-ai-assistant--generator__log__response{
+	&.__chat{
+
+	}
+	&.__generate-image{
+		display:flex;
+		gap:10px;
+		justify-content: space-around;
+		align-items: flex-start;
+		flex-wrap: wrap;
+	}
+}
+.dpaa-ai-assistant--generator__log__image-wrapper{
+	position:relative;
+	flex-basis: calc(25% - 10px);
+}
+
+.dpaa-ai-assistant--generator__log__image{
+	max-width: 100%;
+	height:auto;
+}
+
+.dpaa-ai-assistant--generator__preview-modal{
+	.components-modal__content{
+		margin-top:44px;
+		padding:12px;
+	}
+
+	.components-modal__header{
+		height:auto;
+		padding:12px 0 0 0;
+		background-color:#fff;
+
+		// 閉じるボタン
+		.components-button.has-icon{
+			left:auto;
+			padding:0 12px;
+		}
+	}
+}
+
+.dpaa-ai-assistant--generator__preview-button{
+	width:fit-content;
+	height: fit-content;
+	margin:0;
+	padding:0;
+}
+
+// プレビューイメージラッパー
+.dpaa-ai-assistant--generator__preview-area{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	max-width: 1024px;
+
+	.dpaa-ai-assistant--generator__preview-image{
+		max-width:100%;
+	}
+
+	&:hover{
+		.dpaa-ai-assistant--generator__log__button{
+			&.__prev-next{
+				opacity: 0.66;
+				&:hover{
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

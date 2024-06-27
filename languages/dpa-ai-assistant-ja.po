@@ -1,0 +1,156 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: digistate co.,ltd. <product@digistate.co.jp>\n"
+"Language-Team: digistate co.,ltd.\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
+
+msgid "Powerful contents generation helper using AI services."
+msgstr "AI サービスを利用した強力な Web サイトコンテンツ生成ヘルパー機能を提供します。"
+
+msgid "License"
+msgstr "ライセンス"
+
+msgid "Plugin License Options"
+msgstr "プラグインライセンスオプション"
+
+msgid "Plugin License"
+msgstr "プラグインライセンス認証"
+
+msgid "License Key"
+msgstr "ライセンスキー"
+
+msgid "Enter your license key"
+msgstr "ライセンスキーを入力してください"
+
+msgid "License Activation"
+msgstr "ライセンス認証"
+
+msgid "Activate License"
+msgstr "ライセンス認証"
+
+msgid "active"
+msgstr "認証"
+
+msgid "inactive"
+msgstr "未認証"
+
+msgid "invalid"
+msgstr "無効"
+
+msgid "expired"
+msgstr "期限切れ"
+
+msgid "Activate This License"
+msgstr "このライセンスキーを認証"
+
+msgid "Deactivate This License"
+msgstr "このライセンスキーの認証を解除"
+
+msgid "If you cange the license key, please save the key before activate."
+msgstr "ライセンスキーを指定、変更した場合は、認証する前に「変更を保存」してください。"
+
+msgid "is available."
+msgstr "がリリースされています。"
+
+msgid "<a href=\"%3$s\" class=\"thickbox\" title=\"%4s\">Check out what's new</a> or <a href=\"%5$s\"%6$s>update now</a>."
+msgstr "<a href=\"%3$s\" class=\"thickbox\" title=\"%4s\">更新内容をみる</a> または <a href=\"%5$s\"%6$s>アップデート</a>"
+
+msgid "Your plugin license is invalid or inactive. Please"
+msgstr "プラグインのライセンスが認証されていません。"
+
+msgid "Activate your license."
+msgstr "ライセンスを認証する"
+
+msgid "Licensed Info"
+msgstr "ライセンス情報"
+
+msgid "Payment ID : "
+msgstr "決済ID : "
+
+msgid "Licensed User : "
+msgstr "認証ユーザー : "
+
+msgid "Status : "
+msgstr "ステータス : "
+
+msgid "Unlimited"
+msgstr "無制限"
+
+msgid "Expiration date : "
+msgstr "有効期限 : "
+
+msgid "failed"
+msgstr "失敗"
+
+msgid "Invalid license."
+msgstr "無効なライセンス"
+
+msgid "Your license key expired on %s."
+msgstr "指定されたライセンスキーの有効期限は %s です。"
+
+msgid "Your license key has been disabled."
+msgstr "指定されたライセンスキーは無効です。"
+
+msgid "Your license is not active for this URL."
+msgstr "指定されたライセンスはこのURLでは有効になっていません。"
+
+msgid "This appears to be an invalid license key for %s."
+msgstr "%s のライセンスキーとしては無効なキーです。"
+
+msgid "Your license key has reached its activation limit."
+msgstr "指定されたライセンスキーは認証数の上限に達しています。"
+
+msgid "An error occurred, please try again."
+msgstr "エラーが発生しました。再度実行してください。"
+
+msgid "You do not have permission to install plugin updates"
+msgstr "プラグインをアップデートする権限がありません"
+
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr "新バージョンの %1$s が利用できます。バージョン %2$s%3$s の詳細を表示%4$sする。"
+
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s."
+msgstr "新バージョンの %1$s が利用できます。バージョン %2$s%3$s の詳細を表示%4$sするか、%5$s更新%6$sしてください。"
+
+msgid "%1$s%2$s can not be activated.%3$sIt requires PHP version %4$s or higher, but PHP version %5$s is used on the site. Please upgrade your PHP version first %6$s Back %7$s"
+msgstr "%1$s%2$s を有効化できません。%3$sPHP %4$s またはそれ以降のバージョンである必要があります。お使いの PHP のバージョンは %5$s です。事前に PHP のバージョンをアップグレードしてください。 %6$s 戻る %7$s"
+
+msgid "%1$s%2$s can not be activated.%3$sIt requires WordPress %4$s or higher, but WordPress %5$s is used on the site. Please update your WordPress first %6$s Back %7$s"
+msgstr "%1$s%2$s を有効化できません。%3$sWordPress %4$s またはそれ以降のバージョンである必要があります。お使いの WordPress のバージョンは %5$s です。事前に WordPress を最新版にアップデートしてください。 %6$s 戻る %7$s"
+
+msgid "Contact your network administrator to install the update."
+msgstr "更新するには、ネットワーク管理者に連絡してください。"
+
+msgid "There is a new version of %1$s available."
+msgstr "新バージョンの %1$s が利用できます。"
+
+msgid "%1$sView version %2$s details%3$s."
+msgstr "%1$sバージョン %2$s の詳細を表示%3$s."
+
+msgid "%1$sView version %2$s details%3$s or %4$supdate now%5$s."
+msgstr "%1$sバージョン %2$s の詳細を表示%3$s するか、%4$s更新%5$sしてください。"
+
+msgid "Activation Error"
+msgstr "アクティベーションエラー"
+
+msgid "Other version of %1$s is installed. To enable this plugin, please deactivate the currently active %2$s first.%3$s Back %4$s"
+msgstr "他のエディションの %1$s がインストールされています。このプラグインを使用するには、現在有効化されている %2$s を事前に停止してください。%3$s 戻る %4$s"
+
+msgid "Plugin Configuration"
+msgstr "プラグイン設定"
+
+msgid "Save Settings"
+msgstr "設定を保存"
+
+msgid "Settings saved successfully."
+msgstr "プラグイン設定を保存しました。"
+
+msgid "Upgrade"
+msgstr "アップグレード"

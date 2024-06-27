@@ -1,0 +1,67 @@
+.dpaa-toggle-panel-form-toggle {
+	margin-right: 12px;
+}
+.dpaa-toggle-panel-body{
+	&.is-opened{
+		.components-panel__body-title{
+			position:sticky;
+			top:47px;
+			border-bottom:1px solid #e1e1e1;
+			z-index:5;
+		}
+	}
+
+	.components-panel__body-title{
+		&:not(:hover){
+			background: #fff;
+		}
+	}
+}
+.dpaa-panel-advanced-button {
+	font-size: 12px;
+	background: transparent;
+	margin-top:12px;
+	width: 100%;
+	display: block;
+	border: 0;
+	outline: none;
+	position: relative;
+	cursor: pointer;
+	padding-bottom: 15px;
+	&::after {
+		content: "❯";
+		position: absolute;
+		transform: translateX(-50%) rotate(90deg);
+		left: 50%;
+		bottom: 0;
+	}
+	&:hover {
+		color: #999;
+	}
+}
+.dpaa-toggle-panel-body--advanced {
+	.dpaa-panel-advanced-button {
+		padding-bottom: 0;
+		padding-top: 15px;
+		&::after {
+			top: 0;
+			bottom: auto;
+			transform: translate(-50%) rotate(-90deg);
+		}
+	}
+}
+
+// 
+.dpaa-toggle-panel-body .components-panel__icon,
+.dpaa-panel-advanced__title-icon{
+	width:20px;
+	height:20px;
+	fill: #757575;
+	color: #757575;
+	margin-left: 0;
+	margin-right: 6px;
+}
+
+.editor-panel-toggle-settings__panel-title{
+	display:flex;
+}

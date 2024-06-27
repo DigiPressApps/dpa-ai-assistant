@@ -1,0 +1,109 @@
+// ヘッダー
+.dpapps-plugin-menu__header{
+	display:flex;
+	align-items: center;
+	gap:10px;
+	margin:-10px -20px 40px;
+	padding:30px 30px 80px 30px;
+	border-bottom:1px solid rgba(#aaa,.48);
+	background-color:#fff;
+	color:#3c434a;
+
+	.components-heading{
+		font-weight: 600;
+	}
+}
+
+// タブコンテナ
+.dpapps-plugin-menu__tab-container{
+	position: relative;
+	top: -88px;	// 位置調整のため
+	margin:0 auto;
+
+	// Gutenberg による大文字化を無効
+	.components-input-control__label,
+	.components-base-control__label{
+		text-transform:initial!important;
+	}
+
+	// タブタイトルリスト
+	>.components-tab-panel__tabs{
+		justify-content: center;
+		flex-wrap: wrap;
+		background-color: #fff;
+		border-bottom: 1px solid rgba(170, 170, 170, 0.48);
+		margin-top: -1px;
+	}
+
+	// タブコンテンツ(メイン)
+	>.components-tab-panel__tab-content{
+		max-width:var( --dpaa-adminl-pane--max-width, 1024px);
+	}
+	// タブコンテンツ(全体)
+	.components-tab-panel__tab-content{
+		margin:20px auto;
+	}
+}
+
+.dpapps-plugin-menu__tab-content-wrapper{
+	display:flex;
+	gap:20px;
+}
+.dpapps-plugin-menu__tab-content-content{
+	flex:1;
+}
+.dpapps-plugin-menu__tab-content-sidebar{
+	width:350px;
+}
+
+.dpapps-plugin-menu__tab-item{
+	margin-bottom:20px;
+	// padding:20px;
+	box-shadow:0 16px 28px -12px rgba(#aaa,.42);
+
+	.components-divider{
+		opacity:.28;
+	}
+}
+
+// タブパネル
+.dpapps-tab-panel__tabs{
+	.dpapps-toggle-panel-body.components-panel__body{
+		padding:16px;
+		>.components-panel__body-title{
+			margin:-16px;
+		}
+	}
+}
+.dpapps-tab-panel__tab{
+	&:not(.is-active){
+		opacity:.62;
+		&:hover{
+			opacity:1;
+		}
+	}
+}
+
+// 内部タブパネル
+.dpapps--inner-tab-container{
+	>.components-tab-panel__tabs{
+		box-shadow: 0px -1px rgba(#aaa,.48) inset;
+	}
+}
+
+.dpapps-tab-panel__tab-icon{
+	margin-right:4px;
+	fill:#757575;
+}
+
+// シャドウボックス
+.dpapps-box-shadow-element{
+	padding: 16px;
+	background-color: #fff;
+	box-shadow: 0 2px 14px -4px rgba(0,0,0,.14);
+	border-radius: 4px;
+
+	.components-base-control__help{
+		margin-top: calc(8px)!important;
+	}
+}

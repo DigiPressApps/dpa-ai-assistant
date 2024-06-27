@@ -1,0 +1,71 @@
+
+.dpaa-url-input-control{
+	display:block!important;
+	max-width:400px;
+	margin:0 auto;
+	padding:6px;
+	border:1px solid rgba(#aaa,.48)!important;
+	border-radius:2px;
+	background-color:#fff;
+	color:#444;
+
+	&.is-absolute-pos{
+		position:absolute;
+		top:100%;
+		left:50%;
+		transform:translateX(-50%);
+		width:360px;
+		box-shadow:0 2px 6px rgba(#000,.05);
+		z-index:10;
+	}
+
+	// URL入力フォーム
+	.components-base-control__field{
+		margin:0!important;
+	}
+}
+
+.dpaa-url-input-control__wrapper{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.dpaa-url-input-control__icon,
+.dpaa-url-input-control__input,
+.dpaa-url-input-control__more-button{
+	display:inline-block;
+	vertical-align: middle;
+}
+.dpaa-url-input-control__icon{
+	margin:8px;
+}
+
+.dpaa-url-input-control__input{
+	position:relative;
+	max-width:320px;
+	.block-editor-url-input__input{
+		width:100%!important;
+		box-shadow:0 0 0 1px rgba(#aaa,.48);
+	}
+}
+.dpaa-url-input-control__more-button{
+	height:36px;
+	margin-left:1px;
+}
+
+.dpaa-url-input-control__new-tab{
+	border-top:1px solid rgba(#aaa,.48)!important;
+	padding:15px 0 16px 0;
+	margin:6px -6px -6px -6px;
+
+	.components-form-toggle{
+		margin:0 16px 0 20px;
+	}
+	.components-toggle-control{
+		margin-bottom:0!important;
+	}
+	.components-toggle-control__label{
+		margin:0;
+	}
+}

@@ -1,0 +1,11 @@
+.dpaa-url-input-popover {
+	// URL部分のラッパー
+	.block-editor-link-control__search-item-header{
+		width:calc(100% - 72px);
+	}
+
+	// URL表示
+	.block-editor-link-control__search-item-details{
+		max-width:calc(100% - 24px);
+	}
+}

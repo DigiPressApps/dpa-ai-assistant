@@ -1,0 +1,12 @@
+// AI Assistant 起動ボタン
+.dpaa-button--insert-ai-assistant{
+	&.__in-toolbar{
+		margin:auto 8px;
+	}
+
+	&.__in-setting-panel{
+		g{
+			fill: #ffffff!important;
+		}
+	}
+}

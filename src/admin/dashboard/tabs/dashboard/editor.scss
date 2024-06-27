@@ -1,0 +1,59 @@
+.dpapps-admin__tab-item{
+	&.post-list-panel{
+		ul{
+			li {
+				display:flex;
+				flex-direction: column;
+				gap:8px;
+				font-size:12.5px;
+				padding-bottom:8px;
+				margin-bottom:8px;
+				border-bottom:1px solid rgba(#aaa,.48);
+				&:last-of-type{
+					border-bottom:none;
+				}
+			}
+		}
+		.post-date{
+			width:100px;
+		}
+		.post-link{
+			flex:1;
+			text-decoration: none;
+		}
+	}
+}
+
+.dpapps-admin__block-list__grid{
+	margin:30px auto;
+
+	.block-name{
+		font-size:13.5px;
+		margin-bottom: 12px;
+		text-align:center;
+
+	}
+
+	.block-item{
+		position:relative;
+		// padding:20px;
+		background-color:#fff;
+		// box-shadow:0 10px 32px -8px rgba(#aaa,.82);
+	}
+
+	.block-image{
+		width:100%;
+		height:auto;
+	}
+}
+
+.dpapps-admin__tab-item{
+	&.system-info-panel{
+		.components-textarea-control__input{
+			&:disabled{
+				color:#2c3338;
+			}
+			font-family: Menlo,Monaco,monospace;
+		}
+	}
+}

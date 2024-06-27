@@ -1,0 +1,1 @@
+export * from './custom-inspector-control-panel'

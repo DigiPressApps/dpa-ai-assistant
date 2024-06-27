@@ -1,0 +1,21 @@
+// サイドバーパネルタイトルアイコン
+.dpaa-register-custom-inspector-control-panel__title-icon{
+	margin-right:5px;
+}
+
+// サイドバーパネル
+.dpaa-register-custom-inspector-control-panel{
+	// フレックスボックス
+	.dpaa-components-flex{
+		// サジェストボタンエリア
+		&.__suggest-wrapper{
+			.components-flex-item.__suggest-item{
+				flex-basis: calc(50% - 4px);
+				// ボタン
+				.dpaa-button--flex-item{
+					width: 100%;
+				}
+			}
+		}
+	}
+}

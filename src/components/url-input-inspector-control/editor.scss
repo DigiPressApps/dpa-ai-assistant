@@ -1,0 +1,53 @@
+.dpaa-url-input-inspector-control{
+
+	.block-editor-link-control,
+	.block-editor-url-input,
+	.block-editor-link-control__search-item,
+	.block-editor-link-control__search-results-wrapper,
+	.block-editor-link-control__tools{
+		width:calc(280px - 32px)!important;
+		min-width: calc(280px - 32px)!important;
+	}
+
+	// input のラッパー
+	.block-editor-url-input{
+		margin:0 0 24px 0!important;
+	}
+
+	.block-editor-link-control__search-item{
+		padding-left:0!important;
+		padding-right:0!important;
+	}
+
+	// URL部分のラッパー
+	.block-editor-link-control__search-item-header{
+		width:calc(100% - 72px);
+	}
+
+	// URL表示
+	.block-editor-link-control__search-item-details{
+		max-width:calc(100% - 24px);
+	}
+
+	// 検索結果欄
+	.block-editor-link-control__search-results-wrapper{
+		border:1px solid #ddd;
+
+		.block-editor-link-control__search-results{
+			padding:0!important;
+		}
+	}
+}
+
+// リンクコントロールエリア
+.block-editor-link-control{
+	.block-editor-link-control__tools{
+		.block-editor-link-control__settings{
+			.components-base-control{
+				&.components-checkbox-control{
+					margin-bottom:0;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+// コンポーネントパネルセパレーター
+.dpaa-components-panel-separator {
+	position:relative;
+	margin: 0;
+	background-color: #f0f3f5;
+	padding: 40px 0 0;
+
+	&::before{
+		content:'';
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translateX(-50%);
+		width:50px;
+		height:1px;
+		margin-top: 5px;
+		background-color: #bfc8ce;
+	}
+}

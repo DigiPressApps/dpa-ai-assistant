@@ -1,0 +1,25 @@
+.dpaa-inspector__dropdown-period-control{
+	.dpaa-inspector__dropdown-period{
+		width:100%;
+		border: 1px solid rgba(30,30,30,.5);
+		border-radius: 2px;
+	}
+
+	.dpaa-inspector__dropdown-button-group{
+		display:flex;
+		justify-content: space-between;
+	}
+
+	.components-button{
+		box-shadow:none!important;
+	}
+
+	.dpaa-inspector__dropdown-button{
+		width:calc( 100% - 40px);
+	}
+
+	.dpaa-inspector__dropdown-button-reset{
+		box-shadow: none;
+		width:40px;
+	}
+}
