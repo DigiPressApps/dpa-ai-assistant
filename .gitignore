@@ -130,5 +130,6 @@ dist
 .pnp.*
 
 # Private files
+includes/updater
 dpa-ai-assistant-private.php
 plugin.json
