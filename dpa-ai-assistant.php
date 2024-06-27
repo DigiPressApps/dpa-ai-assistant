@@ -41,6 +41,8 @@ defined( 'DPAA_I18N' ) || define( 'DPAA_I18N', 'dpaa' );
 
 /**
  * Check the enviroment before activation
+ * 
+ * @since 0.1.0
  */
 if ( ! function_exists( 'dpaa_register_activation_check' ) ) {
 	function dpaa_register_activation_check() {
@@ -118,6 +120,8 @@ if ( ! function_exists( 'dpaa_register_activation_check' ) ) {
 
 /**
  * Main Class
+ * 
+ * @since 0.1.0
  */
 if ( !class_exists( 'DPAA_PLUGIN' ) ) {
 	final class DPAA_PLUGIN {
@@ -190,9 +194,7 @@ if ( !class_exists( 'DPAA_PLUGIN' ) ) {
 		function dpaa_plugin_load() {
 			return DPAA_PLUGIN::get_instance();
 		}
-		/**
-		 * Loads plugin after all the others have loaded and have registered their hooks and filters
-		*/
+		// Loads plugin after all the others have loaded and have registered their hooks and filters
 		add_action( 'plugins_loaded', 'dpaa_plugin_load', apply_filters( 'dpaa_plugin_action_priority', 10, 2 ) );
 	}
 }

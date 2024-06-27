@@ -17,7 +17,9 @@ if ( ! class_exists( 'DPAA_Create_Post' ) ) {
 		}
 
 		/**
-		 * カスタムエンドポイントを登録
+		 * Register our custom endpoint.
+		 * 
+		 * @since 0.1.0
 		 */
 		public function register_plugin_rest_route() {
 			// 投稿用
@@ -72,7 +74,11 @@ if ( ! class_exists( 'DPAA_Create_Post' ) ) {
 			);
 		}
 
-		// 投稿用コールバック
+		/**
+		 * Callback for posting
+		 * 
+		 * @since 0.1.0
+		 */
 		public static function callback_create_post( WP_REST_Request $request ) {
 			$wpnonce = $request->get_header( 'X-WP-Nonce' );
 			if ( ! wp_verify_nonce( $wpnonce, 'wp_rest' ) ) {

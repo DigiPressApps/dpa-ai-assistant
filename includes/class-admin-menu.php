@@ -16,6 +16,8 @@ if ( ! class_exists( 'Dpaa_Admin_menu' ) ) {
 
 		/**
 		 * Init constructor.
+		 * 
+		 * @since 0.1.0
 		 */
 		public function __construct() {
 			self::requires();
@@ -36,6 +38,8 @@ if ( ! class_exists( 'Dpaa_Admin_menu' ) ) {
 
 		/**
 		 * Register main menu page.
+		 * 
+		 * @since 0.1.0
 		 */
 		public function register_admin_menu() {
 			// Check if the main menu page with the same slug already exists
@@ -104,6 +108,7 @@ if ( ! class_exists( 'Dpaa_Admin_menu' ) ) {
 		/** 
 		 * Render dashboard page (main menu).
 		 * 
+		 * @since 0.1.0
 		 * @return void
 		 */
 		public function main_menu_page_callback() {
@@ -114,6 +119,8 @@ if ( ! class_exists( 'Dpaa_Admin_menu' ) ) {
 
 		/**
 		 * Render plugin setting page (sub-menu).
+		 * 
+		 * @since 0.1.0
 		 */
 		public function plugin_menu_page_callback() {
 			echo '<div class="wrap">';
@@ -123,6 +130,8 @@ if ( ! class_exists( 'Dpaa_Admin_menu' ) ) {
 
 		/**
 		 * Enqueue our script on the settings page.
+		 * 
+		 * @since 0.1.0
 		 */
 		function enqueue_admin_resouces( $hook_suffix ) {
 			// Dashboard

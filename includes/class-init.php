@@ -41,6 +41,8 @@
 
 		/**
 		 * Show Admin message
+		 * 
+		 * @since 0.1.0
 		 */
 		public static function show_admin_notice_message() {
 			if ( $message = get_transient( self::TRANSIENT_MSG_KEY ) ) {
@@ -85,7 +87,6 @@
 		/**
 		 * Variables between php and js.
 		 *
-		 * Usage: import { i18n } from 'dpaa'
 		 * @since 0.1.0
 		 */
 		public static function admin_enqueue_scripts() {
@@ -125,7 +126,7 @@
 		/**
 		 * Add inline style to both frontend and backend
 		 *
-		 * @since 1.0.0.0
+		 * @since 0.1.0
 		 */
 		public static function enqueue_assets() {
 			/**
@@ -172,6 +173,8 @@
 
 		/**
 		 * Add action link in wordpress plugin page.
+		 * 
+		 * @since 0.1.0
 		 */
 		public static function add_action_links ( $actions ) {
 			$links = array(
@@ -184,13 +187,17 @@
 
 		/**
 		 * Load plugin text domain.
+		 * 
+		 * @since 0.1.0
 		 */
 		public static function load_textdomain() {
-			load_plugin_textdomain( DPAA_I18N, false, DPAA_PLUGIN_DIR_NAME . '/languages' );
+			load_plugin_textdomain( 'dpa-ai-assistant', false, DPAA_PLUGIN_DIR_NAME . '/languages' );
 		}
 
 		/**
-		 * Do something when this plugin is about to be deactivated .
+		 * Do something when this plugin is about to be deactivated.
+		 * 
+		 * @since 0.1.0
 		 */
 		public static function plugin_deactivation() {
 			// Do something
@@ -198,6 +205,8 @@
 	
 		/**
 		 * Do something when this plugin is about to be uninstalled.
+		 * 
+		 * @since 0.1.0
 		 */
 		public static function plugin_uninstall() {
 			// Uninstall data and clear settings

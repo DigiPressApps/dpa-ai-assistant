@@ -17,10 +17,10 @@ if ( ! class_exists( 'DPAA_Register_Route' ) ) {
 		}
 
 		/**
-		 * カスタムエンドポイントを登録
+		 * Register our custom endpoint
 		 */
 		public function register_plugin_rest_route() {
-			// オーディオデータダウンロード用
+			// For downloading audio data
 			register_rest_route(
 				DPAA_PLUGIN_ID . '/v1',
 				'/get_audio_data',
@@ -39,7 +39,7 @@ if ( ! class_exists( 'DPAA_Register_Route' ) ) {
 				)
 			);
 
-			// システム情報取得用
+			// For retrieving system information.
 			register_rest_route(
 				DPAA_PLUGIN_ID . '/v1',
 				'/get_sysinfo',
@@ -53,7 +53,7 @@ if ( ! class_exists( 'DPAA_Register_Route' ) ) {
 			);
 		}
 	
-		// オーディオデータをBase64エンコード
+		// Callback for encoding the audio data to base64 format.
 		public static function callback_get_audio_data( WP_REST_Request $request ) {
 			$wpnonce = $request->get_header( 'X-WP-Nonce' );
 			if ( ! wp_verify_nonce( $wpnonce, 'wp_rest' ) ) {
@@ -102,7 +102,7 @@ if ( ! class_exists( 'DPAA_Register_Route' ) ) {
 			return rest_ensure_response( $response, $http_status_code );
 		}
 
-		// システム情報取得
+		// Callback for retrieving the system information.
 		public static function callback_get_sysinfo( WP_REST_Request $request ) {
 			$wpnonce = $request->get_header( 'X-WP-Nonce' );
 			if ( ! wp_verify_nonce( $wpnonce, 'wp_rest' ) ) {
@@ -116,8 +116,6 @@ if ( ! class_exists( 'DPAA_Register_Route' ) ) {
 			$http_status_code = 500;
 
 			require_once( ABSPATH . 'wp-admin/includes/update.php');
-
-			// System information for technical support.
 			require_once( DPAA_PATH . 'includes/function-get-sysinfo.php' );
 
 			$sysinfo = dpapps_get_sysinfo();

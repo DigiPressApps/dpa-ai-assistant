@@ -11,9 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'DPAA_Register_Settings' ) ) {
 	class DPAA_Register_Settings {
-		/**
-		 * Init constructor.
-		 */
 		public function __construct() {
 			add_action( 'admin_init', array( $this, 'register_plugin_settings' ) );
 			add_action( 'rest_api_init', array( $this, 'register_plugin_rest_route' ) );
@@ -21,6 +18,8 @@ if ( ! class_exists( 'DPAA_Register_Settings' ) ) {
 
 		/**
 		 * All plugin settings.
+		 * 
+		 * @since 0.1.0
 		 */
 		public static function get_plugin_settings() {
 			// Our options.
@@ -316,20 +315,10 @@ if ( ! class_exists( 'DPAA_Register_Settings' ) ) {
 		/**
 		 * Resigtration format is below.
 		 * 
-		 * 'name'	=> '',	 (string) (Required) The name of an option to sanitize and save.
-		 * 'args'	=> array(
-		 * 		'type'				=> '',  (string) 'string', 'boolean', 'integer', 'number', 'array', and 'object'.
-		 * 		'description'		=> '',	 (string) A description of the data attached to this setting.
-		 * 		'sanitize_callback'	=> '',	 https:developer.wordpress.org/plugins/security/securing-output/
-		 * 		'show_in_rest'		=> true,	 (bool|array) Whether data associated with this setting should be included in the REST API.
-		 * 		'default'			=> '',		 (mixed) Default value when calling get_option().
-		 * 
-		 * https://developer.wordpress.org/reference/functions/register_setting/
+		 * @since 0.1.0
 		 */
 		public function register_plugin_settings() {
 			$option_schema = $this->get_plugin_settings();
-
-			// オプションを登録
 			register_setting(
 				DPAA_PLUGIN_ID,
 				DPAA_OPTION_NAME,
@@ -348,8 +337,7 @@ if ( ! class_exists( 'DPAA_Register_Settings' ) ) {
 		}
 
 		/**
-		 * カスタムエンドポイントを登録
-		 * https://example.com/wp-json/{DPAA_PLUGIN_ID}/v1/get_option?name= 
+		 * Register our custom endpoint
 		 */
 		public function register_plugin_rest_route() {
 			// プラグイン設定を取得するためのエンドポイント
