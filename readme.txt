@@ -12,6 +12,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 AI Content Generating Assistant - Content Writer, ChatGPT, Image Generator, Transcription and Fine-tune AI models.
 
 == Description ==
+
 DPA AI Assistant can generate articles and images by integrating with various generative AI services. It can also fine-tune AI models by utilizing datasets.
 
 ### For developers
@@ -19,6 +20,7 @@ DPA AI Assistant can generate articles and images by integrating with various ge
 The development hub for this plugin and the source code can be found at <a href="https://github.com/DigiPressApps/dpa-ai-assistant">https://github.com/DigiPressApps/dpa-ai-assistant</a>.
 
 == Installation ==
+
 1. From the WP admin panel, click "Plugins" -> "Add new".
 2. In the browser input box, type "DPA AI Assistant".
 3. Select the "DPA AI Assistant" plugin and click "Install".
@@ -32,11 +34,20 @@ OR...
 4. Click "upload".. then browse to the .zip file downloaded from this page.
 5. Click "Install".. and then "Activate plugin".
 
+== Usage ==
+
+1. Create an account at OpenAI and Stability AI.
+2. Create API keys and insert in the plugin settings (DPAPPS -> AI Assistant -> Settings).
+3. Enjoy the features of AI Assistant.
+More details and documentation in [here](https://dpapps.net/docs/docs-ai-assistant/).
+
 == Frequently Asked Questions ==
+
 = What is the "DPA AI Assistant" plugin? =
 "DPA AI Assistant" is a plugin that uses the power of GPT to help you create high-quality content for your website. This plugin also allows you to generate blog post ideas, write articles, and create entire pages in seconds.
 
 == Screenshots ==
+
 1. Chat screen
 2. Image generation screen
 3. Writer screen #1
@@ -54,8 +65,10 @@ OR...
 == Disclaimer ==
 
 DPA AI Assistant is a plugin that helps you to connect your websites to AI services. You need your own API keys and must follow the rules set by the AI service you choose. Before using this plugin, please check their terms of use.
+
 * OpenAI: [Terms of Service](https://openai.com/terms/), [Privacy Policy](https://openai.com/privacy/)
 * Stability AI: [Terms of Service](https://platform.stability.ai/legal/terms-of-service), [Privacy Policy](https://stability.ai/privacy-policy)
+
 Please do so with other services as well. Our privacy policy is [here](https://dpapps.net/privacy-policy/).
 
 The developer of DPA AI Assistant and related parties are not responsible for any issues or losses caused by using the plugin or AI-generated content. You should talk to a legal expert and follow the laws and regulations of your country. DPA AI Assistant does only store data on your own server, and it is your responsibility to keep it safe.
@@ -63,5 +76,11 @@ The developer of DPA AI Assistant and related parties are not responsible for an
 == Upgrade notice ==
 
 == Changelog ==
+
+= 0.1.2 (2024/06/28) =
+* Update: Update readme.txt and README.md.
+* Fix: Sanitize post data sent via REST API.
+* Fix: Matched the text domain to plugin slug.
+
 = 0.1.1 (2024/05/26) =
 * Fix: Escaping text output.

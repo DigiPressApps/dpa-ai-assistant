@@ -17,13 +17,21 @@
 - Fine-tuning
   ![Screenshot of DPA AI Assistant: Fine-tuning](https://github.com/DigiPressApps/dpa-ai-assistant/assets/170507235/75ad4675-bf12-4d59-bcf2-2da017c584bf)
 
+## Usage
+
+1. Create an account at OpenAI and Stability AI.
+2. Create API keys and insert in the plugin settings (DPAPPS -> AI Assistant -> Settings).
+3. Enjoy the features of AI Assistant.
+   More details and documentation in [here](https://dpapps.net/docs/docs-ai-assistant/).
+
 ## Disclaimer
 
 DPA AI Assistant is a plugin that helps you to connect your websites to AI services. You need your own API keys and must follow the rules set by the AI service you choose. Before using this plugin, please check their terms of use.
 
 - OpenAI: [Terms of Service](https://openai.com/terms/), [Privacy Policy](https://openai.com/privacy/)
 - Stability AI: [Terms of Service](https://platform.stability.ai/legal/terms-of-service), [Privacy Policy](https://stability.ai/privacy-policy)
-  Please do so with other services as well. Our privacy policy is [here](https://dpapps.net/privacy-policy/).
+
+Please do so with other services as well. Our privacy policy is [here](https://dpapps.net/privacy-policy/).
 
 The developer of DPA AI Assistant and related parties are not responsible for any issues or losses caused by using the plugin or AI-generated content. You should talk to a legal expert and follow the laws and regulations of your country. DPA AI Assistant does only store data on your own server, and it is your responsibility to keep it safe.
 
