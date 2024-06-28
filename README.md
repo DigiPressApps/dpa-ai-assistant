@@ -1,4 +1,4 @@
-# dpa-ai-assistant
+# DPA AI Assistant
 
 ## License
 
