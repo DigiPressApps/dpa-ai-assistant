@@ -1,0 +1,9 @@
+== Changelog ==
+
+= 0.1.2 (2024/06/28) =
+* Update: Update readme.txt and README.md.
+* Fix: Sanitize post data sent via REST API.
+* Fix: Matched the text domain to plugin slug.
+
+= 0.1.1 (2024/05/26) =
+* Fix: Escaping text output.

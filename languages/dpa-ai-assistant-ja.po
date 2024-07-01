@@ -1,156 +1,2111 @@
+# Translation of Plugins - DPA AI Assistant - Development (trunk) in Japanese
+# This file is distributed under the same license as the Plugins - DPA AI Assistant - Development (trunk) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: Plugins - DPA AI Assistant - Development (trunk)\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
+"PO-Revision-Date: 2024-07-01 14:27+0900\n"
 "Last-Translator: digistate co.,ltd. <product@digistate.co.jp>\n"
-"Language-Team: digistate co.,ltd.\n"
-"Language: ja\n"
+"Language-Team: \n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.0.1\n"
 
-msgid "Powerful contents generation helper using AI services."
-msgstr "AI サービスを利用した強力な Web サイトコンテンツ生成ヘルパー機能を提供します。"
+#: dist/dashboard.js:1
+msgid "DigiPress Apps"
+msgstr "DigiPress Apps"
 
-msgid "License"
-msgstr "ライセンス"
+#: dist/dashboard.js:1
+msgid "Tools"
+msgstr "ツール"
 
-msgid "Plugin License Options"
-msgstr "プラグインライセンスオプション"
+#: dist/dashboard.js:1
+msgid "Show your system info for debug and support. Please download and send the text file when you contact us."
+msgstr "デバッグおよびサポートに必要なシステム情報を表示しています。お問い合わせの際は、ダウンロードしたシステム情報ファイルをお送りください。"
 
-msgid "Plugin License"
-msgstr "プラグインライセンス認証"
+#: dist/dashboard.js:1
+msgid "System Info"
+msgstr "システム情報"
 
-msgid "License Key"
-msgstr "ライセンスキー"
+#: dist/dashboard.js:1
+msgid "Information"
+msgstr "お知らせ"
 
-msgid "Enter your license key"
-msgstr "ライセンスキーを入力してください"
+#: dist/dashboard.js:1
+msgid "Update History"
+msgstr "更新履歴"
 
-msgid "License Activation"
-msgstr "ライセンス認証"
+#: dist/dashboard.js:1
+msgid "Plugins"
+msgstr "プラグイン"
 
-msgid "Activate License"
-msgstr "ライセンス認証"
+#: dist/backend.js:1
+msgid "Featured image"
+msgstr "アイキャッチ画像"
 
-msgid "active"
-msgstr "認証"
+#: dist/backend.js:1
+msgid "Excerpts"
+msgstr "抜粋"
 
-msgid "inactive"
-msgstr "未認証"
+#: dist/backend.js:1
+msgid "Titles"
+msgstr "タイトル"
 
-msgid "invalid"
-msgstr "無効"
+#: dist/backend.js:1
+msgid "Suggest:"
+msgstr "サジェスト:"
 
-msgid "expired"
-msgstr "期限切れ"
+#: dist/backend.js:1
+msgid "Open Assistant"
+msgstr "アシスタントを起動"
 
-msgid "Activate This License"
-msgstr "このライセンスキーを認証"
+#: dist/backend.js:1
+msgid "Click to replace with new %s"
+msgstr "クリックして新しい%sに入れ替えます。"
 
-msgid "Deactivate This License"
-msgstr "このライセンスキーの認証を解除"
+#: dist/backend.js:1
+msgid "GPT response is null!"
+msgstr ""
 
-msgid "If you cange the license key, please save the key before activate."
-msgstr "ライセンスキーを指定、変更した場合は、認証する前に「変更を保存」してください。"
+#: dist/backend.js:1
+msgid "New Excerpts"
+msgstr "新しい抜粋"
 
-msgid "is available."
-msgstr "がリリースされています。"
+#: dist/backend.js:1
+msgid "New Titles"
+msgstr "新しいタイトル"
 
-msgid "<a href=\"%3$s\" class=\"thickbox\" title=\"%4s\">Check out what's new</a> or <a href=\"%5$s\"%6$s>update now</a>."
-msgstr "<a href=\"%3$s\" class=\"thickbox\" title=\"%4s\">更新内容をみる</a> または <a href=\"%5$s\"%6$s>アップデート</a>"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "AI Assistant"
+msgstr ""
 
-msgid "Your plugin license is invalid or inactive. Please"
-msgstr "プラグインのライセンスが認証されていません。"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "General settings for content generation by AI and API behavior. Each tab allows you to temporarily change generation parameters from the options panel."
+msgstr "AI と API によるコンテンツ生成の全般設定を行います。各タブにある「オプション」パネルでは、一時的なパラメータの変更が行なえます。"
 
-msgid "Activate your license."
-msgstr "ライセンスを認証する"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Import Settings"
+msgstr "設定をインポート"
 
-msgid "Licensed Info"
-msgstr "ライセンス情報"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Export Settings"
+msgstr "設定をエクスポート"
 
-msgid "Payment ID : "
-msgstr "決済ID : "
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Updating Error"
+msgstr ""
 
-msgid "Licensed User : "
-msgstr "認証ユーザー : "
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Could not update options."
+msgstr ""
 
-msgid "Status : "
-msgstr "ステータス : "
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid ""
+"Imported successfully!\n"
+"Reload the page."
+msgstr ""
+"インポートしました！\n"
+"ページをリロードします。"
 
-msgid "Unlimited"
-msgstr "無制限"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Importing..."
+msgstr ""
 
-msgid "Expiration date : "
-msgstr "有効期限 : "
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "User Roles Restriction"
+msgstr "ユーザー権限ごとの制限"
 
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Set the maximum number of logs generated."
+msgstr "生成した画像を保持する、表示上の履歴の最大数を設定します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Max number of generated image logs"
+msgstr "生成画像ログの最大数"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select the generator engine to use for AI image generation."
+msgstr "AI 画像生成に使用するジェネレーターエンジンを選択します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Set the maximum number of question and answer logs to display."
+msgstr "表示上の AI とのチャットログの最大数を指定します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "For display"
+msgstr "表示用"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Set the maximum number of question and answer logs to keep to ensure natural interactions based on previous chats."
+msgstr "直近のチャットに基づいた自然な対話を行うための、保持する質問と回答のログの最大数を設定します。デフォルトは「4」。<br />ログ数が多くなると消費トークン数も多くなりコストが増加することに注意してください。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "For AI"
+msgstr "AI 用"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Max number of chat logs"
+msgstr "チャットログの最大数"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "In addition to the style and tone you specify, specify your own instructions for the GPT and its character and behavior. Recommended writing prompts in English to save on tokens consumed."
+msgstr "指定したスタイルやトーンに加え、独自にAIに対してキャラクターづけと振る舞いについて指示がある場合に記述します。トークンの消費量を抑えるため、プロンプト(指示文)は英語で記述することを推奨します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "writing tone"
+msgstr "トーン"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "writing style"
+msgstr "スタイル"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "basic structure"
+msgstr "基本構造"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select the %s of the sentences generated by AI."
+msgstr "AI が生成する文章の%sを選択します。ただし、指定した設定が毎回必ず反映されるわけではないことに注意してください。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select a language to generate contents with the language."
+msgstr "指定した言語で応答を受け取ります。基本は入力言語または指定した言語と同じ言語で応答しますが、場合によっては別の言語で返されることがあります。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "The number of steps is the number of times the generated image is denoised. Default is 30.<br />Note that a larger number of sampling steps will produce a more detailed image, but will take more time and cost more to produce."
+msgstr "ステップ数は、生成された画像からノイズを除去する回数です。デフォルトは「30」。<br />サンプリングステップの数が多いほど、より精細な画像が生成されますが、処理時間とコストが増加することに注意してください。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "A number that specifies how faithful the image will be to the prompt (input text). Default is 7.<br />Higher CFG Scale numbers produce images that are more faithful to the prompt.<br />Set this value higher if you want to generate an image that is faithful to the prompt, or lower this value if you care about image quality."
+msgstr "このパラメータは、プロンプト(入力テキスト)に対してどれだけ忠実な画像を生成するかを指定する数値です。デフォルトは「7」。<br />CFG スケールの数値が大きいほど、プロンプトに忠実な画像を生成します。<br />プロンプトに忠実な画像を生成したい場合はこの値を大きく設定し、画像の品質を重視する場合はこの値を小さく設定します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Number of images to generate. Allows for batch image generations."
+msgstr "1度に生成する画像の枚数を指定します。枚数を増やすとコストが増加することに注意してください。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Set the generated image height in pixel value."
+msgstr "生成される画像の高さをピクセル値で指定します。値を増やすとコストが増加することに注意してください。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Set the generated image width in pixel value."
+msgstr "生成される画像の幅をピクセル値で指定します。値を増やすとコストが増加することに注意してください。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select the style of the generated image."
+msgstr "生成される画像のスタイルを選びます。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Calculate Costs"
+msgstr "コストを計算"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select the Stability AI model (engine) to use to generate the image."
+msgstr "画像生成に使用する Stability AI のモデル(エンジン)を指定します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Check current credits"
+msgstr "現在のクレジットを確認"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Set the maximum number of transcription logs."
+msgstr "音声から文字起こししたテキストログの最大数。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Max number of \"Speech to Text\" logs"
+msgstr "「文字起こし」ログの最大数"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic."
+msgstr "サンプリング温度。0 から 1 の間で指定します。0.8 のような高い値は出力をよりランダムにし、0.2 のような低い値はより焦点を絞った決定的なものにします。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select the language to transcribe from the input audio."
+msgstr "入力音声から文字起こしをする際の変換言語を選択します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "logs."
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Set the maximum number of conversion logs."
+msgstr "変換した音声データのログの最大数。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Max number of \"Text to Speech\" logs"
+msgstr "「読み上げ」ログの最大数"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "The speed of the generated audio."
+msgstr "生成する音声の話す速さを調整します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select the audio format of the voice data."
+msgstr "音声データに変換するオーディオフォーマットを選択します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select the voice of the generated audio."
+msgstr "音声を生成する声を選択します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select the speech model to generate voice."
+msgstr "音声を生成するモデル(エンジン)を選択します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "For transcription"
+msgstr "読み上げ・文字起こし用"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "The style of the generated images. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images."
+msgstr "生成画像のスタイル。「鮮やか」はリアルで現実的な画像を生成します。対象的に、「ナチュラル」は自然で空想的な画像を生成します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "The quality of the image that will be generated. hd creates images with finer details and greater consistency across the image."
+msgstr "生成画像の品質。HD は標準より解像度が高い高精細な画像を生成します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select the resolution of the generated image."
+msgstr "生成する画像の解像度を選択します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "The number of images to generate. Must be between 1 and 10. For DALL·E 3, only one image is supported."
+msgstr "一度に生成する画像数を 1 から 10 の間で指定します。ただし、DALL·E 3 の場合はこの設定に関係なく一度に生成される画像は1枚のみとなります。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select the OpenAI model to generate images."
+msgstr "画像生成を行う OpenAI のモデルを選択します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "For image"
+msgstr "画像用"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Available in Pro version"
+msgstr "プロ版で利用可能"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "The top_p parameter allows you to adjust the diversity of the generated text.<br />Lower values return more reproducible, undisturbed, average text, but less diversity in answers.<br /><br />On the other hand, the higher the value, the more diverse the AI will answer the same question, making it suitable for writing stories or wanting answers using a variety of approaches.<br /><br />However, the closer the value of top_p is to 1, the more likely the generated text will be corrupted, so experimentation and evaluation is required to find the appropriate value for your requirements.<br /><br />It is generally recommended altering this or 'temperature' but not both."
+msgstr "top_p パラメータにより、生成されるテキストの多様性を調整することができます。<br />値が小さいほど、再現性が高く乱れがない平均的なテキストが返されますが、回答の多様性はなくなります。<br /><br />一方、値が大きいほど、同じ質問でも AI が回答する内容は多様なものとなるため、物語を書いたり、様々なアプローチでの回答が欲しい場合に適しています。<br /><br />しかし、top_p の値が1に近づくほど生成されるテキストが崩壊しやすくなるため、要件に対する適切な値を見つけるためには実験や評価が必要です。<br /><br />通常は、'temperature' か 'top_p' のいずれかを変更することが推奨されており、両方調整することは推奨されていません。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Top_p"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "The temperature parameter is an important parameter to control the diversity of text produced by the model.<br />This parameter takes values between 0 and 1; the closer it is to 0, the more confident the generated text will be.<br />On the other hand, the closer it is to 1, the more varied and unpredictable the generated text will be.<br /><br />For example, at low temperatures, a model tends to always produce similar outputs for the same inputs.<br />On the other hand, higher temperatures are more likely to produce different outputs for the same input.<br /><br />Therefore, the temperature parameter is used to adjust the predictability and variety of the generated text.<br />Appropriate temperature values should be adjusted depending on the specific task or use case.<br /><br />It is generally recommended altering this or 'top_p' but not both."
+msgstr "温度(temperature) パラメータは、モデルが生成するテキストの多様性を制御するためのパラメータです。<br />このパラメータは「0」から「1」の間の値を取り、0 に近いほど生成されるテキストは、より一貫性のある内容になります。<br />一方、1 に近いほど生成されるテキストは、より多様な内容を返すようになります。<br /><br />例えば、temperature が低い場合には、同じ入力に対してモデルが常に同じような出力を生成する傾向があります。<br />一方、temperatureが高い場合には、同じ入力に対して異なる出力が生成される可能性が高くなります。<br /><br />つまり、temperature パラメータは、生成されるテキストの同一性と多様性を調整するために使用されます。<br />適切な temperature の値は、期待する応答の要件に応じて調整してください。<br /><br />通常は、'temperature' か 'top_p' のいずれかを変更することが推奨されており、両方調整することは推奨されていません。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "A token in OpenAI's GPT is the smallest unit of text, and generally corresponds to a word or character.<br />However, the specific token size varies depending on the language and model used.<br /><br />The appropriate value for max_tokens depends on your specific use case.<br />The following is an estimate of the tokens consumed.<br /><br />- Short texts (e.g. tweets, answers to short questions): 60-120 tokens<br />- Medium length text (e.g. emails, answers to long questions): 120 to 512 tokens<br />- Long text (e.g. articles, reports): 512 to 2048 tokens<br /><br />However, increasing max_tokens increases API response time and costs.<br />Therefore, we recommend using the minimum number of tokens needed.<br />Also, be careful when generating very long text, as the model may generate unintended content."
+msgstr "OpenAI の GPT におけるトークンは、テキストの最小単位であり、一般的には単語や文字に相当します。<br />ただし、具体的なトークンの大きさは使用する言語やモデルにより異なります。<br /><br />最大トークン数の適切な値は、具体的な使用ケースによります。<br />以下は消費されるトークンの目安です。<br /><br />- 短いテキスト（例：ツイート、短い質問への回答）：60〜120トークン<br />- 中程度の長さのテキスト（例：メール、長い質問への回答）：120〜512トークン<br />- 長いテキスト（例：記事、レポート）：512〜2048トークン<br /><br />ただし、最大トークン数を大きくすると、API の応答時間が長くなり、コストも増えます。<br />そのため、必要な最小限のトークン数を使用することをお勧めします。<br />また、非常に長いテキストを生成する場合は、モデルが意図しない内容を生成する可能性もあるため、注意が必要です。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "About this parameter"
+msgstr "このパラメータについて"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "tokens."
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Max Tokens"
+msgstr "最大トークン数"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Language Model"
+msgstr "言語モデル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Documentation"
+msgstr "ドキュメント"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select the %s language model to generate text."
+msgstr "チャットやテキスト生成に使用する %s の言語モデル"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "API Key"
+msgstr "API キー"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "For text"
+msgstr "テキスト用"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Set the maximum display width of AI Assistant operation screen."
+msgstr "AI Assistant の操作パネルの最大表示幅を設定します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Admin Panel Max width"
+msgstr "AI Assistant パネルの最大幅"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "A prefix added to the beginning of filenames when uploaded by the AI Assistant to the Media Library."
+msgstr "AI Assistant からメディアライブラリにアップロードされる際のファイル名の先頭に付けられる接頭辞。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Upload file prefix"
+msgstr "アップロードファイルの接頭辞"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select the initial open tab in the admin panel."
+msgstr "AI Assistant の画面を開いた際に、最初に表示しておくタブを選択します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Initial Open Tab"
+msgstr "最初に開いておくタブ"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "General"
+msgstr "一般"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "AI Tuning"
+msgstr "AI チューニング"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Voice Conversion"
+msgstr "読み上げ・文字起こし"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Writer"
+msgstr "ライター"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Image Generation"
+msgstr "画像生成"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Chat"
+msgstr "チャット"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Text to Speech"
+msgstr "読み上げ"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "To generate audio or transcribe text, create an OpenAI API key and save it in the plugin settings."
+msgstr "読み上げ・文字起こしを行うには、Open AI の API キーを発行し、プラグイン設定で保存してください。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "voice"
+msgstr "音声"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Add this %s as a new block."
+msgstr "この%sを新規ブロックで追加"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Generate audio"
+msgstr "音声を生成"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Type or paste the text you want to generate to voice audio here."
+msgstr ""
+"ここに読み上げ音声として生成するテキストを入力または貼り付けます。\n"
+"生成された音声はプレビュー、アップロード、ダウンロード、さらに音声ブロックとしてエディター内に挿入が行えます。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Speech Speed"
+msgstr "話す速度"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Audio Format"
+msgstr "オーディオ形式"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Check voices"
+msgstr "声を確認"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Voice"
+msgstr "声"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Speech Model"
+msgstr "スピーチモデル"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Inserted!"
+msgstr "挿入しました！"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Add %s as a new block."
+msgstr "%sを新規ブロックで追加"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "this transcripted text"
+msgstr "この文字起こし結果"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Copy %s"
+msgstr "%sをコピー"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Listen"
+msgstr "聞く"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Write in a deep, heavy, Southern accent."
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language."
+msgstr "モデルのスタイルを指示する任意のテキスト、または前のオーディオセグメントを継続するテキストです。プロンプトは音声の言語に一致している必要があります。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Speech to Text"
+msgstr "文字起こし"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Transcribe the audio file in %s."
+msgstr "音声データは%sで文字起こしされます。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Audio URL"
+msgstr "オーディオURL"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "input language"
+msgstr "入力言語"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Temperature"
+msgstr "温度"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Transcription Language"
+msgstr "文字起こし言語"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Dataset"
+msgstr "学習データ"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Trained Models"
+msgstr "学習モデル"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Models"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "There is no trained model. You can get an API key for OpenAI and create training data from your dataset to create custom models."
+msgstr "学習済みのモデルはありません。OpenAI の API キーを取得し、「学習データ」からトレーニングデータを追加してカスタムモデルを作成できます。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Upload failed"
+msgstr "アップロードに失敗しました"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "You can check the status of the uploaded file on the \"Uploaded files\" tab."
+msgstr "「アップロード済みファイル」タブから状態を確認できます。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Uploaded!"
+msgstr "アップロード完了!"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "The maximum file size that can be uploaded at one time is 512MB."
+msgstr "一度にアップロード可能なファイルサイズは最大512MBまでです。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Uploading..."
+msgstr "アップロード中..."
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "To create a custom tuned model, you are required to provide at least 10 examples(conversations)."
+msgstr "カスタム AI モデルを作成するには、少なくとも 10 件のデータセット(会話)を提供する必要があります。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Failed to load a file."
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Add"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Tokyo. Tokyo is known as a city rich in diversity, where culture, fashion, and technology are integrated into an attractive city."
+msgstr "東京です。東京は多様性に富んだ都市であり、文化、ファッション、テクノロジーが融合した魅力的な街として知られています。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Where is the capital of Japan?"
+msgstr "日本の首都はどこですか？"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Assistant"
+msgstr "アシスタント"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "User"
+msgstr "ユーザー"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "System"
+msgstr "システム"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Answer"
+msgstr "回答"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Question"
+msgstr "質問"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Training data"
+msgstr "学習データ"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "You are Hanako, an AI assistant. Your primary role is to assist website visitors by directing them to the appropriate pages and answering their questions concisely and accurately."
+msgstr "あなたは AI アシスタントの花子です。あなたの主な役割は、Web サイト訪問者を適切なページに誘導し、質問に簡潔かつ正確に回答することで、訪問者をサポートすることです。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Enter the behavior, character, and prior knowledge of the custom model (AI) to be created. This prompt applies to all training data."
+msgstr "作成するカスタムモデル(AI)の振る舞いやキャラクター付け、予備知識などを入力しておきます。このプロンプトは全ての学習データに適用されます。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "System Prompt"
+msgstr "システムプロンプト"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Clear all dataset"
+msgstr "データセットを全てクリア"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Import local dataset file"
+msgstr "ローカルの学習ファイルをインポート"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Add a manual training data"
+msgstr "学習データをマニュアル追加"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Expert mode"
+msgstr "エキスパートモード"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Download the current dataset as json"
+msgstr "現在のデータセットを json ファイルでダウンロード"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Upload the current dataset to OpenAI for Fine-tune"
+msgstr "カスタムモデル用の現在の学習データを OpenAI にアップロード"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Dataset creation"
+msgstr "学習データ作成"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "dataset creation"
+msgstr "学習データ作成"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Dataset files"
+msgstr "学習データファイル"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "list of uploaded files"
+msgstr "アップロード済みファイル一覧"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Switch to %s"
+msgstr "%sに切り替え"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Create or upload your dataset for creatinig custom tuned model and upload it to OpenAI as data for the Fine-tune model."
+msgstr "カスタム AI モデルを作成するための学習データを作成、または既存ファイルからインポートします。さらに OpenAI に学習モデル用データとしてアップロードが行えます。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "List of files uploaded to OpenAI. You can create a custom AI model from Fine-tune data (jsonl)."
+msgstr "OpenAI にアップロードされたファイルの一覧。学習モデル用のファイル(jsonl)からカスタム AI モデルの作成を実行できます。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "entries"
+msgstr "エントリー"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Image"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Batch"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "User data"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Assistants"
+msgstr "アシスタント"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Fine-tuning"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "All"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Filter"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "file(s)"
+msgstr "ファイル"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Total: %s"
+msgstr "合計: %s"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Delete this file"
+msgstr "このファイルを削除"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "bytes"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "File size"
+msgstr "ファイルサイズ"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Purpose"
+msgstr "用途"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "File name"
+msgstr "ファイル名"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Started the creation process! You can check the training status of your custom model by updating the status on the \"Trained Models\" panel."
+msgstr "作成プロセスを開始しました! カスタムモデルの学習状況は、「学習モデル」パネルにてステータスを更新して確認できます。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Starting..."
+msgstr "開始中..."
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Start"
+msgstr "スタート"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Scaling factor for the learning rate. A smaller learning rate may be useful to avoid overfitting."
+msgstr "学習率の倍率。学習率が高くすると、大きいバッチサイズでのパフォーマンスが向上する傾向があります。0.02 から 0.2 の範囲で最適な結果が得られるものを確認することをお勧めします。学習率を小さくすると、過学習を抑えるのに役立つ場合があります。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Learning Rate Multiplier"
+msgstr "学習率乗数"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset."
+msgstr "モデルをトレーニングするエポックの数。エポックとは、学習データセットを一巡することを意味します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Number of Epochs"
+msgstr "学習エポック数"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Number of examples in each batch. A larger batch size means that model parameters are updated less frequently, but with lower variance."
+msgstr "各バッチのサイズ。バッチサイズが大きいほどモデルパラメータの更新頻度は低くなりますが、分散は小さくなります。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Batch Size"
+msgstr "バッチサイズ"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "More parameters"
+msgstr "その他のパラメータ"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Preview:"
+msgstr "プレビュー:"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "A string of up to 18 characters that will be added to your tuned model name."
+msgstr "カスタムモデル名に付与される最大18文字までの文字列。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "optional"
+msgstr "オプション"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Show details"
+msgstr "詳細を確認"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "The base model for your custom tuned model. You can select one of the supported models."
+msgstr "カスタムモデルのベースとなる既存モデル。サポートされているモデルの中から選択します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Training file (dataset)"
+msgstr "学習ファイル(データセット)"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Check current usage"
+msgstr "現在の使用量を確認"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Check OpenAI pricing"
+msgstr "OpenAI の価格を確認"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Create your own tuned model by the base model with selected dataset. Once you tuned a model, you’ll be billed only for the tokens you use in requests to that model."
+msgstr "ベースモデルを元にして、選択したデータセットを利用して独自の学習モデルを作成します。モデルの学習を行うと、該当モデルへのリクエストで使用したトークンに対してのみ費用が発生します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Create a new tuned model"
+msgstr "新規学習モデルの作成"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Refreshed!"
+msgstr "更新しました!"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Deleted!"
+msgstr "削除しました!"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Deleting..."
+msgstr "削除中..."
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "It will take some time for it to actually be removed from OpenAI."
+msgstr "実際に OpenAI から削除されるには、しばらく時間がかかります。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Cancelled!"
+msgstr "キャンセルしました!"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Cancelling..."
+msgstr "キャンセル中..."
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Are you sure you want to cancel?"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Delete this model"
+msgstr "このモデルを削除"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Cancel a item"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Trained tokens"
+msgstr "生成トークン"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Created at"
+msgstr "作成日時"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "# ID"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Status"
+msgstr "ステータス"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Suffix"
+msgstr "接尾辞"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Training file"
+msgstr "学習データファイル"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Base model"
+msgstr "ベースモデル"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Model name"
+msgstr "モデル名"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Error"
+msgstr "エラー"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "running"
+msgstr "処理中"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "failed"
 msgstr "失敗"
 
-msgid "Invalid license."
-msgstr "無効なライセンス"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "succeeded"
+msgstr "成功"
 
-msgid "Your license key expired on %s."
-msgstr "指定されたライセンスキーの有効期限は %s です。"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Refresh"
+msgstr "更新"
 
-msgid "Your license key has been disabled."
-msgstr "指定されたライセンスキーは無効です。"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Trained AI model list."
+msgstr "学習済み AI モデルのリスト。"
 
-msgid "Your license is not active for this URL."
-msgstr "指定されたライセンスはこのURLでは有効になっていません。"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Generating %s..."
+msgstr "%sを生成中..."
 
-msgid "This appears to be an invalid license key for %s."
-msgstr "%s のライセンスキーとしては無効なキーです。"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Invalid response"
+msgstr ""
 
-msgid "Your license key has reached its activation limit."
-msgstr "指定されたライセンスキーは認証数の上限に達しています。"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Generated Contents"
+msgstr "生成コンテンツ"
 
-msgid "An error occurred, please try again."
-msgstr "エラーが発生しました。再度実行してください。"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Loading..."
+msgstr "読み込み中..."
 
-msgid "You do not have permission to install plugin updates"
-msgstr "プラグインをアップデートする権限がありません"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Excerpt"
+msgstr "抜粋"
 
-msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
-msgstr "新バージョンの %1$s が利用できます。バージョン %2$s%3$s の詳細を表示%4$sする。"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Paragraphs per section:"
+msgstr "セクションごとの段落数:"
 
-msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s."
-msgstr "新バージョンの %1$s が利用できます。バージョン %2$s%3$s の詳細を表示%4$sするか、%5$s更新%6$sしてください。"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Outroduction"
+msgstr ""
 
-msgid "%1$s%2$s can not be activated.%3$sIt requires PHP version %4$s or higher, but PHP version %5$s is used on the site. Please upgrade your PHP version first %6$s Back %7$s"
-msgstr "%1$s%2$s を有効化できません。%3$sPHP %4$s またはそれ以降のバージョンである必要があります。お使いの PHP のバージョンは %5$s です。事前に PHP のバージョンをアップグレードしてください。 %6$s 戻る %7$s"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Conclusion Settings"
+msgstr "結論設定"
 
-msgid "%1$s%2$s can not be activated.%3$sIt requires WordPress %4$s or higher, but WordPress %5$s is used on the site. Please update your WordPress first %6$s Back %7$s"
-msgstr "%1$s%2$s を有効化できません。%3$sWordPress %4$s またはそれ以降のバージョンである必要があります。お使いの WordPress のバージョンは %5$s です。事前に WordPress を最新版にアップデートしてください。 %6$s 戻る %7$s"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Include Conclusion"
+msgstr "まとめ(結論)を含める"
 
-msgid "Contact your network administrator to install the update."
-msgstr "更新するには、ネットワーク管理者に連絡してください。"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Introduction Settings"
+msgstr "序論設定"
 
-msgid "There is a new version of %1$s available."
-msgstr "新バージョンの %1$s が利用できます。"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Include Introduction"
+msgstr "はじめに(序論)を含める"
 
-msgid "%1$sView version %2$s details%3$s."
-msgstr "%1$sバージョン %2$s の詳細を表示%3$s."
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Unordered list"
+msgstr "順序なしリスト"
 
-msgid "%1$sView version %2$s details%3$s or %4$supdate now%5$s."
-msgstr "%1$sバージョン %2$s の詳細を表示%3$s するか、%4$s更新%5$sしてください。"
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Ordered list"
+msgstr "順序つきリスト"
 
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "TOC list type"
+msgstr "目次リストタイプ"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Show %s"
+msgstr "%sを表示"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "TOC Settings"
+msgstr "目次設定"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "The table of contents will be inserted at the beginning of the text when you post."
+msgstr "目次は実際に投稿する際に本文の先頭に挿入されます。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Insert %s"
+msgstr "%sを挿入"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Post Content"
+msgstr "本文"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Heading level:"
+msgstr "見出しレベル:"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Sections:"
+msgstr "セクション数:"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Create sentences for each section generated here to compose the post content."
+msgstr "ここで生成されたセクションごとに文章を作成し、本文を構成します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Sections"
+msgstr "セクション"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Max characters"
+msgstr "最大文字数"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Min characters"
+msgstr "最小文字数"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Publish"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Save draft"
+msgstr "下書き保存"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Clear generated contents."
+msgstr "生成済みコンテンツを消去"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Edit post"
+msgstr "投稿を編集"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Posted!"
+msgstr "投稿しました！"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Posting...Please wait."
+msgstr "投稿中...しばらくお待ち下さい"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Text Generation"
+msgstr "テキスト生成"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "%s Settings"
+msgstr "%s設定"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid " images"
+msgstr "枚"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "images for each section"
+msgstr "セクションごとに画像"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "a Featured image"
+msgstr "アイキャッチ画像"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Tags"
+msgstr "タグ"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Generate %s"
+msgstr "%sを生成"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Generate"
+msgstr "生成"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Speak a topic"
+msgstr "トピックを話す"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Kyoto, Mt. Fuji, Asakusa"
+msgstr "京都, 富士山, 浅草"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Use comma to separate keywords."
+msgstr "複数のキーワードを指定するには、半角カンマ( , )で区切ってください。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Pro Only"
+msgstr "プロ版のみ"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Keywords to Include"
+msgstr "含めるキーワード"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Introducing sightseeing spots in Japan recommended for foreigners."
+msgstr "外国人観光客におすすめの日本の観光スポットの紹介"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Describe the subject of the article you want AI to generate. The more detailed and specific the instructions, the more accurate content can be generated."
+msgstr "AI に生成させる記事の題材を記述します。指示内容が詳細かつ具体的である方が、より精度の高いコンテンツを生成できます。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Topic"
+msgstr "トピック"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Failed to copy to clipboard"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "No Base64 data!"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Failed to translate the prompt."
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Generating..."
+msgstr "生成中..."
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "No prompt!"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Generate image(s)"
+msgstr "画像を生成"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Speak a description of the image"
+msgstr "画像の説明を話す"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Re-generate images"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Clear all logs"
+msgstr "全ての履歴を消去"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "The beautiful Hawaiian ocean, mountains, and blue skies of Oahu, where surfers are splashing and enjoying the surf."
+msgstr "サーファーたちが水しぶきを上げてサーフィンを楽しむオアフ島の美しい海、青い空、そして雄大な山々。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "AI Image Generator"
+msgstr "AI 画像生成ジェネレーター"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Image Quality"
+msgstr "画像品質"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Sampling Steps"
+msgstr "サンプリングステップ数"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "CFG Scale"
+msgstr "CFG スケール"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Number of images"
+msgstr "画像数"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Width"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Height"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "width x height"
+msgstr "横 x 縦"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Dimensions"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Style"
+msgstr "スタイル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Download"
+msgstr "ダウンロード"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Upload to Media Library"
+msgstr "メディアライブラリにアップロード"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Copy to clipboard"
+msgstr "クリップボードにコピー"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Use as featured image"
+msgstr "アイキャッチ画像に指定"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Next"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Previous"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Regenerate"
+msgstr "再生成"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "No selected text!"
+msgstr "選択中のテキストがありません!"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Are you sure you want to regenerate?"
+msgstr "再生成を開始します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Copied!"
+msgstr "コピーしました!"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "No message!"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Get the API key."
+msgstr "API キーを取得"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Send this message."
+msgstr "このメッセージを送信"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Talk to AI"
+msgstr "AI に話しかける"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Resend previous message."
+msgstr "直前のメッセージを再送"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Continue an interrupted conversation."
+msgstr "中断されたチャットを再開します。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Magic prompt!"
+msgstr "マジックプロンプト!"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Clear all logs and reset tokens."
+msgstr "すべての履歴を消去し、トークンをリセットします。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "clipboard text"
+msgstr "クリップボードテキスト"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "selected text"
+msgstr "選択テキスト"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Operations on %s"
+msgstr "%sへの操作"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "The image sides should be less than 2,000px."
+msgstr "対象とする画像の辺は 2,000px 以下である必要があります。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Open media library"
+msgstr "メディアライブラリを開く"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Clear"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Preview"
+msgstr "プレビュー"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Ask anything..."
+msgstr "何でも聞いて下さい..."
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "What do these images have in common?"
+msgstr "これらの画像の共通点は何ですか？"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select or Upload Media"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Options"
+msgstr "オプション"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "You are batman as a dark hero. Always respond with cool words."
+msgstr "あなたはダークヒーローであるバットマンです。常にクールな言葉で応答してください。"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Custom Prompt"
+msgstr "カスタムプロンプト"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "AI Writing Tone"
+msgstr "AI 文章トーン"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "AI Writing Style"
+msgstr "AI 文章スタイル"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Content Structure"
+msgstr "コンテンツ構造"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Select Language"
+msgstr "言語を選択"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Model"
+msgstr "モデル"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "AI Text Generator"
+msgstr "AI テキスト生成ジェネレーター"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Tuned"
+msgstr "学習済み"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Open / close response."
+msgstr "開く / 閉じる"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Add this response as a new block."
+msgstr "この応答を新規ブロックで追加"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Copy this response as HTML."
+msgstr "この応答をHTMLでコピー"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Copy this response."
+msgstr "この応答をコピー"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Copy this message."
+msgstr "このメッセージをコピー"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Resend"
+msgstr "再送"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Are you sure you want to delete?"
+msgstr "本当に削除しますか？"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Delete"
+msgstr "削除"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Set ugc"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Set sponsored"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Set nofollow"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Open in new tab"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Close"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Upgrade Pro"
+msgstr "プロ版にアップグレード"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "This is Pro version feature. Upgrade now!"
+msgstr "この機能はプロ版で利用できます。アップグレードしますか？"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Pro Feature"
+msgstr "プロ版の機能"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Go Pro"
+msgstr "プロ版へ"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Public"
+msgstr "公開"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "More Types?"
+msgstr "他の投稿タイプ"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Post type"
+msgstr "投稿タイプ"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Page"
+msgstr "固定ページ"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Post"
+msgstr "投稿"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "About"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Fold"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Show all"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Title"
+msgstr "タイトル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "%s HTML Tag"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Div"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Paragraph"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "%s"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Heading Level"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "%s %d"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Reset"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Open the setting panel"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Translate the %s into %s"
+msgstr "%sを%sに翻訳"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Provide a counterargument about the %s"
+msgstr "%sについて反論する"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Express your opinions about the %s"
+msgstr "%sについて意見を書く"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Write a conclusion about the %s"
+msgstr "%sについてまとめる"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Write an article about the %s"
+msgstr "%sについて記事を書く"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Write a paragraph about the %s"
+msgstr "%sについて段落を書く"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Create an excerpt of the %s"
+msgstr "%sの抜粋を作成"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Suggest a title about the %s"
+msgstr "%sに関するタイトルを提案"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Rewrite the %s"
+msgstr "%sをリライト"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Expand the %s"
+msgstr "%sの内容を広げる"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Summarize the %s in bulleted list"
+msgstr "%sを箇条書きにまとめる"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Summarize the %s"
+msgstr "%sを要約"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Enter category name"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Categories"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Enter author name"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Other Author?"
+msgstr "他の寄稿者"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Authors"
+msgstr "著者"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Text, Image and Audio"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Text and Image"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Text"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "DALL·E (OpenAI)"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Stable Diffusion (Stability AI)"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Gemini (Google)"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "GPT (OpenAI)"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Chinese"
+msgstr "中国語"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "PCM"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "WAV"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "FLAC"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "AAC"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Opus"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "MP3"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Shimmer"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Nova"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Onyx"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Fable"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Echo"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Alloy"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Optimized for quality"
+msgstr "品質重視"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Optimized for speed"
+msgstr "速度重視"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Conclusion"
+msgstr "まとめ"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Introduction"
+msgstr "はじめに"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Table of Contents"
+msgstr "目次"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Pixel Art"
+msgstr "ピクセルアート(ドット絵調)"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Photographic"
+msgstr "写真"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Origami"
+msgstr "折り紙"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Neon Punk"
+msgstr "ネオンアート"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Modeling Compound"
+msgstr "クラフト粘土調"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Low Poly"
+msgstr "低ポリゴン"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Line Art"
+msgstr "ラインアート(線画)"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Isometric"
+msgstr "等角的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Fantasy Art"
+msgstr "ファンタジーアート"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Enhance"
+msgstr "強化(メリハリ付け)"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Digital Art"
+msgstr "デジタルアート"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Comic Book"
+msgstr "コミック本"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Cinematic"
+msgstr "シネマ調"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Anime"
+msgstr "アニメ"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Analog Film"
+msgstr "アナログフィルム"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "3D Model"
+msgstr "3Dモデル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Credit: %s(Baseed on %s)"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Interesting"
+msgstr "興味深い"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Humorous"
+msgstr "ユーモアのある"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Funny"
+msgstr "おもしろい"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Amusing"
+msgstr "愉快"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Clever"
+msgstr "クレバー"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Polite"
+msgstr "礼儀正しい"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Relaxed"
+msgstr "リラックス"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Energetic"
+msgstr "エネルギッシュ"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Assertive"
+msgstr "断言的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Helpful"
+msgstr "役に立つ"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Argumentative"
+msgstr "理屈っぽい"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Biased"
+msgstr "偏向的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Neutral"
+msgstr "ニュートラル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Clearly"
+msgstr "はっきりとした"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Critical"
+msgstr "批判的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Rhythmical"
+msgstr "リズミカル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Musical"
+msgstr "ミュージカル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Imaginative"
+msgstr "想像的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Objective"
+msgstr "客観的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Inspirational"
+msgstr "鼓舞、元気づける"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Emotional"
+msgstr "感情的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Soothing"
+msgstr "なだめる、慰める"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Hilarious"
+msgstr "陽気、浮かれた"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Lighthearted"
+msgstr "明るい、気楽"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Passionate"
+msgstr "情熱的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Witty"
+msgstr "気の利いた"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Thoughtful"
+msgstr "思慮深い"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Serious"
+msgstr "シリアス"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Sarcastic"
+msgstr "皮肉・嫌味"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Respectful"
+msgstr "敬意のある"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Enthusiastic"
+msgstr "熱狂的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Confident"
+msgstr "自信に満ちている"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Approachable"
+msgstr "親しみやすい"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Professional"
+msgstr "プロフェッショナル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Informative"
+msgstr "情報提供"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Casual"
+msgstr "カジュアル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Formal"
+msgstr "フォーマル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Satirical"
+msgstr "風刺的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Poetic"
+msgstr "詩的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Recipe"
+msgstr "レシピ"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Travel"
+msgstr "トラベル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Personal"
+msgstr "パーソナル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Technical"
+msgstr "テクニカル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Instructional"
+msgstr "指導的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Persuasive"
+msgstr "説得力のある"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Reflective"
+msgstr "反射的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "News"
+msgstr "ニュース"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Narrative"
+msgstr "ナレーション"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Marketing"
+msgstr "マーケティング"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Legal"
+msgstr "法律的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Expository"
+msgstr "解説的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Descriptive"
+msgstr "説明的"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Creative"
+msgstr "クリエイティブ"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Business"
+msgstr "ビジネス"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Normal"
+msgstr "ノーマル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Tutorial"
+msgstr "チュートリアル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Topic-wise"
+msgstr "トピック別"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Table"
+msgstr "テーブル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Social Media Post"
+msgstr "SNS 投稿"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Review"
+msgstr "レビュー"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Pros and Cons"
+msgstr "長所と短所"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Opinion"
+msgstr "意見"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Interviews"
+msgstr "インタビュー"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "How-to"
+msgstr "ハウツー"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Guide"
+msgstr "ガイド"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "FAQ"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Email"
+msgstr "Eメール"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Case-study"
+msgstr "ケーススタディ"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Article"
+msgstr "記事"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Analysis"
+msgstr "分析"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "None"
+msgstr "未指定"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Chinese (Traditional)"
+msgstr "中国語 (繁体字)"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Chinese (Simplified)"
+msgstr "中国語 (簡体字)"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Swedish"
+msgstr "スウェーデン語"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Brazil"
+msgstr "ブラジル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Portuguese"
+msgstr "ポルトガル語"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Polish"
+msgstr "ポーランド語"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Norwegian"
+msgstr "ノルウェー語"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Dutch"
+msgstr "オランダ語"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Korean"
+msgstr "韓国語"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Japanese"
+msgstr "日本語"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Italian"
+msgstr "イタリア語"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "French"
+msgstr "フランス語"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Spanish"
+msgstr "スペイン語"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "English"
+msgstr "英語"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "German"
+msgstr "ドイツ語"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Natural"
+msgstr "ナチュラル"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Vivid"
+msgstr "鮮やか"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "HD"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Standard"
+msgstr "標準"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Nov 2023"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Nov 2022"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "experimental"
+msgstr "試験段階"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "recommended"
+msgstr "推奨"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Image recognition"
+msgstr "画像認識"
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "%s tokens"
+msgstr "%sトークン"
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Source image is not exist!"
+msgstr ""
+
+#: dist/backend.js:1 dist/plugin-menu.js:1
+msgid "OpenAI or API key is missing!"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Select"
+msgstr ""
+
+#: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
+msgid "Select an image"
+msgstr ""
+
+#: includes/class-init.php:182 dist/backend.js:1 dist/plugin-menu.js:1
+msgid "Upgrade"
+msgstr "アップグレード"
+
+#: includes/class-init.php:181 dist/backend.js:1 dist/dashboard.js:1
+#: dist/plugin-menu.js:1
+msgid "Settings"
+msgstr "設定"
+
+#: includes/class-admin-menu.php:89 includes/class-admin-menu.php:90
+#: dist/dashboard.js:1
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+#: dpa-ai-assistant.php:114
 msgid "Activation Error"
 msgstr "アクティベーションエラー"
 
+#. translators: check the conflicting
+#: dpa-ai-assistant.php:106
 msgid "Other version of %1$s is installed. To enable this plugin, please deactivate the currently active %2$s first.%3$s Back %4$s"
 msgstr "他のエディションの %1$s がインストールされています。このプラグインを使用するには、現在有効化されている %2$s を事前に停止してください。%3$s 戻る %4$s"
 
-msgid "Plugin Configuration"
-msgstr "プラグイン設定"
+#. translators: check the wordpress version
+#: dpa-ai-assistant.php:86
+msgid "%1$s%2$s can not be activated.%3$sIt requires WordPress %4$s or higher, but WordPress %5$s is used on the site. Please update your WordPress first %6$s Back %7$s"
+msgstr "%1$s%2$s を有効化できません。%3$sWordPress %4$s またはそれ以降のバージョンである必要があります。お使いの WordPress のバージョンは %5$s です。事前に WordPress を最新版にアップデートしてください。 %6$s 戻る %7$s"
 
-msgid "Save Settings"
-msgstr "設定を保存"
+#. translators: check the php version
+#: dpa-ai-assistant.php:66
+msgid "%1$s%2$s can not be activated.%3$sIt requires PHP version %4$s or higher, but PHP version %5$s is used on the site. Please upgrade your PHP version first %6$s Back %7$s"
+msgstr "%1$s%2$s を有効化できません。%3$sPHP %4$s またはそれ以降のバージョンである必要があります。お使いの PHP のバージョンは %5$s です。事前に PHP のバージョンをアップグレードしてください。 %6$s 戻る %7$s"
 
-msgid "Settings saved successfully."
-msgstr "プラグイン設定を保存しました。"
+#. Author URI of the plugin
+#: dpa-ai-assistant.php
+msgid "https://dpapps.net/"
+msgstr ""
 
-msgid "Upgrade"
-msgstr "アップグレード"
+#. Author of the plugin
+#: dpa-ai-assistant.php
+msgid "digistate co., ltd."
+msgstr ""
+
+#. Description of the plugin
+#: dpa-ai-assistant.php
+msgid "Powerful contents generation helper using AI services."
+msgstr "AI サービスを利用した強力な Web サイトコンテンツ生成ヘルパー機能を提供します。"
+
+#. Plugin URI of the plugin
+#: dpa-ai-assistant.php
+msgid "https://dpapps.net/plugins/ai-assistant/"
+msgstr ""
+
+#. Plugin Name of the plugin
+#: dpa-ai-assistant.php
+msgid "DPA AI Assistant"
+msgstr ""

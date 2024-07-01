@@ -3,7 +3,7 @@ Contributors: digistatejp
 Tags: ai, gpt, openai, writer, image generator
 Requires at least: 6.2
 Tested up to: 6.5.3
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 Requires PHP: 8.0
 Donate link: https://dpapps.net/donation/
 License: GPLv2 or later
@@ -77,10 +77,5 @@ The developer of DPA AI Assistant and related parties are not responsible for an
 
 == Changelog ==
 
-= 0.1.2 (2024/06/28) =
-* Update: Update readme.txt and README.md.
-* Fix: Sanitize post data sent via REST API.
-* Fix: Matched the text domain to plugin slug.
-
-= 0.1.1 (2024/05/26) =
-* Fix: Escaping text output.
+= 0.1.3 (2024/07/01) =
+* Update: Update Japanese translation file for PHP (dpa-ai-assistant-ja.po).
