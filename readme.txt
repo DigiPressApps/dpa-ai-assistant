@@ -77,6 +77,10 @@ The development hub for this plugin and the source code can be found at <a href=
 
 == Changelog ==
 
+= 0.1.3 (2024/07/04) =
+* Fix: Removed `defaultProps` (Deprecated in React 19).
+* Fix: Minor fixed for the next WordPress 6.6.
+
 = 0.1.3 (2024/07/01) =
 * Update: Update Japanese translation file for PHP (dpa-ai-assistant-ja.po).
 
