@@ -31,8 +31,8 @@ import { dispatch, useSelect } from '@wordpress/data'
 export const EditorDom = () => {
 	const [ iframeForceUpdate, setIframeForceUpdate ] = useState( 0 )
 	const [ editorDom, setEditorDom ] = useState( null )
-	const timeout = useRef( null )
-	const interval = useRef( null )
+	const timeout = useRef( undefined )
+	const interval = useRef( undefined )
 
 	// If in FSE, switching templates will recreate the editor.
 	const editedSitePostId = useSelect( select => {

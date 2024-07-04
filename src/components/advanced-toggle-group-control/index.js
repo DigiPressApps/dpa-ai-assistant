@@ -19,11 +19,23 @@ import {
 } from '@wordpress/components';
 
 export const AdvancedToggleGroupControl = props => {
-	const { controls } = props
+	const {
+		controls = [
+			{
+				icon: null,
+				value: null,
+				label: null,
+				ariaLabel: null,
+				showTooltip: true,
+				tooltip: ''
+			},
+		],
+		className = '',
+	} = props
 
 	return (
 		<ToggleGroupControl
-			className={ classnames( 'dpaa-advanced-toggle-group-control', props.className ) }
+			className={ classnames( 'dpaa-advanced-toggle-group-control', className ) }
 			{ ...props }
 			children={
 				controls.map( ( option, index ) => {
@@ -36,27 +48,6 @@ export const AdvancedToggleGroupControl = props => {
 			}
 		/>
 	)
-}
-
-AdvancedToggleGroupControl.defaultProps = {
-	onChange: () => {},
-	value: null,
-	label: '',
-	help: '',
-	className: '',
-	size: 'default',	// or __unstable-large
-	isAdaptiveWidth: false,
-	isBlock: true,
-	controls: [
-		{
-			icon: null,
-			value: null,
-			label: null,
-			ariaLabel: null,
-			showTooltip: true,
-			tooltip: ''
-		},
-	],
 }
 
 export default AdvancedToggleGroupControl

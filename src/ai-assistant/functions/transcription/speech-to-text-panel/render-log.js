@@ -55,7 +55,7 @@ export const RenderLog = memo( ( props ) => {
 		return
 	}
 
-	const logWrapperRef = useRef( null )
+	const logWrapperRef = useRef( undefined )
 
 	const [ toggleIcon, setToggleIcon ] = useState( chevronDownIcon )
 

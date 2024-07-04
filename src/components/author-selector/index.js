@@ -46,10 +46,10 @@ const AUTHORS_QUERY = {
 
 const AuthorSelector = props => {
 	const {
-		value,
-		onChange,
-		maxLength,
-		placeholder,
+		onChange = undefined,
+		value = null,
+		maxLength = 100,	// 全取得 = 0
+		placeholder = __( 'Enter author name', dpaa.i18n )
 	} = props
 
 	const authorsList = useSelect( ( select ) => {
@@ -121,13 +121,6 @@ const AuthorSelector = props => {
 			__next40pxDefaultSize={ true }
 		/>
 	);
-}
-
-AuthorSelector.defaultProps = {
-	onChange: undefined,
-	value: null,
-	maxLength: 100,	// 全取得: 0
-	placeholder: __( 'Enter author name', dpaa.i18n )
 }
 
 export default AuthorSelector;

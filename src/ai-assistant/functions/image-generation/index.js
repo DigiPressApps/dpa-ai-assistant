@@ -159,7 +159,7 @@ export const ImageGenerationPanel = ( props ) => {
 	}, [ stabilityAIApiKey, openAIApiKey, engine ] )
 
 	// ラッパー要素への参照用
-	const scrollableRef = useRef( null );
+	const scrollableRef = useRef( undefined );
 
 	// プロンプト
 	const [ imagePrompt, setImagePrompt ] = useState( '' )
@@ -176,7 +176,7 @@ export const ImageGenerationPanel = ( props ) => {
 	// チップメッセージ表示用
 	const [ tipMessage, setTipMessage ] = useState( { message: '' } )
 	// ストリーム画像用
-	// const imageFileInputRef = useRef( null )
+	// const imageFileInputRef = useRef( undefined )
 	// const [ binaryInputImage, setBinaryInputImage ] = useState( null )
 
 	// IndexedDBデータベース用

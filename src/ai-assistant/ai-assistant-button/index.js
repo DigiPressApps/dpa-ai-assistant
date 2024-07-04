@@ -19,14 +19,14 @@ import classnames from 'classnames'
 // ツールバー用のボタン
 export const AIAssistantButton = props => {
 	const {
-		size,
-		text,
-		icon,
-		iconSize,
-		iconPosition,
-		variant,
-		className,
-		isInEditor,
+		text = __( 'AI Assistant', dpaa.i18n ),
+		size = 'default', // "small", "default", "compact"
+		icon = null,
+		iconSize = 24,
+		iconPosition = 'left',
+		variant = 'primary',
+		className = '',
+		isInEditor = true,
 	} = props
 
 	const [ isOpenModal, setIsOpenModal ] = useState( false )
@@ -62,15 +62,4 @@ export const AIAssistantButton = props => {
 			) }
 		</>
 	)
-}
-
-AIAssistantButton.defaultProps = {
-	text: __( 'AI Assistant', dpaa.i18n ),
-	size: 'default', // "small", "default", "compact"
-	icon: null,
-	iconSize: 24,
-	iconPosition: 'left',
-	variant: 'primary',
-	className: '',
-	isInEditor: true,
 }

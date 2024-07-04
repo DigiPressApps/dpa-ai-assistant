@@ -15,10 +15,6 @@ AI Content Generating Assistant - Content Writer, ChatGPT, Image Generator, Tran
 
 DPA AI Assistant can generate articles and images by integrating with various generative AI services. It can also fine-tune AI models by utilizing datasets.
 
-### For developers
-
-The development hub for this plugin and the source code can be found at <a href="https://github.com/DigiPressApps/dpa-ai-assistant">https://github.com/DigiPressApps/dpa-ai-assistant</a>.
-
 == Installation ==
 
 1. From the WP admin panel, click "Plugins" -> "Add new".
@@ -74,6 +70,10 @@ Please do so with other services as well. Our privacy policy is [here](https://d
 The developer of DPA AI Assistant and related parties are not responsible for any issues or losses caused by using the plugin or AI-generated content. You should talk to a legal expert and follow the laws and regulations of your country. DPA AI Assistant does only store data on your own server, and it is your responsibility to keep it safe.
 
 == Upgrade notice ==
+
+== For developers ==
+
+The development hub for this plugin and the source code can be found at <a href="https://github.com/DigiPressApps/dpa-ai-assistant">https://github.com/DigiPressApps/dpa-ai-assistant</a>.
 
 == Changelog ==
 

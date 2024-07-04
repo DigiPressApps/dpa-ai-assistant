@@ -36,22 +36,22 @@ import { cog as cogIcon } from '@wordpress/icons'
 
 export const OptionsArea = memo( ( props ) => {
 	const {
-		label,
-		userCanManageSettings,
-		fineTunedModels,
-		onChangeEngine,
-		model,
-		onChangeModel,
-		language,
-		onChangeLanguage,
-		contentStructure,
-		onChangeContentStructure,
-		writingStyle,
-		onChangeWritingStyle,
-		writingTone,
-		onChangeWritingTone,
-		customPrompt,
-		onChangeCustomBehavior,
+		label = __( 'Options', dpaa.i18n ),
+		userCanManageSettings = false,
+		fineTunedModels = undefined,
+		onChangeEngine = undefined,
+		model = undefined,
+		onChangeModel = undefined,
+		language = undefined,
+		onChangeLanguage = undefined,
+		contentStructure = undefined,
+		onChangeContentStructure = undefined,
+		writingStyle = undefined,
+		onChangeWritingStyle = undefined,
+		writingTone = undefined,
+		onChangeWritingTone = undefined,
+		customPrompt = undefined,
+		onChangeCustomBehavior = undefined,
 	} = props
 
 	// 選択可能なGPTモデルの状態管理用
@@ -186,20 +186,3 @@ export const OptionsArea = memo( ( props ) => {
 		</>
 	)
 } )
-
-OptionsArea.defaultProps = {
-	label: __( 'Options', dpaa.i18n ),
-	userCanManageSettings: false,
-	model: undefined,
-	onChangeModel: undefined,
-	language: undefined,
-	onChangeLanguage: undefined,
-	contentStructure: undefined,
-	onChangeContentStructure: undefined,
-	writingStyle: undefined,
-	onChangeWritingStyle: undefined,
-	writingTone: undefined,
-	onChangeWritingTone: undefined,
-	customPrompt: undefined,
-	onChangeCustomBehavior: undefined,
-}

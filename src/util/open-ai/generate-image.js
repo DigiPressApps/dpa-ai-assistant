@@ -104,15 +104,3 @@ export const generateImageByOpenAI = async ( props ) => {
 
 	return false;
 }
-
-generateImageByOpenAI.defaultProps = {
-	prompt: null,
-	openai: null,
-	apiKey: null,
-	n: 1,	// dall-e-3 は「1」のみ
-	model: 'dall-e-2',
-	size: '1024x1024',
-	mode: 'generate',	// または variation
-	format: 'b64_json',	// または url
-	image: null,
-}

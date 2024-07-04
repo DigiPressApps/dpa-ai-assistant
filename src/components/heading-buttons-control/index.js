@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { AdvancedToggleGroupControl } from '../../components'
+import { AdvancedToggleGroupControl } from '@dpaa/components'
 
 /**
  * WordPress dependencies
@@ -60,24 +60,18 @@ const TAG_OPTIONS = [
 ]
 
 export const HeadingButtonsControl = props => {
+	const {
+		label = sprintf( __( '%s HTML Tag', 'dpaa' ), __( 'Title', 'dpaa' ) ),
+		value = TAG_OPTIONS[ 0 ].value,
+		controls = TAG_OPTIONS,
+	} = props
+
 	return (
 		<AdvancedToggleGroupControl
 			{ ...props }
 			className="dpaa-heading-buttons-control"
 		/>
 	)
-}
-
-HeadingButtonsControl.defaultProps = {
-	label: sprintf( __( '%s HTML Tag', 'dpaa' ), __( 'Title', 'dpaa' ) ),
-	value: TAG_OPTIONS[ 0 ].value,
-	controls: TAG_OPTIONS,
-	// onChange: undefined,
-	// help: '',
-	// className: '',
-	// size: 'default',
-	// isAdaptiveWidth: false,
-	// isBlock: true,
 }
 
 export default HeadingButtonsControl

@@ -161,7 +161,7 @@ export const ChatPanel = ( props ) => {
 	const [ visionMediaData, setVisionMediaData ] = useState( [] )
 
 	// ラッパー要素への参照用
-	const scrollableRef = useRef( null );
+	const scrollableRef = useRef( undefined );
 
 	// IndexedDBデータベース用
 	const [ indexedDB, setIndexedDB ] = useState( null )

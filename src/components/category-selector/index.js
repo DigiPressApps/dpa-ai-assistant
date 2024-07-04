@@ -39,11 +39,11 @@ const CATEGORY_QUERY = {
 
 const CategorySelector = props => {
 	const {
-		label,
-		value,
-		onChange,
-		maxLength,
-		placeholder,
+		label = __( 'Categories' ),
+		onChange = undefined,
+		value = null,
+		maxLength = 100,	// 全取得 = 0
+		placeholder = __( 'Enter category name', dpaa.i18n )
 	} = props
 
 	const categoriesList = useSelect( ( select ) => {
@@ -107,14 +107,6 @@ const CategorySelector = props => {
 			__next40pxDefaultSize={ true }
 		/>
 	);
-}
-
-CategorySelector.defaultProps = {
-	label: __( 'Categories' ),
-	onChange: undefined,
-	value: null,
-	maxLength: 100,	// 全取得: 0
-	placeholder: __( 'Enter category name', dpaa.i18n )
 }
 
 export default CategorySelector;

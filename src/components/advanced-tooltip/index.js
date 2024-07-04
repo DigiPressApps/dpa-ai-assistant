@@ -3,6 +3,7 @@ import classnames from 'classnames'
 import { Tooltip } from '@wordpress/components'
 
 export const AdvancedTooltip = props => {
+
 	return (
 		<Tooltip
 			{ ...props }
@@ -17,11 +18,6 @@ export const AdvancedTooltip = props => {
 			}
 		/>
 	)
-}
-
-Tooltip.defaultProps = {
-	className: '',
-	text: undefined
 }
 
 export default AdvancedTooltip

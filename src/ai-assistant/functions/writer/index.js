@@ -163,11 +163,11 @@ export const WriterPanel = ( props ) => {
 	const [ errorMessage, setErrorMessage ] = useState( '' )
 
 	// フォーム参照用
-	const titleRef = useRef( null )
-	const sectionsRef = useRef( null )
-	const contentRef = useRef( null )
-	const excerptRef = useRef( null )
-	const countUpRef = useRef( null )
+	const titleRef = useRef( undefined )
+	const sectionsRef = useRef( undefined )
+	const contentRef = useRef( undefined )
+	const excerptRef = useRef( undefined )
+	const countUpRef = useRef( undefined )
 
 	// API 設定の取得
 	useEffect( () => {

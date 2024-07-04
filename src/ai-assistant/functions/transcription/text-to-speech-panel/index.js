@@ -48,7 +48,7 @@ export const TextToSpeechPanel = props => {
 	const currentDate = new Date().toISOString().replace(/[-T:]/g, '-').slice(0, 16);
 
 	// ラッパー要素への参照用
-	const scrollableRef = useRef( null );
+	const scrollableRef = useRef( undefined );
 
 	// パラメータ用
 	const [ model, setModel ] = useState( null )

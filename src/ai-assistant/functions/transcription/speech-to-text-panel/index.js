@@ -48,7 +48,7 @@ export const SpeechToTextPanel = props => {
 	} = props
 
 	// ラッパー要素への参照用
-	const scrollableRef = useRef( null );
+	const scrollableRef = useRef( undefined );
 
 	// パラメータ用
 	const [ model, setModel ] = useState( null )

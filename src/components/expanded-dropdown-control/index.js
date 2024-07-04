@@ -2,9 +2,7 @@
  * Internal dependencies
  */
 import './editor.scss'
-import {
-	DropdownRenderToggleButton,
-} from '../../components'
+import { DropdownRenderToggleButton } from '@dpaa/components'
 
 /**
  * WordPress dependencies
@@ -18,13 +16,26 @@ import {
 
 export const ExpandedDropdownControl = props => {
 	const {
-		labelToggleFlag,
-		labelDropdownTrigger,
-		toggleFlag,
-		dropdownRenderToggleButtonData,
-		popoverProps,
-		onChangeToggleFlag,
-		children,
+		labelToggleFlag = '',
+		labelDropdownTrigger = '',
+		toggleFlag = null,
+		popoverProps = {
+			placement: 'bottom-start',
+			offset: 5,
+			shift: true,
+		},
+		dropdownRenderToggleButtonData = {
+			icon: 'filter',
+			iconSize: 20,
+			size: 'default',
+			text: '',
+			variant: 'secondary',
+			buttonColor: null,
+			useResetButton: false,
+			onChangeReset: undefined,
+		},
+		onChangeToggleFlag = undefined,
+		children = <></>,
 	} = props
 
 	return (
@@ -72,29 +83,6 @@ export const ExpandedDropdownControl = props => {
 			) }
 		</>
 	)
-}
-
-ExpandedDropdownControl.defaultProps = {
-	labelToggleFlag: '',
-	labelDropdownTrigger: '',
-	toggleFlag: null,
-	popoverProps: {
-		placement: 'bottom-start',
-		offset: 5,
-		shift: true,
-	},
-	dropdownRenderToggleButtonData: {
-		icon: 'filter',
-		iconSize: 20,
-		size: 'default',
-		text: '',
-		variant: 'secondary',
-		buttonColor: null,
-		useResetButton: false,
-		onChangeReset: undefined,
-	},
-	onChangeToggleFlag: undefined,
-	children: <></>,
 }
 
 export default ExpandedDropdownControl

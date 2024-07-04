@@ -20,19 +20,19 @@ import { useState } from '@wordpress/element'
 
 export const PopoverHelp = ( props ) => {
 	const {
-		buttonClass,
-		buttonVariant,
-		buttonIcon,
-		buttonText,
-		buttonSize,
-		popoverPosition,
-		popoverVariant,
-		popoverOffset,
-		popoverClass,
-		popoverNoArrow,
-		help,
-		enableInnerHTMLHelp,
-		maxWidth,
+		buttonClass = '',
+		buttonVariant = 'tertiary',
+		buttonIcon = 'warning',
+		buttonText = __( 'About', dpaa.i18n ),
+		buttonSize = 'small',
+		popoverPosition = 'bottom left',
+		popoverVariant = 'toolbar',
+		popoverOffset = 5,
+		popoverClass = '',
+		popoverNoArrow = false,
+		help = '',
+		enableInnerHTMLHelp = true,
+		maxWidth = '650px',
 	} = props
 
 	const buttonClasses = classnames( [
@@ -73,22 +73,6 @@ export const PopoverHelp = ( props ) => {
 			) }
 			</Button>
 	)
-}
-
-PopoverHelp.defaultProps = {
-	buttonClass: '',
-	buttonVariant: 'tertiary',
-	buttonIcon: 'warning',
-	buttonText: __( 'About', dpaa.i18n ),
-	buttonSize: 'small',
-	popoverPosition: 'bottom left',
-	popoverVariant: 'toolbar',
-	popoverOffset: 5,
-	popoverClass: '',
-	popoverNoArrow: false,
-	help: '',
-	enableInnerHTMLHelp: true,
-	maxWidth: '650px',
 }
 
 export default PopoverHelp

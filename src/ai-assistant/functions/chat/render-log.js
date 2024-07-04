@@ -56,7 +56,7 @@ export const RenderLog = memo( ( props ) => {
 		return
 	}
 
-	const logWrapperRef = useRef( null )
+	const logWrapperRef = useRef( undefined )
 	const logWrapperClasses = classnames( [
 		'dpaa-ai-assistant--generator__log__inner-wrapper',
 		'__chat',

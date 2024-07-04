@@ -113,19 +113,3 @@ export const sendMessage = async ( props ) => {
 		}
 	}
 }
-
-sendMessage.defaultProps = {
-	message: null,
-	openai: null,
-	apiKey: null,
-	useStreaming: false,
-	model: 'gpt-3.5-turbo',
-	systemPrompt: '',
-	conversation: [],
-	temperature: 0.8,
-	topP: 0.8,
-	maxTokens: 2000,
-	setResponse: undefined,
-	setConsumedTokens: null,
-	shouldReturnJson: false,
-}
