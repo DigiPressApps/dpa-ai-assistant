@@ -3,7 +3,7 @@ Contributors: digistatejp
 Tags: ai, gpt, openai, writer, image generator
 Requires at least: 6.2
 Tested up to: 6.5.3
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 Requires PHP: 8.0
 Donate link: https://dpapps.net/donation/
 License: GPLv2 or later
