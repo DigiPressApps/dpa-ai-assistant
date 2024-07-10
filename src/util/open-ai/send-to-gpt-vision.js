@@ -22,15 +22,15 @@ export const newOpenAI = ( apiKey ) => {
 
 export const sendToGPTVision = async ( props ) => {
 	const {
-		message,
-		apiKey,
-		openai,
-		model,
-		systemPrompt,
-		temperature,
-		topP,
-		maxTokens,
-		arrayImageUrls,
+		message = '',
+		apiKey = null,
+		openai = undefined,
+		model = '',
+		systemPrompt = '',
+		temperature = 1,
+		topP = 0.7,
+		maxTokens = 2000,
+		arrayImageUrls = [],
 	} = props
 
 	if ( !message || !model || !model.includes( 'gpt-4-vision' ) ||　!Array.isArray( arrayImageUrls ) || arrayImageUrls?.length < 0 ) {
@@ -86,12 +86,4 @@ export const sendToGPTVision = async ( props ) => {
 		response: response.choices[ 0 ].message.content,
 		usage: response.usage,
 	}
-}
-
-sendToGPTVision.defaultProps = {
-	message: '',
-	arrayImageUrls: '',
-	apiKey: '',
-	openai: undefined,
-	model: '',
 }

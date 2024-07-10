@@ -3,7 +3,7 @@ Contributors: digistatejp
 Tags: ai, gpt, openai, writer, image generator
 Requires at least: 6.2
 Tested up to: 6.5.3
-Stable tag: 0.1.4
+Stable tag: 0.1.5
 Requires PHP: 8.0
 Donate link: https://dpapps.net/donation/
 License: GPLv2 or later
@@ -77,7 +77,11 @@ The development hub for this plugin and the source code can be found at <a href=
 
 == Changelog ==
 
-= 0.1.3 (2024/07/04) =
+= 0.1.5 (2024/07/10) =
+* Fix: Removed `defaultProps` (Deprecated in React 19).
+* Fix: Removed unnecessary custom components.
+
+= 0.1.4 (2024/07/04) =
 * Fix: Removed `defaultProps` (Deprecated in React 19).
 * Fix: Minor fixed for the next WordPress 6.6.
 

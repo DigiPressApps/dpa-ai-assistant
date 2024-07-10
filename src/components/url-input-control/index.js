@@ -17,15 +17,14 @@ import { omit } from 'lodash'
 import classnames from 'classnames'
 
 export const URLInputControl = props => {
-
 	const {
-		value,
-		label,
-		help,
-		newTab,
-		onChange,
-		onChangeNewTab,
-		isAbsolutePosition,
+		label = '',
+		help = null,
+		value = '',
+		onChange = () => {},
+		newTab = false,
+		onChangeNewTab = undefined,
+		isAbsolutePosition = false
 	} = props
 
 	const [ more, setMore] = useState( false )
@@ -71,16 +70,6 @@ export const URLInputControl = props => {
 			}
 		</BaseControl>
 	)
-}
-
-URLInputControl.defaultProps = {
-	label: '',
-	help: null,
-	value: '',
-	onChange: () => {},
-	newTab: false,
-	onChangeNewTab: undefined,
-	isAbsolutePosition: false
 }
 
 export default URLInputControl

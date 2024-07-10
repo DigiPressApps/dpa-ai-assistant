@@ -42,13 +42,25 @@ const urlLabels = [
 
 export const URLInputInspectorControl = props => {
 	const {
-		label,
-		help,
-		url,
-		newTab,
-		noFollow,
-		sponsored,
-		ugc,
+		label = 'URL',
+		help = '',
+		url = '',
+		newTab = false,
+		noFollow = false,
+		sponsored = false,
+		ugc = false,
+		disableSuggestions = false,
+		popoverFocusOnMount = 'firstElement',
+		linkControlClassName = null,
+		position = 'bottom center',
+		anchor = null,
+		onChangeUrl = undefined,
+		onChangeNewTab = undefined,
+		onChangeNoFollow = undefined,
+		onChangeSponsored = undefined,
+		onChangeUgc = undefined,
+		onClosePopover = undefined,
+		onRemoveLinkControl = undefined,
 	} = props
 
 	const urlOptions = {
@@ -114,28 +126,6 @@ export const URLInputInspectorControl = props => {
 			/>
 		</BaseControl>
 	)
-}
-
-URLInputInspectorControl.defaultProps = {
-	label: 'URL',
-	help: '',
-	url: '',
-	newTab: false,
-	noFollow: false,
-	sponsored: false,
-	ugc: false,
-	disableSuggestions: false,
-	popoverFocusOnMount: 'firstElement',
-	linkControlClassName: null,
-	position: 'bottom center',
-	anchor: null,
-	onChangeUrl: null,
-	onChangeNewTab: null,
-	onChangeNoFollow: null,
-	onChangeSponsored: null,
-	onChangeUgc: null,
-	onClosePopover: null,
-	onRemoveLinkControl: null,
 }
 
 export default URLInputInspectorControl

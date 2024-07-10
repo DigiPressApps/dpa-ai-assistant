@@ -2,7 +2,7 @@
  * Internal dependencies
  */
 import './editor.scss'
-import { useGlobalState } from '../../util/use-global-state'
+import { useGlobalState } from '@dpaa/util'
 
 /**
  * External dependencies
@@ -50,24 +50,44 @@ const closeAllOpenPanels = ( clickedEl ) => {
 }
 
 export const PanelAdvancedSettings = props => {
+	const {
+		id = '',
+		className = '',
+		title = __( 'Settings', dpaa.i18n ),
+		checked = false,
+		onChange = undefined,
+		initialOpen = false,
+		hasToggle = true,
+		initialAdvanced = false,
+		advancedExpandPhrase = __( 'Show all', dpaa.i18n ),
+		advancedFoldPhrase = __( 'Fold', dpaa.i18n ),
+		advancedChildren = undefined,
+		onToggle = () => {}, 
+		isOpen = undefined,
+		header = undefined,
+		icon = undefined,
+		titleLeftIcon = undefined,
+		titleLeftIconSize = '20',
+		children = undefined,
+	} = props
+
 	// Remember whether this panel was open/closed before.
 	const { isSelected, name } = useBlockEditContext()
 	const [ tab ] = useGlobalState( `tabCache-${ name }`, 'style' )
-	const [ initialOpen, setInitialOpen ] = useGlobalState( `panelCache-${ name }-${ tab }-${ props.title }`, props.initialOpen )
-
-	const [ isOpen, setIsOpen ] = useState( initialOpen )
-	const [ showAdvanced, setShowAdvanced ] = useState( props.initialAdvanced )
+	const [ isInitialOpen, setIsInitialOpen ] = useGlobalState( `panelCache-${ name }-${ tab }-${ title }`, initialOpen )
+	const [ isCurrentOpen, setIsCurrentOpen ] = useState( isInitialOpen )
+	const [ showAdvanced, setShowAdvanced ] = useState( initialAdvanced )
 
 	// onToggle で自分自身のノードを closeAllOpenPanels メソッドに渡すために必要
-	const panelBodyRef = useRef(null);
+	const panelBodyRef = useRef( null );
 
-	const hasToggle = props.hasToggle && props.onChange
+	const hasCurrentToggle = hasToggle && onChange
 
-	const onToggle = () => {
-		setIsOpen( ! isOpen )
-		setInitialOpen( ! isOpen )
-		if ( props.onToggle ) {
-			props.onToggle( ! isOpen )
+	const onCurrentToggle = () => {
+		setIsCurrentOpen( ! isCurrentOpen )
+		setIsInitialOpen( ! isCurrentOpen )
+		if ( onToggle ) {
+			onToggle( ! isCurrentOpen )
 		}
 
 		// panelBodyRef.current は PanelBody の DOM ノードを参照します
@@ -77,41 +97,41 @@ export const PanelAdvancedSettings = props => {
 	}
 
 	const wrapperClasses = classnames( [
-		props.className,
+		className,
 		'dpaa-toggle-panel-body',
 	], {
 		'dpaa-toggle-panel-body--advanced': showAdvanced,
-		[ `dpaa-panel--${ props.id }` ]: props.id,
+		[ `dpaa-panel--${ id }` ]: id,
 	} )
 
 	const Title = memo( () => {
 		return (
 			<>
-				{ hasToggle && (
+				{ hasCurrentToggle && (
 					<span className={ `editor-panel-toggle-settings__panel-title` }>
 						<FormToggle
 							className="dpaa-toggle-panel-form-toggle"
-							checked={ props.checked }
+							checked={ checked }
 							onClick={ ev => {
 								ev.stopPropagation()
 								ev.preventDefault()
-								const checked = props.checked
-								if ( checked && isOpen ) {
+								const checked = checked
+								if ( checked && isCurrentOpen ) {
 									// Comment this out since it jumps the inspector.
 									// this.onToggle()
-								} else if ( ! checked && ! isOpen ) {
-									onToggle()
+								} else if ( ! checked && ! isCurrentOpen ) {
+									onCurrentToggle()
 								}
-								if ( props.onChange ) {
-									props.onChange( ! checked )
+								if ( onChange ) {
+									onChange( ! checked )
 								}
 							} }
-							aria-describedby={ props.title }
+							aria-describedby={ title }
 						/>
-						{ props.title }
+						{ title }
 					</span>
 				) }
-				{ ! hasToggle && props.title }
+				{ ! hasCurrentToggle && title }
 			</>
 		)
 	} )
@@ -120,59 +140,39 @@ export const PanelAdvancedSettings = props => {
 		<Panel>
 			<PanelBody
 				className={ wrapperClasses }
-				initialOpen={ initialOpen }
-				onToggle={ onToggle }
-				opened={ props.isOpen !== null ? props.isOpen : isOpen }
-				title={ props.titleLeftIcon
+				initialOpen={ isInitialOpen }
+				onToggle={ onCurrentToggle }
+				opened={ isOpen !== null ? isOpen : isCurrentOpen }
+				title={ titleLeftIcon
 					?
 					 <>
 					 	<Icon
-							icon={ props.titleLeftIcon }
+							icon={ titleLeftIcon }
 							className='dpaa-panel-advanced__title-icon'
-							size={ props.titleLeftIconSize }
+							size={ titleLeftIconSize }
 						/>
 						<Title />
 					 </>
 					:
-						<Title />
+					 <Title />
 				}
-				header={ props.header }
-				icon={ props.icon }
+				header={ header }
+				icon={ icon }
 				ref={ panelBodyRef }
 			>
-				{ props.children }
-				{ showAdvanced && props.advancedChildren }
-				{ props.advancedChildren && (
+				{ children }
+				{ showAdvanced && advancedChildren }
+				{ advancedChildren && (
 					<button
 						className="dpaa-panel-advanced-button"
 						onClick={ () => setShowAdvanced( ! showAdvanced ) }
 					>
-						{ showAdvanced ? props.advancedFoldPhrase : props.advancedExpandPhrase }
+						{ showAdvanced ? advancedFoldPhrase : advancedExpandPhrase }
 					</button>
 				) }
 			</PanelBody>
 		</Panel>
 	)
-}
-
-PanelAdvancedSettings.defaultProps = {
-	id: '',
-	className: '',
-	title: __( 'Settings', dpaa.i18n ),
-	checked: false,
-	onChange: null,
-	initialOpen: false,
-	hasToggle: true,
-	initialAdvanced: false,
-	advancedExpandPhrase: __( 'Show all', dpaa.i18n ),
-	advancedFoldPhrase: __( 'Fold', dpaa.i18n ),
-	advancedChildren: null,
-	onToggle: () => {},
-	isOpen: null,
-	header: null,
-	icon: null,
-	titleLeftIcon: null,
-	titleLeftIconSize: '20'
 }
 
 export default PanelAdvancedSettings

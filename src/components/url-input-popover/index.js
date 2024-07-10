@@ -36,11 +36,23 @@ const urlLabels = [
 
 export const URLInputPopover = props => {
 	const {
-		url,
-		newTab,
-		noFollow,
-		sponsored,
-		ugc,
+		url = '',
+		newTab = false,
+		noFollow = false,
+		sponsored = false,
+		ugc = false,
+		disableSuggestions = false,
+		popoverFocusOnMount = 'firstElement',
+		linkControlClassName = null,
+		position = 'bottom center',
+		anchor = undefined,
+		onChangeUrl = undefined,
+		onChangeNewTab = undefined,
+		onChangeNoFollow = undefined,
+		onChangeSponsored = undefined,
+		onChangeUgc = undefined,
+		onClosePopover = undefined,
+		onRemoveLinkControl = undefined,
 	} = props
 
 	const urlOptions = {
@@ -108,26 +120,6 @@ export const URLInputPopover = props => {
 			/>
 		</Popover>
 	)
-}
-
-URLInputPopover.defaultProps = {
-	url: '',
-	newTab: false,
-	noFollow: false,
-	sponsored: false,
-	ugc: false,
-	disableSuggestions: false,
-	popoverFocusOnMount: 'firstElement',
-	linkControlClassName: null,
-	position: 'bottom center',
-	anchor: undefined,
-	onChangeUrl: null,
-	onChangeNewTab: null,
-	onChangeNoFollow: null,
-	onChangeSponsored: null,
-	onChangeUgc: null,
-	onClosePopover: null,
-	onRemoveLinkControl: null,
 }
 
 export default URLInputPopover
