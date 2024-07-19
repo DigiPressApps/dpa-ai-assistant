@@ -2,8 +2,8 @@
 Contributors: digistatejp
 Tags: ai, gpt, openai, writer, image generator
 Requires at least: 6.2
-Tested up to: 6.5.3
-Stable tag: 0.1.5
+Tested up to: 6.6
+Stable tag: 0.1.6
 Requires PHP: 8.0
 Donate link: https://dpapps.net/donation/
 License: GPLv2 or later
@@ -76,6 +76,10 @@ The developer of DPA AI Assistant and related parties are not responsible for an
 The development hub for this plugin and the source code can be found at <a href="https://github.com/DigiPressApps/dpa-ai-assistant">https://github.com/DigiPressApps/dpa-ai-assistant</a>.
 
 == Changelog ==
+
+= 0.1.6 (2024/07/19) =
+* Fix: Fixed a bug that caused values ​​to be unable to be passed to the props spread syntax due to the change from defaultProps to default parameters.
+* Fix: Removed unnecessary custom components.
 
 = 0.1.5 (2024/07/10) =
 * Fix: Removed `defaultProps` (Deprecated in React 19).

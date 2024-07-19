@@ -20,6 +20,18 @@ import {
 
 export const AdvancedToggleGroupControl = props => {
 	const {
+		__nextHasNoMarginBottom = false,
+		__next40pxDefaultSize = false,
+		value = null,
+		label = '',
+		help = '',
+		className = '',
+		size = 'default',	// or __unstable-large
+		isAdaptiveWidth = false,
+		isDeselectable = false,
+		hideLabelFromVision = false,
+		isBlock = true,
+		onChange = () => {},
 		controls = [
 			{
 				icon: null,
@@ -30,13 +42,23 @@ export const AdvancedToggleGroupControl = props => {
 				tooltip: ''
 			},
 		],
-		className = '',
 	} = props
 
 	return (
 		<ToggleGroupControl
 			className={ classnames( 'dpaa-advanced-toggle-group-control', className ) }
-			{ ...props }
+			__nextHasNoMarginBottom={ __nextHasNoMarginBottom }
+			__next40pxDefaultSize={ __next40pxDefaultSize }
+			value={ value }
+			label={ label }
+			help={ help }
+			size={ size }
+			isAdaptiveWidth={ isAdaptiveWidth }
+			isDeselectable={ isDeselectable }
+			hideLabelFromVision={ hideLabelFromVision }
+			isBlock={ isBlock }
+			onChange={ onChange }
+			// { ...props }
 			children={
 				controls.map( ( option, index ) => {
 					if ( option.icon ) {

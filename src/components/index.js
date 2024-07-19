@@ -8,7 +8,6 @@ export { default as ControlSeparator } from "./control-separator";
 export { default as DropdownButtonsForSelectedText } from "./dropdown-buttons-for-selected-text";
 export { default as DropdownRenderToggleButton } from "./dropdown-render-toggle-button";
 export { default as ExpandedDropdownControl } from "./expanded-dropdown-control";
-export { default as HeadingButtonsControl } from "./heading-buttons-control";
 export * from "./panel-advanced-settings";
 export { default as PopoverHelp } from "./popover-help";
 export { default as QueryControl } from "./query-control";

@@ -115,7 +115,6 @@ export const PanelAdvancedSettings = props => {
 							onClick={ ev => {
 								ev.stopPropagation()
 								ev.preventDefault()
-								const checked = checked
 								if ( checked && isCurrentOpen ) {
 									// Comment this out since it jumps the inspector.
 									// this.onToggle()
