@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 0.1.6 (2024/07/19) =
+* Fix: Fixed a bug that caused values ​​to be unable to be passed to the props spread syntax due to the change from defaultProps to default parameters.
+* Fix: Removed unnecessary custom components.
+
 = 0.1.5 (2024/07/10) =
 * Fix: Removed `defaultProps` (Deprecated in React 19).
 * Fix: Removed unnecessary custom components.

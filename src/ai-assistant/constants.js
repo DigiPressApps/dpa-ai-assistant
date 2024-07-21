@@ -48,14 +48,14 @@ export const OPEN_AI_GPT_MODELS = [
 		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ),
 	},
 	{
-		name: 'GPT-4 Vision Preview',
-		key: 'gpt-4-vision-preview',
+		name: 'GPT-4o',
+		key: 'gpt-4o',
 		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
 	},
 	{
-		name: 'GPT-4o',
-		key: 'gpt-4o',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ),
+		name: 'GPT-4o mini',
+		key: 'gpt-4o-mini',
+		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
 	},
 ]
 // アシスタント用
@@ -86,14 +86,14 @@ export const OPEN_AI_GPT_ASSISTANTS_MODELS = [
 		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ),
 	},
 	{
-		name: 'GPT-4 Vision Preview',
-		key: 'gpt-4-vision-preview',
+		name: 'GPT-4o',
+		key: 'gpt-4o',
 		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
 	},
 	{
-		name: 'GPT-4o',
-		key: 'gpt-4o',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ),
+		name: 'GPT-4o mini',
+		key: 'gpt-4o-mini',
+		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
 	},
 ]
 
@@ -147,7 +147,7 @@ export const OPEN_AI_DALL_E_IMAGE_STYLES = [
 	{ label: __( 'Vivid', dpaa.i18n ), value: 'vivid' },
 	{ label: __( 'Natural', dpaa.i18n ), value: 'natural' },
 ]
-export const DEFAULT_OPEN_AI_GPT_MODEL = 'gpt-3.5-turbo'
+export const DEFAULT_OPEN_AI_GPT_MODEL = 'gpt-4o-mini'
 export const DEFAULT_OPEN_AI_MAX_TOKENS = 2000
 export const DEFAULT_OPEN_AI_TEMPERATURE = 0.8
 export const DEFAULT_OPEN_AI_TOP_P = 0.8

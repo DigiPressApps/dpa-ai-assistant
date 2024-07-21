@@ -493,7 +493,11 @@ export const WriterPanel = ( props ) => {
 							// 本文の保持(導入、まとめの指示を消す)
 							const replacedIntroTitle = isIncludeIntro && showIntroTitle ? `${ markdownHeadingLevelMap[ parseInt( introTitleTag ) ] } ${ introTitle }\n` : ''
 							const replacedOutroTitle = isIncludeOutro && showOutroTitle ? `${ markdownHeadingLevelMap[ parseInt( outroTitleTag ) ] } ${ outroTitle }\n` : ''
-							const newContent = response.response.replace( '===INTRO===\n', replacedIntroTitle ).replace( '===OUTRO===\n', replacedOutroTitle )
+							const newContent = response.response.replace( /===INTRO===\s*\n/g, replacedIntroTitle ).replace( /===OUTRO===\s*\n/g, replacedOutroTitle )
+
+
+							console.dir( { newContent, replacedIntroTitle } );
+
 							if ( newContent !== generatedContent ) {
 								setGeneratedContent( newContent )
 							}

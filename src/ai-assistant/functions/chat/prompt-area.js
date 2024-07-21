@@ -255,7 +255,7 @@ export const PromptArea = memo( ( props ) => {
 														icon={ menuIcon }
 														iconSize={ 24 }
 														variant='tertiary'
-														disabled={ isVisionModel || isLoading || isStreaming }
+														disabled={ isLoading || isStreaming }
 														onClick={ () => onClickOperationSelectedText( onToggle ) }
 														aria-expanded={ isOpen }
 													/>
@@ -284,7 +284,7 @@ export const PromptArea = memo( ( props ) => {
 														icon={ menuIcon }
 														iconSize={ 24 }
 														// variant='tertiary'
-														disabled={ isVisionModel || isLoading || isStreaming }
+														disabled={ isLoading || isStreaming }
 														onClick={ () => onClickOperationClipboardText( onToggle ) }
 														aria-expanded={ isOpen }
 													/>
@@ -324,7 +324,7 @@ export const PromptArea = memo( ( props ) => {
 										icon={ shuffleIcon }
 										iconSize={ 18 }
 										variant='secondary'
-										disabled={ isVisionModel || isLoading || isStreaming || !openai }
+										disabled={ isLoading || isStreaming || !openai }
 										onClick={ onClickMagicPrompt }
 									/>
 								</FlexItem>
@@ -337,7 +337,7 @@ export const PromptArea = memo( ( props ) => {
 										icon={ redoIcon }
 										iconSize={ 18 }
 										variant='secondary'
-										disabled={ isVisionModel || isLoading || isStreaming || !openai ||  !previousMessageRef?.current }
+										disabled={ isLoading || isStreaming || !openai ||  !previousMessageRef?.current }
 										onClick={ onClickContinue }
 									/>
 								</FlexItem>

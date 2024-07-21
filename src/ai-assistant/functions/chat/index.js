@@ -503,7 +503,7 @@ export const ChatPanel = ( props ) => {
 		const arrayUrls = visionMediaData.map( media => media?.url );
 
 		// URLがローカル環境である場合は、Base64画像に変換
-		const arrayImageUrls = await Promise.all( arrayUrls.map( async ( url ) => {
+		const arrayBase64Images = await Promise.all( arrayUrls.map( async ( url ) => {
 			if ( isLocalUrl( url ) ) {
 				try {
 					const res = await urlToBase64Image(url);
@@ -515,7 +515,7 @@ export const ChatPanel = ( props ) => {
 			}
 		} ) )
 
-		setIsLoading( true )
+		setIsLoading( true );
 		sendToGPTVision( {
 			systemPrompt: sysPrompt,
 			message: messageText,
@@ -524,7 +524,7 @@ export const ChatPanel = ( props ) => {
 			temperature: temperature,
 			topP: topP,
 			maxTokens: maxTokens,
-			arrayImageUrls: arrayImageUrls,
+			arrayImageUrls: arrayBase64Images,
 		} )
 		.then( response => {
 			const res = response?.response

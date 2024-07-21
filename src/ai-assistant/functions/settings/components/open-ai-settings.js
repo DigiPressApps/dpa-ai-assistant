@@ -185,9 +185,7 @@ export const OpenAISettings = ( { pluginSettings } ) => {
 									? 16000
 									: gptModel === 'gpt-4'
 										? 8000
-										: gptModel === 'gpt-4-32k'
-											? 32000
-											: 128000
+										: 128000
 							) }
 						/>
 						<PopoverHelp

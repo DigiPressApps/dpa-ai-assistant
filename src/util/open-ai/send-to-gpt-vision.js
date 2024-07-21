@@ -33,7 +33,7 @@ export const sendToGPTVision = async ( props ) => {
 		arrayImageUrls = [],
 	} = props
 
-	if ( !message || !model || !model.includes( 'gpt-4-vision' ) ||　!Array.isArray( arrayImageUrls ) || arrayImageUrls?.length < 0 ) {
+	if ( !message || !model || ( !model.includes( 'gpt-4-vision' ) && !model.includes( 'gpt-4o' ) ) ||　!Array.isArray( arrayImageUrls ) || arrayImageUrls?.length < 0 ) {
 		return;
 	}
 

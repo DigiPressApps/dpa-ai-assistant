@@ -3,7 +3,7 @@ Contributors: digistatejp
 Tags: ai, gpt, openai, writer, image generator
 Requires at least: 6.2
 Tested up to: 6.6
-Stable tag: 0.1.6
+Stable tag: 0.2.0
 Requires PHP: 8.0
 Donate link: https://dpapps.net/donation/
 License: GPLv2 or later
@@ -76,6 +76,12 @@ The developer of DPA AI Assistant and related parties are not responsible for an
 The development hub for this plugin and the source code can be found at <a href="https://github.com/DigiPressApps/dpa-ai-assistant">https://github.com/DigiPressApps/dpa-ai-assistant</a>.
 
 == Changelog ==
+
+= 0.2.0 (2024/07/21) =
+* Update: Added new text generation model "GPT-4o mini" in Chat function.
+* Update: The default GPT model is changed from "GPT-3.5 Turbo" to "GPT-4o mini".
+* Fix: Fixed a bug in the writer function where it was not possible to replace the intro and outro titles when selecting gpt-4o-mini.
+* Fix: Removed [deprecated models](https://platform.openai.com/docs/deprecations) in Open AI from plugin's selectable AI models.
 
 = 0.1.6 (2024/07/19) =
 * Fix: Fixed a bug that caused values ​​to be unable to be passed to the props spread syntax due to the change from defaultProps to default parameters.

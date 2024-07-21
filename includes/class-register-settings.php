@@ -52,7 +52,7 @@ if ( ! class_exists( 'DPAA_Register_Settings' ) ) {
 						),
 						'gptModel'	=> array(
 							'type'		=> 'string',
-							'default'	=> 'gpt-3.5-turbo'	// gpt-4, gpt-4-32k, gpt-4-vision-preview
+							'default'	=> 'gpt-4o'
 						),
 						'temperature'	=> array(
 							'type'		=> 'number',
@@ -64,7 +64,7 @@ if ( ! class_exists( 'DPAA_Register_Settings' ) ) {
 						),
 						'maxTokens'	=> array(
 							'type'		=> 'number',
-							'default'	=> 2000	// [Max] gpt-3.5-turbo: 4,096 / gpt-4: 8,192 / gpt-4-32k: 32,768
+							'default'	=> 2000
 						),
 						'assistants'	=> array(
 							'type'		=> 'object',

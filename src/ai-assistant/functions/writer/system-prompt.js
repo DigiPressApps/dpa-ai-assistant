@@ -60,7 +60,7 @@ export const MAGIC_PROMPT_TOPICS = [
 	"Martial arts",
 	"Rock climbing"
 ]
-export const MESSAGE_PROMPT_TITLE = 'Write an attractive title suitable for an article about "{TOPIC}". Must be between {TITLE_MIN} and {TITLE_MAX} characters.'
+export const MESSAGE_PROMPT_TITLE = 'Write an attractive title suitable for an article about "{TOPIC}". Must be between {TITLE_MIN} and {TITLE_MAX} characters. Do not wrap the title in parentheses etc., just return the title string.'
 export const MESSAGE_PROMPT_SECTIONS = 'Write {SECTION_COUNT} consecutive headings for an article about "{TITLE}". Use Markdown for formatting. Heading level: {HEADING_LEVEL}. Each heading is between {SECTION_TITLE_MIN} and {SECTION_TITLE_MAX} characters.'
 export const MESSAGE_PROMPT_CONTENT = 'Write a compelling and well-researched article about "{TITLE}". The article is organized by the following headings (Heading level: {HEADING_LEVEL}):\n\n{SECTIONS}\n\nWrite at least {PARAGRAPHS_PER_SECTION} paragraphs per heading. Use Markdown for formatting. Include relevant statistics, examples, and quotes to support your arguments and engage the reader. If the content includes reviews, summarize them in a table or list along with the text.'
 export const MESSAGW_PROMPT_CONTENT_INSERT_TOC = 'Insert a Table of Contents at the beginning of the article or after the introduction that corresponds to the number of headings.'
