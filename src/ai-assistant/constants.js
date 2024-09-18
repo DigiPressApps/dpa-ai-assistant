@@ -20,22 +20,38 @@ export const STABILITY_AI_MODEL_DOCUMENT_URL = 'https://platform.stability.ai/do
 export const STABILITY_AI_CALCULATE_COSTS_URL = 'https://platform.stability.ai/pricing'
 export const STABILITY_AI_CREDITS_URL = 'https://platform.stability.ai/account/credits'
 
-//OpenAI
+//OpenAI デフォルト
+export const DEFAULT_OPEN_AI_GPT_MODEL = 'gpt-4o-mini'
+export const DEFAULT_OPEN_AI_MAX_TOKENS = 2000
+export const DEFAULT_OPEN_AI_TEMPERATURE = 0.8
+export const DEFAULT_OPEN_AI_TOP_P = 0.8
+export const DEFAULT_OPEN_AI_DALL_E_MODEL = 'dall-e-2'
+export const DEFAULT_OPEN_AI_DALL_E_NUMBER_IMAGES = 1
+export const DEFAULT_OPEN_AI_DALL_E_IMAGE_SIZE = '1024x1024'
+export const DEFAULT_OPEN_AI_DALL_E_QUALITY = 'standard'
+export const DEFAULT_OPEN_AI_DALL_E_STYLE = 'vivid'
+
+// Open AI モデル
 export const OPEN_AI_GPT_MODELS = [
 	{
-		name: 'GPT-3.5 Turbo',
-		key: 'gpt-3.5-turbo',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ),
+		name: 'o1-preview',
+		key: 'o1-preview',
+		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Designed to solve hard problems', dpaa.i18n ) }`,
 	},
 	{
-		name: 'GPT-3.5 Turbo (1106)',
-		key: 'gpt-3.5-turbo-1106',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ),
+		name: 'o1-mini',
+		key: 'o1-mini',
+		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Good at coding, math, and science', dpaa.i18n ) }`,
 	},
 	{
-		name: 'GPT-4',
-		key: 'gpt-4',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '8,192' ),
+		name: 'GPT-4o',
+		key: 'gpt-4o',
+		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
+	},
+	{
+		name: 'GPT-4o mini',
+		key: 'gpt-4o-mini',
+		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
 	},
 	{
 		name: 'GPT-4 Turbo',
@@ -48,32 +64,42 @@ export const OPEN_AI_GPT_MODELS = [
 		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ),
 	},
 	{
-		name: 'GPT-4o',
-		key: 'gpt-4o',
-		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
+		name: 'GPT-4',
+		key: 'gpt-4',
+		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '8,192' ),
 	},
 	{
-		name: 'GPT-4o mini',
-		key: 'gpt-4o-mini',
-		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
+		name: 'GPT-3.5 Turbo',
+		key: 'gpt-3.5-turbo',
+		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ),
+	},
+	{
+		name: 'GPT-3.5 Turbo (1106)',
+		key: 'gpt-3.5-turbo-1106',
+		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ),
 	},
 ]
 // アシスタント用
 export const OPEN_AI_GPT_ASSISTANTS_MODELS = [
 	{
-		name: 'GPT-3.5 Turbo',
-		key: 'gpt-3.5-turbo',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ),
+		name: 'o1-preview',
+		key: 'o1-preview',
+		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Designed to solve hard problems', dpaa.i18n ) }`,
 	},
 	{
-		name: 'GPT-3.5 Turbo (1106)',
-		key: 'gpt-3.5-turbo-1106',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ),
+		name: 'o1-mini',
+		key: 'o1-mini',
+		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Good at coding, math, and science', dpaa.i18n ) }`,
 	},
 	{
-		name: 'GPT-4',
-		key: 'gpt-4',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '8,192' ),
+		name: 'GPT-4o',
+		key: 'gpt-4o',
+		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
+	},
+	{
+		name: 'GPT-4o mini',
+		key: 'gpt-4o-mini',
+		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
 	},
 	{
 		name: 'GPT-4 Turbo',
@@ -86,19 +112,39 @@ export const OPEN_AI_GPT_ASSISTANTS_MODELS = [
 		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ),
 	},
 	{
-		name: 'GPT-4o',
-		key: 'gpt-4o',
-		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
+		name: 'GPT-4',
+		key: 'gpt-4',
+		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '8,192' ),
 	},
 	{
-		name: 'GPT-4o mini',
-		key: 'gpt-4o-mini',
-		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
+		name: 'GPT-3.5 Turbo',
+		key: 'gpt-3.5-turbo',
+		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ),
+	},
+	{
+		name: 'GPT-3.5 Turbo (1106)',
+		key: 'gpt-3.5-turbo-1106',
+		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ),
 	},
 ]
 
 // Fine-tuning用のモデル
 export const OPEN_AI_MODELS_FOR_FINE_TUNING = [
+	{
+		name: 'GPT-4o mini',
+		key: 'gpt-4o-mini-2024-07-18',
+		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ),
+	},
+	{
+		name: 'GPT-4o',
+		key: 'gpt-4o-2024-08-06',
+		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ),
+	},
+	{
+		name: 'GPT-4',
+		key: 'gpt-4-0613',
+		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '8,192' ),
+	},
 	{
 		name: 'GPT-3.5 Turbo',
 		key: 'gpt-3.5-turbo-0125',
@@ -109,24 +155,19 @@ export const OPEN_AI_MODELS_FOR_FINE_TUNING = [
 		key: 'gpt-3.5-turbo-1106',
 		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ),
 	},
-	{
-		name: 'GPT-4',
-		key: 'gpt-4-0613',
-		__experimentalHint: __( 'experimental', dpaa.i18n ),
-	},
 ]
 
 // DALL-E
 export const OPEN_AI_DALL_E_MODELS = [
 	{
-		name: 'DALL·E 2',
-		key: 'dall-e-2',
-		__experimentalHint: __( 'Nov 2022', dpaa.i18n ),
-	},
-	{
 		name: 'DALL·E 3',
 		key: 'dall-e-3',
 		__experimentalHint: __( 'Nov 2023', dpaa.i18n ),
+	},
+	{
+		name: 'DALL·E 2',
+		key: 'dall-e-2',
+		__experimentalHint: __( 'Nov 2022', dpaa.i18n ),
 	},
 ]
 export const OPEN_AI_DALL_E_2_IMAGE_SIZES = [
@@ -147,21 +188,17 @@ export const OPEN_AI_DALL_E_IMAGE_STYLES = [
 	{ label: __( 'Vivid', dpaa.i18n ), value: 'vivid' },
 	{ label: __( 'Natural', dpaa.i18n ), value: 'natural' },
 ]
-export const DEFAULT_OPEN_AI_GPT_MODEL = 'gpt-4o-mini'
-export const DEFAULT_OPEN_AI_MAX_TOKENS = 2000
-export const DEFAULT_OPEN_AI_TEMPERATURE = 0.8
-export const DEFAULT_OPEN_AI_TOP_P = 0.8
-export const DEFAULT_OPEN_AI_DALL_E_MODEL = 'dall-e-2'
-export const DEFAULT_OPEN_AI_DALL_E_NUMBER_IMAGES = 1
-export const DEFAULT_OPEN_AI_DALL_E_IMAGE_SIZE = '1024x1024'
-export const DEFAULT_OPEN_AI_DALL_E_QUALITY = 'standard'
-export const DEFAULT_OPEN_AI_DALL_E_STYLE = 'vivid'
 
 // Claude models
 export const ANTHROPIC_CLAUDE_MODELS = [
 	{
-		name: 'Claude 3 Haiku',
-		key: 'claude-3-haiku-20240307',
+		name: 'Claude 3.5 Sonnet',
+		key: 'claude-3-5-sonnet-20240620',
+		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '8,192' ),
+	},
+	{
+		name: 'Claude 3 Opus',
+		key: 'claude-3-opus-20240229',
 		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '4,096' ),
 	},
 	{
@@ -170,8 +207,8 @@ export const ANTHROPIC_CLAUDE_MODELS = [
 		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '4,096' ),
 	},
 	{
-		name: 'Claude 3 Opus',
-		key: 'claude-3-opus-20240229',
+		name: 'Claude 3 Haiku',
+		key: 'claude-3-haiku-20240307',
 		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '4,096' ),
 	},
 ]

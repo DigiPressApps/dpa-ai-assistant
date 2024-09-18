@@ -1563,3 +1563,9 @@ msgstr "公開"
 
 msgid "Check the license status."
 msgstr "ライセンス状態を確認してください。"
+
+msgid "Designed to solve hard problems"
+msgstr "複雑な課題解決向けに設計"
+
+msgid "Good at coding, math, and science"
+msgstr "数学、科学に特化し高速で安価"

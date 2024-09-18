@@ -52,7 +52,7 @@ if ( ! class_exists( 'DPAA_Register_Settings' ) ) {
 						),
 						'gptModel'	=> array(
 							'type'		=> 'string',
-							'default'	=> 'gpt-4o'
+							'default'	=> 'gpt-4o-mini'
 						),
 						'temperature'	=> array(
 							'type'		=> 'number',

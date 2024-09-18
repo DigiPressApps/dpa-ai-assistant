@@ -4,7 +4,6 @@
 import './editor.scss'
 import {
 	currentUserHasCapability,
-	getLicenseData,
 } from '@dpaa/util'
 import {
 	ChatPanel,
