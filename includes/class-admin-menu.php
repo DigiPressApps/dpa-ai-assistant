@@ -78,11 +78,6 @@ if ( ! class_exists( 'Dpaa_Admin_menu' ) ) {
 					99 // Position
 				);
 
-				$main_menu_exists = true;
-			}
-
-			// Add sub-menu pages for this plugin
-			if ( $main_menu_exists ) {
 				// Top level menu: dashboard
 				add_submenu_page(
 					$this->main_menu_slug, // Parent slug
@@ -93,6 +88,11 @@ if ( ! class_exists( 'Dpaa_Admin_menu' ) ) {
 					array( $this, 'main_menu_page_callback' ) // Callback function
 				);
 
+				$main_menu_exists = true;
+			}
+
+			// Add sub-menu pages for this plugin
+			if ( $main_menu_exists ) {
 				// Plugin menu
 				add_submenu_page(
 					$this->main_menu_slug, // Parent slug
