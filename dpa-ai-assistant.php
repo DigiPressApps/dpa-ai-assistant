@@ -8,7 +8,7 @@
  * Requires at least: 	6.2
  * Tested up to: 		6.7.1
  * Requires PHP: 		8.0
- * Version: 			0.2.2
+ * Version: 			0.2.3
  * License: 			GPL2+
  * License URI: 		https://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: 		dpa-ai-assistant
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 defined( 'DPAA_PLUGIN_NAME' ) || define( 'DPAA_PLUGIN_NAME', 'AI Assistant' );
-defined( 'DPAA_PLUGIN_VERSION' ) || define( 'DPAA_PLUGIN_VERSION', '0.2.2' );
+defined( 'DPAA_PLUGIN_VERSION' ) || define( 'DPAA_PLUGIN_VERSION', '0.2.3' );
 defined( 'DPAA_REQUIRES_PHP' ) || define( 'DPAA_REQUIRES_PHP', '8.0' );
 defined( 'DPAA_REQUIRES_WP' ) || define( 'DPAA_REQUIRES_WP', '6.2' );
 defined( 'DPAA_PLUGIN_ID' ) || define( 'DPAA_PLUGIN_ID', 'dpaa' );

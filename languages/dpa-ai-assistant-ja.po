@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Plugins - DPA AI Assistant - Development (trunk)\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-07-01 14:27+0900\n"
+"PO-Revision-Date: 2024-12-25 16:27+0900\n"
 "Last-Translator: digistate co.,ltd. <product@digistate.co.jp>\n"
 "Language-Team: \n"
 "Language: ja_JP\n"
@@ -56,7 +56,7 @@ msgstr "タイトル"
 
 #: dist/backend.js:1
 msgid "Suggest:"
-msgstr "サジェスト:"
+msgstr "サジェスト: "
 
 #: dist/backend.js:1
 msgid "Open Assistant"
@@ -68,7 +68,7 @@ msgstr "クリックして新しい%sに入れ替えます。"
 
 #: dist/backend.js:1
 msgid "GPT response is null!"
-msgstr ""
+msgstr "GPT の応答がありません !"
 
 #: dist/backend.js:1
 msgid "New Excerpts"
@@ -96,23 +96,23 @@ msgstr "設定をエクスポート"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Updating Error"
-msgstr ""
+msgstr "更新エラー"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Could not update options."
-msgstr ""
+msgstr "設定を更新できませんでした。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid ""
 "Imported successfully!\n"
 "Reload the page."
 msgstr ""
-"インポートしました！\n"
+"インポートしました !\n"
 "ページをリロードします。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Importing..."
-msgstr ""
+msgstr "インポート中..."
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "User Roles Restriction"
@@ -152,7 +152,7 @@ msgstr "チャットログの最大数"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "In addition to the style and tone you specify, specify your own instructions for the GPT and its character and behavior. Recommended writing prompts in English to save on tokens consumed."
-msgstr "指定したスタイルやトーンに加え、独自にAIに対してキャラクターづけと振る舞いについて指示がある場合に記述します。トークンの消費量を抑えるため、プロンプト(指示文)は英語で記述することを推奨します。"
+msgstr "指定したスタイルやトーンに加え、独自に AI に対してキャラクターづけと振る舞いについて指示がある場合に記述します。トークンの消費量を抑えるため、プロンプト (指示文) は英語で記述することを推奨します。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "writing tone"
@@ -180,7 +180,7 @@ msgstr "ステップ数は、生成された画像からノイズを除去する
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "A number that specifies how faithful the image will be to the prompt (input text). Default is 7.<br />Higher CFG Scale numbers produce images that are more faithful to the prompt.<br />Set this value higher if you want to generate an image that is faithful to the prompt, or lower this value if you care about image quality."
-msgstr "このパラメータは、プロンプト(入力テキスト)に対してどれだけ忠実な画像を生成するかを指定する数値です。デフォルトは「7」。<br />CFG スケールの数値が大きいほど、プロンプトに忠実な画像を生成します。<br />プロンプトに忠実な画像を生成したい場合はこの値を大きく設定し、画像の品質を重視する場合はこの値を小さく設定します。"
+msgstr "このパラメータは、プロンプト (入力テキスト) に対してどれだけ忠実な画像を生成するかを指定する数値です。デフォルトは「7」。<br />CFG スケールの数値が大きいほど、プロンプトに忠実な画像を生成します。<br />プロンプトに忠実な画像を生成したい場合はこの値を大きく設定し、画像の品質を重視する場合はこの値を小さく設定します。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Number of images to generate. Allows for batch image generations."
@@ -204,7 +204,7 @@ msgstr "コストを計算"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Select the Stability AI model (engine) to use to generate the image."
-msgstr "画像生成に使用する Stability AI のモデル(エンジン)を指定します。"
+msgstr "画像生成に使用する Stability AI のモデル (エンジン) を指定します。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Check current credits"
@@ -220,7 +220,7 @@ msgstr "「文字起こし」ログの最大数"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic."
-msgstr "サンプリング温度。0 から 1 の間で指定します。0.8 のような高い値は出力をよりランダムにし、0.2 のような低い値はより焦点を絞った決定的なものにします。"
+msgstr "サンプリング温度。0から1の間で指定します。0.8のような高い値は出力をよりランダムにし、0.2のような低い値はより焦点を絞った決定的なものにします。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Select the language to transcribe from the input audio."
@@ -252,7 +252,7 @@ msgstr "音声を生成する声を選択します。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Select the speech model to generate voice."
-msgstr "音声を生成するモデル(エンジン)を選択します。"
+msgstr "音声を生成するモデル (エンジン) を選択します。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "For transcription"
@@ -272,7 +272,7 @@ msgstr "生成する画像の解像度を選択します。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "The number of images to generate. Must be between 1 and 10. For DALL·E 3, only one image is supported."
-msgstr "一度に生成する画像数を 1 から 10 の間で指定します。ただし、DALL·E 3 の場合はこの設定に関係なく一度に生成される画像は1枚のみとなります。"
+msgstr "一度に生成する画像数を1から10の間で指定します。ただし、DALL·E 3 の場合はこの設定に関係なく一度に生成される画像は1枚のみとなります。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Select the OpenAI model to generate images."
@@ -296,11 +296,11 @@ msgstr ""
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "The temperature parameter is an important parameter to control the diversity of text produced by the model.<br />This parameter takes values between 0 and 1; the closer it is to 0, the more confident the generated text will be.<br />On the other hand, the closer it is to 1, the more varied and unpredictable the generated text will be.<br /><br />For example, at low temperatures, a model tends to always produce similar outputs for the same inputs.<br />On the other hand, higher temperatures are more likely to produce different outputs for the same input.<br /><br />Therefore, the temperature parameter is used to adjust the predictability and variety of the generated text.<br />Appropriate temperature values should be adjusted depending on the specific task or use case.<br /><br />It is generally recommended altering this or 'top_p' but not both."
-msgstr "温度(temperature) パラメータは、モデルが生成するテキストの多様性を制御するためのパラメータです。<br />このパラメータは「0」から「1」の間の値を取り、0 に近いほど生成されるテキストは、より一貫性のある内容になります。<br />一方、1 に近いほど生成されるテキストは、より多様な内容を返すようになります。<br /><br />例えば、temperature が低い場合には、同じ入力に対してモデルが常に同じような出力を生成する傾向があります。<br />一方、temperatureが高い場合には、同じ入力に対して異なる出力が生成される可能性が高くなります。<br /><br />つまり、temperature パラメータは、生成されるテキストの同一性と多様性を調整するために使用されます。<br />適切な temperature の値は、期待する応答の要件に応じて調整してください。<br /><br />通常は、'temperature' か 'top_p' のいずれかを変更することが推奨されており、両方調整することは推奨されていません。"
+msgstr "温度 (temperature) パラメータは、モデルが生成するテキストの多様性を制御するためのパラメータです。<br />このパラメータは「0」から「1」の間の値を取り、0に近いほど生成されるテキストは、より一貫性のある内容になります。<br />一方、1に近いほど生成されるテキストは、より多様な内容を返すようになります。<br /><br />例えば、temperature が低い場合には、同じ入力に対してモデルが常に同じような出力を生成する傾向があります。<br />一方、temperatureが高い場合には、同じ入力に対して異なる出力が生成される可能性が高くなります。<br /><br />つまり、temperature パラメータは、生成されるテキストの同一性と多様性を調整するために使用されます。<br />適切な temperature の値は、期待する応答の要件に応じて調整してください。<br /><br />通常は、'temperature' か 'top_p' のいずれかを変更することが推奨されており、両方調整することは推奨されていません。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "A token in OpenAI's GPT is the smallest unit of text, and generally corresponds to a word or character.<br />However, the specific token size varies depending on the language and model used.<br /><br />The appropriate value for max_tokens depends on your specific use case.<br />The following is an estimate of the tokens consumed.<br /><br />- Short texts (e.g. tweets, answers to short questions): 60-120 tokens<br />- Medium length text (e.g. emails, answers to long questions): 120 to 512 tokens<br />- Long text (e.g. articles, reports): 512 to 2048 tokens<br /><br />However, increasing max_tokens increases API response time and costs.<br />Therefore, we recommend using the minimum number of tokens needed.<br />Also, be careful when generating very long text, as the model may generate unintended content."
-msgstr "OpenAI の GPT におけるトークンは、テキストの最小単位であり、一般的には単語や文字に相当します。<br />ただし、具体的なトークンの大きさは使用する言語やモデルにより異なります。<br /><br />最大トークン数の適切な値は、具体的な使用ケースによります。<br />以下は消費されるトークンの目安です。<br /><br />- 短いテキスト（例：ツイート、短い質問への回答）：60〜120トークン<br />- 中程度の長さのテキスト（例：メール、長い質問への回答）：120〜512トークン<br />- 長いテキスト（例：記事、レポート）：512〜2048トークン<br /><br />ただし、最大トークン数を大きくすると、API の応答時間が長くなり、コストも増えます。<br />そのため、必要な最小限のトークン数を使用することをお勧めします。<br />また、非常に長いテキストを生成する場合は、モデルが意図しない内容を生成する可能性もあるため、注意が必要です。"
+msgstr "OpenAI の GPT におけるトークンは、テキストの最小単位であり、一般的には単語や文字に相当します。<br />ただし、具体的なトークンの大きさは使用する言語やモデルにより異なります。<br /><br />最大トークン数の適切な値は、具体的な使用ケースによります。<br />以下は消費されるトークンの目安です。<br /><br />- 短いテキスト (例：ツイート、短い質問への回答) ：60〜120トークン<br />- 中程度の長さのテキスト (例：メール、長い質問への回答) ：120〜512トークン<br />- 長いテキスト (例：記事、レポート) ：512〜2048トークン<br /><br />ただし、最大トークン数を大きくすると、API の応答時間が長くなり、コストも増えます。<br />そのため、必要な最小限のトークン数を使用することをお勧めします。<br />また、非常に長いテキストを生成する場合は、モデルが意図しない内容を生成する可能性もあるため、注意が必要です。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "About this parameter"
@@ -430,7 +430,7 @@ msgstr "スピーチモデル"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Inserted!"
-msgstr "挿入しました！"
+msgstr "挿入しました !"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Add %s as a new block."
@@ -506,7 +506,7 @@ msgstr "「アップロード済みファイル」タブから状態を確認で
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Uploaded!"
-msgstr "アップロード完了!"
+msgstr "アップロード完了 !"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "The maximum file size that can be uploaded at one time is 512MB."
@@ -518,7 +518,7 @@ msgstr "アップロード中..."
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "To create a custom tuned model, you are required to provide at least 10 examples(conversations)."
-msgstr "カスタム AI モデルを作成するには、少なくとも 10 件のデータセット(会話)を提供する必要があります。"
+msgstr "カスタム AI モデルを作成するには、少なくとも 10件のデータセット (会話) を提供する必要があります。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Failed to load a file."
@@ -534,7 +534,7 @@ msgstr "東京です。東京は多様性に富んだ都市であり、文化、
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Where is the capital of Japan?"
-msgstr "日本の首都はどこですか？"
+msgstr "日本の首都はどこですか ?"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Assistant"
@@ -566,7 +566,7 @@ msgstr "あなたは AI アシスタントの花子です。あなたの主な�
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Enter the behavior, character, and prior knowledge of the custom model (AI) to be created. This prompt applies to all training data."
-msgstr "作成するカスタムモデル(AI)の振る舞いやキャラクター付け、予備知識などを入力しておきます。このプロンプトは全ての学習データに適用されます。"
+msgstr "作成するカスタムモデル (AI) の振る舞いやキャラクター付け、予備知識などを入力しておきます。このプロンプトはすべての学習データに適用されます。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "System Prompt"
@@ -574,7 +574,7 @@ msgstr "システムプロンプト"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Clear all dataset"
-msgstr "データセットを全てクリア"
+msgstr "データセットをすべてクリア"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Import local dataset file"
@@ -622,7 +622,7 @@ msgstr "カスタム AI モデルを作成するための学習データを作�
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "List of files uploaded to OpenAI. You can create a custom AI model from Fine-tune data (jsonl)."
-msgstr "OpenAI にアップロードされたファイルの一覧。学習モデル用のファイル(jsonl)からカスタム AI モデルの作成を実行できます。"
+msgstr "OpenAI にアップロードされたファイルの一覧。学習モデル用のファイル (jsonl) からカスタム AI モデルの作成を実行できます。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "entries"
@@ -686,7 +686,7 @@ msgstr "ファイル名"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Started the creation process! You can check the training status of your custom model by updating the status on the \"Trained Models\" panel."
-msgstr "作成プロセスを開始しました! カスタムモデルの学習状況は、「学習モデル」パネルにてステータスを更新して確認できます。"
+msgstr "作成プロセスを開始しました ! カスタムモデルの学習状況は、「学習モデル」パネルにてステータスを更新して確認できます。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Starting..."
@@ -702,7 +702,7 @@ msgstr "キャンセル"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Scaling factor for the learning rate. A smaller learning rate may be useful to avoid overfitting."
-msgstr "学習率の倍率。学習率が高くすると、大きいバッチサイズでのパフォーマンスが向上する傾向があります。0.02 から 0.2 の範囲で最適な結果が得られるものを確認することをお勧めします。学習率を小さくすると、過学習を抑えるのに役立つ場合があります。"
+msgstr "学習率の倍率。学習率が高くすると、大きいバッチサイズでのパフォーマンスが向上する傾向があります。0.02から0.2の範囲で最適な結果が得られるものを確認することをお勧めします。学習率を小さくすると、過学習を抑えるのに役立つ場合があります。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Learning Rate Multiplier"
@@ -750,7 +750,7 @@ msgstr "カスタムモデルのベースとなる既存モデル。サポート
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Training file (dataset)"
-msgstr "学習ファイル(データセット)"
+msgstr "学習ファイル (データセット)"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Check current usage"
@@ -770,11 +770,11 @@ msgstr "新規学習モデルの作成"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Refreshed!"
-msgstr "更新しました!"
+msgstr "更新しました !"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Deleted!"
-msgstr "削除しました!"
+msgstr "削除しました !"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Deleting..."
@@ -786,7 +786,7 @@ msgstr "実際に OpenAI から削除されるには、しばらく時間がか�
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Cancelled!"
-msgstr "キャンセルしました!"
+msgstr "キャンセルしました !"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Cancelling..."
@@ -794,7 +794,7 @@ msgstr "キャンセル中..."
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Are you sure you want to cancel?"
-msgstr ""
+msgstr "本当にキャンセルしますか ?"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Delete this model"
@@ -866,7 +866,7 @@ msgstr "%sを生成中..."
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Invalid response"
-msgstr ""
+msgstr "無効なレスポンス"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Generated Contents"
@@ -894,7 +894,7 @@ msgstr "結論設定"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Include Conclusion"
-msgstr "まとめ(結論)を含める"
+msgstr "まとめ (結論) を含める"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Introduction Settings"
@@ -902,7 +902,7 @@ msgstr "序論設定"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Include Introduction"
-msgstr "はじめに(序論)を含める"
+msgstr "はじめに (序論) を含める"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Unordered list"
@@ -962,7 +962,7 @@ msgstr "最小文字数"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Publish"
-msgstr ""
+msgstr "公開"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Save draft"
@@ -978,11 +978,11 @@ msgstr "投稿を編集"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Posted!"
-msgstr "投稿しました！"
+msgstr "投稿しました !"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Posting...Please wait."
-msgstr "投稿中...しばらくお待ち下さい"
+msgstr "投稿中...しばらくお待ちください"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Text Generation"
@@ -1026,7 +1026,7 @@ msgstr "京都, 富士山, 浅草"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Use comma to separate keywords."
-msgstr "複数のキーワードを指定するには、半角カンマ( , )で区切ってください。"
+msgstr "複数のキーワードを指定するには、半角カンマ ( , ) で区切ってください。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Pro Only"
@@ -1050,15 +1050,15 @@ msgstr "トピック"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Failed to copy to clipboard"
-msgstr ""
+msgstr "クリップボードへのコピーに失敗しました"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "No Base64 data!"
-msgstr ""
+msgstr "Base 64 データがありません !"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Failed to translate the prompt."
-msgstr ""
+msgstr "プロンプトの翻訳に失敗しました。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Generating..."
@@ -1066,7 +1066,7 @@ msgstr "生成中..."
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "No prompt!"
-msgstr ""
+msgstr "プロンプトがありません !"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Generate image(s)"
@@ -1078,11 +1078,11 @@ msgstr "画像の説明を話す"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Re-generate images"
-msgstr ""
+msgstr "画像を再生成"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Clear all logs"
-msgstr "全ての履歴を消去"
+msgstr "すべての履歴を消去"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "The beautiful Hawaiian ocean, mountains, and blue skies of Oahu, where surfers are splashing and enjoying the surf."
@@ -1110,11 +1110,11 @@ msgstr "画像数"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Width"
-msgstr ""
+msgstr "幅"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Height"
-msgstr ""
+msgstr "高さ"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "width x height"
@@ -1122,7 +1122,7 @@ msgstr "横 x 縦"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Dimensions"
-msgstr ""
+msgstr "寸法"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Style"
@@ -1146,11 +1146,11 @@ msgstr "アイキャッチ画像に指定"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Next"
-msgstr ""
+msgstr "次へ"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Previous"
-msgstr ""
+msgstr "前へ"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Regenerate"
@@ -1158,7 +1158,7 @@ msgstr "再生成"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "No selected text!"
-msgstr "選択中のテキストがありません!"
+msgstr "選択中のテキストがありません !"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Are you sure you want to regenerate?"
@@ -1166,11 +1166,11 @@ msgstr "再生成を開始します。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Copied!"
-msgstr "コピーしました!"
+msgstr "コピーしました !"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "No message!"
-msgstr ""
+msgstr "メッセージがありません!"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Get the API key."
@@ -1194,7 +1194,7 @@ msgstr "中断されたチャットを再開します。"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Magic prompt!"
-msgstr "マジックプロンプト!"
+msgstr "マジックプロンプト !"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Clear all logs and reset tokens."
@@ -1230,11 +1230,11 @@ msgstr "プレビュー"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Ask anything..."
-msgstr "何でも聞いて下さい..."
+msgstr "何でも聞いてい..."
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "What do these images have in common?"
-msgstr "これらの画像の共通点は何ですか？"
+msgstr "これらの画像の共通点は何ですか ?"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Select or Upload Media"
@@ -1290,7 +1290,7 @@ msgstr "この応答を新規ブロックで追加"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Copy this response as HTML."
-msgstr "この応答をHTMLでコピー"
+msgstr "この応答を HTML でコピー"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Copy this response."
@@ -1306,7 +1306,7 @@ msgstr "再送"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Are you sure you want to delete?"
-msgstr "本当に削除しますか？"
+msgstr "本当に削除しますか ?"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Delete"
@@ -1314,23 +1314,23 @@ msgstr "削除"
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
 msgid "Set ugc"
-msgstr ""
+msgstr "ugc をセット"
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
 msgid "Set sponsored"
-msgstr ""
+msgstr "sponsored をセット"
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
 msgid "Set nofollow"
-msgstr ""
+msgstr "nofollow をセット"
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
 msgid "Open in new tab"
-msgstr ""
+msgstr "新しいタブで開く"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Close"
-msgstr ""
+msgstr "閉じる"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Upgrade Pro"
@@ -1338,7 +1338,7 @@ msgstr "プロ版にアップグレード"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "This is Pro version feature. Upgrade now!"
-msgstr "この機能はプロ版で利用できます。アップグレードしますか？"
+msgstr "この機能はプロ版で利用できます。アップグレードしますか ?"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Pro Feature"
@@ -1586,7 +1586,7 @@ msgstr "目次"
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
 msgid "Pixel Art"
-msgstr "ピクセルアート(ドット絵調)"
+msgstr "ピクセルアート (ドット絵調)"
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
 msgid "Photographic"
@@ -1610,7 +1610,7 @@ msgstr "低ポリゴン"
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
 msgid "Line Art"
-msgstr "ラインアート(線画)"
+msgstr "ラインアート (線画)"
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
 msgid "Isometric"
@@ -1622,7 +1622,7 @@ msgstr "ファンタジーアート"
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
 msgid "Enhance"
-msgstr "強化(メリハリ付け)"
+msgstr "強化 (メリハリ付け)"
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
 msgid "Digital Art"
@@ -2038,19 +2038,19 @@ msgstr "%sトークン"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Source image is not exist!"
-msgstr ""
+msgstr "ソース画像が存在しません !"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
 msgid "OpenAI or API key is missing!"
-msgstr ""
+msgstr "OpenAI または API キーがありません !"
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
 msgid "Select"
-msgstr ""
+msgstr "選択"
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
 msgid "Select an image"
-msgstr ""
+msgstr "画像を選択"
 
 #: includes/class-init.php:182 dist/backend.js:1 dist/plugin-menu.js:1
 msgid "Upgrade"
@@ -2073,12 +2073,12 @@ msgstr "アクティベーションエラー"
 #. translators: check the conflicting
 #: dpa-ai-assistant.php:106
 msgid "Other version of %1$s is installed. To enable this plugin, please deactivate the currently active %2$s first.%3$s Back %4$s"
-msgstr "他のエディションの %1$s がインストールされています。このプラグインを使用するには、現在有効化されている %2$s を事前に停止してください。%3$s 戻る %4$s"
+msgstr "他のエディションの %1$s がインストールされています。このプラグインを使用するには、現在有効化されている %2$s を事前に無効化してください。%3$s 戻る %4$s"
 
 #. translators: check the wordpress version
 #: dpa-ai-assistant.php:86
 msgid "%1$s%2$s can not be activated.%3$sIt requires WordPress %4$s or higher, but WordPress %5$s is used on the site. Please update your WordPress first %6$s Back %7$s"
-msgstr "%1$s%2$s を有効化できません。%3$sWordPress %4$s またはそれ以降のバージョンである必要があります。お使いの WordPress のバージョンは %5$s です。事前に WordPress を最新版にアップデートしてください。 %6$s 戻る %7$s"
+msgstr "%1$s%2$s を有効化できません。%3$sWordPress %4$s またはそれ以降のバージョンである必要があります。お使いの WordPress のバージョンは %5$s です。事前に WordPress を最新版に更新してください。 %6$s 戻る %7$s"
 
 #. translators: check the php version
 #: dpa-ai-assistant.php:66

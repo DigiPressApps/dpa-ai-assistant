@@ -1,5 +1,12 @@
 == Changelog ==
 
+= 0.2.2 (2024/12/17) =
+* Improved: Compatibility with WP 6.7.1.
+
+= 0.2.1 (2024/09/18) =
+* Update: Added new GPT model "o1-preview" and "o1-mini" in chat and writer function.
+* Update: Updated all npm packags.
+
 = 0.2.0 (2024/07/21) =
 * Update: Added new text generation model "GPT-4o mini" in Chat function.
 * Update: The default GPT model is changed from "GPT-3.5 Turbo" to "GPT-4o mini".

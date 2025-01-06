@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Poedit 3.0.1\n"
 
 msgid "Ask anything..."
-msgstr "何でも聞いて下さい..."
+msgstr "何でも聞いてください..."
 
 msgid "Send"
 msgstr "送信"
@@ -39,7 +39,7 @@ msgid "Send this message."
 msgstr "このメッセージを送信"
 
 msgid "Copied!"
-msgstr "コピーしました!"
+msgstr "コピーしました !"
 
 msgid "Resend previous message."
 msgstr "直前のメッセージを再送"
@@ -111,16 +111,16 @@ msgid "CFG Scale"
 msgstr "CFG スケール"
 
 msgid "A token in OpenAI's GPT is the smallest unit of text, and generally corresponds to a word or character.<br />However, the specific token size varies depending on the language and model used.<br /><br />The appropriate value for max_tokens depends on your specific use case.<br />The following is an estimate of the tokens consumed.<br /><br />- Short texts (e.g. tweets, answers to short questions): 60-120 tokens<br />- Medium length text (e.g. emails, answers to long questions): 120 to 512 tokens<br />- Long text (e.g. articles, reports): 512 to 2048 tokens<br /><br />However, increasing max_tokens increases API response time and costs.<br />Therefore, we recommend using the minimum number of tokens needed.<br />Also, be careful when generating very long text, as the model may generate unintended content."
-msgstr "OpenAI の GPT におけるトークンは、テキストの最小単位であり、一般的には単語や文字に相当します。<br />ただし、具体的なトークンの大きさは使用する言語やモデルにより異なります。<br /><br />最大トークン数の適切な値は、具体的な使用ケースによります。<br />以下は消費されるトークンの目安です。<br /><br />- 短いテキスト（例：ツイート、短い質問への回答）：60〜120トークン<br />- 中程度の長さのテキスト（例：メール、長い質問への回答）：120〜512トークン<br />- 長いテキスト（例：記事、レポート）：512〜2048トークン<br /><br />ただし、最大トークン数を大きくすると、API の応答時間が長くなり、コストも増えます。<br />そのため、必要な最小限のトークン数を使用することをお勧めします。<br />また、非常に長いテキストを生成する場合は、モデルが意図しない内容を生成する可能性もあるため、注意が必要です。"
+msgstr "OpenAI の GPT におけるトークンは、テキストの最小単位であり、一般的には単語や文字に相当します。<br />ただし、具体的なトークンの大きさは使用する言語やモデルにより異なります。<br /><br />最大トークン数の適切な値は、具体的な使用ケースによります。<br />以下は消費されるトークンの目安です。<br /><br />- 短いテキスト（例: ツイート、短い質問への回答）: 60〜120トークン<br />- 中程度の長さのテキスト（例: メール、長い質問への回答）: 120〜512トークン<br />- 長いテキスト（例: 記事、レポート）: 512〜2048トークン<br /><br />ただし、最大トークン数を大きくすると、API の応答時間が長くなり、コストも増えます。<br />そのため、必要な最小限のトークン数を使用することをお勧めします。<br />また、非常に長いテキストを生成する場合は、モデルが意図しない内容を生成する可能性もあるため、注意が必要です。"
 
 msgid "The temperature parameter is an important parameter to control the diversity of text produced by the model.<br />This parameter takes values between 0 and 1; the closer it is to 0, the more confident the generated text will be.<br />On the other hand, the closer it is to 1, the more varied and unpredictable the generated text will be.<br /><br />For example, at low temperatures, a model tends to always produce similar outputs for the same inputs.<br />On the other hand, higher temperatures are more likely to produce different outputs for the same input.<br /><br />Therefore, the temperature parameter is used to adjust the predictability and variety of the generated text.<br />Appropriate temperature values should be adjusted depending on the specific task or use case.<br /><br />It is generally recommended altering this or 'top_p' but not both."
-msgstr "温度(temperature) パラメータは、モデルが生成するテキストの多様性を制御するためのパラメータです。<br />このパラメータは「0」から「1」の間の値を取り、0 に近いほど生成されるテキストは、より一貫性のある内容になります。<br />一方、1 に近いほど生成されるテキストは、より多様な内容を返すようになります。<br /><br />例えば、temperature が低い場合には、同じ入力に対してモデルが常に同じような出力を生成する傾向があります。<br />一方、temperatureが高い場合には、同じ入力に対して異なる出力が生成される可能性が高くなります。<br /><br />つまり、temperature パラメータは、生成されるテキストの同一性と多様性を調整するために使用されます。<br />適切な temperature の値は、期待する応答の要件に応じて調整してください。<br /><br />通常は、'temperature' か 'top_p' のいずれかを変更することが推奨されており、両方調整することは推奨されていません。"
+msgstr "温度 (temperature) パラメータは、モデルが生成するテキストの多様性を制御するためのパラメータです。<br />このパラメータは「0」から「1」の間の値を取り、0に近いほど生成されるテキストは、より一貫性のある内容になります。<br />一方、1に近いほど生成されるテキストは、より多様な内容を返すようになります。<br /><br />例えば、temperature が低い場合には、同じ入力に対してモデルが常に同じような出力を生成する傾向があります。<br />一方、temperatureが高い場合には、同じ入力に対して異なる出力が生成される可能性が高くなります。<br /><br />つまり、temperature パラメータは、生成されるテキストの同一性と多様性を調整するために使用されます。<br />適切な temperature の値は、期待する応答の要件に応じて調整してください。<br /><br />通常は、'temperature' か 'top_p' のいずれかを変更することが推奨されており、両方調整することは推奨されていません。"
 
 msgid "The top_p parameter allows you to adjust the diversity of the generated text.<br />Lower values return more reproducible, undisturbed, average text, but less diversity in answers.<br /><br />On the other hand, the higher the value, the more diverse the AI will answer the same question, making it suitable for writing stories or wanting answers using a variety of approaches.<br /><br />However, the closer the value of top_p is to 1, the more likely the generated text will be corrupted, so experimentation and evaluation is required to find the appropriate value for your requirements.<br /><br />It is generally recommended altering this or 'temperature' but not both."
 msgstr "top_p パラメータにより、生成されるテキストの多様性を調整することができます。<br />値が小さいほど、再現性が高く乱れがない平均的なテキストが返されますが、回答の多様性はなくなります。<br /><br />一方、値が大きいほど、同じ質問でも AI が回答する内容は多様なものとなるため、物語を書いたり、様々なアプローチでの回答が欲しい場合に適しています。<br /><br />しかし、top_p の値が1に近づくほど生成されるテキストが崩壊しやすくなるため、要件に対する適切な値を見つけるためには実験や評価が必要です。<br /><br />通常は、'temperature' か 'top_p' のいずれかを変更することが推奨されており、両方調整することは推奨されていません。"
 
 msgid "A number that specifies how faithful the image will be to the prompt (input text). Default is 7.<br />Higher CFG Scale numbers produce images that are more faithful to the prompt.<br />Set this value higher if you want to generate an image that is faithful to the prompt, or lower this value if you care about image quality."
-msgstr "このパラメータは、プロンプト(入力テキスト)に対してどれだけ忠実な画像を生成するかを指定する数値です。デフォルトは「7」。<br />CFG スケールの数値が大きいほど、プロンプトに忠実な画像を生成します。<br />プロンプトに忠実な画像を生成したい場合はこの値を大きく設定し、画像の品質を重視する場合はこの値を小さく設定します。"
+msgstr "このパラメータは、プロンプト (入力テキスト) に対してどれだけ忠実な画像を生成するかを指定する数値です。デフォルトは「7」。<br />CFG スケールの数値が大きいほど、プロンプトに忠実な画像を生成します。<br />プロンプトに忠実な画像を生成したい場合はこの値を大きく設定し、画像の品質を重視する場合はこの値を小さく設定します。"
 
 msgid "The number of steps is the number of times the generated image is denoised. Default is 30.<br />Note that a larger number of sampling steps will produce a more detailed image, but will take more time and cost more to produce."
 msgstr "ステップ数は、生成された画像からノイズを除去する回数です。デフォルトは「30」。<br />サンプリングステップの数が多いほど、より精細な画像が生成されますが、処理時間とコストが増加することに注意してください。"
@@ -147,7 +147,7 @@ msgid "Select the %s language model to generate text."
 msgstr "チャットやテキスト生成に使用する %s の言語モデル"
 
 msgid "Select the OpenAI model to generate images."
-msgstr "画像生成に使用する OpenAI のモデル(エンジン)"
+msgstr "画像生成に使用する OpenAI のモデル (エンジン)"
 
 msgid "Documentation"
 msgstr "ドキュメント"
@@ -174,7 +174,7 @@ msgid "Set the maximum number of question and answer logs to keep to ensure natu
 msgstr "直近のチャットに基づいた自然な対話を行うための、保持する質問と回答のログの最大数を設定します。デフォルトは「4」。<br />ログ数が多くなると消費トークン数も多くなりコストが増加することに注意してください。"
 
 msgid "Select the Stability AI model (engine) to use to generate the image."
-msgstr "画像生成に使用する Stability AI のモデル(エンジン)を指定します。"
+msgstr "画像生成に使用する Stability AI のモデル (エンジン) を指定します。"
 
 msgid "Select Style"
 msgstr "スタイル"
@@ -225,7 +225,7 @@ msgid "Select the OpenAI model to generate images."
 msgstr "画像生成を行う OpenAI のモデルを選択します。"
 
 msgid "The number of images to generate. Must be between 1 and 10. For DALL·E 3, only one image is supported."
-msgstr "一度に生成する画像数(1〜10)。DALL·E 3 の場合は「1」固定です(1枚のみ)。"
+msgstr "一度に生成する画像数 (1〜10)。DALL·E 3 の場合は「1」固定です (1枚のみ)。"
 
 msgid "Check current usage"
 msgstr "現在の使用量を確認"
@@ -234,7 +234,7 @@ msgid "Check current credits"
 msgstr "現在のクレジットを確認"
 
 msgid "Select the generated image size in pixels."
-msgstr "生成画像のサイズ(ピクセル値)を選択します。"
+msgstr "生成画像のサイズ (ピクセル値) を選択します。"
 
 msgid "General settings for content generation by AI and API behavior. Each tab allows you to temporarily change generation parameters from the options panel."
 msgstr "AI と API によるコンテンツ生成の全般設定を行います。各タブにある「オプション」パネルでは、一時的なパラメータの変更が行なえます。"
@@ -258,7 +258,7 @@ msgid "Case-study"
 msgstr "ケーススタディ"
 
 msgid "Email"
-msgstr "Eメール"
+msgstr "メール"
 
 msgid "Guide"
 msgstr "ガイド"
@@ -456,7 +456,7 @@ msgid "Interesting"
 msgstr "興味深い"
 
 msgid "In addition to the style and tone you specify, specify your own instructions for the GPT and its character and behavior. Recommended writing prompts in English to save on tokens consumed."
-msgstr "指定したスタイルやトーンに加え、独自にAIに対してキャラクターづけと振る舞いについて指示がある場合に記述します。トークンの消費量を抑えるため、プロンプト(指示文)は英語で記述することを推奨します。"
+msgstr "指定したスタイルやトーンに加え、独自に AI に対してキャラクターづけと振る舞いについて指示がある場合に記述します。トークンの消費量を抑えるため、プロンプト (指示文) は英語で記述することを推奨します。"
 
 msgid "Summarize the selected text"
 msgstr "選択されたテキストを要約してください。"
@@ -477,25 +477,25 @@ msgid "Create an excerpt of the selected text"
 msgstr "選択されたテキストの抜粋を作成してください。"
 
 msgid "Write a paragraph about the selected text"
-msgstr "選択されたテキストについて段落を書いて下さい。"
+msgstr "選択されたテキストについて段落を書いてください。"
 
 msgid "Write an article about the selected text"
-msgstr "選択されたテキストについて記事を書いて下さい。"
+msgstr "選択されたテキストについて記事を書いてください。"
 
 msgid "Write a conclusion about the selected text"
-msgstr "選択されたテキストのまとめを書いて下さい。"
+msgstr "選択されたテキストのまとめを書いてください。"
 
 msgid "Express your opinions about the selected text"
-msgstr "選択されたテキストについての意見を述べて下さい。"
+msgstr "選択されたテキストについての意見を述べてください。"
 
 msgid "Provide a counterargument about the selected text."
 msgstr "選択されたテキストについて反論してください。"
 
 msgid "Translate the selected text into Japanese"
-msgstr "選択されたテキストを日本語に翻訳して下さい。"
+msgstr "選択されたテキストを日本語に翻訳してください。"
 
 msgid "Translate the selected text into English"
-msgstr "選択されたテキストを英語に翻訳して下さい。"
+msgstr "選択されたテキストを英語に翻訳してください。"
 
 msgid "Summarize the clipboard text"
 msgstr "クリップボードの内容を要約してください。"
@@ -516,25 +516,25 @@ msgid "Create an excerpt of the clipboard text"
 msgstr "クリップボードの内容の抜粋を作成してください。"
 
 msgid "Write a paragraph about the clipboard text"
-msgstr "クリップボードの内容について段落を書いて下さい。"
+msgstr "クリップボードの内容について段落を書いてください。"
 
 msgid "Write an article about the clipboard text"
-msgstr "クリップボードの内容について記事を書いて下さい。"
+msgstr "クリップボードの内容について記事を書いてください。"
 
 msgid "Write a conclusion about the clipboard text"
-msgstr "クリップボードの内容のまとめを書いて下さい。"
+msgstr "クリップボードの内容のまとめを書いてください。"
 
 msgid "Express your opinions about the clipboard text"
-msgstr "クリップボードの内容についての意見を述べて下さい。"
+msgstr "クリップボードの内容についての意見を述べてください。"
 
 msgid "Provide a counterargument about the clipboard text"
 msgstr "クリップボードの内容について反論してください。"
 
 msgid "Translate the clipboard text into Japanese"
-msgstr "クリップボードの内容を日本語に翻訳して下さい。"
+msgstr "クリップボードの内容を日本語に翻訳してください。"
 
 msgid "Translate the clipboard text into English"
-msgstr "クリップボードの内容を英語に翻訳して下さい。"
+msgstr "クリップボードの内容を英語に翻訳してください。"
 
 msgid "Select the %s of the sentences generated by AI."
 msgstr "AI が生成する文章の%sを選択します。ただし、指定した設定が毎回必ず反映されるわけではないことに注意してください。"
@@ -616,7 +616,7 @@ msgid "Copy this message."
 msgstr "このメッセージをコピー"
 
 msgid "Magic prompt!"
-msgstr "マジックプロンプト!"
+msgstr "マジックプロンプト !"
 
 msgid "The beautiful Hawaiian ocean, mountains, and blue skies of Oahu, where surfers are splashing and enjoying the surf."
 msgstr "サーファーたちが水しぶきを上げてサーフィンを楽しむオアフ島の美しい海、青い空、そして雄大な山々。"
@@ -625,7 +625,7 @@ msgid "Operations on %s"
 msgstr "%sへの操作"
 
 msgid "Menu:"
-msgstr "メニュー:"
+msgstr "メニュー: "
 
 msgid "OpenAI Assistant"
 msgstr "アシスタントを起動"
@@ -637,7 +637,7 @@ msgid "Excerpts"
 msgstr "抜粋"
 
 msgid "Suggest:"
-msgstr "サジェスト:"
+msgstr "サジェスト: "
 
 msgid "Open Assistant"
 msgstr "アシスタントを起動"
@@ -682,7 +682,7 @@ msgid "Temperature"
 msgstr "温度"
 
 msgid "The number of images to generate. Must be between 1 and 10. For DALL·E 3, only one image is supported."
-msgstr "一度に生成する画像数を 1 から 10 の間で指定します。ただし、DALL·E 3 の場合はこの設定に関係なく一度に生成される画像は1枚のみとなります。"
+msgstr "一度に生成する画像数を1から10の間で指定します。ただし、DALL·E 3 の場合はこの設定に関係なく一度に生成される画像は1枚のみとなります。"
 
 msgid "Image Resolution"
 msgstr "解像度"
@@ -703,7 +703,7 @@ msgid "AI Image Generator"
 msgstr "AI 画像生成ジェネレーター"
 
 msgid "Clear all logs"
-msgstr "全ての履歴を消去"
+msgstr "すべての履歴を消去"
 
 msgid "Use as featured image"
 msgstr "アイキャッチ画像に指定"
@@ -748,10 +748,10 @@ msgid "Generate tags"
 msgstr "タグを生成"
 
 msgid "Sections:"
-msgstr "セクション数:"
+msgstr "セクション数: "
 
 msgid "Heading level:"
-msgstr "見出しレベル:"
+msgstr "見出しレベル: "
 
 msgid "Result"
 msgstr "結果"
@@ -766,13 +766,13 @@ msgid "Generate %s"
 msgstr "%sを生成"
 
 msgid "Paragraphs per section:"
-msgstr "セクションごとの段落数:"
+msgstr "セクションごとの段落数: "
 
 msgid "Set to featured image"
 msgstr "アイキャッチ画像に設定"
 
 msgid "Inserted!"
-msgstr "挿入しました！"
+msgstr "挿入しました !"
 
 msgid "Open / close response."
 msgstr "開く / 閉じる"
@@ -781,19 +781,19 @@ msgid "Text Generation"
 msgstr "テキスト生成"
 
 msgid "Are you sure you want to delete?"
-msgstr "本当に削除しますか？"
+msgstr "本当に削除しますか ?"
 
 msgid "Are you sure you want to regenerate?"
 msgstr "再生成を開始します。"
 
 msgid "Copy this response as HTML."
-msgstr "この応答をHTMLでコピー"
+msgstr "この応答を HTML でコピー"
 
 msgid "Clear generated contents."
 msgstr "生成済みコンテンツを消去"
 
 msgid "Posted!"
-msgstr "投稿しました！"
+msgstr "投稿しました !"
 
 msgid "Edit post"
 msgstr "投稿を編集"
@@ -802,16 +802,16 @@ msgid "Keywords to Include"
 msgstr "含めるキーワード"
 
 msgid "Use comma to separate keywords."
-msgstr "複数のキーワードを指定するには、半角カンマ( , )で区切ってください。"
+msgstr "複数のキーワードを指定するには、半角カンマ ( , ) で区切ってください。"
 
 msgid "Include %s"
 msgstr "%s を含める"
 
 msgid "Include Introduction"
-msgstr "はじめに(序論)を含める"
+msgstr "はじめに (序論) を含める"
 
 msgid "Include Conclusion"
-msgstr "まとめ(結論)を含める"
+msgstr "まとめ (結論) を含める"
 
 msgid "Conclusion"
 msgstr "まとめ"
@@ -820,7 +820,7 @@ msgid "Introduction"
 msgstr "はじめに"
 
 msgid "Posting...Please wait."
-msgstr "投稿中...しばらくお待ち下さい"
+msgstr "投稿中...しばらくお待ちください"
 
 msgid "Uploading %s..."
 msgstr "%sをアップロード中..."
@@ -835,13 +835,13 @@ msgid "image"
 msgstr "画像"
 
 msgid "Uploaded!"
-msgstr "アップロード完了!"
+msgstr "アップロード完了 !"
 
 msgid "Setting as featured image..."
 msgstr "アイキャッチ画像に設定中..."
 
 msgid "Set to featured image!"
-msgstr "アイキャッチ画像に設定しました!"
+msgstr "アイキャッチ画像に設定しました !"
 
 msgid "Set the %s."
 msgstr "%sを設定しました。"
@@ -859,13 +859,13 @@ msgid "Open media library"
 msgstr "メディアライブラリを開く"
 
 msgid "What do these images have in common?"
-msgstr "これらの画像の共通点は何ですか？"
+msgstr "これらの画像の共通点は何ですか ?"
 
 msgid "The image sides should be less than 2,000px."
 msgstr "対象とする画像の辺は 2,000px 以下である必要があります。"
 
 msgid "No selected text!"
-msgstr "選択中のテキストがありません!"
+msgstr "選択中のテキストがありません !"
 
 msgid "Initial Open Tab"
 msgstr "最初に開いておくタブ"
@@ -889,7 +889,7 @@ msgid "Image recognition"
 msgstr "画像認識"
 
 msgid "3D Model"
-msgstr "3Dモデル"
+msgstr "3D モデル"
 
 msgid "Analog Film"
 msgstr "アナログフィルム"
@@ -907,7 +907,7 @@ msgid "Digital Art"
 msgstr "デジタルアート"
 
 msgid "Enhance"
-msgstr "強化(メリハリ付け)"
+msgstr "強化 (メリハリ付け)"
 
 msgid "Fantasy Art"
 msgstr "ファンタジーアート"
@@ -916,7 +916,7 @@ msgid "Isometric"
 msgstr "等角的"
 
 msgid "Line Art"
-msgstr "ラインアート(線画)"
+msgstr "ラインアート (線画)"
 
 msgid "Low Poly"
 msgstr "低ポリゴン"
@@ -934,7 +934,7 @@ msgid "Photographic"
 msgstr "写真"
 
 msgid "Pixel Art"
-msgstr "ピクセルアート(ドット絵調)"
+msgstr "ピクセルアート (ドット絵調)"
 
 msgid "Click to set new featured image"
 msgstr "クリックで新規アイキャッチ画像にセット"
@@ -1003,13 +1003,13 @@ msgid "Trained AI model list."
 msgstr "学習済み AI モデルのリスト。"
 
 msgid "Deleted!"
-msgstr "削除しました!"
+msgstr "削除しました !"
 
 msgid "It will take some time for it to actually be removed from OpenAI."
 msgstr "実際に OpenAI から削除されるには、しばらく時間がかかります。"
 
 msgid "List of files uploaded to OpenAI. You can create a custom AI model from Fine-tune data (jsonl)."
-msgstr "OpenAI にアップロードされたファイルの一覧。学習モデル用のファイル(jsonl)からカスタム AI モデルの作成を実行できます。"
+msgstr "OpenAI にアップロードされたファイルの一覧。学習モデル用のファイル (jsonl) からカスタム AI モデルの作成を実行できます。"
 
 msgid "Create or upload your dataset for creatinig custom tuned model and upload it to OpenAI as data for the Fine-tune model."
 msgstr "カスタム AI モデルを作成するための学習データを作成、または既存ファイルからインポートします。さらに OpenAI に学習モデル用データとしてアップロードが行えます。"
@@ -1042,7 +1042,7 @@ msgid "Number of examples in each batch. A larger batch size means that model pa
 msgstr "各バッチのサイズ。バッチサイズが大きいほどモデルパラメータの更新頻度は低くなりますが、分散は小さくなります。"
 
 msgid "Scaling factor for the learning rate. A smaller learning rate may be useful to avoid overfitting."
-msgstr "学習率の倍率。学習率が高くすると、大きいバッチサイズでのパフォーマンスが向上する傾向があります。0.02 から 0.2 の範囲で最適な結果が得られるものを確認することをお勧めします。学習率を小さくすると、過学習を抑えるのに役立つ場合があります。"
+msgstr "学習率の倍率。学習率が高くすると、大きいバッチサイズでのパフォーマンスが向上する傾向があります。0.02から0.2の範囲で最適な結果が得られるものを確認することをお勧めします。学習率を小さくすると、過学習を抑えるのに役立つ場合があります。"
 
 msgid "The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset."
 msgstr "モデルをトレーニングするエポックの数。エポックとは、学習データセットを一巡することを意味します。"
@@ -1060,13 +1060,13 @@ msgid "The base model for your custom tuned model. You can select one of the sup
 msgstr "カスタムモデルのベースとなる既存モデル。サポートされているモデルの中から選択します。"
 
 msgid "Training file (dataset)"
-msgstr "学習ファイル(データセット)"
+msgstr "学習ファイル (データセット)"
 
 msgid "Check OpenAI pricing"
 msgstr "OpenAI の価格を確認"
 
 msgid "Preview:"
-msgstr "プレビュー:"
+msgstr "プレビュー: "
 
 msgid "A string of up to 18 characters that will be added to your tuned model name."
 msgstr "カスタムモデル名に付与される最大18文字までの文字列。"
@@ -1096,16 +1096,16 @@ msgid "Create your own tuned model by the base model with selected dataset. Once
 msgstr "ベースモデルを元にして、選択したデータセットを利用して独自の学習モデルを作成します。モデルの学習を行うと、該当モデルへのリクエストで使用したトークンに対してのみ費用が発生します。"
 
 msgid "Cancelled!"
-msgstr "キャンセルしました!"
+msgstr "キャンセルしました !"
 
 msgid "Refreshed!"
-msgstr "更新しました!"
+msgstr "更新しました !"
 
 msgid "Refresh"
 msgstr "更新"
 
 msgid "Started the creation process! You can check the training status of your custom model by updating the status on the \"Trained Models\" panel."
-msgstr "作成プロセスを開始しました! カスタムモデルの学習状況は、「学習モデル」パネルにてステータスを更新して確認できます。"
+msgstr "作成プロセスを開始しました ! カスタムモデルの学習状況は、「学習モデル」パネルにてステータスを更新して確認できます。"
 
 msgid "Delete this file"
 msgstr "このファイルを削除"
@@ -1187,7 +1187,7 @@ msgid "Import local dataset file"
 msgstr "ローカルの学習ファイルをインポート"
 
 msgid "Where is the capital of Japan?"
-msgstr "日本の首都はどこですか？"
+msgstr "日本の首都はどこですか ?"
 
 msgid "Tokyo. Tokyo is known as a city rich in diversity, where culture, fashion, and technology are integrated into an attractive city."
 msgstr "東京です。東京は多様性に富んだ都市であり、文化、ファッション、テクノロジーが融合した魅力的な街として知られています。"
@@ -1217,7 +1217,7 @@ msgid "System Prompt"
 msgstr "システムプロンプト"
 
 msgid "Enter the behavior, character, and prior knowledge of the custom model (AI) to be created. This prompt applies to all training data."
-msgstr "作成するカスタムモデル(AI)の振る舞いやキャラクター付け、予備知識などを入力しておきます。このプロンプトは全ての学習データに適用されます。"
+msgstr "作成するカスタムモデル (AI) の振る舞いやキャラクター付け、予備知識などを入力しておきます。このプロンプトはすべての学習データに適用されます。"
 
 msgid "You are Hanako, an AI assistant. Your primary role is to assist website visitors by directing them to the appropriate pages and answering their questions concisely and accurately."
 msgstr "あなたは AI アシスタントの花子です。あなたの主な役割は、Web サイト訪問者を適切なページに誘導し、質問に簡潔かつ正確に回答することで、訪問者をサポートすることです。"
@@ -1235,7 +1235,7 @@ msgid "Download the current dataset as json"
 msgstr "現在のデータセットを json ファイルでダウンロード"
 
 msgid "Clear all dataset"
-msgstr "データセットを全てクリア"
+msgstr "データセットをすべてクリア"
 
 msgid "Uploading..."
 msgstr "アップロード中..."
@@ -1244,7 +1244,7 @@ msgid "You can check the status of the uploaded file on the \"Uploaded files\" t
 msgstr "「アップロード済みファイル」タブから状態を確認できます。"
 
 msgid "To create a custom tuned model, you are required to provide at least 10 examples(conversations)."
-msgstr "カスタム AI モデルを作成するには、少なくとも 10 件のデータセット(会話)を提供する必要があります。"
+msgstr "カスタム AI モデルを作成するには、少なくとも 10 件のデータセット (会話) を提供する必要があります。"
 
 msgid "Upload failed"
 msgstr "アップロードに失敗しました"
@@ -1346,7 +1346,7 @@ msgid "Speech Model"
 msgstr "スピーチモデル"
 
 msgid "Select the speech model to generate voice."
-msgstr "音声を生成するモデル(エンジン)を選択します。"
+msgstr "音声を生成するモデル (エンジン) を選択します。"
 
 msgid "Voice"
 msgstr "声"
@@ -1379,7 +1379,7 @@ msgid "Select the language to transcribe from the input audio."
 msgstr "入力音声から文字起こしをする際の変換言語を選択します。"
 
 msgid "The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic."
-msgstr "サンプリング温度。0 から 1 の間で指定します。0.8 のような高い値は出力をよりランダムにし、0.2 のような低い値はより焦点を絞った決定的なものにします。"
+msgstr "サンプリング温度。0から1の間で指定します。0.8のような高い値は出力をよりランダムにし、0.2のような低い値はより焦点を絞った決定的なものにします。"
 
 msgid "Max number of \"Speech to Text\" logs"
 msgstr "「文字起こし」ログの最大数"
@@ -1397,7 +1397,7 @@ msgid "To generate audio or transcribe text, create an OpenAI API key and save i
 msgstr "読み上げ・文字起こしを行うには、Open AI の API キーを発行し、プラグイン設定で保存してください。"
 
 msgid "Imported successfully!\nReload the page."
-msgstr "インポートしました！\nページをリロードします。"
+msgstr "インポートしました !\nページをリロードします。"
 
 msgid "Export Settings"
 msgstr "設定をエクスポート"
@@ -1508,7 +1508,7 @@ msgid "Pro Feature"
 msgstr "プロ版の機能"
 
 msgid "This is Pro version feature. Upgrade now!"
-msgstr "この機能はプロ版で利用できます。アップグレードしますか？"
+msgstr "この機能はプロ版で利用できます。アップグレードしますか ?"
 
 msgid "Upgrade Pro"
 msgstr "プロ版にアップグレード"

@@ -3,7 +3,7 @@ Contributors: digistatejp
 Tags: ai, gpt, openai, writer, image generator
 Requires at least: 6.2
 Tested up to: 6.7.1
-Stable tag: 0.2.2
+Stable tag: 0.2.3
 Requires PHP: 8.0
 Donate link: https://dpapps.net/donation/
 License: GPLv2 or later
@@ -76,6 +76,12 @@ The developer of DPA AI Assistant and related parties are not responsible for an
 The development hub for this plugin and the source code can be found at <a href="https://github.com/DigiPressApps/dpa-ai-assistant">https://github.com/DigiPressApps/dpa-ai-assistant</a>.
 
 == Changelog ==
+
+= 0.2.3 (2024/12/26) =
+* Update: Updated japanese translation file.
+
+= 0.2.2 (2024/12/17) =
+* Improved: Compatibility with WP 6.7.1.
 
 = 0.2.1 (2024/09/18) =
 * Update: Added new GPT model "o1-preview" and "o1-mini" in chat and writer function.
