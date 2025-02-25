@@ -7,7 +7,7 @@ export const textToSpeech = async ( props ) => {
 		openai = undefined,
 		text = '',
 		model = 'tts-1',	// tts-1, tts-1-hd
-		voice = 'alloy', // alloy, echo, fable, onyx, nova, shimmer
+		voice = 'alloy', // alloy, ash, coral, echo, fable, onyx, nova, sage, shimmer
 		format = 'mp3',	// mp3, opus, aac, flac, wav, pcm
 		speed = 1,	// 0.25 to 4.0
 	} = props

@@ -57,22 +57,23 @@ export const sendMessage = async ( props ) => {
 	const params = {
 		model: model,
 		messages: [
-			{
+			...( model.includes('gpt-') ? [{
 				'role': 'system',
 				'content': systemPrompt,
-			},
+			}] : [] ),
 			...( conversation || [] ),
 			{
 				'role': 'user',
 				'content': message,
 			},
 		],
-		temperature: parseFloat( temperature ),
-		top_p: parseFloat( topP ),
+		temperature: model.includes('gpt-') ? parseFloat( temperature ) : 1,
+		...( model.includes('gpt-') ? { top_p: parseFloat( topP ) } : {} ),
 		frequency_penalty: parseFloat( frequencyPenalty ),
 		presence_penalty: parseFloat( presencePenalty ),
 		n: 1,
-		max_tokens: parseInt( maxTokens, 10 ),
+		max_completion_tokens: parseInt( maxTokens, 10 ),
+		// max_tokens: parseInt( maxTokens, 10 ),  // o1以前
 		stream: useStreaming ? true : false,
 	}
 

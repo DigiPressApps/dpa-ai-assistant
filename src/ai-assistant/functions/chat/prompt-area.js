@@ -89,7 +89,7 @@ export const PromptArea = memo( ( props ) => {
 	// GPT-4 Vision判定用
 	const [ isVisionModel, setIsVisionModel ] = useState( false )
 	useEffect( () => {
-		setIsVisionModel( model.includes( 'gpt-4-vision' ) || model.includes( 'gpt-4o' ) )
+		setIsVisionModel( model.includes( 'gpt-4-vision' ) || model.includes( 'gpt-4o' ) || model === 'o1' )
 	}, [ model ] )
 
 	 // ボタンがクリックされたときに 各画像のポップアップ状態を切り替える

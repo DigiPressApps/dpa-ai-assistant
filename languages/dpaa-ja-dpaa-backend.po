@@ -1569,3 +1569,9 @@ msgstr "複雑な課題解決向けに設計"
 
 msgid "Good at coding, math, and science"
 msgstr "数学、科学に特化し高速で安価"
+
+msgid "Fast, flexible reasoning model"
+msgstr "高速で柔軟な推論モデル"
+
+msgid "High intelligence reasoning model"
+msgstr "高い知性を持つ推論モデル"

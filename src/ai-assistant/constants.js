@@ -34,6 +34,16 @@ export const DEFAULT_OPEN_AI_DALL_E_STYLE = 'vivid'
 // Open AI モデル
 export const OPEN_AI_GPT_MODELS = [
 	{
+		name: 'o3-mini',
+		key: 'o3-mini',
+		__experimentalHint: __( 'Fast, flexible reasoning model', dpaa.i18n ),
+	},
+	{
+		name: 'o1',
+		key: 'o1',
+		__experimentalHint: __( 'High intelligence reasoning model', dpaa.i18n ),
+	},
+	{
 		name: 'o1-preview',
 		key: 'o1-preview',
 		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Designed to solve hard problems', dpaa.i18n ) }`,
@@ -81,6 +91,16 @@ export const OPEN_AI_GPT_MODELS = [
 ]
 // アシスタント用
 export const OPEN_AI_GPT_ASSISTANTS_MODELS = [
+	{
+		name: 'o3-mini',
+		key: 'o3-mini',
+		__experimentalHint: __( 'Fast, flexible reasoning model', dpaa.i18n ),
+	},
+	{
+		name: 'o1',
+		key: 'o1',
+		__experimentalHint: __( 'High intelligence reasoning model', dpaa.i18n ),
+	},
 	{
 		name: 'o1-preview',
 		key: 'o1-preview',
@@ -422,7 +442,7 @@ export const DEFAULT_IMAGE_MAX_VISIBLE_IMAGE_LOGS = 4
 
 // 音声変換
 export const DEFAULT_OPEN_AI_SPEECH_MODEL = 'tts-1'	// tts-1 or tts-1-hd
-export const DEFAULT_OPEN_AI_SPEECH_VOICE = 'alloy'	// alloy, echo, fable, onyx, nova, and shimmer
+export const DEFAULT_OPEN_AI_SPEECH_VOICE = 'alloy'	// alloy, ash, coral, echo, fable, onyx, nova, sage, shimmer
 export const DEFAULT_OPEN_AI_SPEECH_FORMAT = 'mp3'	// mp3, opus, aac, flac, wav, and pcm
 export const DEFAULT_OPEN_AI_SPEECH_SPEED = 1	// 0.25 to 4.0
 export const DEFAULT_OPEN_AI_TRANSCRIPTION_MODEL = 'whisper-1'	// whisper-1
@@ -447,10 +467,13 @@ export const OPEN_AI_SPEECH_MODELS = [
 ]
 export const OPEN_AI_SPEECH_VOICES = [
 	{ label: __( 'Alloy', dpaa.i18n ), value: 'alloy' },
+	{ label: __( 'Ash', dpaa.i18n ), value: 'ash' },
+	{ label: __( 'Coral', dpaa.i18n ), value: 'coral' },
 	{ label: __( 'Echo', dpaa.i18n ), value: 'echo' },
 	{ label: __( 'Fable', dpaa.i18n ), value: 'fable' },
 	{ label: __( 'Onyx', dpaa.i18n ), value: 'onyx' },
 	{ label: __( 'Nova', dpaa.i18n ), value: 'nova' },
+	{ label: __( 'Sage', dpaa.i18n ), value: 'sage' },
 	{ label: __( 'Shimmer', dpaa.i18n ), value: 'shimmer' },
 ]
 export const OPEN_AI_SPEECH_FORMATS = [

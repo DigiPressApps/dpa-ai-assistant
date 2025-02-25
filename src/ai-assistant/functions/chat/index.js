@@ -582,7 +582,7 @@ export const ChatPanel = ( props ) => {
 		}
 		if ( window.confirm( __( 'Are you sure you want to regenerate?', dpaa.i18n ) ) ) {
 			setMessage( message )
-			if ( ( gptModel.includes( 'gpt-4-vision' ) || gptModel.includes( 'gpt-4o' ) ) && Array.isArray( visionMediaData ) && visionMediaData?.length > 0 ) {
+			if ( ( gptModel.includes( 'gpt-4-vision' ) || gptModel.includes( 'gpt-4o' ) || gptModel === 'o1' ) && Array.isArray( visionMediaData ) && visionMediaData?.length > 0 ) {
 				// GPT-4-Visioｎ で画像認識の場合
 				sendMessageToGPTVisionBySync( { messageText: message } )
 			} else {
@@ -750,7 +750,7 @@ export const ChatPanel = ( props ) => {
 				sendMessageByAsync( { messageText: MESSAGE_PROMPT_CONTINUE } )
 			} }
 			onClickSend={ () => {
-				if ( ( gptModel.includes( 'gpt-4-vision' ) || gptModel.includes( 'gpt-4o' ) ) && Array.isArray( visionMediaData ) && visionMediaData?.length > 0 ) {
+				if ( ( gptModel.includes( 'gpt-4-vision' ) || gptModel.includes( 'gpt-4o' ) || gptModel === 'o1' ) && Array.isArray( visionMediaData ) && visionMediaData?.length > 0 ) {
 					// GPT-4-Visioｎ で画像認識の場合
 					sendMessageToGPTVisionBySync( { messageText: message } )
 				} else {

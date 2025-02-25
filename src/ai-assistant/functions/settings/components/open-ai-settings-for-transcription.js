@@ -10,7 +10,7 @@ import {
 	OPEN_AI_USAGE_URL,
 	OPEN_AI_SPEECH_VOICES_URL,
 	DEFAULT_OPEN_AI_SPEECH_MODEL, 	// tts-1 or tts-1-hd
-	DEFAULT_OPEN_AI_SPEECH_VOICE,	// alloy, echo, fable, onyx, nova, and shimmer
+	DEFAULT_OPEN_AI_SPEECH_VOICE,	// alloy, ash, coral, echo, fable, onyx, nova, sage, shimmer
 	DEFAULT_OPEN_AI_SPEECH_FORMAT,	// mp3, opus, aac, flac, wav, and pcm
 	DEFAULT_OPEN_AI_SPEECH_SPEED, 	// 0.25 to 4.0
 	DEFAULT_OPEN_AI_TRANSCRIPTION_MODEL,	// whisper-1

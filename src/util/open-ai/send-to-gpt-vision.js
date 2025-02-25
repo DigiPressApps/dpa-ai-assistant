@@ -33,7 +33,7 @@ export const sendToGPTVision = async ( props ) => {
 		arrayImageUrls = [],
 	} = props
 
-	if ( !message || !model || ( !model.includes( 'gpt-4-vision' ) && !model.includes( 'gpt-4o' ) ) || !Array.isArray( arrayImageUrls ) || arrayImageUrls?.length < 0 ) {
+	if ( !message || !model || model !== 'o1' || ( !model.includes( 'gpt-4-vision' ) && !model.includes( 'gpt-4o' ) ) || !Array.isArray( arrayImageUrls ) || arrayImageUrls?.length < 0 ) {
 		return;
 	}
 
@@ -70,7 +70,7 @@ export const sendToGPTVision = async ( props ) => {
 		top_p: parseFloat( topP ),
 		frequency_penalty: 0,
 		n: 1,
-		max_tokens: parseInt( maxTokens, 10 ),
+		max_completion_tokens: parseInt( maxTokens, 10 ),
 	}
 
 	if ( systemPrompt ) {

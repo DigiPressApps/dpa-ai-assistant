@@ -179,7 +179,7 @@ export const TextToSpeechPanel = props => {
 				openai: openai,
 				text: text,
 				model: model,	// tts-1, tts-1-hd
-				voice: voice, // alloy, echo, fable, onyx, nova, shimmer
+				voice: voice, // alloy, ash, coral, echo, fable, onyx, nova, sage, shimmer
 				format: format,	// mp3, opus, aac, flac, wav, pcm
 				speed: speed,	// 0.25 to 4.0
 			} )

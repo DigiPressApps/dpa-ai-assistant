@@ -76,6 +76,10 @@ The developer of DPA AI Assistant and related parties are not responsible for an
 The development hub for this plugin and the source code can be found at <a href="https://github.com/DigiPressApps/dpa-ai-assistant">https://github.com/DigiPressApps/dpa-ai-assistant</a>.
 
 == Changelog ==
+= 0.2.5 (2025/02/25) =
+* Update: Added o1 and o3-mini to GPT models.
+* Update: Updated japanese translation file.
+* Improved: Compatibility with WP 6.7.2.
 
 = 0.2.3 (2024/12/26) =
 * Update: Updated japanese translation file.
