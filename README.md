@@ -24,6 +24,10 @@
 3. Enjoy the features of AI Assistant.
    More details and documentation in [here](https://dpapps.net/docs/docs-ai-assistant/).
 
+## Download as a WordPress Plugin
+
+Download as a WordPress official plugin from [here](https://wordpress.org/plugins/dpa-ai-assistant/).
+
 ## Disclaimer
 
 DPA AI Assistant is a plugin that helps you to connect your websites to AI services. You need your own API keys and must follow the rules set by the AI service you choose. Before using this plugin, please check their terms of use.
