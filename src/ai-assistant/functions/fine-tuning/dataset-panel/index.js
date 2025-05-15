@@ -444,7 +444,7 @@ export const DatasetPanel = props => {
 	// データセットエディタ
 	const renderedCreateDataset = (
 		<>
-			<BaseControl className='dpaa-vertical-scrollable-area'>
+			<BaseControl __nextHasNoMarginBottom className='dpaa-vertical-scrollable-area'>
 				<RenderDatasetLineHeader
 					isLoading={ isLoading }
 					createMode={ createMode }

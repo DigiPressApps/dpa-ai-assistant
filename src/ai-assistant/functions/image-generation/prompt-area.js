@@ -46,16 +46,16 @@ export const PromptArea = memo( ( props ) => {
 		onClickReGenerate,
 		onClickGenerate,
 
-		dallEModel,
-		onChangeDallEModel,
-		dallENumberImages,
-		onChangeDallENumberImages,
-		dallEImageSize,
-		onChangeDallEImageSize,
-		dallEQuality,
-		onChangeDallEQuality,
-		dallEStyle,
-		onChangeDallEStyle,
+		gptImageModel,
+		onChangeGPTImageModel,
+		gptImageNumberImages,
+		onChangeGPTImageNumberImages,
+		gptImageImageSize,
+		onChangeGPTImageImageSize,
+		gptImageQuality,
+		onChangeGPTImageQuality,
+		gptImageStyle,
+		onChangeGPTImageStyle,
 
 		stableDiffusionModel,
 		onChangeStableDiffusionModel,
@@ -99,7 +99,7 @@ export const PromptArea = memo( ( props ) => {
 					>
 						<FlexItem>
 							<TextareaControl
-								__next40pxDefaultSize
+								__nextHasNoMarginBottom
 								className='dpaa-ai-assistant--generator__prompt__textarea'
 								value={ imagePrompt }
 								onChange={ onChangeImagePrompt }
@@ -207,11 +207,11 @@ export const PromptArea = memo( ( props ) => {
 							openAIApiKey={ openAIApiKey }
 							engine={ engine }
 							onChangeEngine={ onChangeEngine }
-							dallEModel={ dallEModel }
-							dallENumberImages={ dallENumberImages }
-							dallEImageSize={ dallEImageSize }
-							dallEQuality={ dallEQuality }
-							dallEStyle={ dallEStyle }
+							gptImageModel={ gptImageModel }
+							gptImageNumberImages={ gptImageNumberImages }
+							gptImageImageSize={ gptImageImageSize }
+							gptImageQuality={ gptImageQuality }
+							gptImageStyle={ gptImageStyle }
 							stableDiffusionModel={ stableDiffusionModel }
 							stableDiffusionStyle={ stableDiffusionStyle }
 							stableDiffusionWidth={ stableDiffusionWidth }
@@ -220,11 +220,11 @@ export const PromptArea = memo( ( props ) => {
 							stableDiffusionSamples={ stableDiffusionSamples }
 							stableDiffusionCfgScale={ stableDiffusionCfgScale }
 							stableDiffusionSteps={ stableDiffusionSteps }
-							onChangeDallEModel={ onChangeDallEModel }
-							onChangeDallENumberImages={ onChangeDallENumberImages }
-							onChangeDallEImageSize={ onChangeDallEImageSize }
-							onChangeDallEQuality={ onChangeDallEQuality }
-							onChangeDallEStyle={ onChangeDallEStyle }
+							onChangeGPTImageModel={ onChangeGPTImageModel }
+							onChangeGPTImageNumberImages={ onChangeGPTImageNumberImages }
+							onChangeGPTImageImageSize={ onChangeGPTImageImageSize }
+							onChangeGPTImageQuality={ onChangeGPTImageQuality }
+							onChangeGPTImageStyle={ onChangeGPTImageStyle }
 							onChangeStableDiffusionModel={ onChangeStableDiffusionModel }
 							onChangeStableDiffusionStyle={ onChangeStableDiffusionStyle }
 							onChangeStableDiffusionWidth={ onChangeStableDiffusionWidth }

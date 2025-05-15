@@ -24,6 +24,8 @@ import {
 	Notice,
 	Spinner,
 	TextareaControl,
+	__experimentalVStack as VStack,
+	__experimentalHStack as HStack,
 } from '@wordpress/components'
 import {
 	memo,
@@ -86,10 +88,10 @@ export const PromptArea = memo( ( props ) => {
 		buttonText: __( 'Select' ),
 	} )
 
-	// GPT-4 Vision判定用
+	// 画像入力モデル判定
 	const [ isVisionModel, setIsVisionModel ] = useState( false )
 	useEffect( () => {
-		setIsVisionModel( model.includes( 'gpt-4-vision' ) || model.includes( 'gpt-4o' ) || model === 'o1' )
+		setIsVisionModel( !model.includes( 'search' ) && ( model.includes('gpt-4o') || model.includes('gpt-4.1') || model === 'o4-mini' ) );
 	}, [ model ] )
 
 	 // ボタンがクリックされたときに 各画像のポップアップ状態を切り替える
@@ -117,25 +119,27 @@ export const PromptArea = memo( ( props ) => {
 						flexBasis: 'calc( 65% - 6px )'
 					} }
 				>
-					<Flex
+					<VStack
 						className='dpaa-box-shadow-element'
-						direction='column'
-						gap={ 1 }
+						spacing={ 2 }
 					>
-						<FlexItem>
 							<TextareaControl
-								__next40pxDefaultSize
+								__nextHasNoMarginBottom
 								// label={ __( 'Question', dpaa.i18n ) }
 								className='dpaa-ai-assistant--generator__prompt__textarea'
 								value={ message }
 								onChange={ onChangeMessage }
 								rows={ 3 }
-								placeholder={ !isVisionModel ? __( 'Ask anything...', dpaa.i18n ) : __( 'What do these images have in common?', dpaa.i18n ) }
+								placeholder={
+									isVisionModel
+										? __( 'What do these images have in common?', dpaa.i18n )
+										: model.includes( 'search' )
+											? __( "Summarize today's major news from news sites.", dpaa.i18n )
+											: __( 'Ask anything...', dpaa.i18n )
+								}
 								disabled={ isLoading || !openai || isStreaming }
 							/>
-						</FlexItem>
 						{ ( !isLoading && !isStreaming && openai && isVisionModel ) && (
-							<FlexItem>
 								<Flex
 									gap={ 1 }
 									direction='row'
@@ -231,169 +235,147 @@ export const PromptArea = memo( ( props ) => {
 										/>
 									</FlexItem>
 								</Flex>
-							</FlexItem>
 						) }
-						<FlexItem>
-							<Flex
-								gap={ 1 }
-								direction='row'
+							<HStack
+								spacing={ 1 }
 								justify='flex-end'
 							>
 								{ ( !isLoading && !isStreaming && openai ) && (
 									<>
-										<FlexItem>
-											<Dropdown
-												popoverProps={ {
-													// placement: 'top center',
-													offset: 5,
-													// shift: true,
-												} }
-												renderToggle={ ( { isOpen, onToggle, onClose } ) => (
-													<Button
-														label={ sprintf( __( 'Operations on %s', dpaa.i18n ), __( 'selected text', dpaa.i18n ) ) }
-														showToolTip={ true }
-														icon={ menuIcon }
-														iconSize={ 24 }
-														variant='tertiary'
-														disabled={ isLoading || isStreaming }
-														onClick={ () => onClickOperationSelectedText( onToggle ) }
-														aria-expanded={ isOpen }
-													/>
-												) }
-												renderContent={ ( { isOpen, onToggle, onClose } ) => (
-													<DropdownButtonsForSelectedText
-														setSelectedTextOperation={ setSelectedTextOperation }
-														setSelectedTextOperationMessage={ setSelectedTextOperationMessage }
-														selectedTextTarget={ selectedTextTarget }
-														onClose={ onClose }
-													/>
-												) }
-											/>
-										</FlexItem>
-										<FlexItem>
-											<Dropdown
-												popoverProps={ {
-													// placement: 'top center',
-													offset: 5,
-													// shift: true,
-												} }
-												renderToggle={ ( { isOpen, onToggle, onClose } ) => (
-													<Button
-														label={ sprintf( __( 'Operations on %s', dpaa.i18n ), __( 'clipboard text', dpaa.i18n ) ) }
-														showToolTip={ true }
-														icon={ menuIcon }
-														iconSize={ 24 }
-														// variant='tertiary'
-														disabled={ isLoading || isStreaming }
-														onClick={ () => onClickOperationClipboardText( onToggle ) }
-														aria-expanded={ isOpen }
-													/>
-												) }
-												renderContent={ ( { isOpen, onToggle, onClose } ) => (
-													<DropdownButtonsForSelectedText
-														setSelectedTextOperation={ setSelectedTextOperation }
-														setSelectedTextOperationMessage={ setSelectedTextOperationMessage }
-														selectedTextTarget={ selectedTextTarget }
-														onClose={ onClose }
-													/>
-												) }
-											/>
-										</FlexItem>
+										<Dropdown
+											popoverProps={ {
+												// placement: 'top center',
+												offset: 5,
+												// shift: true,
+											} }
+											renderToggle={ ( { isOpen, onToggle, onClose } ) => (
+												<Button
+													label={ sprintf( __( 'Operations on %s', dpaa.i18n ), __( 'selected text', dpaa.i18n ) ) }
+													showToolTip={ true }
+													icon={ menuIcon }
+													iconSize={ 24 }
+													variant='tertiary'
+													disabled={ isLoading || isStreaming }
+													onClick={ () => onClickOperationSelectedText( onToggle ) }
+													aria-expanded={ isOpen }
+												/>
+											) }
+											renderContent={ ( { isOpen, onToggle, onClose } ) => (
+												<DropdownButtonsForSelectedText
+													setSelectedTextOperation={ setSelectedTextOperation }
+													setSelectedTextOperationMessage={ setSelectedTextOperationMessage }
+													selectedTextTarget={ selectedTextTarget }
+													onClose={ onClose }
+												/>
+											) }
+										/>
+										<Dropdown
+											popoverProps={ {
+												// placement: 'top center',
+												offset: 5,
+												// shift: true,
+											} }
+											renderToggle={ ( { isOpen, onToggle, onClose } ) => (
+												<Button
+													label={ sprintf( __( 'Operations on %s', dpaa.i18n ), __( 'clipboard text', dpaa.i18n ) ) }
+													showToolTip={ true }
+													icon={ menuIcon }
+													iconSize={ 24 }
+													// variant='tertiary'
+													disabled={ isLoading || isStreaming }
+													onClick={ () => onClickOperationClipboardText( onToggle ) }
+													aria-expanded={ isOpen }
+												/>
+											) }
+											renderContent={ ( { isOpen, onToggle, onClose } ) => (
+												<DropdownButtonsForSelectedText
+													setSelectedTextOperation={ setSelectedTextOperation }
+													setSelectedTextOperationMessage={ setSelectedTextOperationMessage }
+													selectedTextTarget={ selectedTextTarget }
+													onClose={ onClose }
+												/>
+											) }
+										/>
 									</>
 								) }
-								<FlexItem>
-									<Button
-										size='compact'
-										showTooltip
-										label={ __( 'Clear all logs and reset tokens.', dpaa.i18n ) }
-										className='dpaa-ai-assistant--generator__button'
-										icon='trash'
-										iconSize={ 18 }
-										variant='primary'
-										isDestructive={ true }
-										disabled={ isLoading || isStreaming || !openai }
-										onClick={ onClickClear }
-									/>
-								</FlexItem>
-								<FlexItem>
-									<Button
-										size='compact'
-										showTooltip
-										label={ __( 'Magic prompt!', dpaa.i18n ) }
-										className='dpaa-ai-assistant--generator__button'
-										icon={ shuffleIcon }
-										iconSize={ 18 }
-										variant='secondary'
-										disabled={ isLoading || isStreaming || !openai }
-										onClick={ onClickMagicPrompt }
-									/>
-								</FlexItem>
-								<FlexItem>
-									<Button
-										size='compact'
-										showTooltip
-										label={ __( 'Continue an interrupted conversation.', dpaa.i18n ) }
-										className='dpaa-ai-assistant--generator__button'
-										icon={ redoIcon }
-										iconSize={ 18 }
-										variant='secondary'
-										disabled={ isLoading || isStreaming || !openai ||  !previousMessageRef?.current }
-										onClick={ onClickContinue }
-									/>
-								</FlexItem>
-								<FlexItem>
-									<Button
-										size='compact'
-										showTooltip
-										label={ __( 'Resend previous message.', dpaa.i18n ) }
-										className='dpaa-ai-assistant--generator__button'
-										icon='controls-repeat'
-										iconSize={ 18 }
-										variant='secondary'
-										disabled={ isLoading || isStreaming || !openai || !previousMessageRef?.current }
-										onClick={ onClickReSend }
-									/>
-								</FlexItem>
-								<FlexItem>
-									<Button
-										size='compact'
-										showTooltip
-										label={ __( 'Talk to AI', dpaa.i18n ) }
-										icon='microphone'
-										iconSize={ 20 }
-										variant='primary'
-										isDestructive={ false }
-										isBusy={ isLoading }
-										disabled={ isLoading || isStreaming || !openai }
-										onClick={ () => setIsUpgradeModal( true ) }
-									/>
-								</FlexItem>
-								<FlexItem>
-									<Button
-										size='compact'
-										showTooltip
-										label={ __( 'Send this message.', dpaa.i18n ) }
-										className='dpaa-ai-assistant--generator__button'
-										icon={ sendIcon }
-										iconSize={ 18 }
-										variant='primary'
-										onClick={ onClickSend }
-										isBusy={ isLoading }
-										disabled={ isLoading || isStreaming || !openai || !message }
-									>
-										{ isLoading && (
-											<Spinner />
-										) }
-									</Button>
-								</FlexItem>
-							</Flex>
-						</FlexItem>
+								<Button
+									size='compact'
+									showTooltip
+									label={ __( 'Clear all logs and reset tokens.', dpaa.i18n ) }
+									className='dpaa-ai-assistant--generator__button'
+									icon='trash'
+									iconSize={ 18 }
+									variant='primary'
+									isDestructive={ true }
+									disabled={ isLoading || isStreaming || !openai }
+									onClick={ onClickClear }
+								/>
+								<Button
+									size='compact'
+									showTooltip
+									label={ __( 'Magic prompt!', dpaa.i18n ) }
+									className='dpaa-ai-assistant--generator__button'
+									icon={ shuffleIcon }
+									iconSize={ 18 }
+									variant='secondary'
+									disabled={ isLoading || isStreaming || !openai }
+									onClick={ onClickMagicPrompt }
+								/>
+								<Button
+									size='compact'
+									showTooltip
+									label={ __( 'Continue an interrupted conversation.', dpaa.i18n ) }
+									className='dpaa-ai-assistant--generator__button'
+									icon={ redoIcon }
+									iconSize={ 18 }
+									variant='secondary'
+									disabled={ isLoading || isStreaming || !openai ||  !previousMessageRef?.current }
+									onClick={ onClickContinue }
+								/>
+								<Button
+									size='compact'
+									showTooltip
+									label={ __( 'Resend previous message.', dpaa.i18n ) }
+									className='dpaa-ai-assistant--generator__button'
+									icon='controls-repeat'
+									iconSize={ 18 }
+									variant='secondary'
+									disabled={ isLoading || isStreaming || !openai || !previousMessageRef?.current }
+									onClick={ onClickReSend }
+								/>
+								<Button
+									size='compact'
+									showTooltip
+									label={ __( 'Talk to AI', dpaa.i18n ) }
+									icon='microphone'
+									iconSize={ 20 }
+									variant='primary'
+									isDestructive={ false }
+									isBusy={ isLoading }
+									disabled={ isLoading || isStreaming || !openai }
+									onClick={ () => setIsUpgradeModal( true ) }
+								/>
+								<Button
+									size='compact'
+									showTooltip
+									label={ __( 'Send this message.', dpaa.i18n ) }
+									className='dpaa-ai-assistant--generator__button'
+									icon={ sendIcon }
+									iconSize={ 18 }
+									variant='primary'
+									onClick={ onClickSend }
+									isBusy={ isLoading }
+									disabled={ isLoading || isStreaming || !openai || !message }
+								>
+									{ isLoading && (
+										<Spinner />
+									) }
+								</Button>
+							</HStack>
 						{ errorMessage && (
-							<FlexItem>
-								<div className='dpaa__visible-error-message'>{ errorMessage.toString() }</div>
-							</FlexItem>
+							<div className='dpaa__visible-error-message'>{ errorMessage.toString() }</div>
 						) }
-					</Flex>
+					</VStack>
 				</FlexItem>
 				<FlexItem
 					isBlock={ true }
@@ -408,20 +390,15 @@ export const PromptArea = memo( ( props ) => {
 							status="info"
 							isDismissible={ false }
 						>
-							<Flex
-								direction='column'
-								gap={ 2 }
-							>
-								<FlexItem>
-									<ExternalLink
-										href={ OPEN_AI_API_KEY_URL }
-										type="link"
-										rel="next"
-									>
-										{ __( 'Get the API key.', dpaa.i18n ) }
-									</ExternalLink>
-								</FlexItem>
-							</Flex>
+							<VStack spacing={ 2 }>
+								<ExternalLink
+									href={ OPEN_AI_API_KEY_URL }
+									type="link"
+									rel="next"
+								>
+									{ __( 'Get the API key.', dpaa.i18n ) }
+								</ExternalLink>
+							</VStack>
 						</Notice>
 					)
 					: (

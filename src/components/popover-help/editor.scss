@@ -1,3 +1,15 @@
+.dpaa-components-popover-help__button{
+	// ボタンを右側にインライン表示する場合
+	&.__right-inline-position{
+		vertical-align: middle;
+		margin-left: 6px;
+	}
+	svg{
+		width:20px!important;
+		height:20px!important;
+	}
+}
+
 .dpaa-components-popover-help__popover{
 	>.components-popover__content{
 		width:100%;

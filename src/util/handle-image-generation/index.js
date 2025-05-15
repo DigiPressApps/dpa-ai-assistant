@@ -8,8 +8,8 @@ export const handleImageGeneration = async ( props ) => {
 		engine = '',
 		prompt = '',
 		openai = undefined,
-		dallEModel = '',
-		dallEImageSize = '',
+		gptImageModel = '',
+		gptImageImageSize = '',
 		stabilityAIApiKey,
 		stableDiffusionModel,
 		stableDiffusionCfgScale,
@@ -24,8 +24,8 @@ export const handleImageGeneration = async ( props ) => {
 			prompt: prompt,
 			openai: openai,
 			n: 1,
-			model: dallEModel,
-			size: dallEImageSize,
+			model: gptImageModel,
+			size: gptImageImageSize,
 			mode: 'generate',	// または variation
 			format: 'b64_json',	// または url
 			image: null,

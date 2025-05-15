@@ -15,18 +15,14 @@ import apiFetch from '@wordpress/api-fetch'
 import { __ } from '@wordpress/i18n'
 import { useDispatch } from '@wordpress/data'
 import {
-	Flex,
-	FlexItem,
 	Button,
-	Snackbar,
-	Spinner,
 	__experimentalSpacer as Spacer,
+	__experimentalHStack as HStack,
 } from '@wordpress/components'
 import {
 	useEffect,
 	useState,
 	useMemo,
-	memo,
 } from '@wordpress/element'
 import {
 	download as downloadIcon,
@@ -164,42 +160,33 @@ export const ExportImportSettings = ( { pluginSettings } ) => {
 
 	return (
 		<>
-			<Spacer marginTop={ 4 }>
-				<Flex
-					direction='row'
-					gap={ 3 }
-					justify='flex-end'
-					// className='dpaa-box-shadow-element'
-				>
-					<FlexItem>
-						<Button
-							onClick={ () => handleExportSettings() }
-							icon={ downloadIcon }
-							iconSize={ 22 }
-							iconPosition='left'
-							variant='primary'
-							size='default'
-							disabled={ isLoading }
-							isBusy={ isLoading }
-						>
-							{ __( 'Export Settings', dpaa.i18n ) }
-						</Button>
-					</FlexItem>
-					<FlexItem>
-						<Button
-							onClick={ () => importOptions() }
-							icon={ uploadIcon }
-							iconSize={ 22 }
-							iconPosition='left'
-							variant='primary'
-							size='default'
-							disabled={ isLoading }
-							isBusy={ isLoading }
-						>
-							{ __( 'Import Settings', dpaa.i18n ) }
-						</Button>
-					</FlexItem>
-				</Flex>
+			<Spacer marginTop={ 3 }>
+				<HStack spacing={ 3 } justify='flex-end'>
+					<Button
+						onClick={ () => handleExportSettings() }
+						icon={ downloadIcon }
+						iconSize={ 22 }
+						iconPosition='left'
+						variant='primary'
+						size='default'
+						disabled={ isLoading }
+						isBusy={ isLoading }
+					>
+						{ __( 'Export Settings', dpaa.i18n ) }
+					</Button>
+					<Button
+						onClick={ () => importOptions() }
+						icon={ uploadIcon }
+						iconSize={ 22 }
+						iconPosition='left'
+						variant='primary'
+						size='default'
+						disabled={ isLoading }
+						isBusy={ isLoading }
+					>
+						{ __( 'Import Settings', dpaa.i18n ) }
+					</Button>
+				</HStack>
 			</Spacer>
 			<TipMessage
 				message={ tipMessage?.message || '' }

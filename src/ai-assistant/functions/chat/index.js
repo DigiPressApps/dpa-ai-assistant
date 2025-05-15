@@ -7,8 +7,8 @@ import {
 	getClipboardText,
 	getSelectedText,
 	copyToClipboard,
-	sendMessage as sendMessageToChatGPT,
-	sendToGPTVision,
+	sendMessageToOpenAI,
+	sendMessageWithImageToOpenAI,
 	urlToBase64Image,
 	isLocalUrl,
 } from '@dpaa/util'
@@ -157,8 +157,14 @@ export const ChatPanel = ( props ) => {
 	const [ respondTone, setRespondTone ] = useState( '' )
 	const [ respondStyle, setRespondStyle ] = useState( '' )
 
-	// イメージデータ用(GPT-4-Vision)
-	const [ visionMediaData, setVisionMediaData ] = useState( [] )
+	// イメージデータ用
+	const [ visionMediaData, setVisionMediaData ] = useState( [] );
+
+	// 画像入力モデル判定
+	const [ isVisionModel, setIsVisionModel ] = useState( false )
+	useEffect( () => {
+		setIsVisionModel( !gptModel.includes( 'search' ) && ( gptModel.includes('gpt-4o') || gptModel.includes('gpt-4.1') || gptModel ===  'o4-mini' ) );
+	}, [ gptModel ] )
 
 	// ラッパー要素への参照用
 	const scrollableRef = useRef( undefined );
@@ -171,24 +177,71 @@ export const ChatPanel = ( props ) => {
 		try {
 			if ( indexedDB ) {
 				const data = await indexedDB.chat.get( 1 );
-				if ( data?.generatedText ) {
-					setRenderedLog( JSON.parse( data.generatedText ) );
+				if ( data?.conversationData ) {
+					const conversationData = JSON.parse( data.conversationData );
+					
+					// 会話データを内部状態に設定
+					setConversation( conversationData );
+					
+					// 会話データをレンダリング用に変換し、直接表示
+					const pairData = [];
+					for ( let i = 0; i < conversationData.length; i += 2 ) {
+						if ( i + 1 < conversationData.length ) {
+							if ( conversationData[i].role === 'user' && conversationData[i+1].role === 'assistant' ) {
+								pairData.push({
+									message: conversationData[i].content,
+									response: conversationData[i+1].content,
+									index: Math.floor(i / 2)
+								});
+							}
+						}
+					}
+					
+					// レンダリング用のログを生成
+					const newRenderedLog = pairData.map((pair, idx) => (
+						<RenderLog
+							key={ `log-${idx}` }
+							message={ pair.message }
+							response={ pair.response }
+							isLoaded={ true }
+							index={ idx }
+							isLoading={ isLoading }
+							isStreaming={ isStreaming }
+							tipMessage={ tipMessage }
+							onClickCopyToClipboardItem={ handleCopyToClipboardItem }
+							onClickRegenerate={ () => handleRegenerate( pair.message ) }
+							onClickDeleteItem={ handleDeleteItem }
+							isInEditor={ isInEditor }
+						/>
+					));
+					
+					// 表示制限を適用
+					if ( newRenderedLog.length > maxVisibleChatLogs ) {
+						const trimmedLog = newRenderedLog.slice( newRenderedLog.length - maxVisibleChatLogs );
+						setRenderedLog( trimmedLog );
+					} else {
+						setRenderedLog( newRenderedLog );
+					}
 				} else {
-					setRenderedLog( [] )
+					setRenderedLog( [] );
+					setConversation( [] );
 				}
 			}
 		} catch ( error ) {
 			console.error('Error fetching data from IndexedDB:', error);
+			setRenderedLog( [] );
+			setConversation( [] );
 		}
 	};
+
 	// ローカルデータ(indexedDB)の更新(上書き保存)
-	 const saveDataToIndexedDB = async ( data ) => {
+	const saveDataToIndexedDB = async ( data ) => {
 		try {
 			if ( indexedDB ) {
 				const primitiveData = JSON.stringify( data );
 				await indexedDB.chat.put( {
 					id: 1,
-					generatedText: primitiveData
+					conversationData: primitiveData
 				} );
 
 				// ログを一番下までスクロールさせる
@@ -213,21 +266,72 @@ export const ChatPanel = ( props ) => {
 		if ( indexedDB ) {
 			// オブジェクトストア(テーブル)を作成
 			indexedDB.version( 1 ).stores({
-				chat: '++id, generatedText'
+				chat: '++id, conversationData'
 			});
 			// ローカルデータの取得
-			fetchDataFromIndexedDB()
+			fetchDataFromIndexedDB();
 		}
-	}, [ indexedDB ] )
+	}, [ indexedDB ] );
 
-	// レンダーエリアの蓄積ログ
+	// 会話データの更新時にローカルDBを更新
 	useEffect( () => {
-		if ( Array.isArray( renderedLog ) && renderedLog.length > 0 ) {
+		if ( Array.isArray( conversation ) && conversation.length > 0 ) {
 			// ローカルデータの更新(上書き保存)
-			saveDataToIndexedDB( renderedLog )
+			saveDataToIndexedDB( conversation );
 		}
-	}, [ renderedLog ] )
+	}, [ conversation ] );
 
+	// ストリーミング完了時の処理
+	useEffect( () => {
+		// ストリーミング完了時
+		if ( !isStreaming && response ) {
+			// 会話記録を更新
+			const newConversation = [
+				...conversation,
+				{
+					role: 'user',
+					content: previousMessageRef.current,
+				},
+				{
+					role: 'assistant',
+					content: response,
+				}
+			];
+			setConversation( newConversation );
+
+			// レンダリング用のログを更新
+			const newRenderedLog = [
+				...( renderedLog || [] ),
+				<RenderLog
+					key={ renderedLog?.length || 0 }
+					message={ previousMessageRef.current }
+					response={ response }
+					isLoaded={ true }
+					index={ renderedLog?.length || 0 }
+					isLoading={ isLoading }
+					isStreaming={ isStreaming }
+					tipMessage={ tipMessage }
+					onClickCopyToClipboardItem={ handleCopyToClipboardItem }
+					onClickRegenerate={ () => handleRegenerate( previousMessageRef.current ) }
+					onClickDeleteItem={ handleDeleteItem }
+					isInEditor={ isInEditor }
+				/>
+			];
+
+			// ログ表示用の要素を蓄積
+			if ( newRenderedLog.length > maxVisibleChatLogs ) {
+				const trimmedRenderedLog = newRenderedLog.slice( newRenderedLog.length - maxVisibleChatLogs )
+				setRenderedLog( trimmedRenderedLog )
+			} else {
+				setRenderedLog( newRenderedLog )
+			}
+
+			// ストリーミングのレスポンスを空に
+			setResponse( '' )
+			// メッセージの消去(フォームのクリア)
+			setMessage( '' )
+		}
+	}, [ isStreaming ] )
 
 	// system用プロンプトの生成
 	useEffect( () => {
@@ -244,7 +348,40 @@ export const ChatPanel = ( props ) => {
 		setRespondTone( promptTone );
 		setRespondStyle( promptSyle );
 
-	}, [ languageCode, writingTone, writingStyle, contentStructure, customPrompt ] )
+	}, [ languageCode, writingTone, writingStyle, contentStructure, customPrompt ] );
+
+	//会話記録の更新
+	const updateConversation = useCallback( props => {
+		const {
+			messageText = message,
+			responseText = response,
+		} = props
+
+		if ( !messageText || !responseText ) {
+			return;
+		}
+
+		// 新しい会話を追加
+		let newConversation = [
+			...conversation,
+			{
+				role: 'user',
+				content: messageText, // 直近の質問
+			},
+			{
+				role: 'assistant',
+				content: responseText,
+			},
+		];
+
+		// 配列の長さが指定した数を超えている場合、先頭から要素を削除
+		if ( newConversation.length > maxChatLogs ) {
+			newConversation = newConversation.slice( -maxChatLogs );
+		}
+
+		// 会話の記録を更新(プロンプト用)
+		setConversation( newConversation );
+	} );
 
 	// 表示ログの更新
 	const refleshAndUpdateLogs = useCallback( props => {
@@ -256,6 +393,12 @@ export const ChatPanel = ( props ) => {
 		if ( !responseText ) {
 			return null
 		}
+
+		// 会話記録を更新
+		updateConversation( {
+			messageText: messageText,
+			responseText: responseText,
+		} );
 
 		let newRenderedLog = []
 
@@ -311,7 +454,7 @@ export const ChatPanel = ( props ) => {
 		// 今回のメッセージを保持
 		previousMessageRef.current = messageText
 
-		sendMessageToChatGPT( {
+		sendMessageToOpenAI( {
 			systemPrompt: sysPrompt,
 			message: messageText,
 			openai: openai,
@@ -341,11 +484,11 @@ export const ChatPanel = ( props ) => {
 		} )
 		.finally( () =>{
 			// ローディング終了
-			setIsLoading( false )
-			setIsStreaming( false )
+			setIsLoading( false );
+			setIsStreaming( false );
 		} )
 
-	}, [ isLoading, openai, message, conversation, temperature, topP, gptModel, systemPrompt, maxTokens ] );
+	}, [ isLoading, openai, message, conversation, temperature, topP, gptModel, systemPrompt, maxTokens, isStreaming ] );
 
 	// 同期型 API リクエスト(非ストリーミング)
 	const sendMessageBySync = useCallback( ( props ) => {
@@ -355,6 +498,7 @@ export const ChatPanel = ( props ) => {
 			sendResponseAfter = false,
 			renderAndAppendLog = false,
 			shouldReturnJson = false,
+			isSelectedTextPrompt = false,
 			tipNoMessage = __( 'No message!', dpaa.i18n )
 		} = props
 
@@ -367,8 +511,9 @@ export const ChatPanel = ( props ) => {
 			return
 		}
 
-		setIsLoading( true )
-		sendMessageToChatGPT( {
+		setIsLoading( true );
+
+		sendMessageToOpenAI( {
 			systemPrompt: sysPrompt,
 			message: messageText,
 			openai: openai,
@@ -381,23 +526,24 @@ export const ChatPanel = ( props ) => {
 			shouldReturnJson: shouldReturnJson,
 		} )
 		.then( response => {
-			const res = response?.response
+			const res = response?.content
 
 			// レスポンスを新規のメッセージとして送信する場合(マジックプロンプト)
 			if ( sendResponseAfter ) {
 				setIsLoading( false )
 				setMessage( res )
-				sendMessageByAsync( { messageText: res } )
+				sendMessageByAsync( { messageText: res, isSelectedTextPrompt: true } )
 			}
 			// ログを追加表示する場合
-			else if ( renderAndAppendLog )  {
+			if ( renderAndAppendLog )  {
+				console.dir( { res, props } );
+
 				refleshAndUpdateLogs( {
 					responseText: res,
-					messageText: __( selectedTextOperationMessage, dpaa.i18n ),
+					messageText: isSelectedTextPrompt ? __( selectedTextOperationMessage, dpaa.i18n ) : messageText,
 				} )
-			} else {
-				return res
 			}
+			return res
 		} )
 		.catch( error => {
 			console.error( error )
@@ -410,79 +556,8 @@ export const ChatPanel = ( props ) => {
 		} )
 	}, [ isLoading, openai, message, systemPrompt, conversation, temperature, topP, gptModel, maxTokens, selectedTextOperationMessage ] )
 
-	// ストリーミング中の処理
-	useEffect( () => {
-		// データ受信中
-		if ( isStreaming && response ) {
-			// ログを一番下までスクロールさせる
-			if ( scrollableRef.current ) {
-				scrollableRef.current.scrollTop = scrollableRef.current.scrollHeight;
-			}
-		}
-	}, [ response ] )
-
-	// ストリーミング完了時の処理
-	useEffect( () => {
-		// ストリーミング完了時
-		if ( !isStreaming && response ) {
-			// 新しい会話を追加
-			let newConversation = [
-				...conversation,
-				{
-					'role': 'user',
-					'content': previousMessageRef.current, // 直近の質問
-				},
-				{
-					'role': 'assistant',
-					'content': response,
-				},
-			];
-
-			// 配列の長さが指定した数を超えている場合、先頭から要素を削除
-			if ( newConversation.length > maxChatLogs ) {
-				newConversation = newConversation.slice( -maxChatLogs );
-			}
-
-			// 会話の記録を更新(プロンプト用)
-			setConversation( newConversation );
-
-			// チャット履歴(配列)を蓄積して重複するアイテムを削除
-			const newRenderedLog = Array.from( new Set( [
-				...( renderedLog || [] ),
-				...( pluginSettings?.chatLog || [] ),
-				<RenderLog
-					message={ previousMessageRef.current }
-					response={ response }
-					isLoaded={ true }
-					inidex={ ( renderedLog?.length || 0 ) + ( pluginSettings?.chatLog?.length || 0 ) }
-					isLoading={ isLoading }
-					isStreaming={ isStreaming }
-					tipMessage={ tipMessage }
-					onClickCopyToClipboardItem={ handleCopyToClipboardItem }
-					onClickRegenerate={ () => handleRegenerate( previousMessageRef.current ) }
-					onClickDeleteItem={ handleDeleteItem }
-					isInEditor={ isInEditor }
-				/>
-			] ) );
-
-			// ログ表示用の要素を蓄積
-			if ( newRenderedLog.length > maxVisibleChatLogs ) {
-				const trimmedRenderedLog = newRenderedLog.slice( newRenderedLog.length - maxVisibleChatLogs )
-				setRenderedLog( trimmedRenderedLog )
-			} else {
-				setRenderedLog( newRenderedLog )
-			}
-
-			// ストリーミングのレスポンスを空に
-			setResponse( '' )
-			// メッセージの消去(フォームのクリア)
-			setMessage( '' )
-		}
-
-	}, [ isStreaming ] )
-
-	// GPT-4-Vision 
-	const sendMessageToGPTVisionBySync = useCallback( async ( props ) => {
+	// 画像入力によるメッセージ送信
+	const sendMessageToOepnAIWithImageBySync = useCallback( async ( props ) => {
 		const {
 			sysPrompt = systemPrompt,
 			messageText = message,
@@ -515,36 +590,56 @@ export const ChatPanel = ( props ) => {
 			}
 		} ) )
 
+		// ローディング開始
 		setIsLoading( true );
-		sendToGPTVision( {
+		setIsStreaming( true );
+
+		// 今回のメッセージを保持
+		previousMessageRef.current = messageText
+
+		// ストリーミングでメッセージ送信
+		sendMessageWithImageToOpenAI( {
 			systemPrompt: sysPrompt,
 			message: messageText,
+			conversation: conversation,
 			openai: openai,
+			useStreaming: true,
 			model: gptModel,
+			imageType: 'url',
 			temperature: temperature,
 			topP: topP,
 			maxTokens: maxTokens,
 			arrayImageUrls: arrayBase64Images,
+			setResponse: setResponse,
 		} )
 		.then( response => {
-			const res = response?.response
-			refleshAndUpdateLogs( {
-				responseText: res,
-				messageText: messageText,
-			} )
-			return res
+			console.log( 'Streaming status: ', response );
 		} )
 		.catch( error => {
-			console.error( error )
-			setErrorMessage( error )
+			console.error( error );
+			setErrorMessage( error );
 		} )
 		.finally( () => {
-			setSelectedTextOperation( '' )
-			setSelectedTextOperationMessage( '' )
-			setIsLoading( false )
+			setSelectedTextOperation( '' );
+			setSelectedTextOperationMessage( '' );
+			// ローディング終了
+			setIsLoading( false );
+			setIsStreaming( false );
+			setVisionMediaData( [] );
 		} )
 
-	}, [ visionMediaData, message, systemPrompt, isLoading, openai, temperature, topP, gptModel, maxTokens ] )
+	}, [ visionMediaData, message, systemPrompt, isLoading, openai, temperature, topP, gptModel, maxTokens, isStreaming ] );
+
+	// ストリーミング中の処理
+	useEffect( () => {
+		// データ受信中
+		if ( isStreaming && response ) {
+			// ログを一番下までスクロールさせる
+			if ( scrollableRef.current ) {
+				scrollableRef.current.scrollTop = scrollableRef.current.scrollHeight;
+			}
+		}
+	}, [ response ] );
 
 	// 各ログの削除ボタンのコールバック
 	const handleDeleteItem = ( index ) => {
@@ -555,6 +650,18 @@ export const ChatPanel = ( props ) => {
 			// 指定されたインデックスのアイテムを削除
 			copyRenderedLog.splice( index, 1 )
 			setRenderedLog( copyRenderedLog )
+			
+			// 会話データも更新（indexedDBに保存されているデータ）
+			if ( Array.isArray( conversation ) && conversation.length > 0 ) {
+				// ユーザーとアシスタントのペアを削除するため、indexを2倍して計算
+				const copyConversation = [ ...conversation ]
+				const conversationStartIndex = index * 2
+				// 2つの要素（ユーザーとアシスタント）を削除
+				if (conversationStartIndex < copyConversation.length) {
+					copyConversation.splice( conversationStartIndex, 2 )
+					setConversation( copyConversation )
+				}
+			}
 		}
 	}
 
@@ -582,11 +689,18 @@ export const ChatPanel = ( props ) => {
 		}
 		if ( window.confirm( __( 'Are you sure you want to regenerate?', dpaa.i18n ) ) ) {
 			setMessage( message )
-			if ( ( gptModel.includes( 'gpt-4-vision' ) || gptModel.includes( 'gpt-4o' ) || gptModel === 'o1' ) && Array.isArray( visionMediaData ) && visionMediaData?.length > 0 ) {
-				// GPT-4-Visioｎ で画像認識の場合
-				sendMessageToGPTVisionBySync( { messageText: message } )
+			if ( isVisionModel && Array.isArray( visionMediaData ) && visionMediaData?.length > 0 ) {
+				// 画像入力のメッセージ送信
+				sendMessageToOepnAIWithImageBySync( { messageText: message } )
 			} else {
-				sendMessageByAsync( { messageText: message } )
+				// テキスト入力のメッセージ送信
+				if ( gptModel.includes('-search-preview') ) {
+					// 検索モデルの場合は、同期型でメッセージ送信
+					sendMessageBySync( { messageText: message, renderAndAppendLog: true, isSelectedTextPrompt: false } );
+				} else {
+					// 通常モデルの場合は、非同期型でメッセージ送信(ストリーミング)
+					sendMessageByAsync( { messageText: message } );
+				}
 			}
 		}
 	}
@@ -598,7 +712,11 @@ export const ChatPanel = ( props ) => {
 			// 内部ログ(履歴データ)の削除
 			setConversation( [] )
 			// ローカルストレージの削除
-			indexedDB.chat.delete( 1 )
+			if (indexedDB) {
+				indexedDB.chat.delete( 1 ).catch(error => {
+					console.error('Error deleting data from IndexedDB:', error);
+				});
+			}
 		}
 	}
 
@@ -612,6 +730,7 @@ export const ChatPanel = ( props ) => {
 			sysPrompt: `${ SYSTEM_PROMPT_RANDOM }`,
 			messageText: `${ messageText } ${ respondLanguage }`,
 			sendResponseAfter: true,
+			isSelectedTextPrompt: false,
 		} )
 	}
 
@@ -646,6 +765,7 @@ export const ChatPanel = ( props ) => {
 				messageText: selectedText ? messagePrompt.replace( '{MESSAGE}', selectedText ) : '',
 				renderAndAppendLog: true,
 				tipNoMessage: __( 'No selected text!', dpaa.i18n ),
+				isSelectedTextPrompt: true,
 			} )
 		}
 	}, [ selectedTextOperation ] )
@@ -750,11 +870,22 @@ export const ChatPanel = ( props ) => {
 				sendMessageByAsync( { messageText: MESSAGE_PROMPT_CONTINUE } )
 			} }
 			onClickSend={ () => {
-				if ( ( gptModel.includes( 'gpt-4-vision' ) || gptModel.includes( 'gpt-4o' ) || gptModel === 'o1' ) && Array.isArray( visionMediaData ) && visionMediaData?.length > 0 ) {
-					// GPT-4-Visioｎ で画像認識の場合
-					sendMessageToGPTVisionBySync( { messageText: message } )
+				if ( isVisionModel && Array.isArray( visionMediaData ) && visionMediaData?.length > 0 ) {
+					// 画像入力のメッセージ送信
+					sendMessageToOepnAIWithImageBySync( { messageText: message } )
 				} else {
-					sendMessageByAsync( { messageText: message } )
+					// テキスト入力のメッセージ送信
+					if ( gptModel.includes('-search-preview') ) {
+						// 検索モデルの場合は、同期型でメッセージ送信
+						sendMessageBySync( {
+							messageText: message,
+							renderAndAppendLog: true,
+							isSelectedTextPrompt: false
+						} );
+					} else {
+						// 通常モデルの場合は、非同期型でメッセージ送信(ストリーミング)
+						sendMessageByAsync( { messageText: message } );
+					}
 				}
 			} }
 			onClickReSend={ () => handleRegenerate( previousMessageRef.current ) }

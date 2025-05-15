@@ -118,6 +118,7 @@ export const RenderLog = memo( ( props ) => {
 				) }
 			</Flex>
 			<BaseControl
+				__nextHasNoMarginBottom
 				className={ innerWrapperClasses }
 			>
 				<div className='dpaa-ai-assistant--generator__log__prompt'>

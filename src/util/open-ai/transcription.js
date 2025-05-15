@@ -1,4 +1,3 @@
-
 /**
  * テキストから音声データに変換
  */
@@ -6,23 +5,27 @@ export const textToSpeech = async ( props ) => {
 	const {
 		openai = undefined,
 		text = '',
-		model = 'tts-1',	// tts-1, tts-1-hd
+		model = 'gpt-4o-mini-tts',
 		voice = 'alloy', // alloy, ash, coral, echo, fable, onyx, nova, sage, shimmer
 		format = 'mp3',	// mp3, opus, aac, flac, wav, pcm
 		speed = 1,	// 0.25 to 4.0
+		instructions = undefined,
 	} = props
 
 	if ( !openai || !text || !model || !voice ) {
 		return
 	}
 
-	const response = await openai.audio.speech.create({
+	 const args = {
 		model: model,
 		voice: voice,
 		input: text,
 		response_format: format,
-		speed: speed,
-	});
+		...(model === 'tts-1' || model === 'tts-1-hd' ? { speed: speed } : {}),
+		...( ( instructions && model !== 'tts-1' && model !== 'tts-1-hd' ) ? { instructions: instructions } : {}),
+	}
+
+	const response = await openai.audio.speech.create( args );
 
 	const arrayBuffer = await response.arrayBuffer();
 	const blob = new Blob( [ arrayBuffer ], { type: `audio/${ format }` } );
@@ -42,6 +45,8 @@ export const speechToText = async ( props ) => {
 		prompt = '',
 		format = 'json',	// json, text, srt, verbose_json, or vtt.
 		temperature = 0,	// 0.0 to 1.0
+		stream = false,
+		setResponse = undefined
 	} = props
 
 	if ( !openai || !file || !model ) {
@@ -51,33 +56,35 @@ export const speechToText = async ( props ) => {
 	const args = {
 		model: model,
 		file: file,
-	}
-	if ( language ) {
-		Object.assign(
-			args,
-			{ language: language },
-		)
-	}
-	if ( prompt ) {
-		Object.assign(
-			args,
-			{ prompt: prompt },
-		)
-	}
-	if ( format ) {
-		Object.assign(
-			args,
-			{ response_format: format },
-		)
-	}
-	if ( temperature ) {
-		Object.assign(
-			args,
-			{ temperature: temperature },
-		)
-	}
+		...(language && { language }),
+		...(prompt && { prompt }),
+		...(format && { response_format: model === 'whisper-1' ? format : 'json' }),
+		...(temperature && { temperature }),
+		...( (stream && model !== 'whisper-1' && setResponse && typeof setResponse === 'function' ) && { stream: true }),
+	};
 
 	const response = await openai.audio.transcriptions.create( args );
 
-	return response;
+	if ( stream && model !== 'whisper-1' && setResponse && typeof setResponse === 'function' ) {
+		// ストリーミングレスポンスの累積内容
+		let accumulatedContent = '';
+		
+		// 非同期型(ストリーミング)の場合
+		for await ( const event of response ) {
+			if ( event?.type === 'transcript.text.done' ) {
+				// 最終的な内容を渡して完了
+				setResponse(event?.text);
+				return event.type;
+			} else {
+				// 新しいコンテンツを追加
+				const newContent = event?.delta || '';
+				accumulatedContent += newContent;
+				
+				// 更新された累積コンテンツをコールバックに渡す
+				setResponse(accumulatedContent);
+			}
+		}
+	} else {
+		return response;
+	}
 }

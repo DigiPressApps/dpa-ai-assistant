@@ -1,6 +1,6 @@
 export { generateImageByOpenAI } from './generate-image'
-export { sendMessage } from './send-message'
-export { sendToGPTVision } from './send-to-gpt-vision'
+export { sendMessageToOpenAI } from './send-message'
+export { sendMessageWithImageToOpenAI } from './send-message-with-image'
 export * from './assistants'
 export * from './file-operation'
 export * from './fine-tuning'
@@ -8,3 +8,4 @@ export * from './transcription'
 export * from './embeddings'
 export * from './vector-stores'
 export * from './models'
+export * from "./new-openai.js";

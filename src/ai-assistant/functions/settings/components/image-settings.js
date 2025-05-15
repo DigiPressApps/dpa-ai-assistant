@@ -3,6 +3,7 @@
  */
 import {
 	PanelAdvancedSettings,
+	PopoverHelp,
 } from '@dpaa/components'
 import { STORE_NAME } from '@dpaa/datastore/constants'
 import {
@@ -16,10 +17,9 @@ import {
  */
 import { __, sprintf } from '@wordpress/i18n'
 import {
-	Flex,
-	FlexItem,
 	RangeControl,
 	SelectControl,
+	__experimentalVStack as VStack,
 } from '@wordpress/components'
 import {
 	useDispatch,
@@ -57,41 +57,59 @@ export const ImageSettings = ( { pluginSettings } ) => {
 			hasToggle={ false }
 			titleLeftIcon={ imageIcon }
 		>
-			<Flex
-				direction='column'
-				gap={ 3 }
-				className='dpaa-ai-assistant--settings__components-flex __chat'
-			>
-				<FlexItem>
-					<SelectControl
-						__next40pxDefaultSize
-						size='__unstable-large'
-						label={ __( 'AI Image Generator', dpaa.i18n ) }
-						help={ __( 'Select the generator engine to use for AI image generation.', dpaa.i18n ) }
-						value={ engine }
-						options={ [
-							{ value: 'stable-diffusion', label: __( 'Stable Diffusion (Stability AI)', dpaa.i18n ) },
-							{ value: 'dall-e', label: __( 'DALL·E (OpenAI)', dpaa.i18n ) },
-						] }
-						onChange={ newVal => setEngine( newVal ) }
-					/>
-				</FlexItem>
-				<FlexItem>
-					<RangeControl
-						label={ __( 'Max number of generated image logs', dpaa.i18n ) }
-						help={ __( 'Set the maximum number of logs generated.', dpaa.i18n ) }
-						value={ maxVisibleImageLogs }
-						allowReset={ true }
-						initialPosition={ DEFAULT_IMAGE_MAX_VISIBLE_IMAGE_LOGS }
-						resetFallbackValue={ DEFAULT_IMAGE_MAX_VISIBLE_IMAGE_LOGS }
-						step={ 1 }
-						onChange={ newVal => setMaxVisibleGeneratedImageLogs( newVal ) }
-						renderTooltipContent={ value => `${ value }` }
-						min={ 1 }
-						max={ 4 }
-					/>
-				</FlexItem>
-			</Flex>
+			<VStack spacing={ 3 }>
+				<SelectControl
+					__next40pxDefaultSize
+					__nextHasNoMarginBottom
+					label={ <>
+						{__( 'AI Image Generator', dpaa.i18n ) }
+						<PopoverHelp
+							buttonText=''
+							buttonClass='__right-inline-position'
+							buttonSize='small'
+							popoverPosition='bottom left'
+							popoverVariant='toolbar'
+							popoverOffset={ 5 }
+							popoverClass=''
+							popoverNoArrow={ false }
+							help={ __( 'Select the generator engine to use for AI image generation.', dpaa.i18n ) }
+						/>
+					</> }
+					value={ engine }
+					options={ [
+						{ value: 'dall-e', label: __( 'OpenAI', dpaa.i18n ) },
+						{ value: 'stable-diffusion', label: __( 'Stability AI', dpaa.i18n ) },
+					] }
+					onChange={ newVal => setEngine( newVal ) }
+				/>
+				<RangeControl
+					__nextHasNoMarginBottom
+					__next40pxDefaultSize
+					label={ <>
+						{__( 'Max number of generated image logs', dpaa.i18n ) }
+						<PopoverHelp
+							buttonText=''
+							buttonClass='__right-inline-position'
+							buttonSize='small'
+							popoverPosition='bottom left'
+							popoverVariant='toolbar'
+							popoverOffset={ 5 }
+							popoverClass=''
+							popoverNoArrow={ false }
+							help={ __( 'Set the maximum number of logs generated.', dpaa.i18n ) }
+						/>
+					</> }
+					value={ maxVisibleImageLogs }
+					allowReset={ true }
+					initialPosition={ DEFAULT_IMAGE_MAX_VISIBLE_IMAGE_LOGS }
+					resetFallbackValue={ DEFAULT_IMAGE_MAX_VISIBLE_IMAGE_LOGS }
+					step={ 1 }
+					onChange={ newVal => setMaxVisibleGeneratedImageLogs( newVal ) }
+					renderTooltipContent={ value => `${ value }` }
+					min={ 1 }
+					max={ 4 }
+				/>
+			</VStack>
 		</PanelAdvancedSettings>
 	)
 }

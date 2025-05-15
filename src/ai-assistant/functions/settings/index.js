@@ -20,12 +20,12 @@ import {
  */
 import { __ } from '@wordpress/i18n'
 import {
-	BaseControl,
 	Flex,
 	FlexItem,
+	__experimentalVStack as VStack,
+	__experimentalText as Text,
 } from '@wordpress/components'
 import {
-	useState,
 	memo,
 } from '@wordpress/element'
 
@@ -36,85 +36,57 @@ export const SettingsPanel = memo( props => {
 	} = props
 
 	return (
-		<>
-			<BaseControl
-				className="dpaa--settings__wrapper"
-				help={ __( 'General settings for content generation by AI and API behavior. Each tab allows you to temporarily change generation parameters from the options panel.', dpaa.i18n ) }
+		<VStack spacing={ 4 } className='dpaa--settings__wrapper'>
+			<Text color='#666'>{ __( 'General settings for content generation by AI and API behavior. Each tab allows you to temporarily change generation parameters from the options panel.', dpaa.i18n ) }</Text>
+			<Flex
+				direction='row'
+				gap={ 3 }
+				align='flex-start'
+				justify='space-between'
+				wrap={ true }
 			>
-				<Flex
-					direction='row'
-					gap={ 4 }
-					align='flex-start'
-					justify='space-between'
-					wrap={ true }
+				<FlexItem
+					style={ {
+						flexBasis: 'calc(50% - 8px)'
+					} }
 				>
-					<FlexItem
-						style={ {
-							flexBasis: 'calc(50% - 8px)'
-						} }
-					>
-						<Flex
-							direction='column'
-							gap={ 1 }
-						>
-							<FlexItem>
-								<GeneralSettings
-									pluginSettings={ pluginSettings }
-								/>
-							</FlexItem>
-							<FlexItem>
-								<TextGenerationSettings
-									pluginSettings={ pluginSettings }
-								/>
-							</FlexItem>
-							<FlexItem>
-								<ImageSettings
-									pluginSettings={ pluginSettings }
-								/>
-							</FlexItem>
-							<FlexItem>
-								<UserRolesRestriction />
-							</FlexItem>
-						</Flex>
-					</FlexItem>
-					<FlexItem
-						style={ {
-							flexBasis: 'calc(50% - 8px)'
-						} }
-					>
-						<Flex
-							direction='column'
-							gap={ 1 }
-						>
-							<FlexItem>
-								<OpenAISettings
-									pluginSettings={ pluginSettings }
-								/>
-							</FlexItem>
-							<FlexItem>
-								<GoogleAISettings />
-							</FlexItem>
-							<FlexItem>
-								<OpenAISettingsForTranscription
-									pluginSettings={ pluginSettings }
-								/>
-							</FlexItem>
-							<FlexItem>
-								<OpenAISettingsForImageGeneration
-									pluginSettings={ pluginSettings }
-								/>
-							</FlexItem>
-							<FlexItem>
-								<StabilityAISettings
-									pluginSettings={ pluginSettings }
-								/>
-							</FlexItem>
-						</Flex>
-					</FlexItem>
-				</Flex>
-			</BaseControl>
+					<VStack spacing={ 3 }>
+						<GeneralSettings
+							pluginSettings={ pluginSettings }
+						/>
+						<TextGenerationSettings
+							pluginSettings={ pluginSettings }
+						/>
+						<ImageSettings
+							pluginSettings={ pluginSettings }
+						/>
+						<UserRolesRestriction />
+					</VStack>
+				</FlexItem>
+				<FlexItem
+					style={ {
+						flexBasis: 'calc(50% - 8px)'
+					} }
+				>
+					<VStack spacing={ 3 }>
+						<OpenAISettings
+							pluginSettings={ pluginSettings }
+						/>
+						<GoogleAISettings />
+						<OpenAISettingsForTranscription
+							pluginSettings={ pluginSettings }
+						/>
+						<OpenAISettingsForImageGeneration
+							pluginSettings={ pluginSettings }
+						/>
+						<StabilityAISettings
+							pluginSettings={ pluginSettings }
+						/>
+					</VStack>
+				</FlexItem>
+			</Flex>
 			<ExportImportSettings pluginSettings={ pluginSettings } />
-		</>
+		</VStack>
 	)
 } )
 

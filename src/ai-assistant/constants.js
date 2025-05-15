@@ -2,9 +2,10 @@ import { __, sprintf } from "@wordpress/i18n";
 
 // OpenAI URLs
 export const OPEN_AI_API_KEY_URL = 'https://platform.openai.com/api-keys'
-export const OPEN_AI_GPT_MODEL_DOCUMENT_URL = 'https://platform.openai.com/docs/models'
-export const OPEN_AI_DALL_E_MODEL_DOCUMENT_URL = 'https://platform.openai.com/docs/models/dall-e'
+export const OPEN_AI_GPT_MODELS_URL = 'https://platform.openai.com/docs/models'
+export const OPEN_AI_DALL_E_MODEL_DOCUMENT_URL = 'https://platform.openai.com/docs/guides/image-generation'
 export const OPEN_AI_USAGE_URL = 'https://platform.openai.com/usage'
+export const OPEN_AI_PRICING_URL = 'https://platform.openai.com/docs/pricing'
 
 // Anthropic URLs
 export const ANTHROPIC_API_KEY_URL = 'https://console.anthropic.com/settings/keys'
@@ -21,130 +22,115 @@ export const STABILITY_AI_CALCULATE_COSTS_URL = 'https://platform.stability.ai/p
 export const STABILITY_AI_CREDITS_URL = 'https://platform.stability.ai/account/credits'
 
 //OpenAI デフォルト
-export const DEFAULT_OPEN_AI_GPT_MODEL = 'gpt-4o-mini'
-export const DEFAULT_OPEN_AI_MAX_TOKENS = 2000
+export const DEFAULT_OPEN_AI_GPT_MODEL = 'gpt-4.1-nano'
+export const DEFAULT_OPEN_AI_MAX_TOKENS = 32768
 export const DEFAULT_OPEN_AI_TEMPERATURE = 0.8
 export const DEFAULT_OPEN_AI_TOP_P = 0.8
-export const DEFAULT_OPEN_AI_DALL_E_MODEL = 'dall-e-2'
+export const DEFAULT_OPEN_AI_DALL_E_MODEL = 'gpt-image-1'
 export const DEFAULT_OPEN_AI_DALL_E_NUMBER_IMAGES = 1
 export const DEFAULT_OPEN_AI_DALL_E_IMAGE_SIZE = '1024x1024'
-export const DEFAULT_OPEN_AI_DALL_E_QUALITY = 'standard'
+export const DEFAULT_OPEN_AI_DALL_E_QUALITY = 'auto'
 export const DEFAULT_OPEN_AI_DALL_E_STYLE = 'vivid'
 
 // Open AI モデル
 export const OPEN_AI_GPT_MODELS = [
 	{
-		name: 'o3-mini',
-		key: 'o3-mini',
-		__experimentalHint: __( 'Fast, flexible reasoning model', dpaa.i18n ),
+		name: 'GPT-4.1 nano',
+		key: 'gpt-4.1-nano',
+		__experimentalHint: `${ __( 'Fastest, most cost-effective GPT-4.1 model', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.10/$0.40)`
 	},
 	{
-		name: 'o1',
-		key: 'o1',
-		__experimentalHint: __( 'High intelligence reasoning model', dpaa.i18n ),
-	},
-	{
-		name: 'o1-preview',
-		key: 'o1-preview',
-		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Designed to solve hard problems', dpaa.i18n ) }`,
-	},
-	{
-		name: 'o1-mini',
-		key: 'o1-mini',
-		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Good at coding, math, and science', dpaa.i18n ) }`,
-	},
-	{
-		name: 'GPT-4o',
-		key: 'gpt-4o',
-		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
+		name: 'GPT-4.1 mini',
+		key: 'gpt-4.1-mini',
+		__experimentalHint: `${ __( 'Balanced for intelligence, speed, and cost', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.40/$1.60)`
 	},
 	{
 		name: 'GPT-4o mini',
 		key: 'gpt-4o-mini',
-		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
+		__experimentalHint: `${ __( 'Fast, affordable small model for focused tasks', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.15/$0.60)`
 	},
 	{
-		name: 'GPT-4 Turbo',
-		key: 'gpt-4-turbo',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ),
+		name: 'GPT-4o mini Search Preview',
+		key: 'gpt-4o-mini-search-preview',
+		__experimentalHint: `${ __( 'Fast, affordable small model for web search', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.15/$0.60)`
 	},
 	{
-		name: 'GPT-4 Turbo Preview',
-		key: 'gpt-4-turbo-preview',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ),
+		name: 'GPT-4o Search Preview',
+		key: 'gpt-4o-search-preview',
+		__experimentalHint: `${ __( 'GPT model for web search in Chat Completions', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $2.50/$10.00)`
 	},
 	{
-		name: 'GPT-4',
-		key: 'gpt-4',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '8,192' ),
+		name: 'GPT-4.1',
+		key: 'gpt-4.1',
+		__experimentalHint: `${ __( 'Flagship GPT model for complex tasks', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $2.00/$8.00)`
 	},
 	{
-		name: 'GPT-3.5 Turbo',
-		key: 'gpt-3.5-turbo',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ),
+		name: 'GPT-4o',
+		key: 'gpt-4o',
+		__experimentalHint: `${ __( 'Fast, intelligent, flexible GPT model', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $2.50/$10.00)`
 	},
 	{
-		name: 'GPT-3.5 Turbo (1106)',
-		key: 'gpt-3.5-turbo-1106',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ),
+		name: 'o3 mini',
+		key: 'o3-mini',
+		__experimentalHint: `${ __( 'Fast, flexible, intelligent reasoning model', dpaa.i18n ) } (In/Out: $1.10/$4.40)`
+	},
+	{
+		name: 'o4 mini',
+		key: 'o4-mini',
+		__experimentalHint: `${ __( 'Faster, more affordable reasoning model', dpaa.i18n ) } (In/Out: $1.10/$4.40)`
+	},
+	{
+		name: 'o3',
+		key: 'o3',
+		__experimentalHint: `${ __( 'Our most powerful reasoning model', dpaa.i18n ) } (In/Out: $10/$40)`
+	},
+	{
+		name: 'o1',
+		key: 'o1',
+		__experimentalHint: `${ __( 'Previous full o-series reasoning model', dpaa.i18n ) } (In/Out: $15/$60)`
+	},
+	{
+		name: 'o1 pro',
+		key: 'o1-pro',
+		__experimentalHint: `${ __( 'Version of o1 with more compute for better responses', dpaa.i18n ) } (In/Out: $150/$600)`
 	},
 ]
 // アシスタント用
 export const OPEN_AI_GPT_ASSISTANTS_MODELS = [
 	{
-		name: 'o3-mini',
-		key: 'o3-mini',
-		__experimentalHint: __( 'Fast, flexible reasoning model', dpaa.i18n ),
-	},
-	{
-		name: 'o1',
-		key: 'o1',
-		__experimentalHint: __( 'High intelligence reasoning model', dpaa.i18n ),
-	},
-	{
-		name: 'o1-preview',
-		key: 'o1-preview',
-		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Designed to solve hard problems', dpaa.i18n ) }`,
-	},
-	{
-		name: 'o1-mini',
-		key: 'o1-mini',
-		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Good at coding, math, and science', dpaa.i18n ) }`,
-	},
-	{
-		name: 'GPT-4o',
-		key: 'gpt-4o',
-		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
+		name: 'GPT-4.1 nano',
+		key: 'gpt-4.1-nano',
+		__experimentalHint: `${ __( 'Fastest, most cost-effective GPT-4.1 model', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.10/$0.40)`
 	},
 	{
 		name: 'GPT-4o mini',
 		key: 'gpt-4o-mini',
-		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ) } / ${ __( 'Image recognition', dpaa.i18n ) }`,
+		__experimentalHint: `${ __( 'Fast, affordable small model for focused tasks', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.15/$0.60)`
 	},
 	{
-		name: 'GPT-4 Turbo',
-		key: 'gpt-4-turbo',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ),
+		name: 'GPT-4.1 mini',
+		key: 'gpt-4.1-mini',
+		__experimentalHint: `${ __( 'Balanced for intelligence, speed, and cost', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.40/$1.60)`
 	},
 	{
-		name: 'GPT-4 Turbo Preview',
-		key: 'gpt-4-turbo-preview',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ),
+		name: 'GPT-4.1',
+		key: 'gpt-4.1',
+		__experimentalHint: `${ __( 'Flagship GPT model for complex tasks', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $2.00/$8.00)`
 	},
 	{
-		name: 'GPT-4',
-		key: 'gpt-4',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '8,192' ),
+		name: 'GPT-4o',
+		key: 'gpt-4o',
+		__experimentalHint: `${ __( 'Fast, intelligent, flexible GPT model', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $2.50/$10.00)`
 	},
 	{
-		name: 'GPT-3.5 Turbo',
-		key: 'gpt-3.5-turbo',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ),
+		name: 'o3-mini',
+		key: 'o3-mini',
+		__experimentalHint: `${ __( 'Fast, flexible, intelligent reasoning model', dpaa.i18n ) } (In/Out: $1.10/$4.40)`
 	},
 	{
-		name: 'GPT-3.5 Turbo (1106)',
-		key: 'gpt-3.5-turbo-1106',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ),
+		name: 'o1',
+		key: 'o1',
+		__experimentalHint: `${ __( 'Previous full o-series reasoning model', dpaa.i18n ) } (In/Out: $15/$60)`
 	},
 ]
 
@@ -152,42 +138,42 @@ export const OPEN_AI_GPT_ASSISTANTS_MODELS = [
 export const OPEN_AI_MODELS_FOR_FINE_TUNING = [
 	{
 		name: 'GPT-4o mini',
-		key: 'gpt-4o-mini-2024-07-18',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ),
+		key: 'gpt-4o-mini',
+		__experimentalHint: `${ __( 'Fast, affordable small model for focused tasks', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.15/$0.60)`
 	},
 	{
 		name: 'GPT-4o',
-		key: 'gpt-4o-2024-08-06',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '128,000' ),
+		key: 'gpt-4o',
+		__experimentalHint: `${ __( 'Fast, intelligent, flexible GPT model', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $2.50/$10.00)`
 	},
 	{
-		name: 'GPT-4',
-		key: 'gpt-4-0613',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '8,192' ),
+		name: 'GPT-4.1 mini',
+		key: 'gpt-4.1-mini',
+		__experimentalHint: `${ __( 'Balanced for intelligence, speed, and cost', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.40/$1.60)`
 	},
 	{
-		name: 'GPT-3.5 Turbo',
-		key: 'gpt-3.5-turbo-0125',
-		__experimentalHint: `${ sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ) }(${ __( 'recommended', dpaa.i18n ) })`,
-	},
-	{
-		name: 'GPT-3.5 Turbo (1106)',
-		key: 'gpt-3.5-turbo-1106',
-		__experimentalHint: sprintf( __( '%s tokens', dpaa.i18n ), '16,385' ),
+		name: 'GPT-4.1',
+		key: 'gpt-4.1',
+		__experimentalHint: `${ __( 'Flagship GPT model for complex tasks', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $2.00/$8.00)`
 	},
 ]
 
 // DALL-E
 export const OPEN_AI_DALL_E_MODELS = [
 	{
+		name: 'GPT Image 1',
+		key: 'gpt-image-1',
+		__experimentalHint: `${ __( 'State-of-the-art image generation model', dpaa.i18n ) } (${ __( '1024x1024 px', dpaa.i18n ) }: $0.011 - $0.167)`
+	},
+	{
 		name: 'DALL·E 3',
 		key: 'dall-e-3',
-		__experimentalHint: __( 'Nov 2023', dpaa.i18n ),
+		__experimentalHint: `${ __( 'Previous generation image generation model', dpaa.i18n ) } (${ __( '1024x1024 px', dpaa.i18n ) }: $0.04 - $0.08)`
 	},
 	{
 		name: 'DALL·E 2',
 		key: 'dall-e-2',
-		__experimentalHint: __( 'Nov 2022', dpaa.i18n ),
+		__experimentalHint: `${ __( 'Our first image generation model', dpaa.i18n ) } (${ __( '1024x1024 px', dpaa.i18n ) }: $0.02)`
 	},
 ]
 export const OPEN_AI_DALL_E_2_IMAGE_SIZES = [
@@ -200,9 +186,22 @@ export const OPEN_AI_DALL_E_3_IMAGE_SIZES = [
 	{ label: '1792 x 1024', value: '1792x1024' },
 	{ label: '1024 x 1792', value: '1024x1792' },
 ]
-export const OPEN_AI_DALL_E_IMAGE_QUALITY = [
+export const OPEN_AI_GPT_IMAGE_1_IMAGE_SIZES = [
+	{ label: __( 'Auto', dpaa.i18n ), value: 'auto' },
+	{ label: '1024 x 1024', value: '1024x1024' },
+	{ label: '1536 x 1024', value: '1536x1024' },
+	{ label: '1024 x 1536', value: '1024x1536' },
+]
+export const OPEN_AI_DALL_E_3_IMAGE_QUALITY = [
+	{ label: __( 'Auto', dpaa.i18n ), value: 'auto' },
 	{ label: __( 'Standard', dpaa.i18n ), value: 'standard' },
 	{ label: __( 'HD', dpaa.i18n ), value: 'hd' },
+]
+export const OPEN_AI_GPT_IMAGE_1_IMAGE_QUALITY = [
+	{ label: __( 'Auto', dpaa.i18n ), value: 'auto' },
+	{ label: __( 'Low', dpaa.i18n ), value: 'low' },
+	{ label: __( 'Medium', dpaa.i18n ), value: 'medium' },
+	{ label: __( 'High', dpaa.i18n ), value: 'high' },
 ]
 export const OPEN_AI_DALL_E_IMAGE_STYLES = [
 	{ label: __( 'Vivid', dpaa.i18n ), value: 'vivid' },
@@ -348,11 +347,6 @@ export const STABILITY_AI_MODELS = [
 		__experimentalHint: sprintf( __( 'Credit: %s(Baseed on %s)', dpaa.i18n ), '0.2-1.0', '512x512px' ),
 	},
 	{
-		name: 'Stable Diffusion XL v0.9',
-		key: 'stable-diffusion-xl-1024-v0-9',
-		__experimentalHint: __( '', dpaa.i18n ),
-	},
-	{
 		name: 'Stable Diffusion XL v1.0',
 		key: 'stable-diffusion-xl-1024-v1-0',
 		__experimentalHint: sprintf( __( 'Credit: %s(Baseed on %s)', dpaa.i18n ), '0.2-0.6', '1024x1024px' ),
@@ -436,12 +430,12 @@ export const DEFAULT_WRITER_IS_GENERATE_FEATURED_IMAGE = false
 export const DEFAULT_WRITER_IS_GENERATE_IMAGE_PER_SECTION = false
 
 // 画像設定
-export const DEFAULT_IMAGE_ENGINE = 'stable-diffusion'
+export const DEFAULT_IMAGE_ENGINE = 'dall-e'
 export const DEFAULT_UPLOAD_FILE_PREFIX = 'dpaa-'
 export const DEFAULT_IMAGE_MAX_VISIBLE_IMAGE_LOGS = 4
 
 // 音声変換
-export const DEFAULT_OPEN_AI_SPEECH_MODEL = 'tts-1'	// tts-1 or tts-1-hd
+export const DEFAULT_OPEN_AI_SPEECH_MODEL = 'gpt-4o-mini-tts'
 export const DEFAULT_OPEN_AI_SPEECH_VOICE = 'alloy'	// alloy, ash, coral, echo, fable, onyx, nova, sage, shimmer
 export const DEFAULT_OPEN_AI_SPEECH_FORMAT = 'mp3'	// mp3, opus, aac, flac, wav, and pcm
 export const DEFAULT_OPEN_AI_SPEECH_SPEED = 1	// 0.25 to 4.0
@@ -451,28 +445,52 @@ export const DEFAULT_OPEN_AI_TRANSCRIPTION_FORMAT = 'json'	// json, text, srt, v
 export const DEFAULT_OPEN_AI_TRANSCRIPTION_MAX_LOGS = 10
 export const DEFAULT_OPEN_AI_TRANSCRIPTION_TEMPERATURE = 0	// 0.0 to 1.0
 export const DEFAULT_OPEN_AI_SPEECH_MAX_LOGS = 10
-export const OPEN_AI_SPEECH_MODELS_DOCUMENT_URL = 'https://platform.openai.com/docs/models/tts'
-export const OPEN_AI_SPEECH_VOICES_URL = 'https://platform.openai.com/docs/guides/text-to-speech/voice-options'
+export const OPEN_AI_TRANSCRIPTION_MODELS_DOCUMENT_URL = 'https://platform.openai.com/docs/guides/speech-to-text'
+export const OPEN_AI_SPEECH_MODELS_DOCUMENT_URL = 'https://platform.openai.com/docs/guides/audio'
+export const OPEN_AI_SPEECH_VOICES_URL = 'https://www.openai.fm/'
+export const OPEN_AI_TRANSCRIPTION_MODELS = [
+	{
+		name: 'Whisper',
+		key: 'whisper-1',
+		__experimentalHint: `${ __( 'General-purpose speech recognition model', dpaa.i18n ) } (${ sprintf( __( '%s / 1M tokens', dpaa.i18n ), '$0.006' ) })`,
+	},
+	{
+		name: 'GPT-4o mini Transcribe',
+		key: 'gpt-4o-mini-transcribe',
+		__experimentalHint: `${ __( 'Speech-to-text model powered by GPT-4o mini', dpaa.i18n ) } (${ sprintf( __( '%s / 1M tokens', dpaa.i18n ), '$5.00' ) })`,
+	},
+	{
+		name: 'GPT-4o Transcribe',
+		key: 'gpt-4o-transcribe',
+		__experimentalHint: `${ __( 'Speech-to-text model powered by GPT-4o', dpaa.i18n ) } (${ sprintf( __( '%s / 1M tokens', dpaa.i18n ), '$10.00' ) })`,
+	},
+]
 export const OPEN_AI_SPEECH_MODELS = [
+	{
+		name: 'GPT-4o mini TTS',
+		key: 'gpt-4o-mini-tts',
+		__experimentalHint: `${ __( 'Powered by GPT-4o mini', dpaa.i18n ) } (${ sprintf( __( '%s / 1M tokens', dpaa.i18n ), '$0.60' ) })`,
+	},
 	{
 		name: 'Text-to-speech 1',
 		key: 'tts-1',
-		__experimentalHint: __( 'Optimized for speed', dpaa.i18n ),
+		__experimentalHint: `${ __( 'Optimized for speed', dpaa.i18n ) } (${ sprintf( __( '%s / 1M tokens', dpaa.i18n ), '$15.00' ) })`,
 	},
 	{
 		name: 'Text-to-speech 1 HD',
 		key: 'tts-1-hd',
-		__experimentalHint: __( 'Optimized for quality', dpaa.i18n ),
+		__experimentalHint: `${ __( 'Optimized for quality', dpaa.i18n ) } (${ sprintf( __( '%s / 1M tokens', dpaa.i18n ), '$30.00' ) })`,
 	},
 ]
 export const OPEN_AI_SPEECH_VOICES = [
 	{ label: __( 'Alloy', dpaa.i18n ), value: 'alloy' },
 	{ label: __( 'Ash', dpaa.i18n ), value: 'ash' },
+	{ label: __( 'Ballad', dpaa.i18n ), value: 'ballad' },
 	{ label: __( 'Coral', dpaa.i18n ), value: 'coral' },
 	{ label: __( 'Echo', dpaa.i18n ), value: 'echo' },
 	{ label: __( 'Fable', dpaa.i18n ), value: 'fable' },
-	{ label: __( 'Onyx', dpaa.i18n ), value: 'onyx' },
 	{ label: __( 'Nova', dpaa.i18n ), value: 'nova' },
+	{ label: __( 'Onyx', dpaa.i18n ), value: 'onyx' },
 	{ label: __( 'Sage', dpaa.i18n ), value: 'sage' },
 	{ label: __( 'Shimmer', dpaa.i18n ), value: 'shimmer' },
 ]
@@ -508,8 +526,8 @@ export const TEXT_GENERATION_ENGINES = [
 ]
 
 export const IMAGE_GENERATION_ENGINES = [
-	{ value: 'stable-diffusion', label: __( 'Stable Diffusion (Stability AI)', dpaa.i18n ) },
-	{ value: 'dall-e', label: __( 'DALL·E (OpenAI)', dpaa.i18n ) },
+	{ value: 'dall-e', label: __( 'OpenAI', dpaa.i18n ) },
+	{ value: 'stable-diffusion', label: __( 'Stability AI', dpaa.i18n ) },
 ]
 
 export const GOOGLE_AI_API_KEY_URL = 'https://aistudio.google.com/app/apikey'

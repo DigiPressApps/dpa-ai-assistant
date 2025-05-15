@@ -96,15 +96,16 @@ const CategorySelector = props => {
 
 	return (
 		<FormTokenField
+			__nextHasNoMarginBottom
+			__experimentalShowHowTo={ false }
+			__experimentalExpandOnFocus={ true }
+			__next40pxDefaultSize={ true }
 			label={ label }
 			value={ sanitizedValue }
 			suggestions={ categoriesInfo.names }
 			onChange={ onCategoryChange }
 			maxLength={ maxLength }
 			placeholder={ placeholder }
-			__experimentalShowHowTo={ false }
-			__experimentalExpandOnFocus={ true }
-			__next40pxDefaultSize={ true }
 		/>
 	);
 }

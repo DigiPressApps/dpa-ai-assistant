@@ -4,23 +4,11 @@
 import { __ } from '@wordpress/i18n'
 
 /**
- * External dependencies
+ * Internal dependencies
  */
-import OpenAI from "openai";
+import { newOpenAI } from "./new-openai.js";
 
-// APIキーのセット
-export const newOpenAI = ( apiKey ) => {
-	if ( apiKey && typeof apiKey === 'string' ) {
-		return new OpenAI( {
-			apiKey: apiKey,
-			dangerouslyAllowBrowser: true
-		} );
-	} else {
-		return null;
-	}
-}
-
-export const sendMessage = async ( props ) => {
+export const sendMessageToOpenAI = async ( props ) => {
 	const {
 		message,
 		apiKey,
@@ -54,62 +42,92 @@ export const sendMessage = async ( props ) => {
 		return;
 	}
 
+	// 最大トークン数の修正
+	const currentMaxTokens = parseInt(maxTokens, 10);
+	const fixMaxTokens = model.includes('gpt-4.1') && (currentMaxTokens <= 30767 || currentMaxTokens > 32768)
+		? 32768
+		: model.includes('gpt-4o') && (currentMaxTokens <= 14383 || currentMaxTokens > 16384)
+			? 16384
+			: model === 'o1-mini' && (currentMaxTokens <= 63535 || currentMaxTokens > 65536)
+				? 65536
+				: model === 'o3-mini' && (currentMaxTokens <= 97999 || currentMaxTokens > 100000)
+					? 100000
+					: currentMaxTokens;
+
+	// パラメータ
 	const params = {
 		model: model,
+		...( model.includes('-search-preview') ? { web_search_options: {} } : {} ),
 		messages: [
-			...( model.includes('gpt-') ? [{
-				'role': 'system',
-				'content': systemPrompt,
-			}] : [] ),
+			{
+				role: 'developer',
+				content: systemPrompt,
+			},
 			...( conversation || [] ),
 			{
-				'role': 'user',
-				'content': message,
+				role: 'user',
+				content: message,
 			},
 		],
-		temperature: model.includes('gpt-') ? parseFloat( temperature ) : 1,
-		...( model.includes('gpt-') ? { top_p: parseFloat( topP ) } : {} ),
-		frequency_penalty: parseFloat( frequencyPenalty ),
-		presence_penalty: parseFloat( presencePenalty ),
-		n: 1,
-		max_completion_tokens: parseInt( maxTokens, 10 ),
-		// max_tokens: parseInt( maxTokens, 10 ),  // o1以前
-		stream: useStreaming ? true : false,
+		...( !model.includes('-search-preview') ? {
+			temperature: model.includes('gpt-') ? parseFloat( temperature ) : 1,
+			...( model.includes('gpt-') ? { top_p: parseFloat( topP ) } : {} ),
+			frequency_penalty: parseFloat( frequencyPenalty ),
+			presence_penalty: parseFloat( presencePenalty ),
+			n: 1,
+		} : {} ),
+		// store: store,
+		max_completion_tokens: fixMaxTokens,
+		...( useStreaming && !model.includes('-search-preview') ? { stream: true } : {} ),
 	}
 
-	if ( shouldReturnJson ) {
-		params.response_format = { type: 'json_object' };
-	}
+	// モデルが Search Preview でない場合に追加するパラメータ
+	if ( !model.includes('-search-preview') ) {
+		if ( shouldReturnJson ) {
+			params.response_format = { type: 'json_object' };
+		}
 
-	if ( tools && toolChoice ) {
-		params.tools = tools;
-		params.tool_choice = toolChoice;
-	}
+		if ( tools && toolChoice ) {
+			params.tools = tools;
+			params.tool_choice = toolChoice;
+		}
 
-	if ( logprobs && typeof topLogprobs === 'number' ) {
-		params.logprobs = logprobs;
-		params.top_logprobs = parseInt( topLogprobs );
-	}
+		if ( logprobs && typeof topLogprobs === 'number' ) {
+			params.logprobs = logprobs;
+			params.top_logprobs = parseInt( topLogprobs );
+		}
 
-	if ( typeof logitBias === 'number' ) params.logit_bias = parseInt( logitBias );
+		if ( typeof logitBias === 'number' ) params.logit_bias = parseInt( logitBias );
+	}
 
 	const response = await openAI.chat.completions.create( params, {
-		responseType: useStreaming ? 'stream' : 'text',
+		responseType: useStreaming && !model.includes('-search-preview') ? 'stream' : 'text',
 	} );
 
-	if ( useStreaming ) {
+	if ( useStreaming && !model.includes('-search-preview') && setResponse && typeof setResponse === 'function' ) {
+		// ストリーミングレスポンスの累積内容
+		let accumulatedContent = '';
+		
 		// 非同期型(ストリーミング)の場合
 		for await ( const chunk of response ) {
 			if ( chunk.choices[ 0 ].finish_reason === 'stop' ) {
+				// 最終的な内容を渡して完了
+				setResponse(accumulatedContent);
 				return chunk.choices[ 0 ].finish_reason;
 			} else {
-				setResponse( content => content + ( chunk.choices[ 0 ]?.delta?.content || '' ) )
+				// 新しいコンテンツを追加
+				const newContent = chunk.choices[ 0 ]?.delta?.content || '';
+				accumulatedContent += newContent;
+				
+				// 更新された累積コンテンツをコールバックに渡す
+				setResponse(accumulatedContent);
 			}
 		}
 	} else {
 		// 同期型の場合
 		return {
-			response: response.choices[ 0 ].message.content,
+			content: response.choices[ 0 ].message?.content,
+			annotations: response.choices[ 0 ].message?.annotations,
 			usage: response.usage,
 		}
 	}

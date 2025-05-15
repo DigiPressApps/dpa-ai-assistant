@@ -6,6 +6,7 @@ import {
 } from '@dpaa/ai-assistant/constants'
 import {
 	PanelAdvancedSettings,
+	PopoverHelp,
 } from '@dpaa/components'
 import { STORE_NAME } from '@dpaa/datastore/constants'
 
@@ -14,11 +15,10 @@ import { STORE_NAME } from '@dpaa/datastore/constants'
  */
 import { __, sprintf } from '@wordpress/i18n'
 import {
-	Flex,
-	FlexItem,
 	RangeControl,
 	SelectControl,
 	__experimentalInputControl as InputControl,
+	__experimentalVStack as VStack,
 } from '@wordpress/components'
 import {
 	useDispatch,
@@ -66,50 +66,78 @@ export const GeneralSettings = ( { pluginSettings } ) => {
 			hasToggle={ false }
 			titleLeftIcon={ cogIcon }
 		>
-			<Flex
-				direction='column'
-				gap={ 3 }
-				className='dpaa-ai-assistant--settings__components-flex __general'
-			>
-				<FlexItem>
-					<SelectControl
-						__next40pxDefaultSize
-						size='__unstable-large'
-						label={ __( 'Initial Open Tab', dpaa.i18n ) }
-						help={ __( 'Select the initial open tab in the admin panel.', dpaa.i18n ) }
-						value={ initialTab }
-						options={ tabs }
-						onChange={ newVal => setInitialTab( newVal ) }
-					/>
-				</FlexItem>
-				<FlexItem>
-					<InputControl
-						__next40pxDefaultSize
-						size='__unstable-large'
-						type='text'
-						label={ __( 'Upload file prefix', dpaa.i18n ) }
-						value={ uploadFilePrefix }
-						onChange={ newVal => setUploadFilePrefix( newVal ) }
-						placeholder='dpaa-'
-						help={ __( 'A prefix added to the beginning of filenames when uploaded by the AI Assistant to the Media Library.', dpaa.i18n ) }
-					/>
-				</FlexItem>
-				<FlexItem>
-					<RangeControl
-						label={ __( 'Admin Panel Max width', dpaa.i18n ) }
-						help={ __( 'Set the maximum display width of AI Assistant operation screen.', dpaa.i18n ) }
-						value={ adminPanelMaxWidth }
-						allowReset={ true }
-						initialPosition={ 1024 }
-						resetFallbackValue={ 1024 }
-						step={ 1 }
-						onChange={ newVal => setAdminPanelMaxWidth( newVal ) }
-						renderTooltipContent={ value => `${ value }px` }
-						min={ 600 }
-						max={ 2048 }
-					/>
-				</FlexItem>
-			</Flex>
+			<VStack spacing={ 3 }>
+				<SelectControl
+					__next40pxDefaultSize
+					__nextHasNoMarginBottom
+					label={ <>
+						{__( 'Initial Open Tab', dpaa.i18n ) }
+						<PopoverHelp
+							buttonText=''
+							buttonClass='__right-inline-position'
+							buttonSize='small'
+							popoverPosition='bottom left'
+							popoverVariant='toolbar'
+							popoverOffset={ 5 }
+							popoverClass=''
+							popoverNoArrow={ false }
+							help={ __( 'Select the initial open tab in the admin panel.', dpaa.i18n ) }
+						/>
+					</> }
+					value={ initialTab }
+					options={ tabs }
+					onChange={ newVal => setInitialTab( newVal ) }
+				/>
+				<InputControl
+					__next40pxDefaultSize
+					size='__unstable-large'
+					type='text'
+					label={ <>
+						{__( 'Upload file prefix', dpaa.i18n ) }
+						<PopoverHelp
+							buttonText=''
+							buttonClass='__right-inline-position'
+							buttonSize='small'
+							popoverPosition='bottom left'
+							popoverVariant='toolbar'
+							popoverOffset={ 5 }
+							popoverClass=''
+							popoverNoArrow={ false }
+							help={ __( 'A prefix added to the beginning of filenames when uploaded by the AI Assistant to the Media Library.', dpaa.i18n ) }
+						/>
+					</> }
+					value={ uploadFilePrefix }
+					onChange={ newVal => setUploadFilePrefix( newVal ) }
+					placeholder='dpaa-'
+				/>
+				<RangeControl
+					__nextHasNoMarginBottom
+					__next40pxDefaultSize
+					label={ <>
+						{__( 'Admin Panel Max width', dpaa.i18n ) }
+						<PopoverHelp
+							buttonText=''
+							buttonClass='__right-inline-position'
+							buttonSize='small'
+							popoverPosition='bottom left'
+							popoverVariant='toolbar'
+							popoverOffset={ 5 }
+							popoverClass=''
+							popoverNoArrow={ false }
+							help={ __( 'Set the maximum display width of AI Assistant operation screen.', dpaa.i18n ) }
+						/>
+					</> }
+					value={ adminPanelMaxWidth }
+					allowReset={ true }
+					initialPosition={ 1024 }
+					resetFallbackValue={ 1024 }
+					step={ 1 }
+					onChange={ newVal => setAdminPanelMaxWidth( newVal ) }
+					renderTooltipContent={ value => `${ value }px` }
+					min={ 600 }
+					max={ 2048 }
+				/>
+			</VStack>
 		</PanelAdvancedSettings>
 	)
 }

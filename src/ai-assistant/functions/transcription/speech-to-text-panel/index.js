@@ -73,6 +73,11 @@ export const SpeechToTextPanel = props => {
 	const [ url, setUrl ] = useState( null )
 	const [ isExecute, setIsExecute ] = useState( false )
 
+	// ストリーミング用
+	const [ isStreaming, setIsStreaming ] = useState( false );
+	const [ streamingResponse, setStreamingResponse ] = useState( '' );
+	const [ isStreamingComplete, setIsStreamingComplete ] = useState( false );
+
 	// 音声再生用
 	const [ isPlaying, setIsPlaying ] = useState( false )
 
@@ -201,6 +206,25 @@ export const SpeechToTextPanel = props => {
 			}
 		}
 	}
+	// ストリーミングレスポンスのコールバック
+	const handleStreamingResponse = ( response ) => {
+		setStreamingResponse( response );
+	};
+
+	// ストリーミング完了時の処理
+	const handleStreamingComplete = () => {
+		setIsStreamingComplete( true );
+		setCurrentTranscripted( {
+			text: streamingResponse,
+			url: url,
+			blob: null,
+		} );
+		setUrl( '' );
+		setIsStreaming( false );
+		setStreamingResponse( '' );
+		setIsStreamingComplete( false );
+	};
+
 	// 転換実行
 	useEffect( () => {
 		const runTranscript = async () => {
@@ -225,9 +249,13 @@ export const SpeechToTextPanel = props => {
 								prompt: prompt,
 								format: format,
 								temperature: temperature,
+								stream: isStreaming,
+								setResponse: isStreaming ? handleStreamingResponse : undefined,
 							} )
 
-							if ( response?.text ) {
+							if ( isStreaming ) {
+								handleStreamingComplete();
+							} else if ( response?.text ) {
 								// テキストのレスポンスを保存
 								setCurrentTranscripted( {
 									text: response.text,
@@ -286,6 +314,7 @@ export const SpeechToTextPanel = props => {
 				prompt: '',
 				format: format,
 				temperature: temperature,
+				stream: isStreaming,
 			} )
 			.then( res => {
 				// テキストのレスポンスを保存
@@ -413,16 +442,25 @@ export const SpeechToTextPanel = props => {
 							<Spinner style={ { width: '30px', height: '30px' } } />
 						</FlexItem>
 					) }
+					{ isStreaming && streamingResponse && (
+						<FlexItem>
+							<div className="dpaa-streaming-response">
+								{ streamingResponse }
+							</div>
+						</FlexItem>
+					) }
 					{ ( logArea && transcriptionLog ) && logArea }
 				</Flex>
 			</div>
 			<PromptArea
+				model={ model }
 				isLoading={ isLoading }
 				openai={ openai }
 				url={ url }
 				language={ language }
 				temperature={ temperature }
 				prompt={ prompt }
+				isStreaming={ isStreaming }
 				onChangeUrl={ newVal => setUrl( newVal ) }
 				onChangePrompt={ newVal => setPrompt( newVal ) }
 				onClickClear={ () => handleClearAll() }
@@ -430,6 +468,8 @@ export const SpeechToTextPanel = props => {
 				onChangeLanguage={ newVal => setLanguage( newVal ) }
 				onChangeTemperature={ newVal => setTemperature( newVal ) }
 				onClickOpenMediaLibrary={ () => handleOpenMediaLibrary() }
+				onChangeIsStreaming={ newVal => setIsStreaming( newVal ) }
+				onChangeModel={ newVal => setModel( newVal ) }
 			/>
 		</>
 	)

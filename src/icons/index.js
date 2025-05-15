@@ -1,2 +1,2 @@
 
-export { ReactComponent as DpIcon } from './dpicon.svg';
+export * from './svg-files'

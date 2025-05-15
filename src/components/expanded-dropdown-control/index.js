@@ -49,6 +49,7 @@ export const ExpandedDropdownControl = props => {
 			) }
 			{ ( !onChangeToggleFlag || ( onChangeToggleFlag && toggleFlag ) ) && (
 				<BaseControl
+					__nextHasNoMarginBottom
 					label={ labelDropdownTrigger }
 					className="dpaa-inspector__dropdown-button-control"
 				>

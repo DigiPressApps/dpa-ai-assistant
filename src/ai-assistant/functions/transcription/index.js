@@ -3,7 +3,6 @@
  */
 import './editor.scss'
 import {
-	ConditionalWrapper,
 	TipMessage,
 } from '@dpaa/components'
 import { STORE_NAME } from '@dpaa/datastore/constants'
@@ -163,13 +162,19 @@ export const TranscriptionPanel = ( props ) => {
 		{
 			name: 'speech',
 			titleName: __( 'Text to Speech', dpaa.i18n ),
-			title: <><Icon icon='microphone' className='dpaa-tab-panel__tab-icon' size='24' />{ __( 'Text to Speech', dpaa.i18n ) }</>,
+			title: <>
+				<Icon icon='microphone' className='dpaa-tab-panel__tab-icon' size='24' />
+					{ __( 'Text to Speech', dpaa.i18n ) }
+			</>,
 			className: 'dpaa-tab-panel__tab tab--speech',
 		},
 		{
 			name: 'transcription',
 			titleName: __( 'Speech to Text', dpaa.i18n ),
-			title: <><Icon icon={ commentContentIcon } className='dpaa-tab-panel__tab-icon' size='24' />{ __( 'Speech to Text', dpaa.i18n ) }</>,
+			title: <>
+				<Icon icon={ commentContentIcon } className='dpaa-tab-panel__tab-icon' size='24' />
+				{ __( 'Speech to Text', dpaa.i18n ) }
+			</>,
 			className: 'dpaa-tab-panel__tab tab--transcription',
 		},
 	]

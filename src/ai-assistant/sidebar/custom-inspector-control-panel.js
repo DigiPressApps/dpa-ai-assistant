@@ -19,12 +19,12 @@ import { __ } from '@wordpress/i18n'
 import {
 	BaseControl,
 	Button,
-	Flex,
-	FlexItem,
-	__experimentalSpacer as Spacer,
+	__experimentalVStack as VStack,
+	__experimentalHStack as HStack,
+	__experimentalText as Text,
 } from '@wordpress/components'
 import { useSelect } from '@wordpress/data';
-import { PluginDocumentSettingPanel } from '@wordpress/edit-post';
+import { PluginDocumentSettingPanel } from '@wordpress/editor';
 import {
 	useEffect,
 	useMemo,
@@ -97,113 +97,87 @@ export const CustomInspectorControlPanel = () => {
 				name='dpaa-register-custom-inspector-control-panel'
 				className='dpaa-register-custom-inspector-control-panel'
 				title={
-					<Flex direction='row' gap={ 2 } justify='flex-start' align='center'>
-						<FlexItem>
-							<DpIcon />
-						</FlexItem>
-						<FlexItem>
-							{ __( 'AI Assistant', dpaa.i18n ) }
-						</FlexItem>
-					</Flex>
+					<HStack spacing={ 2 } justify='flex-start'>
+						<DpIcon />
+						<Text>{ __( 'AI Assistant', dpaa.i18n ) }</Text>
+					</HStack>
 				}
 			>
-				<BaseControl>
-					<Spacer marginBottom={ 3 }>
-						<Flex
-							direction='column'
-							gap={ 2 }
-							justify='space-between'
-							className='dpaa-components-flex'
-						>
-							<FlexItem
-								style={ {
-									flex: 1,
-								} }
-							>
-								<AIAssistantButton
-									text={ __( 'Open Assistant', dpaa.i18n ) }
-									size='compact'
-									icon={ aiIcon }
-									iconSize={ 20 }
-									variant='primary'
-									className='__in-setting-panel'
-									isInEditor={ true }
-								/>
-							</FlexItem>
-						</Flex>
-					</Spacer>
-				</BaseControl>
-				<BaseControl
-					label={ __( 'Suggest:', dpaa.i18n ) }
-				>
-					<Flex
-						direction='row'
-						gap={ 2 }
-						justify='flex-start'
-						className='dpaa-components-flex __suggest-wrapper'
-						wrap={ true }
+				<VStack spacing={ 4 }>
+					<AIAssistantButton
+						text={ __( 'Open Assistant', dpaa.i18n ) }
+						size='compact'
+						icon={ aiIcon }
+						iconSize={ 20 }
+						variant='primary'
+						className='__in-setting-panel'
+						isInEditor={ true }
+						style={ { width: '100%' } }
+					/>
+					<BaseControl
+						__nextHasNoMarginBottom
+						label={ __( 'Suggest:', dpaa.i18n ) }
 					>
-						<FlexItem className='__suggest-item'>
-							<Button
-								onClick={ () => setIsOpenSuggestTitlesModal( true ) }
-								className='dpaa-button--flex-item dpaa-button--suggest-titles'
-								icon={ titleIcon }
-								iconSize={ 20 }
-								iconPosition='left'
-								variant='primary'
-								size='compact'
-								disabled={ !openai }
-							>
-								{ __( 'Titles', dpaa.i18n ) }
-							</Button>
-						</FlexItem>
-						<FlexItem className='__suggest-item'>
-							<Button
-								onClick={ () => setIsOpenSuggestExcerptsModal( true ) }
-								className='dpaa-button--flex-item dpaa-button--suggest-excerpts'
-								icon={ postContentIcon }
-								iconSize={ 20 }
-								iconPosition='left'
-								variant='primary'
-								size='compact'
-								disabled={ !openai }
-							>
-								{ __( 'Excerpts', dpaa.i18n ) }
-							</Button>
-						</FlexItem>
-						<FlexItem className='__suggest-item'>
-							<Button
-								onClick={ () => setIsUpgradeModal( true ) }
-								className='dpaa-button--flex-item dpaa-button--suggest-tags'
-								icon={ tagIcon }
-								iconSize={ 20 }
-								iconPosition='left'
-								variant='primary'
-								size='compact'
-								disabled={ !openai }
-							>
-								{ __( 'Tags', dpaa.i18n ) }
-							</Button>
-						</FlexItem>
-						<FlexItem>
-							<Button
-								onClick={ () => setIsUpgradeModal( true ) }
-								className='dpaa-button--flex-item dpaa-button--eyecatch'
-								icon={ postFeaturedImageIcon }
-								iconSize={ 20 }
-								iconPosition='left'
-								variant='primary'
-								size='compact'
-								disabled={ !openai }
-								style={ {
-									width: '100%',
-								} }
-							>
-								{ __( 'Featured image' ) }
-							</Button>
-						</FlexItem>
-					</Flex>
-				</BaseControl>
+						<VStack spacing={ 3 }>
+							<HStack spacing={ 2 }>
+								<Button
+									onClick={ () => setIsOpenSuggestTitlesModal( true ) }
+									className='dpaa-button--flex-item dpaa-button--suggest-titles'
+									icon={ titleIcon }
+									iconSize={ 20 }
+									iconPosition='left'
+									variant='primary'
+									size='compact'
+									disabled={ !openai }
+									style={ { flex: '1 1 0%' } }
+								>
+									{ __( 'Titles', dpaa.i18n ) }
+								</Button>
+								<Button
+									onClick={ () => setIsOpenSuggestExcerptsModal( true ) }
+									className='dpaa-button--flex-item dpaa-button--suggest-excerpts'
+									icon={ postContentIcon }
+									iconSize={ 20 }
+									iconPosition='left'
+									variant='primary'
+									size='compact'
+									disabled={ !openai }
+									style={ { flex: '1 1 0%' } }
+								>
+									{ __( 'Excerpts', dpaa.i18n ) }
+								</Button>
+							</HStack>
+							<HStack spacing={ 2 }>
+								<Button
+									onClick={ () => setIsUpgradeModal( true ) }
+									className='dpaa-button--flex-item dpaa-button--suggest-tags'
+									icon={ tagIcon }
+									iconSize={ 20 }
+									iconPosition='left'
+									variant='primary'
+									size='compact'
+									disabled={ !openai }
+									style={ { flex: '1 1 0%' } }
+								>
+									{ __( 'Tags', dpaa.i18n ) }
+								</Button>
+								<Button
+									onClick={ () => setIsUpgradeModal( true ) }
+									className='dpaa-button--flex-item dpaa-button--eyecatch'
+									icon={ postFeaturedImageIcon }
+									iconSize={ 20 }
+									iconPosition='left'
+									variant='primary'
+									size='compact'
+									disabled={ !openai }
+									style={ { flex: '2 1 0%' } }
+								>
+									{ __( 'Featured image' ) }
+								</Button>
+							</HStack>
+						</VStack>
+					</BaseControl>
+				</VStack>
 			</PluginDocumentSettingPanel>
 			{ ( isOpenSuggestTitlesModal && openai ) && (
 				<ModalSuggest

@@ -2,8 +2,8 @@
 Contributors: digistatejp
 Tags: ai, gpt, openai, writer, image generator
 Requires at least: 6.2
-Tested up to: 6.7.1
-Stable tag: 0.2.3
+Tested up to: 6.8.1
+Stable tag: 0.3.0
 Requires PHP: 8.0
 Donate link: https://dpapps.net/donation/
 License: GPLv2 or later
@@ -76,6 +76,19 @@ The developer of DPA AI Assistant and related parties are not responsible for an
 The development hub for this plugin and the source code can be found at <a href="https://github.com/DigiPressApps/dpa-ai-assistant">https://github.com/DigiPressApps/dpa-ai-assistant</a>.
 
 == Changelog ==
+
+= 0.3.0 (2025/05/15) =
+* Update: Added GPT-4.1 mini, GPT-4.1 nano, GPT-4o mini, GPT-4o mini Search Preview and GPT-4o Search Preview to text generation models.
+* Update: Added GPT image 1 to image generation models.
+* Update: Added GPT-4o mini TTS 1 to text to speech models.
+* Update: Added GPT-4o mini Transcribe 1 to speech to text models.
+* Update: Added support for custom instruction input in text-to-speech mode (for GPT-4o mini TTS).
+* Update: Optimized the system prompt for writer mode by converting it to markdown format.
+* Update: Changed to display markdown-formatted responses as HTML.
+* Update: Updated japanese translation file.
+* Improved: Compatibility with WP 6.8.1.
+* Fix: Minor style and UI improvements.
+
 = 0.2.5 (2025/02/25) =
 * Update: Added o1 and o3-mini to GPT models.
 * Update: Updated japanese translation file.

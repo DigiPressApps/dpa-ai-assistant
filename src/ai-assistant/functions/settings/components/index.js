@@ -1,5 +1,3 @@
-import './editor.scss'
-
 export { default as GeneralSettings } from './general-settings'
 export { default as OpenAISettings } from './open-ai-settings'
 export { default as GoogleAISettings } from './google-ai-settings'

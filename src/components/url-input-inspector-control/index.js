@@ -92,6 +92,7 @@ export const URLInputInspectorControl = props => {
 
 	return (
 		<BaseControl
+			__nextHasNoMarginBottom
 			label={ label }
 			help={ help }
 			className={ mainClassName }

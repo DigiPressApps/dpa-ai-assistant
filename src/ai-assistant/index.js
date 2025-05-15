@@ -2,14 +2,22 @@
  * Internal dependencies
  */
 import './editor.scss'
-import { DpIcon } from '@dpaa/icons'
+import {
+	// DpIcon,
+	AICPU as AICPUIcon
+} from '@dpaa/icons'
 import { AIAssistantButton } from './ai-assistant-button'
 import { CustomInspectorControlPanel } from './sidebar'
 
 /**
  * WordPress dependencies
  */
+import { __ } from '@wordpress/i18n'
 import { createRoot } from '@wordpress/element'
+import {
+	Icon,
+	__experimentalText as Text
+} from '@wordpress/components'
 import { subscribe } from '@wordpress/data'
 import { registerPlugin } from '@wordpress/plugins'
 import domReady from '@wordpress/dom-ready'
@@ -21,9 +29,13 @@ const mountAIAssistant = () => {
 	buttonDiv.classList.add( 'dpaa-insert-toolbar-button__wrapper' )
 	createRoot( buttonDiv ).render(
 		<AIAssistantButton
-			icon={ <DpIcon /> }
+			icon={ <Icon icon={ AICPUIcon } style={ { width: '24px', height: '24px' } } /> }
 			iconSize={ 24 }
-			variant='primary'
+			variant={ undefined }
+			lebel={ __( 'Open the AI Assistant', dpaa.i18n ) }
+			text={ <Text size={ 12 }>{ __( 'Assistant', dpaa.i18n ) }</Text> }
+			showTooltip={ true }
+			size='default'
 			className='__in-toolbar'
 			isInEditor={ true }
 		/>

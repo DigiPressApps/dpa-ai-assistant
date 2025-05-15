@@ -107,6 +107,7 @@ const AuthorSelector = props => {
 
 	return (
 		<FormTokenField
+			__nextHasNoMarginBottom
 			label={ <>
 				{ __( 'Authors', dpaa.i18n ) }
 				<UpgradeLabel text={ __( 'Other Author?', dpaa.i18n ) } />

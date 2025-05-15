@@ -52,7 +52,7 @@ if ( ! class_exists( 'DPAA_Register_Settings' ) ) {
 						),
 						'gptModel'	=> array(
 							'type'		=> 'string',
-							'default'	=> 'gpt-4o-mini'
+							'default'	=> 'gpt-4.1-nano'
 						),
 						'temperature'	=> array(
 							'type'		=> 'number',
@@ -82,7 +82,7 @@ if ( ! class_exists( 'DPAA_Register_Settings' ) ) {
 							'items'		=> array(
 								'model'	=> array(
 									'type'		=> 'string',
-									'default'	=> 'tts-1'	// tts-1 or tts-1-hd
+									'default'	=> 'gpt-4o-mini-tts'
 								),
 								// @see https://platform.openai.com/docs/guides/text-to-speech/voice-options
 								'voice'	=> array(
@@ -100,7 +100,11 @@ if ( ! class_exists( 'DPAA_Register_Settings' ) ) {
 								'maxLogs' => array(
 									'type'		=> 'number',
 									'default'	=> 4
-								)
+								),
+								'instructions'	=> array(
+									'type'		=> 'string',
+									'default'	=> ''
+								),
 							)
 						),
 						'transcription'	=> array(
@@ -137,9 +141,9 @@ if ( ! class_exists( 'DPAA_Register_Settings' ) ) {
 							'type'		=> 'object',
 							'default'	=> array(),
 							'items'		=> array(
-								'dallEModel'	=> array(
+								'gptImageModel'	=> array(
 									'type'		=> 'string',
-									'default'	=> 'dall-e-2'	// dall-e-2, dall-e-3
+									'default'	=> 'gpt-image-1'
 								),
 								'numberImages'	=> array(
 									'type'		=> 'number',
@@ -151,9 +155,9 @@ if ( ! class_exists( 'DPAA_Register_Settings' ) ) {
 								),
 								'quality'	=> array(
 									'type'		=> 'string',
-									'default'	=> 'standard'	// standard, hd
+									'default'	=> 'auto'
 								),
-								'dallEStyle'	=> array(
+								'gptImageStyle'	=> array(
 									'type'		=> 'string',
 									'default'	=> 'vivid'	// vivid, natural
 								)

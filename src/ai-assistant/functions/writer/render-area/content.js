@@ -98,7 +98,7 @@ export const Content = memo ( props => {
 				</FlexItem>
 				<FlexItem>
 					<TextareaControl
-						__next40pxDefaultSize
+						__nextHasNoMarginBottom
 						className='dpaa-ai-assistant--generator__prompt__textarea'
 						value={ content }
 						onChange={ onChangeContent }
@@ -125,7 +125,7 @@ export const Content = memo ( props => {
 									borderRadius: '3px'
 								} }>
 									<Item size='medium'>
-										<BaseControl label={ __( 'TOC Settings', dpaa.i18n ) }>
+										<BaseControl __nextHasNoMarginBottom label={ __( 'TOC Settings', dpaa.i18n ) }>
 											<Flex
 												direction='column' gap={ 3 }
 												align='flex-start'
@@ -249,7 +249,7 @@ export const Content = memo ( props => {
 									borderRadius: '3px'
 								} }>
 									<Item size='medium'>
-										<BaseControl label={ __( 'Introduction Settings', dpaa.i18n ) }>
+										<BaseControl __nextHasNoMarginBottom label={ __( 'Introduction Settings', dpaa.i18n ) }>
 											<Flex
 												direction='column' gap={ 3 }
 												align='flex-start'
@@ -332,7 +332,7 @@ export const Content = memo ( props => {
 									borderRadius: '3px'
 								} }>
 									<Item size='medium'>
-										<BaseControl label={ __( 'Conclusion Settings', dpaa.i18n ) }>
+										<BaseControl __nextHasNoMarginBottom label={ __( 'Conclusion Settings', dpaa.i18n ) }>
 											<Flex
 												direction='column' gap={ 3 }
 												align='flex-start'

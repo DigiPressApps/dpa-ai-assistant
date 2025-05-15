@@ -3,6 +3,8 @@
  */
 import { getAvailableStabilityAIEngines } from '@dpaa/util'
 import {
+	STABILITY_AI_CALCULATE_COSTS_URL,
+	STABILITY_AI_MODEL_DOCUMENT_URL,
 	STABILITY_AI_MODELS,
 	STABILITY_AI_STYLES,
 	STABILITY_AI_SDXL_1_0_IMAGE_SIZES,
@@ -18,10 +20,12 @@ import {
  */
 import { __ } from '@wordpress/i18n'
 import {
+	Button,
 	CustomSelectControl,
-	FlexItem,
 	RangeControl,
 	SelectControl,
+	__experimentalVStack as VStack,
+	__experimentalText as Text,
 } from '@wordpress/components'
 import {
 	memo,
@@ -87,129 +91,145 @@ export const OptionsAreaStableDiffusion = memo( ( props ) => {
  	}, [ engines ] )
 
 	return (
-		<>
+		<VStack spacing={ 4 }>
 			{ onChangeModel && (
-				<FlexItem>
+				<VStack spacing={ 2 }>
 					<CustomSelectControl
 						__next40pxDefaultSize
-						__experimentalShowSelectedHint
 						size='__unstable-large'
-						label={ __( 'Model', dpaa.i18n ) }
+						label={ <>
+							{__( 'Model', dpaa.i18n ) }
+							<Button
+								variant="link"
+								size="small"
+								href={ STABILITY_AI_CALCULATE_COSTS_URL }
+								target="_blank"
+								text={ __('Calculate Costs', dpaa.i18n) }
+								style={ { fontSize: '11px' } }
+							/>
+							<Button
+								variant="link"
+								size="small"
+								href={ STABILITY_AI_MODEL_DOCUMENT_URL }
+								target="_blank"
+								text={ __('Documentation', dpaa.i18n) }
+								style={ { fontSize: '11px' } }
+							/>
+						</> }
 						value={ models.find( option => option.key === model ) }
 						options={ models }
 						onChange={ onChangeModel }
 					/>
-				</FlexItem>
+					<Text size={ 12 } color='#666'>
+						{ models.find( option => option.key === model )?.__experimentalHint }
+					</Text>
+				</VStack>
 			) }
 			{ onChangeStyle && (
-				<FlexItem>
-					<SelectControl
-						__next40pxDefaultSize
-						size='__unstable-large'
-						label={ __( 'Style', dpaa.i18n ) }
-						value={ style }
-						options={ STABILITY_AI_STYLES }
-						onChange={ onChangeStyle }
-					/>
-				</FlexItem>
+				<SelectControl
+					__next40pxDefaultSize
+					__nextHasNoMarginBottom
+					label={ __( 'Style', dpaa.i18n ) }
+					value={ style }
+					options={ STABILITY_AI_STYLES }
+					onChange={ onChangeStyle }
+				/>
 			) }
 			{ ( model === 'stable-diffusion-xl-1024-v1-0' || model === 'stable-diffusion-xl-1024-v0-9' ) && (
-				<FlexItem>
-					<SelectControl
-						__next40pxDefaultSize
-						size='__unstable-large'
-						label={ `${ __( 'Dimensions' ) } (${ __( 'width x height', dpaa.i18n ) })` }
-						value={ dimensions }
-						options={ STABILITY_AI_SDXL_1_0_IMAGE_SIZES }
-						onChange={ onChangeDimensions }
-					/>
-				</FlexItem>
+				<SelectControl
+					__next40pxDefaultSize
+					__nextHasNoMarginBottom
+					label={ `${ __( 'Dimensions' ) } (${ __( 'width x height', dpaa.i18n ) })` }
+					value={ dimensions }
+					options={ STABILITY_AI_SDXL_1_0_IMAGE_SIZES }
+					onChange={ onChangeDimensions }
+				/>
 			) }
 			{ ( ( model !== 'stable-diffusion-xl-1024-v1-0' && model !== 'stable-diffusion-xl-1024-v0-9' ) && onChangeHeight ) && (
-				<FlexItem>
-					<RangeControl
-						label={ __( 'Height' ) }
-						value={ height }
-						allowReset={ true }
-						initialPosition={ DEFAULT_STABILITY_AI_HEIGHT }
-						resetFallbackValue={ DEFAULT_STABILITY_AI_HEIGHT }
-						onChange={ onChangeHeight }
-						renderTooltipContent={ value => `${ value }px` }
-						min={ 320 }
-						max={ model === 'stable-diffusion-xl-beta-v2-2-2' ? 896 : 1536 }
-						step={ 64 }
-						placeholder='512'
-					/>
-				</FlexItem>
+				<RangeControl
+					__nextHasNoMarginBottom
+					__next40pxDefaultSize
+					label={ __( 'Height' ) }
+					value={ height }
+					allowReset={ true }
+					initialPosition={ DEFAULT_STABILITY_AI_HEIGHT }
+					resetFallbackValue={ DEFAULT_STABILITY_AI_HEIGHT }
+					onChange={ onChangeHeight }
+					renderTooltipContent={ value => `${ value }px` }
+					min={ 320 }
+					max={ model === 'stable-diffusion-xl-beta-v2-2-2' ? 896 : 1536 }
+					step={ 64 }
+					placeholder='512'
+				/>
 			) }
 			{ ( ( model !== 'stable-diffusion-xl-1024-v1-0' && model !== 'stable-diffusion-xl-1024-v0-9' ) && onChangeWidth ) && (
-				<FlexItem>
-					<RangeControl
-						label={ __( 'Width' ) }
-						value={ width }
-						allowReset={ true }
-						initialPosition={ DEFAULT_STABILITY_AI_WIDTH }
-						resetFallbackValue={ DEFAULT_STABILITY_AI_WIDTH }
-						onChange={ onChangeWidth }
-						renderTooltipContent={ value => `${ value }px` }
-						min={ 320 }
-						max={ model === 'stable-diffusion-xl-beta-v2-2-2' ? 896 : 1536 }
-						step={ 64 }
-						placeholder='512'
-					/>
-				</FlexItem>
+				<RangeControl
+					__nextHasNoMarginBottom
+					__next40pxDefaultSize
+					label={ __( 'Width' ) }
+					value={ width }
+					allowReset={ true }
+					initialPosition={ DEFAULT_STABILITY_AI_WIDTH }
+					resetFallbackValue={ DEFAULT_STABILITY_AI_WIDTH }
+					onChange={ onChangeWidth }
+					renderTooltipContent={ value => `${ value }px` }
+					min={ 320 }
+					max={ model === 'stable-diffusion-xl-beta-v2-2-2' ? 896 : 1536 }
+					step={ 64 }
+					placeholder='512'
+				/>
 			) }
 			{ onChangeSamples && (
-				<FlexItem>
-					<RangeControl
-						label={ __( 'Number of images', dpaa.i18n ) }
-						value={ samples }
-						allowReset={ true }
-						initialPosition={ DEFAULT_STABILITY_AI_SAMPLES }
-						resetFallbackValue={ DEFAULT_STABILITY_AI_SAMPLES }
-						onChange={ onChangeSamples }
-						renderTooltipContent={ value => `${ value }` }
-						min={ 1 }
-						max={ 10 }
-						step={ 1 }
-						placeholder='1'
-					/>
-				</FlexItem>
+				<RangeControl
+					__nextHasNoMarginBottom
+					__next40pxDefaultSize
+					label={ __( 'Number of images', dpaa.i18n ) }
+					value={ samples }
+					allowReset={ true }
+					initialPosition={ DEFAULT_STABILITY_AI_SAMPLES }
+					resetFallbackValue={ DEFAULT_STABILITY_AI_SAMPLES }
+					onChange={ onChangeSamples }
+					renderTooltipContent={ value => `${ value }` }
+					min={ 1 }
+					max={ 10 }
+					step={ 1 }
+					placeholder='1'
+				/>
 			) }
 			{ onChangeCfgScale && (
-				<FlexItem>
-					<RangeControl
-						label={ __( 'CFG Scale', dpaa.i18n ) }
-						value={ cfgScale }
-						allowReset={ true }
-						initialPosition={ DEFAULT_STABILITY_AI_CFG_SCALE }
-						resetFallbackValue={ DEFAULT_STABILITY_AI_CFG_SCALE }
-						onChange={ onChangeCfgScale }
-						renderTooltipContent={ value => `${ value }` }
-						min={ 1.0 }
-						max={ 7.0 }
-						step={ 0.1 }
-						placeholder='7.0'
-					/>
-				</FlexItem>
+				<RangeControl
+					__nextHasNoMarginBottom
+					__next40pxDefaultSize
+					label={ __( 'CFG Scale', dpaa.i18n ) }
+					value={ cfgScale }
+					allowReset={ true }
+					initialPosition={ DEFAULT_STABILITY_AI_CFG_SCALE }
+					resetFallbackValue={ DEFAULT_STABILITY_AI_CFG_SCALE }
+					onChange={ onChangeCfgScale }
+					renderTooltipContent={ value => `${ value }` }
+					min={ 1.0 }
+					max={ 7.0 }
+					step={ 0.1 }
+					placeholder='7.0'
+				/>
 			) }
 			{ onChangeSteps && (
-				<FlexItem>
-					<RangeControl
-						label={ __( 'Sampling Steps', dpaa.i18n ) }
-						value={ steps }
-						allowReset={ true }
-						initialPosition={ DEFAULT_STABILITY_AI_STEPS }
-						resetFallbackValue={ DEFAULT_STABILITY_AI_STEPS }
-						onChange={ onChangeSteps }
-						renderTooltipContent={ value => `${ value }` }
-						min={ 10 }
-						max={ 150 }
-						step={ 1 }
-						placeholder='30'
-					/>
-				</FlexItem>
+				<RangeControl
+					__nextHasNoMarginBottom
+					__next40pxDefaultSize
+					label={ __( 'Sampling Steps', dpaa.i18n ) }
+					value={ steps }
+					allowReset={ true }
+					initialPosition={ DEFAULT_STABILITY_AI_STEPS }
+					resetFallbackValue={ DEFAULT_STABILITY_AI_STEPS }
+					onChange={ onChangeSteps }
+					renderTooltipContent={ value => `${ value }` }
+					min={ 10 }
+					max={ 150 }
+					step={ 1 }
+					placeholder='30'
+				/>
 			) }
-		</>
+		</VStack>
 	)
 } )

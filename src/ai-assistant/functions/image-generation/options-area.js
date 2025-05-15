@@ -3,7 +3,7 @@
  */
 import { PanelAdvancedSettings } from '@dpaa/components'
 import { OptionsAreaStableDiffusion } from './options-area-stable-diffusion'
-import { OptionsAreaDallE } from './options-area-dall-e'
+import { OptionsAreaGPTImage } from './options-area-dall-e'
 
 /**
  * WordPress dependencies
@@ -11,9 +11,9 @@ import { OptionsAreaDallE } from './options-area-dall-e'
 import { __ } from '@wordpress/i18n'
 import {
 	BaseControl,
-	Flex,
-	FlexItem,
 	SelectControl,
+	__experimentalVStack as VStack,
+	__experimentalDivider as Divider,
 } from '@wordpress/components'
 import {
 	useEffect,
@@ -29,11 +29,11 @@ export const OptionsArea = props => {
 		stabilityAIApiKey = undefined,
 		engine = undefined,
 		onChangeEngine = undefined,
-		dallEModel = undefined,
-		dallENumberImages = undefined,
-		dallEImageSize = undefined,
-		dallEQuality = undefined,
-		dallEStyle = undefined,
+		gptImageModel = undefined,
+		gptImageNumberImages = undefined,
+		gptImageImageSize = undefined,
+		gptImageQuality = undefined,
+		gptImageStyle = undefined,
 		stableDiffusionModel = undefined,
 		stableDiffusionStyle = undefined,
 		stableDiffusionWidth = undefined,
@@ -42,11 +42,11 @@ export const OptionsArea = props => {
 		stableDiffusionSamples = undefined,
 		stableDiffusionCfgScale = undefined,
 		stableDiffusionSteps = undefined,
-		onChangeDallEModel = undefined,
-		onChangeDallENumberImages = undefined,
-		onChangeDallEImageSize = undefined,
-		onChangeDallEQuality = undefined,
-		onChangeDallEStyle = undefined,
+		onChangeGPTImageModel = undefined,
+		onChangeGPTImageNumberImages = undefined,
+		onChangeGPTImageImageSize = undefined,
+		onChangeGPTImageQuality = undefined,
+		onChangeGPTImageStyle = undefined,
 		onChangeStableDiffusionModel = undefined,
 		onChangeStableDiffusionStyle = undefined,
 		onChangeStableDiffusionWidth = undefined,
@@ -60,10 +60,10 @@ export const OptionsArea = props => {
 	// 画像生成エンジンのセレクトオプション
 	const engineOptions = []
 	if ( stabilityAIApiKey ) {
-		engineOptions.push( { value: 'stable-diffusion', label: __( 'Stable Diffusion (Stability AI)', dpaa.i18n ) } )
+		engineOptions.push( { value: 'stable-diffusion', label: __( 'Stability AI', dpaa.i18n ) } )
 	}
 	if ( openAIApiKey || openai ) {
-		engineOptions.push( { value: 'dall-e', label: __( 'DALL·E (OpenAI)', dpaa.i18n ) } )
+		engineOptions.push( { value: 'dall-e', label: __( 'OpenAI', dpaa.i18n ) } )
 	}
 
 	const [ settingForm, setSettingForm ] = useState( <></> )
@@ -71,17 +71,17 @@ export const OptionsArea = props => {
 	useEffect( () => {
 		if ( engine === 'dall-e' && ( openAIApiKey || openai ) ) {
 			setSettingForm(
-				<OptionsAreaDallE
-					model={ dallEModel }
-					onChangeModel={ onChangeDallEModel }
-					numberImages={ dallENumberImages }
-					onChangeNumberImages={ onChangeDallENumberImages }
-					imageSize={ dallEImageSize }
-					onChangeImageSize={ onChangeDallEImageSize }
-					quality={ dallEQuality }
-					onChangeQuality={ onChangeDallEQuality }
-					style={ dallEStyle }
-					onChangeStyle={ onChangeDallEStyle }
+				<OptionsAreaGPTImage
+					model={ gptImageModel }
+					onChangeModel={ onChangeGPTImageModel }
+					numberImages={ gptImageNumberImages }
+					onChangeNumberImages={ onChangeGPTImageNumberImages }
+					imageSize={ gptImageImageSize }
+					onChangeImageSize={ onChangeGPTImageImageSize }
+					quality={ gptImageQuality }
+					onChangeQuality={ onChangeGPTImageQuality }
+					style={ gptImageStyle }
+					onChangeStyle={ onChangeGPTImageStyle }
 				/>
 			)
 		}
@@ -108,10 +108,11 @@ export const OptionsArea = props => {
 				/>
 			)
 		}
-	}, [ engine, dallEModel, dallENumberImages, dallEImageSize, dallEQuality, dallEStyle, stableDiffusionModel, stableDiffusionStyle, stableDiffusionWidth, stableDiffusionHeight, stableDiffusionDimensions, stableDiffusionSamples, stableDiffusionCfgScale, stableDiffusionSteps ] )
+	}, [ engine, gptImageModel, gptImageNumberImages, gptImageImageSize, gptImageQuality, gptImageStyle, stableDiffusionModel, stableDiffusionStyle, stableDiffusionWidth, stableDiffusionHeight, stableDiffusionDimensions, stableDiffusionSamples, stableDiffusionCfgScale, stableDiffusionSteps ] )
 
 	return (
 		<BaseControl
+			__nextHasNoMarginBottom
 			className='dpaa--settings__wrapper'
 		>
 			<PanelAdvancedSettings
@@ -121,25 +122,22 @@ export const OptionsArea = props => {
 				hasToggle={ false }
 				titleLeftIcon={ cogIcon }
 			>
-				<Flex
-					direction='column'
-					gap={ 2 }
-					justify='flex-start'
-				>
+				<VStack spacing={ 4 }>
 					{ onChangeEngine && (
-						<FlexItem>
+						<VStack spacing={ 2 }>
 							<SelectControl
 								__next40pxDefaultSize
-								size='__unstable-large'
+								__nextHasNoMarginBottom
 								label={ __( 'AI Image Generator', dpaa.i18n ) }
 								value={ engine }
 								options={ engineOptions }
 								onChange={ onChangeEngine }
 							/>
-						</FlexItem>
+							<Divider margin={ 3 } style={ { opacity: 0.5 } } />
+						</VStack >
 					) }
 					{ settingForm }
-				</Flex>
+				</VStack>
 			</PanelAdvancedSettings>
 		</BaseControl>
 	)

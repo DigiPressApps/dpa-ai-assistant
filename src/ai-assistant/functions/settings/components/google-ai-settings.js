@@ -5,7 +5,7 @@ import {
 	PanelAdvancedSettings,
 	UpgradeLabel,
 } from '@dpaa/components'
-import { aiIcon } from '@dpaa/ai-assistant/icons'
+import { AICPU } from '@dpaa/icons'
 
 /**
  * WordPress dependencies
@@ -14,6 +14,7 @@ import { __ } from '@wordpress/i18n'
 import {
 	Flex,
 	FlexItem,
+	Icon,
 } from '@wordpress/components'
 
 export const GoogleAISettings = ( { pluginSettings } ) => {
@@ -24,7 +25,7 @@ export const GoogleAISettings = ( { pluginSettings } ) => {
 				className='dpaa-components-panel __option-settings'
 				initialOpen={ false }
 				hasToggle={ false }
-				titleLeftIcon={ aiIcon }
+				titleLeftIcon={ <Icon icon={ AICPU } /> }
 			>
 				<Flex justify='center'>
 					<FlexItem>

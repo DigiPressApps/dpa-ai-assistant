@@ -7,7 +7,7 @@ import {
 	TipMessage,
 } from '@dpaa/components'
 import {
-	sendMessage as sendMessageToChatGPT,
+	sendMessageToOpenAI,
 	generateImageByStabilityAI,
 	generateImageByOpenAI,
 	imageToClipboard,
@@ -84,11 +84,11 @@ export const ImageGenerationPanel = ( props ) => {
 
 	const [ openAIApiKey, setOpenAIApiKey ] = useState( '' )
 	const [ gptModel, setGptModel ] = useState( DEFAULT_OPEN_AI_GPT_MODEL )
-	const [ dallEModel, setDallEModel ] = useState( DEFAULT_OPEN_AI_DALL_E_MODEL )
-	const [ dallENumberImages, setDallENumberImages ] = useState( DEFAULT_OPEN_AI_DALL_E_NUMBER_IMAGES )
-	const [ dallEImageSize, setDallEImageSize ] = useState( null )
-	const [ dallEQuality, setDallEQuality ] = useState( DEFAULT_OPEN_AI_DALL_E_QUALITY )
-	const [ dallEStyle, setDallEStyle ] = useState( DEFAULT_OPEN_AI_DALL_E_STYLE )
+	const [ gptImageModel, setGPTImageModel ] = useState( DEFAULT_OPEN_AI_DALL_E_MODEL )
+	const [ gptImageNumberImages, setGPTImageNumberImages ] = useState( DEFAULT_OPEN_AI_DALL_E_NUMBER_IMAGES )
+	const [ gptImageImageSize, setGPTImageImageSize ] = useState( null )
+	const [ gptImageQuality, setGPTImageQuality ] = useState( DEFAULT_OPEN_AI_DALL_E_QUALITY )
+	const [ gptImageStyle, setGPTImageStyle ] = useState( DEFAULT_OPEN_AI_DALL_E_STYLE )
 
 	const [ engine, setEngine ] = useState( DEFAULT_IMAGE_ENGINE )
 	const [ uploadFilePrefix, setUploadFilePrefix ] = useState( DEFAULT_UPLOAD_FILE_PREFIX )
@@ -126,11 +126,11 @@ export const ImageGenerationPanel = ( props ) => {
 		if ( openAISettings ) {
 			setOpenAIApiKey( openAISettings?.apiKey || null )
 			setGptModel( openAISettings?.gptModel || DEFAULT_OPEN_AI_GPT_MODEL )
-			setDallEModel( openAISettings?.imageGeneration?.dallEModel || DEFAULT_OPEN_AI_DALL_E_MODEL )
-			setDallENumberImages( openAISettings?.imageGeneration?.numberImages || DEFAULT_OPEN_AI_DALL_E_NUMBER_IMAGES )
-			setDallEImageSize( openAISettings?.imageGeneration?.imageSize || DEFAULT_OPEN_AI_DALL_E_IMAGE_SIZE )
-			setDallEQuality( openAISettings?.imageGeneration?.quality || DEFAULT_OPEN_AI_DALL_E_QUALITY )
-			setDallEStyle( openAISettings?.imageGeneration?.dallEStyle || DEFAULT_OPEN_AI_DALL_E_STYLE )
+			setGPTImageModel( openAISettings?.imageGeneration?.gptImageModel || DEFAULT_OPEN_AI_DALL_E_MODEL )
+			setGPTImageNumberImages( openAISettings?.imageGeneration?.numberImages || DEFAULT_OPEN_AI_DALL_E_NUMBER_IMAGES )
+			setGPTImageImageSize( openAISettings?.imageGeneration?.imageSize || DEFAULT_OPEN_AI_DALL_E_IMAGE_SIZE )
+			setGPTImageQuality( openAISettings?.imageGeneration?.quality || DEFAULT_OPEN_AI_DALL_E_QUALITY )
+			setGPTImageStyle( openAISettings?.imageGeneration?.gptImageStyle || DEFAULT_OPEN_AI_DALL_E_STYLE )
 			setTranscriptionSettings( openAISettings?.transcription || null )
 		}
 	}, [ openAISettings ] )
@@ -181,30 +181,68 @@ export const ImageGenerationPanel = ( props ) => {
 
 	// IndexedDBデータベース用
 	const [ indexedDB, setIndexedDB ] = useState( null )
+	// 保存用の画像データ配列
+	const [ imageDataArray, setImageDataArray ] = useState( [] )
 
 	// ローカルデータ(indexedDB)の取得
 	const fetchDataFromIndexedDB = async () => {
 		try {
 			if ( indexedDB ) {
 				const data = await indexedDB.images.get( 1 );
-				if ( data?.generatedImage ) {
-					setRenderedLog( JSON.parse( data.generatedImage ) );
+				if ( data?.imageData ) {
+					const savedImages = JSON.parse( data.imageData );
+					// データを内部状態に設定
+					setImageDataArray( savedImages );
+					
+					// 画像データをレンダリング用に変換
+					const newRenderedLog = savedImages.map((item, index) => (
+						<RenderLog
+							key={ `image-${index}` }
+							prompt={ item.prompt }
+							arrayImages={ item.images }
+							isLoaded={ true }
+							isLoading={ isLoading }
+							index={ index }
+							onClickCopyToClipboardItem ={ handleCopyToClipboardItem }
+							onClickDeleteItem ={ handleDeleteItem }
+							onClickDownload={ handleDownload }
+							onClickRegenerate={ () => handleGenerate( {
+								prompt: item.prompt,
+								gptPrompt: SYSTEM_PROMPT_TRANSLATE_ENGLISH,
+								isMagic: false,
+								isRegenerate: true,
+							} ) }
+							isInEditor={ isInEditor }
+						/>
+					));
+					
+					// 表示制限を適用
+					if ( newRenderedLog.length > maxVisibleImageLogs ) {
+						const trimmedLog = newRenderedLog.slice( newRenderedLog.length - maxVisibleImageLogs );
+						setRenderedLog( trimmedLog );
+					} else {
+						setRenderedLog( newRenderedLog );
+					}
 				} else {
-					setRenderedLog( [] )
+					setRenderedLog( [] );
+					setImageDataArray( [] );
 				}
 			}
 		} catch ( error ) {
 			console.error('Error fetching data from IndexedDB:', error);
+			setRenderedLog( [] );
+			setImageDataArray( [] );
 		}
 	};
+	
 	// ローカルデータ(indexedDB)の更新(上書き保存)
-	 const saveDataToIndexedDB = async ( data ) => {
+	const saveDataToIndexedDB = async ( data ) => {
 		try {
 			if ( indexedDB ) {
 				const primitiveData = JSON.stringify( data );
 				await indexedDB.images.put( {
 					id: 1,
-					generatedImage: primitiveData
+					imageData: primitiveData
 				} );
 
 				// ログを一番下までスクロールさせる
@@ -229,20 +267,20 @@ export const ImageGenerationPanel = ( props ) => {
 		if ( indexedDB ) {
 			// オブジェクトストア(テーブル)を作成
 			indexedDB.version( 1 ).stores({
-				images: '++id, generatedImage'
+				images: '++id, imageData'
 			});
 			// ローカルデータの取得
 			fetchDataFromIndexedDB()
 		}
 	}, [ indexedDB ] )
 
-	// レンダーエリアの蓄積ログ
+	// 画像データの更新時にローカルDBを更新
 	useEffect( () => {
-		if ( Array.isArray( renderedLog ) && renderedLog.length > 0 ) {
+		if ( Array.isArray( imageDataArray ) && imageDataArray.length > 0 ) {
 			// ローカルデータの更新(上書き保存)
-			saveDataToIndexedDB( renderedLog )
+			saveDataToIndexedDB( imageDataArray );
 		}
-	}, [ renderedLog ] )
+	}, [ imageDataArray ] );
 
 	// 画像生成
 	const handleImageGeneration = useCallback( async ( props ) => {
@@ -256,9 +294,9 @@ export const ImageGenerationPanel = ( props ) => {
 					base64Images = await generateImageByOpenAI( {
 						prompt: props.prompt,
 						openai: openai,
-						n: dallENumberImages,	// dall-e-3 は「1」のみ
-						model: dallEModel,
-						size: dallEImageSize,
+						n: gptImageNumberImages,	// dall-e-3 は「1」のみ
+						model: gptImageModel,
+						size: gptImageImageSize,
 						mode: 'generate',	// または variation
 						format: 'b64_json',	// または url
 						image: null,
@@ -299,7 +337,7 @@ export const ImageGenerationPanel = ( props ) => {
 			}
 			return base64Images
 		}
-	}, [ openAIApiKey, dallENumberImages, dallEModel, dallEImageSize, stabilityAIApiKey, stabilityAIApiVersion, stableDiffusionGenerateType, stableDiffusionModel, stableDiffusionCfgScale, stableDiffusionWidth, stableDiffusionHeight, stableDiffusionSteps, stableDiffusionSamples, stableDiffusionStyle ] )
+	}, [ openAIApiKey, gptImageNumberImages, gptImageModel, gptImageImageSize, stabilityAIApiKey, stabilityAIApiVersion, stableDiffusionGenerateType, stableDiffusionModel, stableDiffusionCfgScale, stableDiffusionWidth, stableDiffusionHeight, stableDiffusionSteps, stableDiffusionSamples, stableDiffusionStyle ] )
 
 	// エラーメッセージの格納
 	const handleError = ( error ) => {
@@ -356,7 +394,7 @@ export const ImageGenerationPanel = ( props ) => {
 			if ( openAIApiKey ) {
 				// プロンプトを翻訳
 				try {
-					const response = await sendMessageToChatGPT( {
+					const response = await sendMessageToOpenAI( {
 						apiKey: openAIApiKey,
 						systemPrompt: gptPrompt,
 						message: prompt,
@@ -364,17 +402,17 @@ export const ImageGenerationPanel = ( props ) => {
 						model: gptModel,
 					} )
 
-					if ( response?.response ) {
+					if ( response?.content ) {
 						// 画像生成
 						base64Images = await handleImageGeneration( {
-							prompt: response.response
+							prompt: response.content
 						} )
 
 						// マジックプロンプトの場合
 						if ( isMagic ) {
-							previousImagePromptRef.current = response.response
+							previousImagePromptRef.current = response.content
 							// マジックプロンプトの場合はOpenAIから受け取ったメッセージをプロンプトとしてここで保持
-							setImagePrompt( response.response )
+							setImagePrompt( response.content )
 						}
 					} else {						
 						setErrorMessage( __( 'Failed to translate the prompt.', dpaa.i18n ) )
@@ -394,7 +432,7 @@ export const ImageGenerationPanel = ( props ) => {
 			setIsLoading( false )
 			setTipMessage( { message: '' } )
 		}
-	}, [ openAIApiKey, stabilityAIApiVersion, dallEModel, engine, imagePrompt, dallENumberImages, dallEModel, dallEImageSize, stabilityAIApiKey, stableDiffusionGenerateType, stableDiffusionModel, stableDiffusionCfgScale, stableDiffusionWidth, stableDiffusionHeight, stableDiffusionSteps, stableDiffusionSamples, stableDiffusionStyle, tipMessage, isLoading, errorMessage ] );
+	}, [ openAIApiKey, stabilityAIApiVersion, gptImageModel, engine, imagePrompt, gptImageNumberImages, gptImageModel, gptImageImageSize, stabilityAIApiKey, stableDiffusionGenerateType, stableDiffusionModel, stableDiffusionCfgScale, stableDiffusionWidth, stableDiffusionHeight, stableDiffusionSteps, stableDiffusionSamples, stableDiffusionStyle, tipMessage, isLoading, errorMessage ] );
 
 	// 各ログの削除ボタンのコールバック
 	const handleDeleteItem = ( index ) => {
@@ -406,6 +444,14 @@ export const ImageGenerationPanel = ( props ) => {
 			copyRenderedLog.splice( index, 1 )
 			setRenderedLog( copyRenderedLog )
 			
+			// 画像データも更新
+			if ( Array.isArray( imageDataArray ) && imageDataArray.length > 0 ) {
+				const copyImageDataArray = [ ...imageDataArray ]
+				if ( index < copyImageDataArray.length ) {
+					copyImageDataArray.splice( index, 1 )
+					setImageDataArray( copyImageDataArray )
+				}
+			}
 		}
 	}
 
@@ -474,8 +520,14 @@ export const ImageGenerationPanel = ( props ) => {
 			setRenderedLog( [] )
 			// 内部ログ(履歴データ)の削除
 			setGeneratedImages( [] )
+			// 画像データ配列をクリア
+			setImageDataArray( [] )
 			// ローカルストレージの削除
-			indexedDB.images.delete( 1 )
+			if (indexedDB) {
+				indexedDB.images.delete( 1 ).catch(error => {
+					console.error('Error deleting data from IndexedDB:', error);
+				});
+			}
 		}
 	}
 
@@ -503,16 +555,26 @@ export const ImageGenerationPanel = ( props ) => {
 	// 画像データの受け取りが完了したらレンダリングして蓄積
 	useEffect( () => {
 		if ( Array.isArray( generatedImages ) && generatedImages.length > 0 ) {
+			// 画像データ配列に追加
+			const newImageData = [
+				...imageDataArray,
+				{
+					prompt: previousImagePromptRef.current,
+					images: generatedImages
+				}
+			];
+			setImageDataArray( newImageData );
 
-			// 画像生成履歴(配列)を蓄積して重複するアイテムを削除
-			const newRenderedLog = Array.from( new Set( [
+			// レンダリング用のログを更新
+			const newRenderedLog = [
 				...( renderedLog || [] ),
 				<RenderLog
+					key={ `new-image-${renderedLog?.length || 0}` }
 					prompt={ previousImagePromptRef?.current }
 					arrayImages={ generatedImages }
 					isLoaded={ true }
 					isLoading={ isLoading }
-					inidex={ renderedLog?.length || 0 }
+					index={ renderedLog?.length || 0 }
 					onClickCopyToClipboardItem ={ handleCopyToClipboardItem }
 					onClickDeleteItem ={ handleDeleteItem }
 					onClickDownload={ handleDownload }
@@ -524,7 +586,7 @@ export const ImageGenerationPanel = ( props ) => {
 					} ) }
 					isInEditor={ isInEditor }
 				/>
-			] ) );
+			];
 
 			// 履歴の保存
 			if ( newRenderedLog.length > maxVisibleImageLogs ) {
@@ -608,16 +670,16 @@ export const ImageGenerationPanel = ( props ) => {
 			// OpenAI
 			engine={ engine }
 			onChangeEngine={ newVal => setEngine( newVal ) }
-			dallEModel={ dallEModel }
-			onChangeDallEModel={ newSelect => setDallEModel( newSelect.selectedItem.key ) }
-			dallENumberImages={ dallENumberImages }
-			onChangeDallENumberImages={ newVal => setDallENumberImages( newVal ) }
-			dallEImageSize={ dallEImageSize }
-			onChangeDallEImageSize={ newVal => setDallEImageSize( newVal ) }
-			dallEQuality={ dallEQuality }
-			onChangeDallEQuality={ newVal => setDallEQuality( newVal ) }
-			dallEStyle={ dallEStyle }
-			onChangeDallEStyle={ newVal => setDallEStyle( newVal ) }
+			gptImageModel={ gptImageModel }
+			onChangeGPTImageModel={ newSelect => setGPTImageModel( newSelect.selectedItem.key ) }
+			gptImageNumberImages={ gptImageNumberImages }
+			onChangeGPTImageNumberImages={ newVal => setGPTImageNumberImages( newVal ) }
+			gptImageImageSize={ gptImageImageSize }
+			onChangeGPTImageImageSize={ newVal => setGPTImageImageSize( newVal ) }
+			gptImageQuality={ gptImageQuality }
+			onChangeGPTImageQuality={ newVal => setGPTImageQuality( newVal ) }
+			gptImageStyle={ gptImageStyle }
+			onChangeGPTImageStyle={ newVal => setGPTImageStyle( newVal ) }
 
 			// StabilityAI
 			stableDiffusionModel={ stableDiffusionModel }

@@ -31,6 +31,7 @@ export const URLInputControl = props => {
 
 	return (
 		<BaseControl
+			__nextHasNoMarginBottom
 			label={ label ? label : undefined }
 			id="dpaa-url-input-control"
 			className={ classnames( [

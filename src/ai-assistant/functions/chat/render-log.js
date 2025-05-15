@@ -4,13 +4,13 @@
 import { UpgradeModal } from '@dpaa/components'
 import {
 	aiMonotoneIcon,
-	openAIIcon,
 } from '@dpaa/ai-assistant/icons'
 
 /** 
  * External dependencies
  */
 import classnames from 'classnames';
+import ReactMarkdown from 'react-markdown';
 
 /**
  * WordPress dependencies
@@ -196,9 +196,11 @@ export const RenderLog = memo( ( props ) => {
 							<Icon icon={ aiMonotoneIcon } size={ 28} />
 						</FlexItem>
 						<FlexItem className='dpaa-ai-assistant--generator__message-text'>
-							<Text className='dpaa-ai-assistant--generator__log__item'>
-								{ response }
-							</Text>
+							<ReactMarkdown
+								className='__response-markdown'
+							>
+								{response}
+							</ReactMarkdown>
 						</FlexItem>
 					</Flex>
 				</div>

@@ -5,6 +5,9 @@ import { OptionsArea } from './options-area'
 import {
 	OPEN_AI_API_KEY_URL
 } from '@dpaa/ai-assistant/constants'
+import {
+	PopoverHelp,
+} from '@dpaa/components'
 
 /**
  * WordPress dependencies
@@ -17,6 +20,7 @@ import {
 	FlexItem,
 	Notice,
 	TextareaControl,
+	__experimentalVStack as VStack,
 } from '@wordpress/components'
 import {
 	memo,
@@ -31,6 +35,7 @@ export const PromptArea = memo( ( props ) => {
 		voice,
 		format,
 		speed,
+		instructions,
 		onClickConvert,
 		onChangeText,
 		onChangeModel,
@@ -38,6 +43,7 @@ export const PromptArea = memo( ( props ) => {
 		onChangeSpeed,
 		onChangeVoice,
 		onClickClear,
+		onChangeInstructions,
 	} = props
 
 	return (
@@ -54,60 +60,77 @@ export const PromptArea = memo( ( props ) => {
 					flexBasis: 'calc( 65% - 6px )'
 				} }
 			>
-				<Flex
-					direction='column'
-					gap={ 1 }
-				>
-					<FlexItem>
+				<VStack spacing={ 2 }>
+					<TextareaControl
+						__nextHasNoMarginBottom
+						className='dpaa-ai-assistant--generator__prompt__textarea'
+						value={ text }
+						onChange={ onChangeText }
+						rows={ 3 }
+						placeholder={ __( 'Type or paste the text you want to generate to voice audio here.', dpaa.i18n ) }
+						disabled={ isLoading || !openai }
+					/>
+					<Flex
+						gap={ 1 }
+						direction='row'
+						justify='flex-end'
+						align='center'
+					>
+						<FlexItem>
+							<Button
+								size='compact'
+								showTooltip
+								label={ __( 'Clear all logs', dpaa.i18n ) }
+								className='dpaa-ai-assistant--generator__button'
+								icon='trash'
+								iconSize={ 18 }
+								variant='primary'
+								isDestructive={ true }
+								disabled={ isLoading || !openai }
+								onClick={ onClickClear }
+							/>
+						</FlexItem>
+						<FlexItem>
+							<Button
+								size='compact'
+								showTooltip
+								label={ __( 'Generate audio', dpaa.i18n ) }
+								icon='microphone'
+								iconSize={ 20 }
+								variant='primary'
+								isDestructive={ false }
+								isBusy={ isLoading }
+								disabled={ isLoading || !text || !openai }
+								onClick={ onClickConvert }
+							/>
+						</FlexItem>
+					</Flex>
+					{ model !== 'tts-1' && model !== 'tts-1-hd' && (
 						<TextareaControl
-							__next40pxDefaultSize
-							// label={ __( 'Question', dpaa.i18n ) }
+							__nextHasNoMarginBottom
+							label={ <>
+								{ `${ __( 'Custom Instructions', dpaa.i18n ) } (${ __( 'optional', dpaa.i18n ) })` }
+								<PopoverHelp
+									buttonText=''
+									buttonClass='__right-inline-position'
+									buttonSize='small'
+									popoverPosition='bottom left'
+									popoverVariant='toolbar'
+									popoverOffset={ 5 }
+									popoverClass=''
+									popoverNoArrow={ false }
+									help={ __( 'Control the voice of your generated audio with additional instructions.<br />You can prompt the model to control aspects of speech, including:<br /><br />- Accent<br />- Emotional range<br />- Intonation<br />- Impressions<br />- Speed of speech<br />- Tone<br />- Whispering', dpaa.i18n ) }
+								/>
+							</> }
 							className='dpaa-ai-assistant--generator__prompt__textarea'
-							value={ text }
-							onChange={ onChangeText }
-							rows={ 3 }
-							placeholder={ __( 'Type or paste the text you want to generate to voice audio here.', dpaa.i18n ) }
+							value={ instructions }
+							onChange={ onChangeInstructions }
+							rows={ 2 }
+							placeholder={ __( 'Speak in a cheerful and positive tone.', dpaa.i18n ) }
 							disabled={ isLoading || !openai }
 						/>
-					</FlexItem>
-					<FlexItem>
-						<Flex
-							gap={ 1 }
-							direction='row'
-							justify='flex-end'
-							align='center'
-						>
-							<FlexItem>
-								<Button
-									size='compact'
-									showTooltip
-									label={ __( 'Clear all logs', dpaa.i18n ) }
-									className='dpaa-ai-assistant--generator__button'
-									icon='trash'
-									iconSize={ 18 }
-									variant='primary'
-									isDestructive={ true }
-									disabled={ isLoading || !openai }
-									onClick={ onClickClear }
-								/>
-							</FlexItem>
-							<FlexItem>
-								<Button
-									size='compact'
-									showTooltip
-									label={ __( 'Generate audio', dpaa.i18n ) }
-									icon='microphone'
-									iconSize={ 20 }
-									variant='primary'
-									isDestructive={ false }
-									isBusy={ isLoading }
-									disabled={ isLoading || !text || !openai }
-									onClick={ onClickConvert }
-								/>
-							</FlexItem>
-						</Flex>
-					</FlexItem>
-				</Flex>
+					) }
+				</VStack>
 			</FlexItem>
 			<FlexItem
 				isBlock={ true }
@@ -122,20 +145,15 @@ export const PromptArea = memo( ( props ) => {
 						status="info"
 						isDismissible={ false }
 					>
-						<Flex
-							direction='column'
-							gap={ 2 }
-						>
-							<FlexItem>
-								<ExternalLink
-									href={ OPEN_AI_API_KEY_URL }
-									type="link"
-									rel="next"
-								>
-									{ __( 'Get the API key.', dpaa.i18n ) }
-								</ExternalLink>
-							</FlexItem>
-						</Flex>
+						<VStack spacing={ 2 }>
+							<ExternalLink
+								href={ OPEN_AI_API_KEY_URL }
+								type="link"
+								rel="next"
+							>
+								{ __( 'Get the API key.', dpaa.i18n ) }
+							</ExternalLink>
+						</VStack>
 					</Notice>
 				)
 				: (

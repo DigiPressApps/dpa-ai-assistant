@@ -2,6 +2,9 @@
  * Internal dependencies
  */
 import './editor.scss'
+import {
+	QuestionFilledCircle,
+} from '@dpaa/icons'
 
 /**
  * External dependencies
@@ -15,6 +18,7 @@ import { __ } from '@wordpress/i18n'
 import {
 	Button,
 	Popover,
+	Icon,
 } from '@wordpress/components'
 import { useState } from '@wordpress/element'
 
@@ -22,7 +26,7 @@ export const PopoverHelp = ( props ) => {
 	const {
 		buttonClass = '',
 		buttonVariant = 'tertiary',
-		buttonIcon = 'warning',
+		buttonIcon = <Icon icon={ QuestionFilledCircle } style={ { width: '20px', height: '20px' } } />,
 		buttonText = __( 'About', dpaa.i18n ),
 		buttonSize = 'small',
 		popoverPosition = 'bottom left',

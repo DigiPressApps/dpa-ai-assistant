@@ -89,7 +89,7 @@ export const Sections = memo( props => {
 				</FlexItem>
 				<FlexItem>
 					<TextareaControl
-						__next40pxDefaultSize
+						__nextHasNoMarginBottom
 						className='dpaa-ai-assistant--generator__prompt__textarea'
 						help={ __( 'Create sentences for each section generated here to compose the post content.', dpaa.i18n ) }
 						value={ sections }

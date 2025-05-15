@@ -1,5 +1,6 @@
 msgid ""
 msgstr ""
+"domain: dpaa\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
@@ -1575,3 +1576,42 @@ msgstr "高速で柔軟な推論モデル"
 
 msgid "High intelligence reasoning model"
 msgstr "高い知性を持つ推論モデル"
+
+msgid "Control the voice of your generated audio with additional instructions.<br />You can prompt the model to control aspects of speech, including:<br /><br />- Accent<br />- Emotional range<br />- Intonation<br />- Impressions<br />- Speed of speech<br />- Tone<br />- Whispering"
+msgstr "音声生成に追加の指示を与えることができます。<br />例えば、以下のような音声の特性を制御することができます。<br /><br />- アクセント<br />- 感情の範囲<br />- イントネーション<br />- 印象<br />- 話す速度<br />- トーン<br />- うなり声"
+
+msgid "Speak in a cheerful and positive tone."
+msgstr "楽観的で明るいトーンで話してください。"
+
+msgid "Custom Instructions"
+msgstr "カスタム指示"
+
+msgid "Models"
+msgstr "モデル"
+
+msgid "Pricing"
+msgstr "価格"
+
+msgid "Usage"
+msgstr "使用量"
+
+msgid "%s / 1M tokens"
+msgstr "%s/100万トークン"
+
+msgid "In/Out per 1M tokens"
+msgstr "100万トークンあたりの入出力"
+
+msgid "The following conversation is a lecture about the recent developments around OpenAI, GPT-4.5 and the future of AI."
+msgstr "この会話は、OpenAI、GPT-4.5、そしてAIの未来に関する最近の開発についての講義です。これを踏まえて文字起こしをしてください。"
+
+msgid "Transcription Model"
+msgstr "文字起こしモデル"
+
+msgid "Select an AI model for transcribing audio to text."
+msgstr "音声からテキストへの文字起こしに使用する AI モデルを選択します。"
+
+msgid "Open the AI Assistant"
+msgstr "AI アシスタントを開く"
+
+msgid "Summarize today's major news from news sites."
+msgstr "ニュースサイトから今日の主要なニュースをまとめてください。"

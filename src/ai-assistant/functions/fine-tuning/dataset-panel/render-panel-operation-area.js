@@ -130,6 +130,7 @@ export const RenderPanelOperationArea = memo( props => {
 												<Flex direction='row' gap={ 2 } align='center'>
 													<FlexItem>
 														<InputControl
+															__next40pxDefaultSize
 															label={ __( 'File name', dpaa.i18n ) }
 															labelPosition='side'
 															// placeholder={  }

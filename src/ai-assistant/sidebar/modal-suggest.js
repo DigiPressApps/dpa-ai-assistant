@@ -6,7 +6,7 @@ import {
 	addNewTagsAndReturnNewTagIds,
 	cleanHtmlToText,
 	isNewlinesOnly,
-	sendMessage as sendMessageToChatGPT,
+	sendMessageToOpenAI,
 } from '@dpaa/util'
 import {
 	SYSTEM_PROMPT_GPT,
@@ -127,7 +127,7 @@ export const ModalSuggest = props => {
 			setIsLoading( true )
 			setErrorMessage( '' )
 
-			sendMessageToChatGPT( {
+			sendMessageToOpenAI( {
 				systemPrompt: SYSTEM_PROMPT_GPT,
 				message: messagePrompt,
 				openai: openai,
@@ -139,8 +139,8 @@ export const ModalSuggest = props => {
 				shouldReturnJson: true,
 			} )
 			.then( response => {
-				if ( response?.response ) {
-					setResponse( response?.response )
+				if ( response?.content ) {
+					setResponse( response?.content )
 				} else {
 					console.error( __( 'GPT response is null!', dpaa.i18n ) )
 				}
@@ -189,6 +189,7 @@ export const ModalSuggest = props => {
 			) }
 			{ ( !isLoading && modalContent && Array.isArray( modalContent ) ) && (
 				<BaseControl
+					__nextHasNoMarginBottom
 					label={ sprintf( __( 'Click to replace with new %s', dpaa.i18n ), __( type, dpaa.i18n ) ) }
 				>
 					<Flex

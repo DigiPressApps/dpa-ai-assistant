@@ -22,6 +22,8 @@ import {
 	ToggleControl,
 	__experimentalHeading as Heading,
 	__experimentalInputControl as InputControl,
+	__experimentalVStack as VStack,
+	__experimentalHStack as HStack,
 } from '@wordpress/components'
 import {
 	memo,
@@ -101,118 +103,95 @@ export const PromptArea = memo( ( props ) => {
 										flexBasis: 'calc( 65% - 6px )'
 									} }
 								>
-									<Flex
-										className='dpaa-box-shadow-element'
-										direction='column'
-										gap={ 2 }
-									>
-										<FlexItem>
-											<TextareaControl
-												__next40pxDefaultSize
-												label={ __( 'Topic', dpaa.i18n ) }
-												help={ __( 'Describe the subject of the article you want AI to generate. The more detailed and specific the instructions, the more accurate content can be generated.', dpaa.i18n ) }
-												className='dpaa-ai-assistant--generator__prompt__textarea'
-												value={ topic }
-												onChange={ onChangeTopic }
-												rows={ 2 }
-												placeholder={ __( 'Introducing sightseeing spots in Japan recommended for foreigners.', dpaa.i18n ) }
+									<VStack spacing={ 2 } className='dpaa-box-shadow-element'>
+										<TextareaControl
+											__nextHasNoMarginBottom
+											label={ __( 'Topic', dpaa.i18n ) }
+											help={ __( 'Describe the subject of the article you want AI to generate. The more detailed and specific the instructions, the more accurate content can be generated.', dpaa.i18n ) }
+											className='dpaa-ai-assistant--generator__prompt__textarea'
+											value={ topic }
+											onChange={ onChangeTopic }
+											rows={ 2 }
+											placeholder={ __( 'Introducing sightseeing spots in Japan recommended for foreigners.', dpaa.i18n ) }
+											disabled={ isLoading || !openai }
+										/>
+										<InputControl
+											__next40pxDefaultSize={ true }
+											size='__unstable-large'
+											label={ <>
+												{ __( 'Keywords to Include', dpaa.i18n ) }
+												<UpgradeLabel text={ __( 'Pro Only', dpaa.i18n ) } />
+											</> }
+											help={ __( 'Use comma to separate keywords.', dpaa.i18n ) }
+											placeholder={ __( 'Kyoto, Mt. Fuji, Asakusa', dpaa.i18n ) }
+											value=''
+											onChange={ () => {} }
+											type='text'
+											disabled={ true }
+										/>
+										<HStack spacing={ 2 } justify='flex-end'>
+											{ onClickClear && (
+												<Button
+													size='compact'
+													showTooltip
+													label={ __( 'Clear', dpaa.i18n ) }
+													className='dpaa-ai-assistant--generator__button'
+													icon='trash'
+													iconSize={ 18 }
+													isDestructive={ true }
+													variant='primary'
+													disabled={ isLoading || !openai || !topic }
+													onClick={ onClickClear }
+												/>
+											) }
+											{ onClickMagicPrompt && (
+												<Button
+													size='compact'
+													showTooltip
+													label={ __( 'Magic prompt!', dpaa.i18n ) }
+													className='dpaa-ai-assistant--generator__button'
+													icon={ shuffleIcon }
+													iconSize={ 18 }
+													variant='secondary'
+													disabled={ isLoading || !openai }
+													onClick={ onClickMagicPrompt }
+												/>
+											) }
+											<Button
+												size='compact'
+												showTooltip
+												label={ __( 'Speak a topic', dpaa.i18n ) }
+												icon='microphone'
+												iconSize={ 20 }
+												variant='primary'
+												isDestructive={ false }
+												isBusy={ isLoading }
 												disabled={ isLoading || !openai }
+												onClick={ () => setIsUpgradeModal( true ) }
 											/>
-										</FlexItem>
-										<FlexItem>
-											<InputControl
-												__next40pxDefaultSize={ true }
-												size='__unstable-large'
-												label={ <>
-													{ __( 'Keywords to Include', dpaa.i18n ) }
-													<UpgradeLabel text={ __( 'Pro Only', dpaa.i18n ) } />
-												</> }
-												help={ __( 'Use comma to separate keywords.', dpaa.i18n ) }
-												placeholder={ __( 'Kyoto, Mt. Fuji, Asakusa', dpaa.i18n ) }
-												value=''
-												onChange={ () => {} }
-												type='text'
-												disabled={ true }
-											/>
-										</FlexItem>
-										<FlexItem>
-											<Flex
-												gap={ 2 }
-												justify='flex-end'
-											>
-												{ onClickClear && (
-													<FlexItem>
-														<Button
-															size='compact'
-															showTooltip
-															label={ __( 'Clear', dpaa.i18n ) }
-															className='dpaa-ai-assistant--generator__button'
-															icon='trash'
-															iconSize={ 18 }
-															isDestructive={ true }
-															variant='primary'
-															disabled={ isLoading || !openai || !topic }
-															onClick={ onClickClear }
-														/>
-													</FlexItem>
-												) }
-												{ onClickMagicPrompt && (
-													<FlexItem>
-														<Button
-															size='compact'
-															showTooltip
-															label={ __( 'Magic prompt!', dpaa.i18n ) }
-															className='dpaa-ai-assistant--generator__button'
-															icon={ shuffleIcon }
-															iconSize={ 18 }
-															variant='secondary'
-															disabled={ isLoading || !openai }
-															onClick={ onClickMagicPrompt }
-														/>
-													</FlexItem>
-												) }
-												<FlexItem>
+											{ onClickGenerate && (
 													<Button
 														size='compact'
 														showTooltip
-														label={ __( 'Speak a topic', dpaa.i18n ) }
-														icon='microphone'
-														iconSize={ 20 }
+														label={ __( 'Generate', dpaa.i18n ) }
+														className='dpaa-ai-assistant--generator__button'
+														icon={ pencilIcon }
+														iconSize={ 18 }
 														variant='primary'
-														isDestructive={ false }
+														onClick={ onClickGenerate }
 														isBusy={ isLoading }
-														disabled={ isLoading || !openai }
-														onClick={ () => setIsUpgradeModal( true ) }
-													/>
-												</FlexItem>
-												{ onClickGenerate && (
-													<FlexItem>
-														<Button
-															size='compact'
-															showTooltip
-															label={ __( 'Generate', dpaa.i18n ) }
-															className='dpaa-ai-assistant--generator__button'
-															icon={ pencilIcon }
-															iconSize={ 18 }
-															variant='primary'
-															onClick={ onClickGenerate }
-															isBusy={ isLoading }
-															disabled={ isLoading || !openai || !topic }
-														>
-															{ isLoading && (
-																<Spinner />
-															) }
-														</Button>
-													</FlexItem>
-												) }
-											</Flex>
-										</FlexItem>
+														disabled={ isLoading || !openai || !topic }
+													>
+														{ isLoading && (
+															<Spinner />
+														) }
+													</Button>
+											) }
+										</HStack>
 										{ errorMessage && (
-											<FlexItem>
-												<div className='dpaa__visible-error-message'>{ errorMessage.toString() }</div>
-											</FlexItem>
+											<div className='dpaa__visible-error-message'>{ errorMessage.toString() }</div>
 										) }
-									</Flex>
+									</VStack>
 								</FlexItem>
 								<FlexItem
 									className='dpaa-ai-assistant--generator__options-area__wrapper'
@@ -221,93 +200,89 @@ export const PromptArea = memo( ( props ) => {
 										flexBasis: 'calc( 35% - 6px )'
 									} }
 								>
-									<Flex direction='column' gap={ 3 } justify='flex-start'>
-										<FlexItem>
-											<Flex
-												className='dpaa-box-shadow-element'
-												direction='column'
-												gap={ 3 }
-											>
-												<FlexItem>
-													<ToggleControl
-														__nextHasNoMarginBottom
-														checked={ stateGenerateTags }
-														label={ <>
-															<Icon icon={ tagIcon } style={ { display: 'inline', verticalAlign: 'middle' } } />
-															{ sprintf( __( 'Generate %s', dpaa.i18n ), __( 'Tags', dpaa.i18n ) ) }
-														</> }
-														onChange={ newVal => setStateGenerateTags( newVal ) }
-														disabled={ isLoading }
-													/>
-												</FlexItem>
-												<FlexItem>
-													<ToggleControl
-														__nextHasNoMarginBottom
-														checked={ stateFeaturedImage }
-														label={ <>
-															<Icon icon={ postFeaturedImageIcon } style={ { display: 'inline', verticalAlign: 'middle' } } />
-															{ sprintf(__( 'Generate %s', dpaa.i18n ), __( 'a Featured image', dpaa.i18n ) ) }
-														</>}
-														onChange={ newVal => setStateFeaturedImage( newVal ) }
-														disabled={ isLoading }
-													/>
-												</FlexItem>
-												<FlexItem>
-													<ToggleControl
-														__nextHasNoMarginBottom
-														checked={ stateSectionImages }
-														label={ <>
-															<Icon icon='images-alt2' style={ { display: 'inline', verticalAlign: 'middle' } } />
-															{`${ sprintf(__( 'Generate %s', dpaa.i18n ), __( 'images for each section', dpaa.i18n ) ) } (${ sectionCount }${ __( ' images', dpaa.i18n ) })` }
-														</> }
-														onChange={ newVal => setStateSectionImages( newVal ) }
-														disabled={ isLoading }
-													/>
-												</FlexItem>
-											</Flex>
-										</FlexItem>
-										<FlexItem>
-											{ openai
-												? (
-													<OptionsAreaGPT
-														label={ sprintf( __( '%s Settings', dpaa.i18n ), __( 'Text Generation', dpaa.i18n ) ) }
-														userCanManageSettings={ userCanManageSettings }
-														fineTunedModels={ fineTunedModels }
-														model={ model }
-														onChangeModel={ onChangeModel }
-														language={ language }
-														onChangeLanguage={ onChangeLanguage }
-														writingStyle={ writingStyle }
-														onChangeWritingStyle={ onChangeWritingStyle }
-														writingTone={ writingTone }
-														onChangeWritingTone={ onChangeWritingTone }
-													/>
-												)
-												: (
-													<Notice
-														className="dpaa-ai-assistant--settings__notice-component"
-														status="info"
-														isDismissible={ false }
+									<VStack spacing={ 3 }>
+										<Flex
+											className='dpaa-box-shadow-element'
+											direction='column'
+											gap={ 3 }
+										>
+											<FlexItem>
+												<ToggleControl
+													__nextHasNoMarginBottom
+													checked={ stateGenerateTags }
+													label={ <>
+														<Icon icon={ tagIcon } style={ { display: 'inline', verticalAlign: 'middle' } } />
+														{ sprintf( __( 'Generate %s', dpaa.i18n ), __( 'Tags', dpaa.i18n ) ) }
+													</> }
+													onChange={ newVal => setStateGenerateTags( newVal ) }
+													disabled={ isLoading }
+												/>
+											</FlexItem>
+											<FlexItem>
+												<ToggleControl
+													__nextHasNoMarginBottom
+													checked={ stateFeaturedImage }
+													label={ <>
+														<Icon icon={ postFeaturedImageIcon } style={ { display: 'inline', verticalAlign: 'middle' } } />
+														{ sprintf(__( 'Generate %s', dpaa.i18n ), __( 'a Featured image', dpaa.i18n ) ) }
+													</>}
+													onChange={ newVal => setStateFeaturedImage( newVal ) }
+													disabled={ isLoading }
+												/>
+											</FlexItem>
+											<FlexItem>
+												<ToggleControl
+													__nextHasNoMarginBottom
+													checked={ stateSectionImages }
+													label={ <>
+														<Icon icon='images-alt2' style={ { display: 'inline', verticalAlign: 'middle' } } />
+														{`${ sprintf(__( 'Generate %s', dpaa.i18n ), __( 'images for each section', dpaa.i18n ) ) } (${ sectionCount }${ __( ' images', dpaa.i18n ) })` }
+													</> }
+													onChange={ newVal => setStateSectionImages( newVal ) }
+													disabled={ isLoading }
+												/>
+											</FlexItem>
+										</Flex>
+										{ openai
+											? (
+												<OptionsAreaGPT
+													label={ sprintf( __( '%s Settings', dpaa.i18n ), __( 'Text Generation', dpaa.i18n ) ) }
+													userCanManageSettings={ userCanManageSettings }
+													fineTunedModels={ fineTunedModels }
+													model={ model }
+													onChangeModel={ onChangeModel }
+													language={ language }
+													onChangeLanguage={ onChangeLanguage }
+													writingStyle={ writingStyle }
+													onChangeWritingStyle={ onChangeWritingStyle }
+													writingTone={ writingTone }
+													onChangeWritingTone={ onChangeWritingTone }
+												/>
+											)
+											: (
+												<Notice
+													className="dpaa-ai-assistant--settings__notice-component"
+													status="info"
+													isDismissible={ false }
+												>
+													<Flex
+														direction='column'
+														gap={ 2 }
 													>
-														<Flex
-															direction='column'
-															gap={ 2 }
-														>
-															<FlexItem>
-																<ExternalLink
-																	href={ OPEN_AI_API_KEY_URL }
-																	type="link"
-																	rel="next"
-																>
-																	{ `${ __( 'Get the API key.', dpaa.i18n ) } (OpenAI)` }
-																</ExternalLink>
-															</FlexItem>
-														</Flex>
-													</Notice>
-												)
-											}
-										</FlexItem>
-									</Flex>
+														<FlexItem>
+															<ExternalLink
+																href={ OPEN_AI_API_KEY_URL }
+																type="link"
+																rel="next"
+															>
+																{ `${ __( 'Get the API key.', dpaa.i18n ) } (OpenAI)` }
+															</ExternalLink>
+														</FlexItem>
+													</Flex>
+												</Notice>
+											)
+										}
+									</VStack>
 								</FlexItem>
 							</Flex>
 						</>

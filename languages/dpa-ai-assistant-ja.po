@@ -449,7 +449,7 @@ msgid "Listen"
 msgstr "聞く"
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
-msgid "Write in a deep, heavy, Southern accent."
+msgid "The following conversation is a lecture about the recent developments around OpenAI, GPT-4.5 and the future of AI."
 msgstr ""
 
 #: dist/backend.js:1 dist/plugin-menu.js:1
@@ -1497,11 +1497,11 @@ msgid "Text"
 msgstr ""
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
-msgid "DALL·E (OpenAI)"
+msgid "OpenAI"
 msgstr ""
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1
-msgid "Stable Diffusion (Stability AI)"
+msgid "Stability AI"
 msgstr ""
 
 #: dist/backend.js:1 dist/dashboard.js:1 dist/plugin-menu.js:1

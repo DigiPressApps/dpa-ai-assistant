@@ -133,6 +133,11 @@
 	white-space: break-spaces;
 	line-height: 1.62!important;
 	font-size:var(--dpaa-ai-assistant--log-font-size, 13px)!important;
+	white-space: break-spaces;
+
+	*{
+		box-sizing: border-box;
+	}
 }
 
 // ログの開閉ボタン
@@ -172,6 +177,39 @@
 }
 .dpaa-ai-assistant--generator__message-text{
 	flex-basis: calc( 100% - 30px );
+	padding-top: 4px;
+
+	.__response-markdown{
+		min-height:30px;
+
+		p{
+			margin:0;
+		}
+		code{
+			padding: 3px 5px;
+			border-radius: 5px;
+			background:rgba(0,0,0,.07);
+			font-family: monospace, system-ui;
+		}
+		pre{
+			border-radius: 8px;
+			break-after: auto;
+			white-space: pre-wrap;
+			width: 100%;
+			max-height: 360px;
+			overflow-y: auto;
+			overflow-x: hidden;
+			font-family: monospace, system-ui;
+			background: rgba(0,0,0,.07);
+			padding: 8px;
+
+			code{
+				padding:0;
+				border-radius: 0;
+				background: none;
+			}
+		}
+	}
 }
 
 .dpaa__visible-error-message{

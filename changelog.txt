@@ -1,5 +1,10 @@
 == Changelog ==
 
+= 0.2.5 (2025/02/25) =
+* Update: Added o1 and o3-mini to GPT models.
+* Update: Updated japanese translation file.
+* Improved: Compatibility with WP 6.7.2.
+
 = 0.2.3 (2024/12/26) =
 * Update: Updated japanese translation file.
 

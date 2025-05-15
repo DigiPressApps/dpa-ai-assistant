@@ -58,6 +58,7 @@ export const QueryControl = props => {
 	// 日付選択ドロップダウン
 	const DateSelector = ( { label, currentDate, onChange, onReset } ) => (
 		<BaseControl
+			__nextHasNoMarginBottom
 			label={ label }
 			className="dpaa-inspector__dropdown-period-control"
 		>
@@ -82,6 +83,7 @@ export const QueryControl = props => {
 				renderContent={ () => (
 					<DropdownContentWrapper paddingSize="medium">
 						<BaseControl
+							__nextHasNoMarginBottom
 							label={ label }
 							className="dpaa-inspector__dropdown-period-content"
 						>
@@ -108,7 +110,7 @@ export const QueryControl = props => {
 				<FlexItem>
 					<SelectControl
 						__next40pxDefaultSize
-						size='__unstable-large'
+						__nextHasNoMarginBottom
 						options={ postTypesSelectOptions }
 						value={ postType }
 						label={ <>

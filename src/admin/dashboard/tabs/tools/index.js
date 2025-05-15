@@ -67,6 +67,7 @@ export const ToolsTab = () => {
 					{ !sysinfo
 						? <Spinner />
 						: <TextareaControl
+							__nextHasNoMarginBottom
 							className="dpapps-admin__sysinfo-text-area"
 							help={ __( 'Show your system info for debug and support. Please download and send the text file when you contact us.', dpaa.i18n ) }
 							label={ __( 'System Info', dpaa.i18n ) }

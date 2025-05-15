@@ -66,6 +66,7 @@ export const DatasetPagination = props => {
 					<Flex direction='row' gap={ 2 } wrap={ false } align='center' justify='center'>
 						<FlexItem>
 							<InputControl
+								__next40pxDefaultSize
 								size='default'
 								value={ currentPageNum || 1 }
 								min={ 1 }

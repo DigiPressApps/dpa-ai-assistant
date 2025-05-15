@@ -51,7 +51,7 @@ export const Excerpt = memo( props => {
 				</FlexItem>
 				<FlexItem>
 					<TextareaControl
-						__next40pxDefaultSize
+						__nextHasNoMarginBottom
 						className='dpaa-ai-assistant--generator__prompt__textarea'
 						value={ excerpt }
 						onChange={ onChangeExcerpt }

@@ -33,10 +33,12 @@ export const RenderDatasetLineHeader = memo( props => {
 			{ createMode === 'easy' && (
 				<Spacer marginBottom={ 5 }>
 					<BaseControl
+						__nextHasNoMarginBottom
 						label={ __( 'System Prompt', dpaa.i18n ) }
 						help={ __( 'Enter the behavior, character, and prior knowledge of the custom model (AI) to be created. This prompt applies to all training data.', dpaa.i18n ) }
 					>
 						<TextareaControl
+							__nextHasNoMarginBottom
 							rows={ 2 }
 							value={ systemMessageOnEasy }
 							placeholder={ __( 'You are Hanako, an AI assistant. Your primary role is to assist website visitors by directing them to the appropriate pages and answering their questions concisely and accurately.', dpaa.i18n ) }

@@ -119,6 +119,7 @@ export const RenderDatasetLine = memo( props => {
 												<Flex direction='row' gap={ 2 } wrap={ true } justify='space-between' align='flex-start'>
 													<FlexItem style={ { flexBasis: '130px' } }>
 														<SelectControl
+															__nextHasNoMarginBottom
 															__next40pxDefaultSize
 															size='compact'
 															// label={ __( 'Role', dpaa.i18n ) }
@@ -135,6 +136,7 @@ export const RenderDatasetLine = memo( props => {
 													</FlexItem>
 													<FlexItem style={ { flexBasis: 'calc( 100% - 176px )' } }>
 														<TextareaControl
+															__nextHasNoMarginBottom
 															rows={ 2 }
 															value={ lineMessages[ i ]?.content }
 															placeholder={ message?.role === 'user'
@@ -205,6 +207,7 @@ export const RenderDatasetLine = memo( props => {
 									<FlexItem style={ { width: 'calc( 50% - 80px )' } } key={ idx }>
 										<Item>
 											<TextareaControl
+												__nextHasNoMarginBottom
 												rows={ 2 }
 												value={ lineMessages[ idx ]?.content }
 												placeholder={ role === 'user'

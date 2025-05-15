@@ -5,7 +5,7 @@ import './editor.scss'
 import {
 	TipMessage,
 } from '@dpaa/components'
-import { sendMessage as sendMessageToChatGPT } from '@dpaa/util'
+import { sendMessageToOpenAI } from '@dpaa/util'
 import {
 	DEFAULT_OPEN_AI_GPT_MODEL,
 	DEFAULT_OPEN_AI_MAX_TOKENS,
@@ -433,7 +433,7 @@ export const WriterPanel = ( props ) => {
 
 				// GPTとのやりとり
 				try {
-					const response = await sendMessageToChatGPT( {
+					const response = await sendMessageToOpenAI( {
 						systemPrompt: systemPrompt,
 						message: messagePrompt,
 						openai: openai,
@@ -449,51 +449,51 @@ export const WriterPanel = ( props ) => {
 					setIsLoading( false )
 					setTipMessage( { message: '', actions: [], explicitDismiss: false } )
 
-					if ( response?.response && response?.response !== "I'm sorry, I cannot fulfill this request." ) {
+					if ( response?.content && response?.content !== "I'm sorry, I cannot fulfill this request." ) {
 						if ( generateType === 'magicPrompt' ) {
 							// 一旦既存の結果をここで消去しておく
 							clearGeneratedElements()
 							// トピックをセット
-							if ( response.response !== topic ) {
-								setTopic( response.response )
+							if ( response.content !== topic ) {
+								setTopic( response.content )
 							}
 							// 生成されたトピックを渡してタイトルの生成を指示
 							generateArticle( {
 								type: 'title',
-								topic: response.response,
+								topic: response.content,
 							} )
 						}
 						else if ( generateType === 'title' ) {
 							// タイトルの保持
-							if ( response.response !== generatedTitle ) {
-								setGeneratedTitle( response.response )
+							if ( response.content !== generatedTitle ) {
+								setGeneratedTitle( response.content )
 							}
 							// 生成されたタイトルを渡してセクションタイトルの生成を指示
 							if ( isChainGeneration ) {
 								generateArticle( {
 									type: 'sections',
-									title: response.response,
+									title: response.content,
 								} )
 							}
 						}
 						else if ( generateType === 'sections' ) {
 							// セクションタイトルの保持
-							if ( generatedSections !== response.response ) {
-								setGeneratedSections( response.response )
+							if ( generatedSections !== response.content ) {
+								setGeneratedSections( response.content )
 							}
 							// 生成されたタイトルを渡してセクションタイトルの生成を指示
 							// セクションを再生成する場合は、isChainGeneration に関係なく本文とセットで生成する。
 							generateArticle( {
 								type: 'content',
 								title: generatedTitle,
-								sections: response.response,
+								sections: response.content,
 							} )
 						}
 						else if ( generateType === 'content' ) {
 							// 本文の保持(導入、まとめの指示を消す)
 							const replacedIntroTitle = isIncludeIntro && showIntroTitle ? `${ markdownHeadingLevelMap[ parseInt( introTitleTag ) ] } ${ introTitle }\n` : ''
 							const replacedOutroTitle = isIncludeOutro && showOutroTitle ? `${ markdownHeadingLevelMap[ parseInt( outroTitleTag ) ] } ${ outroTitle }\n` : ''
-							const newContent = response.response.replace( /===INTRO===\s*\n/g, replacedIntroTitle ).replace( /===OUTRO===\s*\n/g, replacedOutroTitle )
+							const newContent = response.content.replace( /===INTRO===\s*\n/g, replacedIntroTitle ).replace( /===OUTRO===\s*\n/g, replacedOutroTitle )
 
 
 							console.dir( { newContent, replacedIntroTitle } );
@@ -511,8 +511,8 @@ export const WriterPanel = ( props ) => {
 						}
 						else if ( generateType === 'excerpt' ) {
 							// 抜粋の保持
-							if ( response.response !== generatedExcerpt ) {
-								setGeneratedExcerpt( response.response )
+							if ( response.content !== generatedExcerpt ) {
+								setGeneratedExcerpt( response.content )
 							}
 						}
 					} else {

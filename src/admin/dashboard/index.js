@@ -89,6 +89,9 @@ export const Dashboard = () => {
 }
 
 const display = () => {
+
+	console.dir('display');
+
 	const container = document.getElementById( 'digipress-apps-dashboard' );
 	const root = createRoot( container );
 	root.render( <Dashboard /> );

@@ -26,11 +26,11 @@ export const generateImageByOpenAI = async ( props ) => {
 		apiKey = null,
 		openai = null,
 		n = 1,
-		model = 'dall-e-2',
+		model = 'gpt-image-1',
 		size = '1024x1024',
 		mode = 'generate',
 		format = 'b64_json',
-		quality = 'standard',	// dall-e-3 用
+		quality = 'auto',
 		image = null,
 		style = 'vivid',	// dall-e-3 用
 	} = props
@@ -52,11 +52,16 @@ export const generateImageByOpenAI = async ( props ) => {
 	// 生成画像格納用
 	const images = []
 
+	// パラメータ
 	const params = {
 		model: model,
 		n: model === 'dall-e-3' ? 1 : n,
 		size: size,
-		response_format: format,
+	}
+
+	// dall-e-2とdall-e-3の場合のみresponse_formatを設定
+	if (model === 'dall-e-2' || model === 'dall-e-3') {
+		params.response_format = format;
 	}
 
 	// プロンプトから画像を生成する場合
@@ -67,14 +72,21 @@ export const generateImageByOpenAI = async ( props ) => {
 				prompt: prompt,
 			}
 		)
-		if ( model === 'dall-e-3' ) {
-			Object.assign(
-				params,
-				{
-					quality: quality,
-					style: style,
-				}
-			)
+
+		// モデルごとのqualityパラメータの設定
+		let validQuality = 'auto';
+		if (model === 'gpt-image-1') {
+			validQuality = ['high', 'mid', 'low', 'auto'].includes(quality) ? quality : 'auto';
+		} else if (model === 'dall-e-3') {
+			validQuality = ['hd', 'standard', 'auto'].includes(quality) ? quality : 'auto';
+		} else if (model === 'dall-e-2') {
+			validQuality = ['standard', 'auto'].includes(quality) ? quality : 'auto';
+		}
+		params.quality = validQuality;
+
+		// styleパラメータはdall-e-3の場合のみ設定
+		if (model === 'dall-e-3') {
+			params.style = style;
 		}
 
 		const response = await openAI.images.generate( params );
@@ -91,7 +103,7 @@ export const generateImageByOpenAI = async ( props ) => {
 		}
 	}
 	// 指定した画像から他のバリエーションを生成する場合
-	 else if ( mode === 'variation' ) {
+	else if ( mode === 'variation' ) {
 		Object.assign(
 			params,
 			{
@@ -100,7 +112,7 @@ export const generateImageByOpenAI = async ( props ) => {
 		)
 		const response = await openAI.images.createVariation( params );
 		return response?.data[ 0 ][ format ]
-	 }
+	}
 
 	return false;
 }

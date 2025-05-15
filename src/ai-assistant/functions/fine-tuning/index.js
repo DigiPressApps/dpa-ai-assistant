@@ -98,9 +98,8 @@ export const FineTuningPanel = ( props ) => {
 
 	const targetSelecter = (
 		<SelectControl
-			__next40pxDefaultSize
 			__nextHasNoMarginBottom
-			size='__unstable-large'
+			__next40pxDefaultSize
 			value={ targetAI }
 			options={ [
 				{

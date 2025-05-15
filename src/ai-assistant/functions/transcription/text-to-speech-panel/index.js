@@ -2,9 +2,7 @@
  * Internal dependencies
  */
 import {
-	blobToBinaryOrBase64,
 	textToSpeech,
-	uploadAudioToMediaLibrary,
 	playAudioFromBlob,
 } from '@dpaa/util'
 import { PromptArea } from './prompt-area'
@@ -19,10 +17,6 @@ import {
 	FlexItem,
 	Spinner,
 } from '@wordpress/components'
-import {
-	useDispatch,
-	useSelect,
-} from '@wordpress/data'
 import {
 	useEffect,
 	useState,
@@ -56,6 +50,7 @@ export const TextToSpeechPanel = props => {
 	const [ voice, setVoice ] = useState( null )
 	const [ speed, setSpeed ] = useState( null )
 	const [ maxLogs, setMaxLogs ] = useState( null )
+	const [ instructions, setInstructions ] = useState( null )
 
 	useEffect( () => {
 		if ( speechSettings ) {
@@ -64,6 +59,7 @@ export const TextToSpeechPanel = props => {
 			setVoice( speechSettings?.voice )
 			setSpeed( speechSettings?.speed )
 			setMaxLogs( speechSettings?.maxLogs )
+			setInstructions( speechSettings?.instructions )
 		}
 	}, [] ) 
 
@@ -178,10 +174,11 @@ export const TextToSpeechPanel = props => {
 			textToSpeech( {
 				openai: openai,
 				text: text,
-				model: model,	// tts-1, tts-1-hd
+				model: model,	// tts-1, tts-1-hd, gpt-4o-mini-tts
 				voice: voice, // alloy, ash, coral, echo, fable, onyx, nova, sage, shimmer
 				format: format,	// mp3, opus, aac, flac, wav, pcm
 				speed: speed,	// 0.25 to 4.0
+				instructions: instructions,
 			} )
 			.then( blob => {
 				// テキストのレスポンスを保存
@@ -281,12 +278,14 @@ export const TextToSpeechPanel = props => {
 				voice={ voice }
 				format={ format }
 				speed={ speed }
+				instructions={ instructions }
 				onClickConvert={ () => setIsExecute( true ) }
 				onChangeModel={ newSelect => setModel( newSelect.selectedItem.key ) }
 				onChangeText={ newVal => setText( newVal ) }
 				onChangeVoice={ newVal => setVoice( newVal ) }
 				onChangeFormat={ newVal => setFormat( newVal ) }
 				onChangeSpeed={ newVal => setSpeed( newVal ) }
+				onChangeInstructions={ newVal => setInstructions( newVal ) }
 				onClickClear={ handleClearAll }
 			/>
 		</>

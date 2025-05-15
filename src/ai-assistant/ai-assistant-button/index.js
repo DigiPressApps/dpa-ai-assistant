@@ -19,14 +19,17 @@ import classnames from 'classnames'
 // ツールバー用のボタン
 export const AIAssistantButton = props => {
 	const {
-		text = __( 'AI Assistant', dpaa.i18n ),
+		text = __( 'Assistant', dpaa.i18n ),
+		lebel = __( 'Open the AI Assistant', dpaa.i18n ),
+		showTooltip = true,
 		size = 'default', // "small", "default", "compact"
 		icon = null,
 		iconSize = 24,
 		iconPosition = 'left',
-		variant = 'primary',
+		variant = undefined,
 		className = '',
 		isInEditor = true,
+		style = {},
 	} = props
 
 	const [ isOpenModal, setIsOpenModal ] = useState( false )
@@ -48,10 +51,11 @@ export const AIAssistantButton = props => {
 				variant={ variant }
 				disabled={ isOpenModal }
 				size={ size }
-				// text={ text }
-			>
-				{ text }
-			</Button>
+				text={ text }
+				label={ lebel }
+				showTooltip={ showTooltip }
+				style={ style }
+			/>
 			{ isOpenModal && (
 				// モーダル表示
 				<AIAssistantModal
