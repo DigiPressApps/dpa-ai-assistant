@@ -70,7 +70,32 @@ export const PromptArea = memo( ( props ) => {
 		if ( stateFeaturedImage || stateSectionImages || stateGenerateTags ) {
 			setIsUpgradeModal( true );
 		}
-	}, [ stateFeaturedImage, stateSectionImages, stateGenerateTags ] )
+	}, [ stateFeaturedImage, stateSectionImages, stateGenerateTags ] );
+
+	// 日本語入力中かどうかを管理する状態
+	const [ isComposing, setIsComposing ] = useState(false);
+
+	/**
+	 * 入力フィールドのキーボードイベントを処理します
+	 * Shift + Enterで改行、Enterで送信を行います
+	 * 日本語入力中はEnterキーを無視して変換を優先します
+	 * 
+	 * @param {KeyboardEvent} e - キーボードイベント
+	 */
+	const handleKeyDown = (e) => {
+		if (e.key === 'Enter') {
+			if (e.shiftKey) {
+				// Shift + Enterの場合は改行を許可（デフォルト動作）
+				return;
+			}
+			
+			if (!isComposing) {
+				// 日本語入力中でなければ送信
+				e.preventDefault();
+				onClickGenerate();
+			}
+		}
+	};
 
 	return (
 		<>
@@ -111,6 +136,9 @@ export const PromptArea = memo( ( props ) => {
 											className='dpaa-ai-assistant--generator__prompt__textarea'
 											value={ topic }
 											onChange={ onChangeTopic }
+											onKeyDown={ handleKeyDown }
+											onCompositionStart={() => setIsComposing(true)}
+											onCompositionEnd={() => setIsComposing(false)}
 											rows={ 2 }
 											placeholder={ __( 'Introducing sightseeing spots in Japan recommended for foreigners.', dpaa.i18n ) }
 											disabled={ isLoading || !openai }

@@ -1,5 +1,17 @@
 == Changelog ==
 
+= 0.3.0 (2025/05/15) =
+* Update: Added GPT-4.1 mini, GPT-4.1 nano, GPT-4o mini, GPT-4o mini Search Preview and GPT-4o Search Preview to text generation models.
+* Update: Added GPT image 1 to image generation models.
+* Update: Added GPT-4o mini TTS 1 to text to speech models.
+* Update: Added GPT-4o mini Transcribe 1 to speech to text models.
+* Update: Added support for custom instruction input in text-to-speech mode (for GPT-4o mini TTS).
+* Update: Optimized the system prompt for writer mode by converting it to markdown format.
+* Update: Changed to display markdown-formatted responses as HTML.
+* Update: Updated japanese translation file.
+* Improved: Compatibility with WP 6.8.1.
+* Fix: Minor style and UI improvements.
+
 = 0.2.5 (2025/02/25) =
 * Update: Added o1 and o3-mini to GPT models.
 * Update: Updated japanese translation file.

@@ -52,15 +52,15 @@ if ( ! class_exists( 'DPAA_Register_Settings' ) ) {
 						),
 						'gptModel'	=> array(
 							'type'		=> 'string',
-							'default'	=> 'gpt-4.1-nano'
+							'default'	=> 'gpt-5-nano'
 						),
 						'temperature'	=> array(
 							'type'		=> 'number',
-							'default'	=> 0.8,
+							'default'	=> 1.0,
 						),
 						'topP'	=> array(
 							'type'		=> 'number',
-							'default'	=> 0.8,
+							'default'	=> 1.0,
 						),
 						'maxTokens'	=> array(
 							'type'		=> 'number',

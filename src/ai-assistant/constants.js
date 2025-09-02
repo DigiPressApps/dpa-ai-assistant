@@ -22,9 +22,9 @@ export const STABILITY_AI_CALCULATE_COSTS_URL = 'https://platform.stability.ai/p
 export const STABILITY_AI_CREDITS_URL = 'https://platform.stability.ai/account/credits'
 
 //OpenAI デフォルト
-export const DEFAULT_OPEN_AI_GPT_MODEL = 'gpt-4.1-nano'
-export const DEFAULT_OPEN_AI_MAX_TOKENS = 32768
-export const DEFAULT_OPEN_AI_TEMPERATURE = 0.8
+export const DEFAULT_OPEN_AI_GPT_MODEL = 'gpt-5-nano'
+export const DEFAULT_OPEN_AI_MAX_TOKENS = 128000
+export const DEFAULT_OPEN_AI_TEMPERATURE = 1.0
 export const DEFAULT_OPEN_AI_TOP_P = 0.8
 export const DEFAULT_OPEN_AI_DALL_E_MODEL = 'gpt-image-1'
 export const DEFAULT_OPEN_AI_DALL_E_NUMBER_IMAGES = 1
@@ -35,39 +35,54 @@ export const DEFAULT_OPEN_AI_DALL_E_STYLE = 'vivid'
 // Open AI モデル
 export const OPEN_AI_GPT_MODELS = [
 	{
+		name: 'GPT-5 nano',
+		key: 'gpt-5-nano',
+		__experimentalHint: `${ __( 'Fastest, most cost-efficient version of GPT-5', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $0.05/$0.40)`
+	},
+	{
+		name: 'GPT-5 mini',
+		key: 'gpt-5-mini',
+		__experimentalHint: `${ __( 'A faster, cost-efficient version of GPT-5 for well-defined tasks', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $0.25/$2.00)`
+	},
+	{
+		name: 'GPT-5',
+		key: 'gpt-5',
+		__experimentalHint: `${ __( 'The best model for coding and agentic tasks across domains', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $1.25/$10.00)`
+	},
+	{
 		name: 'GPT-4.1 nano',
 		key: 'gpt-4.1-nano',
-		__experimentalHint: `${ __( 'Fastest, most cost-effective GPT-4.1 model', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.10/$0.40)`
+		__experimentalHint: `${ __( 'Fastest, most cost-effective GPT-4.1 model', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $0.10/$0.40)`
 	},
 	{
 		name: 'GPT-4.1 mini',
 		key: 'gpt-4.1-mini',
-		__experimentalHint: `${ __( 'Balanced for intelligence, speed, and cost', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.40/$1.60)`
+		__experimentalHint: `${ __( 'Balanced for intelligence, speed, and cost', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $0.40/$1.60)`
 	},
 	{
 		name: 'GPT-4o mini',
 		key: 'gpt-4o-mini',
-		__experimentalHint: `${ __( 'Fast, affordable small model for focused tasks', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.15/$0.60)`
+		__experimentalHint: `${ __( 'Fast, affordable small model for focused tasks', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $0.15/$0.60)`
 	},
 	{
 		name: 'GPT-4o mini Search Preview',
 		key: 'gpt-4o-mini-search-preview',
-		__experimentalHint: `${ __( 'Fast, affordable small model for web search', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.15/$0.60)`
+		__experimentalHint: `${ __( 'Fast, affordable small model for web search', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $0.15/$0.60)`
 	},
 	{
 		name: 'GPT-4o Search Preview',
 		key: 'gpt-4o-search-preview',
-		__experimentalHint: `${ __( 'GPT model for web search in Chat Completions', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $2.50/$10.00)`
+		__experimentalHint: `${ __( 'GPT model for web search in Chat Completions', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $2.50/$10.00)`
 	},
 	{
 		name: 'GPT-4.1',
 		key: 'gpt-4.1',
-		__experimentalHint: `${ __( 'Flagship GPT model for complex tasks', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $2.00/$8.00)`
+		__experimentalHint: `${ __( 'Flagship GPT model for complex tasks', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $2.00/$8.00)`
 	},
 	{
 		name: 'GPT-4o',
 		key: 'gpt-4o',
-		__experimentalHint: `${ __( 'Fast, intelligent, flexible GPT model', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $2.50/$10.00)`
+		__experimentalHint: `${ __( 'Fast, intelligent, flexible GPT model', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $2.50/$10.00)`
 	},
 	{
 		name: 'o3 mini',
@@ -100,27 +115,27 @@ export const OPEN_AI_GPT_ASSISTANTS_MODELS = [
 	{
 		name: 'GPT-4.1 nano',
 		key: 'gpt-4.1-nano',
-		__experimentalHint: `${ __( 'Fastest, most cost-effective GPT-4.1 model', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.10/$0.40)`
+		__experimentalHint: `${ __( 'Fastest, most cost-effective GPT-4.1 model', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $0.10/$0.40)`
 	},
 	{
 		name: 'GPT-4o mini',
 		key: 'gpt-4o-mini',
-		__experimentalHint: `${ __( 'Fast, affordable small model for focused tasks', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.15/$0.60)`
+		__experimentalHint: `${ __( 'Fast, affordable small model for focused tasks', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $0.15/$0.60)`
 	},
 	{
 		name: 'GPT-4.1 mini',
 		key: 'gpt-4.1-mini',
-		__experimentalHint: `${ __( 'Balanced for intelligence, speed, and cost', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.40/$1.60)`
+		__experimentalHint: `${ __( 'Balanced for intelligence, speed, and cost', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $0.40/$1.60)`
 	},
 	{
 		name: 'GPT-4.1',
 		key: 'gpt-4.1',
-		__experimentalHint: `${ __( 'Flagship GPT model for complex tasks', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $2.00/$8.00)`
+		__experimentalHint: `${ __( 'Flagship GPT model for complex tasks', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $2.00/$8.00)`
 	},
 	{
 		name: 'GPT-4o',
 		key: 'gpt-4o',
-		__experimentalHint: `${ __( 'Fast, intelligent, flexible GPT model', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $2.50/$10.00)`
+		__experimentalHint: `${ __( 'Fast, intelligent, flexible GPT model', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $2.50/$10.00)`
 	},
 	{
 		name: 'o3-mini',
@@ -139,22 +154,22 @@ export const OPEN_AI_MODELS_FOR_FINE_TUNING = [
 	{
 		name: 'GPT-4o mini',
 		key: 'gpt-4o-mini',
-		__experimentalHint: `${ __( 'Fast, affordable small model for focused tasks', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.15/$0.60)`
+		__experimentalHint: `${ __( 'Fast, affordable small model for focused tasks', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $0.15/$0.60)`
 	},
 	{
 		name: 'GPT-4o',
 		key: 'gpt-4o',
-		__experimentalHint: `${ __( 'Fast, intelligent, flexible GPT model', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $2.50/$10.00)`
+		__experimentalHint: `${ __( 'Fast, intelligent, flexible GPT model', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $2.50/$10.00)`
 	},
 	{
 		name: 'GPT-4.1 mini',
 		key: 'gpt-4.1-mini',
-		__experimentalHint: `${ __( 'Balanced for intelligence, speed, and cost', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $0.40/$1.60)`
+		__experimentalHint: `${ __( 'Balanced for intelligence, speed, and cost', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $0.40/$1.60)`
 	},
 	{
 		name: 'GPT-4.1',
 		key: 'gpt-4.1',
-		__experimentalHint: `${ __( 'Flagship GPT model for complex tasks', dpaa.i18n ) } (${ __( 'In/Out per 1M tokens', dpaa.i18n ) }: $2.00/$8.00)`
+		__experimentalHint: `${ __( 'Flagship GPT model for complex tasks', dpaa.i18n ) } (${ __( 'In/Out', dpaa.i18n ) }: $2.00/$8.00)`
 	},
 ]
 
@@ -493,6 +508,7 @@ export const OPEN_AI_SPEECH_VOICES = [
 	{ label: __( 'Onyx', dpaa.i18n ), value: 'onyx' },
 	{ label: __( 'Sage', dpaa.i18n ), value: 'sage' },
 	{ label: __( 'Shimmer', dpaa.i18n ), value: 'shimmer' },
+	{ label: __( 'Verse', dpaa.i18n ), value: 'verse' },
 ]
 export const OPEN_AI_SPEECH_FORMATS = [
 	{ label: __( 'MP3', dpaa.i18n ), value: 'mp3' },

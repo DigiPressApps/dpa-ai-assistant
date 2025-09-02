@@ -37,7 +37,6 @@ import {
 	RangeControl,
 	__experimentalInputControl as InputControl,
 	__experimentalVStack as VStack,
-	__experimentalHStack as HStack,
 	__experimentalText as Text,
 } from '@wordpress/components'
 import {

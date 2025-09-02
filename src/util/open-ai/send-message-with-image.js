@@ -17,8 +17,8 @@ export const sendMessageWithImageToOpenAI = async ( props ) => {
 		model = '',
 		systemPrompt = '',
 		conversation = [],
-		temperature = 1,
-		topP = 0.7,
+		temperature = 1.0,
+		topP = 1.0,
 		maxTokens = 2000,
 		frequencyPenalty = 0,
 		presencePenalty = 0,
@@ -30,7 +30,7 @@ export const sendMessageWithImageToOpenAI = async ( props ) => {
 	} = props
 
 	// OpenAI APIをサポートするモデルかどうかを確認
-	if ( !model.includes('gpt-4o') && !model.includes('gpt-4.1') ) {
+	if ( !model.includes('gpt-4o') && !model.includes('gpt-4.1') && !model.includes('gpt-5') ) {
 		return {
 			error: __('The model you are using does not support image input.', dp_ex_blocks.i18n)
 		};
@@ -97,8 +97,8 @@ export const sendMessageWithImageToOpenAI = async ( props ) => {
 			userMessage,
 		],
 		...( !model.includes('-search-preview') ? {
-			temperature: model.includes('gpt-') ? parseFloat( temperature ) : 1,
-			...( model.includes('gpt-') ? { top_p: parseFloat( topP ) } : {} ),
+			temperature: model.includes('gpt-') && !model.includes('gpt-5') ? parseFloat( temperature ) : 1.0,
+			...( model.includes('gpt-') && !model.includes('gpt-5') ? { top_p: parseFloat( topP ) } : {} ),
 			frequency_penalty: parseFloat( frequencyPenalty ),
 			presence_penalty: parseFloat( presencePenalty ),
 			n: 1,

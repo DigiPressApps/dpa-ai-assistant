@@ -133,8 +133,8 @@ export const ModalSuggest = props => {
 				openai: openai,
 				useStreaming: false,
 				model: gptModel,
-				temperature: 0.85,
-				topP: 0.85,
+				temperature: 1.0,
+				topP: 1.0,
 				maxTokens: maxTokens,
 				shouldReturnJson: true,
 			} )

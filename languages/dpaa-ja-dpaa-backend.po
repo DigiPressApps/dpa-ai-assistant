@@ -1598,8 +1598,8 @@ msgstr "使用量"
 msgid "%s / 1M tokens"
 msgstr "%s/100万トークン"
 
-msgid "In/Out per 1M tokens"
-msgstr "100万トークンあたりの入出力"
+msgid "In/Out"
+msgstr "入力/出力"
 
 msgid "The following conversation is a lecture about the recent developments around OpenAI, GPT-4.5 and the future of AI."
 msgstr "この会話は、OpenAI、GPT-4.5、そしてAIの未来に関する最近の開発についての講義です。これを踏まえて文字起こしをしてください。"
@@ -1615,3 +1615,48 @@ msgstr "AI アシスタントを開く"
 
 msgid "Summarize today's major news from news sites."
 msgstr "ニュースサイトから今日の主要なニュースをまとめてください。"
+
+msgid "Fastest, most cost-efficient version of GPT-5"
+msgstr "GPT-5 の最速・最コスト効率版"
+
+msgid "A faster, cost-efficient version of GPT-5 for well-defined tasks"
+msgstr "明確に定義されたタスク用の GPT-5 の高速・コスト効率版"
+
+msgid "The best model for coding and agentic tasks across domains"
+msgstr "コーディングとエージェントタスクに最適なモデル"
+
+msgid "Fastest, most cost-effective GPT-4.1 model"
+msgstr "最速・最コスト効率の GPT-4.1 モデル"
+
+msgid "Balanced for intelligence, speed, and cost"
+msgstr "知性、速度、コストのバランスが取れたモデル"
+
+msgid "Fast, affordable small model for focused tasks"
+msgstr "集中したタスク用の高速・手頃な小型モデル"
+
+msgid "Fast, affordable small model for web search"
+msgstr "Web 検索用の高速・手頃な小型モデル"
+
+msgid "GPT model for web search in Chat Completions"
+msgstr "チャット補完でのWeb検索用 GPT モデル"
+
+msgid "Flagship GPT model for complex tasks"
+msgstr "複雑なタスク用のフラッグシップ GPT モデル"
+
+msgid "Fast, intelligent, flexible GPT model"
+msgstr "高速・知的・柔軟な GPT モデル"
+
+msgid "Fast, flexible, intelligent reasoning model"
+msgstr "高速・柔軟・知的な推論モデル"
+
+msgid "Faster, more affordable reasoning model"
+msgstr "より高速・手頃な推論モデル"
+
+msgid "Our most powerful reasoning model"
+msgstr "最も強力な推論モデル"
+
+msgid "Previous full o-series reasoning model"
+msgstr "以前の完全な o-series 推論モデル"
+
+msgid "Version of o1 with more compute for better responses"
+msgstr "より良い応答のためのより多くの計算リソースを持つ o1 のバージョン"
