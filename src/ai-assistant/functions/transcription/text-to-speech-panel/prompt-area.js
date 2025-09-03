@@ -24,6 +24,7 @@ import {
 } from '@wordpress/components'
 import {
 	memo,
+	useState,
 } from '@wordpress/element'
 
 export const PromptArea = memo( ( props ) => {
