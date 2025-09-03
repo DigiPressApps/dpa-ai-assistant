@@ -3,7 +3,7 @@ Contributors: digistatejp
 Tags: ai, gpt, openai, writer, image generator
 Requires at least: 6.2
 Tested up to: 6.8.1
-Stable tag: 0.3.2
+Stable tag: 0.3.1
 Requires PHP: 8.0
 Donate link: https://dpapps.net/donation/
 License: GPLv2 or later
@@ -76,10 +76,6 @@ The developer of DPA AI Assistant and related parties are not responsible for an
 The development hub for this plugin and the source code can be found at <a href="https://github.com/DigiPressApps/dpa-ai-assistant">https://github.com/DigiPressApps/dpa-ai-assistant</a>.
 
 == Changelog ==
-
-= 0.3.2 (2025/09/03) =
-* Update: Updated japanese translation file.
-* Fix: Fixed a JavaScript error that occurred when selecting the Speech to Text tab.
 
 = 0.3.1 (2025/09/02) =
 * Update: Added GPT-5 mini, GPT-5 nano and GPT-5 to text generation models.

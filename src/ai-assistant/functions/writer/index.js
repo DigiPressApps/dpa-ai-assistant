@@ -495,6 +495,9 @@ export const WriterPanel = ( props ) => {
 							const replacedOutroTitle = isIncludeOutro && showOutroTitle ? `${ markdownHeadingLevelMap[ parseInt( outroTitleTag ) ] } ${ outroTitle }\n` : ''
 							const newContent = response.content.replace( /===INTRO===\s*\n/g, replacedIntroTitle ).replace( /===OUTRO===\s*\n/g, replacedOutroTitle )
 
+
+							console.dir( { newContent, replacedIntroTitle } );
+
 							if ( newContent !== generatedContent ) {
 								setGeneratedContent( newContent )
 							}
