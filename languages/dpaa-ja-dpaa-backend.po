@@ -1660,3 +1660,6 @@ msgstr "以前の完全な o-series 推論モデル"
 
 msgid "Version of o1 with more compute for better responses"
 msgstr "より良い応答のためのより多くの計算リソースを持つ o1 のバージョン"
+
+msgid "Enter category name"
+msgstr "カテゴリ名を入力してください"
