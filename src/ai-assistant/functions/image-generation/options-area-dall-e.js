@@ -49,7 +49,7 @@ export const OptionsAreaGPTImage = memo( ( props ) => {
 	// 画像サイズオプション
 	const [ imageSizeOptions, setImageSizeOptions ] = useState( [] )
 	useEffect( () => {
-		if ( model === 'gpt-image-1' ) {
+		if ( model.includes( 'gpt-image-1' ) ) {
 			setImageSizeOptions( OPEN_AI_GPT_IMAGE_1_IMAGE_SIZES )
 			if ( !OPEN_AI_GPT_IMAGE_1_IMAGE_SIZES.some( size => size.value === imageSize ) ) {
 				onChangeImageSize( DEFAULT_OPEN_AI_DALL_E_IMAGE_SIZE )
@@ -59,7 +59,7 @@ export const OptionsAreaGPTImage = memo( ( props ) => {
 			if ( !OPEN_AI_DALL_E_3_IMAGE_SIZES.some( size => size.value === imageSize ) ) {
 				onChangeImageSize( DEFAULT_OPEN_AI_DALL_E_IMAGE_SIZE )
 			}
-		} else {
+		} else if ( model === 'dall-e-2' ) {
 			setImageSizeOptions( OPEN_AI_DALL_E_2_IMAGE_SIZES )
 			if ( !OPEN_AI_DALL_E_2_IMAGE_SIZES.some( size => size.value === imageSize ) ) {
 				onChangeImageSize( DEFAULT_OPEN_AI_DALL_E_IMAGE_SIZE )

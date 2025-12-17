@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 0.3.2 (2025/09/03) =
+* Update: Updated japanese translation file.
+* Fix: Fixed a JavaScript error that occurred when selecting the Speech to Text tab.
+
 = 0.3.1 (2025/09/02) =
 * Update: Added GPT-5 mini, GPT-5 nano and GPT-5 to text generation models.
 * Update: Added "Verse" voice for GPT speech models.

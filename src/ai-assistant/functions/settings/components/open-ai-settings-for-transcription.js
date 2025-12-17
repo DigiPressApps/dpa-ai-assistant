@@ -190,7 +190,7 @@ export const OpenAISettingsForTranscription = ( { pluginSettings } ) => {
 								href={ OPEN_AI_USAGE_URL }
 								target="_blank"
 								label={ __('Usage', dpaa.i18n) }
-								style={ { fontSize: '11px' } }
+								style={ { fontSize: '11px', width: 'fit-content' } }
 							/>
 							: (
 							<Notice

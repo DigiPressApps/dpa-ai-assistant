@@ -88,7 +88,6 @@ export const ChatPanel = ( props ) => {
 	const [ temperature, setTemperature ] = useState( DEFAULT_OPEN_AI_TEMPERATURE )
 	const [ topP, setTopP ] = useState( DEFAULT_OPEN_AI_TOP_P )
 
-
 	// チャット設定用
 	const [ languageCode, setLanguageCode ] = useState( DEFAULT_CHAT_LANGUAGE_CODE )
 	const [ writingTone, setWritingTone ] = useState( DEFAULT_CHAT_WRITING_TONE )

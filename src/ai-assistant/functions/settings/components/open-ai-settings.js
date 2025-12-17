@@ -132,7 +132,7 @@ export const OpenAISettings = ( { pluginSettings } ) => {
 								href={ OPEN_AI_USAGE_URL }
 								target="_blank"
 								label={ __('Usage', dpaa.i18n) }
-								style={ { fontSize: '11px' } }
+								style={ { fontSize: '11px', width: 'fit-content' } }
 							/>
 							: (
 							<Notice
@@ -218,8 +218,8 @@ export const OpenAISettings = ( { pluginSettings } ) => {
 						step={ 1 }
 						onChange={ newVal => setMaxTokens( newVal ) }
 						renderTooltipContent={ value => `${ value } ${ __( 'tokens.', dpaa.i18n ) }` }
-						min={ 0 }
-						max={ fixMaxTokens }
+						min={ 14383 }
+						max={ 10000000 }
 					/>
 					
 					<RangeControl

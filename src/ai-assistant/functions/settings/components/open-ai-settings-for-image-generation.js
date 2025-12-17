@@ -92,7 +92,7 @@ export const OpenAISettingsForImageGeneration = ( { pluginSettings } ) => {
 	// 画像サイズオプション
 	const [ imageSizeOptions, setImageSizeOptions ] = useState( [] )
 	useEffect( () => {
-		if ( gptImageModel === 'gpt-image-1' ) {
+		if ( gptImageModel.includes( 'gpt-image-1' ) ) {
 			setImageSizeOptions( OPEN_AI_GPT_IMAGE_1_IMAGE_SIZES )
 			if ( imageSize === '256x256' || imageSize === '512x512' ) {
 				setImageSize( '1024x1024' )
@@ -102,7 +102,7 @@ export const OpenAISettingsForImageGeneration = ( { pluginSettings } ) => {
 			if ( imageSize === '256x256' || imageSize === '512x512' ) {
 				setImageSize( '1024x1024' )
 			}
-		} else {
+		} else if ( gptImageModel === 'dall-e-2' ) {
 			setImageSizeOptions( OPEN_AI_DALL_E_2_IMAGE_SIZES )
 			if ( imageSize === '1792x1024' || imageSize === '1024x1792' ) {
 				setImageSize( '1024x1024' )
@@ -164,7 +164,7 @@ export const OpenAISettingsForImageGeneration = ( { pluginSettings } ) => {
 								href={ OPEN_AI_USAGE_URL }
 								target="_blank"
 								label={ __('Usage', dpaa.i18n) }
-								style={ { fontSize: '11px' } }
+								style={ { fontSize: '11px', width: 'fit-content' } }
 							/>
 							: (
 							<Notice

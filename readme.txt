@@ -77,6 +77,14 @@ The development hub for this plugin and the source code can be found at <a href=
 
 == Changelog ==
 
+= 0.3.5 (2025/12/17) =
+* Update: Added GPT-5.1 and GPT-5.2 to the selectable text generation AI models.
+* Update: Added GPT Image 1 mini and GPT Image 1.5 to the selectable image generation AI models.
+* Update: Updated Japanese translation file.
+* Improved: Compatibility with WP 6.9.
+* Fix: Fixed an issue where the plugin settings panel could not be displayed due to an Undefined error.
+* Fix: Minor fixed.
+
 = 0.3.2 (2025/09/03) =
 * Update: Updated japanese translation file.
 * Fix: Fixed a JavaScript error that occurred when selecting the Speech to Text tab.

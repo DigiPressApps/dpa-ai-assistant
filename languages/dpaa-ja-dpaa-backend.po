@@ -1663,3 +1663,24 @@ msgstr "より良い応答のためのより多くの計算リソースを持つ
 
 msgid "Enter category name"
 msgstr "カテゴリ名を入力してください"
+
+msgid "%s / minute"
+msgstr "%s / 分"
+
+msgid "%s / 1M characters"
+msgstr "%s / 100万文字"
+
+msgid "per 1M tokens"
+msgstr "100万トークンあたり"
+
+msgid "State-of-the-art image generation model"
+msgstr "最先端の画像生成モデル"
+
+msgid "The best model for coding and agentic tasks with configurable reasoning effort"
+msgstr "コーディングとエージェントタスクに最適なモデル"
+
+msgid "The best model for coding and agentic tasks across industries"
+msgstr "業界をまたいでコーディングとエージェントタスクに最適なモデル"
+
+msgid "A cost-efficient version of GPT Image 1"
+msgstr "GPT Image 1 のコスト効率版"

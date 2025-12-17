@@ -10,7 +10,7 @@ import { AICPU } from '@dpaa/icons'
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n'
+import { __, sprintf } from '@wordpress/i18n'
 import {
 	Flex,
 	FlexItem,
